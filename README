@@ -10,12 +10,45 @@ Please use Git for download and don't hit the downloads-link above to create a .
 Clone the git repository to <OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi (the _pi at the end matters!)
 ---------------------------------------------------------------------------
 
-cd <OPENCPN_SOURCE_TLD>/plugins
-<OPENCPN_SOURCE_TLD> = where you stored the opencpn-source files e.g. ~/home/username/path_to_opencpn-source
+(1) Optional -- clone the OpenCPN source files
 
-open a terminal here and copy/paste this command:
- 
-git clone git://github.com/konnibe/LogbookKonni-1.2.git LogbookKonni_pi
+You might choose to clone the OpenCPN source files directly from github or
+you might choose to fork them, and then clone the source files from your
+own fork.
+
+To fork the OpenCPN source files go to https://github.com/OpenCPN/OpenCPN and
+press the "Fork" button.  You will then be redirected to your own fork of
+OpenCPN (which will be a URL like https://github.com/delatbabel/OpenCPN).
+
+(2) Clone OpenCPN from github
+
+If you forked OpenCPN on github as per the previous step then do this command,
+replacing "delatbabel" with your own git user name:
+
+git clone https://github.com/delatbabel/OpenCPN.git
+
+Otherwise you can clone OpenCPN from its main repository like this:
+
+git clone https://github.com/OpenCPN/OpenCPN
+
+Either of these two commands will create an OpenCPN directory containing the
+current OpenCPN source code.
+
+(3) Clone this plugin from github
+
+Again you might choose to fork this repository on github so you might
+use your own git: URL instead of the one below.
+
+cd OpenCPN/plugins
+git clone https://github.com/delatbabel/LogbookKonni-1.2 LogbookKonni_pi
+(the LogbookKonni_pi bit at the end is important)
+
+or, from your own fork, a command similar to this (replace delatbabel with
+your own git user name):
+
+git clone https://github.com/delatbabel/LogbookKonni-1.2.git LogbookKonni_pi
+
+(4) Make and build:
 
 Run this commands:
 
@@ -27,7 +60,7 @@ sudo make install
 that's it.
 
 **** Apple-Users: ****
-Please post in the forum wether it compiles or not.
+Please post a note in the forum saying whether it compiles or not.
 
 
 Install Layouts 
@@ -53,3 +86,14 @@ select in the toolbar Options/Plugins and enable the plugin.
 click the peferences-button
 in the dialog click "Install" below the label "Install Laanguages"
 in the filedialog select in the directory '<OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi' the file 'LogbookKonni_Languages.zip'
+
+History
+----------------------------
+
+This is Logbook-Konni originally developed by Konni.  I have forked this from his git
+repository and I am continuing development.  Konni has been unable to continue development
+on this logbook due to ill health.
+
+Del
+SV Chiara Stella
+http://sailchiarastella.blogspot.com/
