@@ -166,7 +166,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_choiceTzIndicator->SetSelection( 0 );
 	fgSizer18->Add( m_choiceTzIndicator, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
-	wxString m_choiceTzHoursChoices[] = { _T("0"), _T("1"), _T("2"), _T("3"), _T("4"), _T("5"), _T("6"), _T("7"), _T("8"), _T("9"), _T("10"), _T("11"), _T("12") };
+	wxString m_choiceTzHoursChoices[] = { _T("0"), _T("1"), _T("2"), _T("3"), _T("4"), _T("5"), _T("6"), _T("7"), _T("8"), _T("9"), _T("10"), _T("11"), _T("12"), _T("13"), _T("14") };
 	int m_choiceTzHoursNChoices = sizeof( m_choiceTzHoursChoices ) / sizeof( wxString );
 #ifdef __WXOSX__
 	m_choiceTzHours = new wxChoice( m_panel15, wxID_ANY, wxDefaultPosition, wxSize( 50,-1 ), m_choiceTzHoursNChoices, m_choiceTzHoursChoices, 0 );
