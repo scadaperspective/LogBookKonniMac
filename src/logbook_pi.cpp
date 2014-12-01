@@ -1519,12 +1519,19 @@ void logbookkonni_pi::loadLanguages(wxWindow *parent)
 	wxString sep = wxFileName::GetPathSeparator(); 
 	wxString languagePath;
 
+/*
+ * For some compilers the first of the two lines below seems to be
+ * correct, for others it is the second of the two.  The second of the
+ * two works for me on Linux with g++ 4.8.2, the first reportedly works
+ * on OSX (with compiler ???).  Report here if you have to change the
+ * definition to get it to work for you.
+ */
 #ifdef __WXOSX__
 	wxStandardPathsBase& sp = wxStandardPaths::Get();
 #else
 	wxStandardPaths sp;
 #endif
-	
+
 	bool restart = false;
 
 	if(NULL != m_plogbook_window)

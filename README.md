@@ -1,20 +1,43 @@
 Logbook Plugin for OpenCPN
 =======================================
-Original by Konnibe
+
+This is Logbook-Konni originally developed by Konnibe.  I have forked this from his
+git repository and I am continuing development.  Konnibe has been unable to continue
+development on this logbook due to ill health.
+
+Del   
+SV Chiara Stella   
+http://sailchiarastella.blogspot.com/
 
 Compiling
 =========
-You have to be able to compile OpenCPN itself - Get the info at http://opencpn.org/ocpn/developers_manual
 
-* This plugin now builds out of the OpenCPN source tree
+* This plugin now builds out of the OpenCPN source tree.  You do not need to build the entire of OpenCPN or even clone it from git just to build this plugin.
+
+* If you need instructions as to how to build OpenCPN then see the developers manual at http://opencpn.org/ocpn/developers_manual
+
+* You need to have all of the dependencies required to compile OpenCPN installed in order to be able to build this plugin.  Those might vary depending on your system.
+
+###Clone this repository from github
+
+You might choose to fork this repository on github so you might
+use your own git: URL instead of the one below.
+
 ```
-git clone git://github.com/konnibe/LogbookKonni-1.2.git logbook_pi
+git clone https://github.com/delatbabel/LogbookKonni-1.2 LogbookKonni_pi
 ```
 
-###Build:
+or, from your own fork, a command similar to this (replace delatbabel with
+your own git user name):
+
 ```
-mkdir logbook_pi/build
-cd logbook_pi/build
+git clone git@github.com:delatbabel/LogbookKonni-1.2.git LogbookKonni_pi
+```
+
+###Build on Linux:
+```
+mkdir LogbookKonni_pi/build
+cd LogbookKonni_pi/build
 cmake ..
 cmake --build .
 ```
@@ -53,6 +76,33 @@ Get and install the Packages application from http://s.sudre.free.fr/Software/Pa
 ```
 make create-pkg
 ```
+
+Install Layouts 
+===============
+
+These are necessary to display data e.g. in a browser
+
+* start opencpn
+* select in the toolbar Options/Plugins and enable the plugin.
+* click the peferences-button
+* in the dialog click "Install" below the label "Install Layouts"
+* in the filedialog select in the directory '<OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi' the file 'LogbookKonni_Layouts.zip'
+
+Install Help
+============
+
+* click the peferences-button
+* in the dialog click "Install" below the label "Install Layouts"
+* in the filedialog select in the directory '<OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi' the file 'LogbookKonni_Other.zip'
+
+Install Languages
+=================
+
+* start opencpn
+* select in the toolbar Options/Plugins and enable the plugin.
+* click the peferences-button
+* in the dialog click "Install" below the label "Install Laanguages"
+* in the filedialog select in the directory '<OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi' the file 'LogbookKonni_Languages.zip'
 
 License
 =======

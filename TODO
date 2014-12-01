@@ -1,9 +1,3 @@
-Allow timezones outside of UTC-12 to UTC+12. Probably out to UTC+14
-because I think there are areas in UTC+13 that have daylight savings.
-
-Save and display dates in local format, not always in the US
-MM/DD/YYYY format.
-
 Better handling of some incoming NMEA strings.
 
 Log WIMDA and ERRPM nmea0183.  (May be in another version of the plugin).
