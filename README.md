@@ -1,6 +1,13 @@
 Logbook Plugin for OpenCPN
 =======================================
-Original by Konnibe
+
+This is Logbook-Konni originally developed by Konnibe.  I have forked this from his
+git repository and I am continuing development.  Konnibe has been unable to continue
+development on this logbook due to ill health.
+
+Del   
+SV Chiara Stella   
+http://sailchiarastella.blogspot.com/
 
 Compiling
 =========
@@ -96,15 +103,6 @@ Install Languages
 * click the peferences-button
 * in the dialog click "Install" below the label "Install Laanguages"
 * in the filedialog select in the directory '<OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi' the file 'LogbookKonni_Languages.zip'
-
-History
-=======
-
-This is Logbook-Konni originally developed by Konni.  I have forked this from his git repository and I am continuing development.  Konni has been unable to continue development on this logbook due to ill health.
-
-Del
-SV Chiara Stella
-http://sailchiarastella.blogspot.com/
 
 License
 =======
