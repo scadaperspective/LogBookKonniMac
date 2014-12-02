@@ -133,6 +133,8 @@ These are necessary to display data e.g. in a browser.
 
 ###Languages
 
+Note: Not needed for OSX as the languages are in the package.
+
 * Start OpenCPN
 * Select Options from the toolbar (spanner icon) and go to the Plugins tab.
 * Select the Logbook plugin
