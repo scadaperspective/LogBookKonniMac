@@ -9,6 +9,11 @@ Del
 SV Chiara Stella   
 http://sailchiarastella.blogspot.com/
 
+Binary Distribution
+===================
+
+Stand by, we're working on it.
+
 Compiling
 =========
 
@@ -76,33 +81,56 @@ Get and install the Packages application from http://s.sudre.free.fr/Software/Pa
 ```
 make create-pkg
 ```
-
-Install Layouts 
-===============
-
-These are necessary to display data e.g. in a browser
-
-* start opencpn
-* select in the toolbar Options/Plugins and enable the plugin.
-* click the peferences-button
-* in the dialog click "Install" below the label "Install Layouts"
-* in the filedialog select in the directory '<OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi' the file 'LogbookKonni_Layouts.zip'
-
-Install Help
-============
-
-* click the peferences-button
-* in the dialog click "Install" below the label "Install Layouts"
-* in the filedialog select in the directory '<OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi' the file 'LogbookKonni_Other.zip'
-
-Install Languages
+Enable the Plugin
 =================
 
-* start opencpn
-* select in the toolbar Options/Plugins and enable the plugin.
-* click the peferences-button
-* in the dialog click "Install" below the label "Install Laanguages"
-* in the filedialog select in the directory '<OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi' the file 'LogbookKonni_Languages.zip'
+* Start OpenCPN
+* Select Options from the toolbar (spanner icon) and go to the Plugins tab.
+* Select the Logbook plugin and click Enable to enable the plugin.
+
+Install Additional Files
+========================
+
+There are 3 additional files packaged with the logbook, you will need to
+install them to make use of all of the features. First you should copy
+these files to somewhere convenient, e.g. your home directory, desktop,
+etc.  They can be installed from there.  Either that or if you have the
+logbook source directory from git they can be installed directly from
+there.
+
+* LogbookKonni_Languages.zip (language data files)
+* LogbookKonni_Layouts.zip (layouts)
+* LogbookKonni_Other.zip (help and other files)
+
+###Layouts
+
+These are necessary to display data e.g. in a browser.
+
+* Start OpenCPN
+* Select Options from the toolbar (spanner icon) and go to the Plugins tab.
+* Select the Logbook plugin
+* Click the Preferences button
+* In the dialog click "Install" below the label "Install Layouts"
+* In the file dialog select the file 'LogbookKonni_Layouts.zip'
+
+###Help
+
+* Start OpenCPN
+* Select Options from the toolbar (spanner icon) and go to the Plugins tab.
+* Select the Logbook plugin
+* Click the Preferences button
+* In the dialog click "Install" below the label "Install Layouts"
+* In the file dialog select the file 'LogbookKonni_Other.zip'
+
+###Languages
+
+* Start OpenCPN
+* Select Options from the toolbar (spanner icon) and go to the Plugins tab.
+* Select the Logbook plugin
+* Click the Preferences button
+* In the dialog click "Install" below the label "Install Languages"
+* In the file dialog select the file 'LogbookKonni_Languages.zip'
+* On Linux you will need to supply your root password.
 
 License
 =======
