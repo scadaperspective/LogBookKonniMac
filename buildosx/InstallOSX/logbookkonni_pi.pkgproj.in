@@ -84,7 +84,139 @@
 																	<key>GID</key>
 																	<integer>80</integer>
 																	<key>PATH</key>
+																	<string>Resources/ca.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<key>PATH_TYPE</key>
+																	<integer>3</integer>
+																	<key>PERMISSIONS</key>
+																	<integer>420</integer>
+																	<key>TYPE</key>
+																	<integer>3</integer>
+																	<key>UID</key>
+																	<integer>0</integer>
+																</dict>
+															</array>
+															<key>GID</key>
+															<integer>80</integer>
+															<key>PATH</key>
+															<string>de.lproj</string>
+															<key>PATH_TYPE</key>
+															<integer>0</integer>
+															<key>PERMISSIONS</key>
+															<integer>509</integer>
+															<key>TYPE</key>
+															<integer>2</integer>
+															<key>UID</key>
+															<integer>0</integer>
+														</dict>
+														<dict>
+															<key>CHILDREN</key>
+															<array>
+																<dict>
+																	<key>CHILDREN</key>
+																	<array/>
+																	<key>GID</key>
+																	<integer>80</integer>
+																	<key>PATH</key>
+																	<string>Resources/cs.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<key>PATH_TYPE</key>
+																	<integer>3</integer>
+																	<key>PERMISSIONS</key>
+																	<integer>420</integer>
+																	<key>TYPE</key>
+																	<integer>3</integer>
+																	<key>UID</key>
+																	<integer>0</integer>
+																</dict>
+															</array>
+															<key>GID</key>
+															<integer>80</integer>
+															<key>PATH</key>
+															<string>de.lproj</string>
+															<key>PATH_TYPE</key>
+															<integer>0</integer>
+															<key>PERMISSIONS</key>
+															<integer>509</integer>
+															<key>TYPE</key>
+															<integer>2</integer>
+															<key>UID</key>
+															<integer>0</integer>
+														</dict>
+														<dict>
+															<key>CHILDREN</key>
+															<array>
+																<dict>
+																	<key>CHILDREN</key>
+																	<array/>
+																	<key>GID</key>
+																	<integer>80</integer>
+																	<key>PATH</key>
+																	<string>Resources/da.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<key>PATH_TYPE</key>
+																	<integer>3</integer>
+																	<key>PERMISSIONS</key>
+																	<integer>420</integer>
+																	<key>TYPE</key>
+																	<integer>3</integer>
+																	<key>UID</key>
+																	<integer>0</integer>
+																</dict>
+															</array>
+															<key>GID</key>
+															<integer>80</integer>
+															<key>PATH</key>
+															<string>de.lproj</string>
+															<key>PATH_TYPE</key>
+															<integer>0</integer>
+															<key>PERMISSIONS</key>
+															<integer>509</integer>
+															<key>TYPE</key>
+															<integer>2</integer>
+															<key>UID</key>
+															<integer>0</integer>
+														</dict>
+														<dict>
+															<key>CHILDREN</key>
+															<array>
+																<dict>
+																	<key>CHILDREN</key>
+																	<array/>
+																	<key>GID</key>
+																	<integer>80</integer>
+																	<key>PATH</key>
 																	<string>Resources/de.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<key>PATH_TYPE</key>
+																	<integer>3</integer>
+																	<key>PERMISSIONS</key>
+																	<integer>420</integer>
+																	<key>TYPE</key>
+																	<integer>3</integer>
+																	<key>UID</key>
+																	<integer>0</integer>
+																</dict>
+															</array>
+															<key>GID</key>
+															<integer>80</integer>
+															<key>PATH</key>
+															<string>de.lproj</string>
+															<key>PATH_TYPE</key>
+															<integer>0</integer>
+															<key>PERMISSIONS</key>
+															<integer>509</integer>
+															<key>TYPE</key>
+															<integer>2</integer>
+															<key>UID</key>
+															<integer>0</integer>
+														</dict>
+														<dict>
+															<key>CHILDREN</key>
+															<array>
+																<dict>
+																	<key>CHILDREN</key>
+																	<array/>
+																	<key>GID</key>
+																	<integer>80</integer>
+																	<key>PATH</key>
+																	<string>Resources/el.lproj/opencpn-${PACKAGE_NAME}.mo</string>
 																	<key>PATH_TYPE</key>
 																	<integer>3</integer>
 																	<key>PERMISSIONS</key>
@@ -131,7 +263,7 @@
 															<key>GID</key>
 															<integer>80</integer>
 															<key>PATH</key>
-															<string>es.lproj</string>
+															<string>de.lproj</string>
 															<key>PATH_TYPE</key>
 															<integer>0</integer>
 															<key>PERMISSIONS</key>
@@ -150,7 +282,7 @@
 																	<key>GID</key>
 																	<integer>80</integer>
 																	<key>PATH</key>
-																	<string>Resources/nl.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<string>Resources/et.lproj/opencpn-${PACKAGE_NAME}.mo</string>
 																	<key>PATH_TYPE</key>
 																	<integer>3</integer>
 																	<key>PERMISSIONS</key>
@@ -164,7 +296,40 @@
 															<key>GID</key>
 															<integer>80</integer>
 															<key>PATH</key>
-															<string>nl.lproj</string>
+															<string>de.lproj</string>
+															<key>PATH_TYPE</key>
+															<integer>0</integer>
+															<key>PERMISSIONS</key>
+															<integer>509</integer>
+															<key>TYPE</key>
+															<integer>2</integer>
+															<key>UID</key>
+															<integer>0</integer>
+														</dict>
+														<dict>
+															<key>CHILDREN</key>
+															<array>
+																<dict>
+																	<key>CHILDREN</key>
+																	<array/>
+																	<key>GID</key>
+																	<integer>80</integer>
+																	<key>PATH</key>
+																	<string>Resources/fi.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<key>PATH_TYPE</key>
+																	<integer>3</integer>
+																	<key>PERMISSIONS</key>
+																	<integer>420</integer>
+																	<key>TYPE</key>
+																	<integer>3</integer>
+																	<key>UID</key>
+																	<integer>0</integer>
+																</dict>
+															</array>
+															<key>GID</key>
+															<integer>80</integer>
+															<key>PATH</key>
+															<string>de.lproj</string>
 															<key>PATH_TYPE</key>
 															<integer>0</integer>
 															<key>PERMISSIONS</key>
@@ -197,7 +362,172 @@
 															<key>GID</key>
 															<integer>80</integer>
 															<key>PATH</key>
-															<string>fr.lproj</string>
+															<string>de.lproj</string>
+															<key>PATH_TYPE</key>
+															<integer>0</integer>
+															<key>PERMISSIONS</key>
+															<integer>509</integer>
+															<key>TYPE</key>
+															<integer>2</integer>
+															<key>UID</key>
+															<integer>0</integer>
+														</dict>
+														<dict>
+															<key>CHILDREN</key>
+															<array>
+																<dict>
+																	<key>CHILDREN</key>
+																	<array/>
+																	<key>GID</key>
+																	<integer>80</integer>
+																	<key>PATH</key>
+																	<string>Resources/gl.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<key>PATH_TYPE</key>
+																	<integer>3</integer>
+																	<key>PERMISSIONS</key>
+																	<integer>420</integer>
+																	<key>TYPE</key>
+																	<integer>3</integer>
+																	<key>UID</key>
+																	<integer>0</integer>
+																</dict>
+															</array>
+															<key>GID</key>
+															<integer>80</integer>
+															<key>PATH</key>
+															<string>de.lproj</string>
+															<key>PATH_TYPE</key>
+															<integer>0</integer>
+															<key>PERMISSIONS</key>
+															<integer>509</integer>
+															<key>TYPE</key>
+															<integer>2</integer>
+															<key>UID</key>
+															<integer>0</integer>
+														</dict>
+														<dict>
+															<key>CHILDREN</key>
+															<array>
+																<dict>
+																	<key>CHILDREN</key>
+																	<array/>
+																	<key>GID</key>
+																	<integer>80</integer>
+																	<key>PATH</key>
+																	<string>Resources/hu.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<key>PATH_TYPE</key>
+																	<integer>3</integer>
+																	<key>PERMISSIONS</key>
+																	<integer>420</integer>
+																	<key>TYPE</key>
+																	<integer>3</integer>
+																	<key>UID</key>
+																	<integer>0</integer>
+																</dict>
+															</array>
+															<key>GID</key>
+															<integer>80</integer>
+															<key>PATH</key>
+															<string>de.lproj</string>
+															<key>PATH_TYPE</key>
+															<integer>0</integer>
+															<key>PERMISSIONS</key>
+															<integer>509</integer>
+															<key>TYPE</key>
+															<integer>2</integer>
+															<key>UID</key>
+															<integer>0</integer>
+														</dict>
+														<dict>
+															<key>CHILDREN</key>
+															<array>
+																<dict>
+																	<key>CHILDREN</key>
+																	<array/>
+																	<key>GID</key>
+																	<integer>80</integer>
+																	<key>PATH</key>
+																	<string>Resources/it.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<key>PATH_TYPE</key>
+																	<integer>3</integer>
+																	<key>PERMISSIONS</key>
+																	<integer>420</integer>
+																	<key>TYPE</key>
+																	<integer>3</integer>
+																	<key>UID</key>
+																	<integer>0</integer>
+																</dict>
+															</array>
+															<key>GID</key>
+															<integer>80</integer>
+															<key>PATH</key>
+															<string>de.lproj</string>
+															<key>PATH_TYPE</key>
+															<integer>0</integer>
+															<key>PERMISSIONS</key>
+															<integer>509</integer>
+															<key>TYPE</key>
+															<integer>2</integer>
+															<key>UID</key>
+															<integer>0</integer>
+														</dict>
+														<dict>
+															<key>CHILDREN</key>
+															<array>
+																<dict>
+																	<key>CHILDREN</key>
+																	<array/>
+																	<key>GID</key>
+																	<integer>80</integer>
+																	<key>PATH</key>
+																	<string>Resources/nb.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<key>PATH_TYPE</key>
+																	<integer>3</integer>
+																	<key>PERMISSIONS</key>
+																	<integer>420</integer>
+																	<key>TYPE</key>
+																	<integer>3</integer>
+																	<key>UID</key>
+																	<integer>0</integer>
+																</dict>
+															</array>
+															<key>GID</key>
+															<integer>80</integer>
+															<key>PATH</key>
+															<string>de.lproj</string>
+															<key>PATH_TYPE</key>
+															<integer>0</integer>
+															<key>PERMISSIONS</key>
+															<integer>509</integer>
+															<key>TYPE</key>
+															<integer>2</integer>
+															<key>UID</key>
+															<integer>0</integer>
+														</dict>
+														<dict>
+															<key>CHILDREN</key>
+															<array>
+																<dict>
+																	<key>CHILDREN</key>
+																	<array/>
+																	<key>GID</key>
+																	<integer>80</integer>
+																	<key>PATH</key>
+																	<string>Resources/nl.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<key>PATH_TYPE</key>
+																	<integer>3</integer>
+																	<key>PERMISSIONS</key>
+																	<integer>420</integer>
+																	<key>TYPE</key>
+																	<integer>3</integer>
+																	<key>UID</key>
+																	<integer>0</integer>
+																</dict>
+															</array>
+															<key>GID</key>
+															<integer>80</integer>
+															<key>PATH</key>
+															<string>de.lproj</string>
 															<key>PATH_TYPE</key>
 															<integer>0</integer>
 															<key>PERMISSIONS</key>
@@ -230,7 +560,7 @@
 															<key>GID</key>
 															<integer>80</integer>
 															<key>PATH</key>
-															<string>pl.lproj</string>
+															<string>de.lproj</string>
 															<key>PATH_TYPE</key>
 															<integer>0</integer>
 															<key>PERMISSIONS</key>
@@ -249,7 +579,7 @@
 																	<key>GID</key>
 																	<integer>80</integer>
 																	<key>PATH</key>
-																	<string>Resources/cs.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<string>Resources/pt.lproj/opencpn-${PACKAGE_NAME}.mo</string>
 																	<key>PATH_TYPE</key>
 																	<integer>3</integer>
 																	<key>PERMISSIONS</key>
@@ -263,7 +593,7 @@
 															<key>GID</key>
 															<integer>80</integer>
 															<key>PATH</key>
-															<string>cs.lproj</string>
+															<string>de.lproj</string>
 															<key>PATH_TYPE</key>
 															<integer>0</integer>
 															<key>PERMISSIONS</key>
@@ -282,7 +612,7 @@
 																	<key>GID</key>
 																	<integer>80</integer>
 																	<key>PATH</key>
-																	<string>Resources/da.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<string>Resources/ru.lproj/opencpn-${PACKAGE_NAME}.mo</string>
 																	<key>PATH_TYPE</key>
 																	<integer>3</integer>
 																	<key>PERMISSIONS</key>
@@ -296,7 +626,7 @@
 															<key>GID</key>
 															<integer>80</integer>
 															<key>PATH</key>
-															<string>da.lproj</string>
+															<string>de.lproj</string>
 															<key>PATH_TYPE</key>
 															<integer>0</integer>
 															<key>PERMISSIONS</key>
@@ -315,7 +645,7 @@
 																	<key>GID</key>
 																	<integer>80</integer>
 																	<key>PATH</key>
-																	<string>Resources/tr_TR.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<string>Resources/sv.lproj/opencpn-${PACKAGE_NAME}.mo</string>
 																	<key>PATH_TYPE</key>
 																	<integer>3</integer>
 																	<key>PERMISSIONS</key>
@@ -329,7 +659,73 @@
 															<key>GID</key>
 															<integer>80</integer>
 															<key>PATH</key>
-															<string>tr_TR.lproj</string>
+															<string>de.lproj</string>
+															<key>PATH_TYPE</key>
+															<integer>0</integer>
+															<key>PERMISSIONS</key>
+															<integer>509</integer>
+															<key>TYPE</key>
+															<integer>2</integer>
+															<key>UID</key>
+															<integer>0</integer>
+														</dict>
+														<dict>
+															<key>CHILDREN</key>
+															<array>
+																<dict>
+																	<key>CHILDREN</key>
+																	<array/>
+																	<key>GID</key>
+																	<integer>80</integer>
+																	<key>PATH</key>
+																	<string>Resources/tr.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<key>PATH_TYPE</key>
+																	<integer>3</integer>
+																	<key>PERMISSIONS</key>
+																	<integer>420</integer>
+																	<key>TYPE</key>
+																	<integer>3</integer>
+																	<key>UID</key>
+																	<integer>0</integer>
+																</dict>
+															</array>
+															<key>GID</key>
+															<integer>80</integer>
+															<key>PATH</key>
+															<string>de.lproj</string>
+															<key>PATH_TYPE</key>
+															<integer>0</integer>
+															<key>PERMISSIONS</key>
+															<integer>509</integer>
+															<key>TYPE</key>
+															<integer>2</integer>
+															<key>UID</key>
+															<integer>0</integer>
+														</dict>
+														<dict>
+															<key>CHILDREN</key>
+															<array>
+																<dict>
+																	<key>CHILDREN</key>
+																	<array/>
+																	<key>GID</key>
+																	<integer>80</integer>
+																	<key>PATH</key>
+																	<string>Resources/zh.lproj/opencpn-${PACKAGE_NAME}.mo</string>
+																	<key>PATH_TYPE</key>
+																	<integer>3</integer>
+																	<key>PERMISSIONS</key>
+																	<integer>420</integer>
+																	<key>TYPE</key>
+																	<integer>3</integer>
+																	<key>UID</key>
+																	<integer>0</integer>
+																</dict>
+															</array>
+															<key>GID</key>
+															<integer>80</integer>
+															<key>PATH</key>
+															<string>de.lproj</string>
 															<key>PATH_TYPE</key>
 															<integer>0</integer>
 															<key>PERMISSIONS</key>
