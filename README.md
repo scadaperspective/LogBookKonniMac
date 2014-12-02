@@ -74,13 +74,22 @@ sudo make install
 Before running cmake, you must set the deployment target to OS X 10.7 to be compatible with the libraries used by core OpenCPN
 ```
 export MACOSX_DEPLOYMENT_TARGET=10.7
+
+mkdir LogbookKonni_pi/build
+cd LogbookKonni_pi/build
+cmake ..
+cmake --build .
 ```
 
 ####Packaging on OS X
 Get and install the Packages application from http://s.sudre.free.fr/Software/Packages/about.html
+After installing Packages create the Plugin package.
 ```
 make create-pkg
 ```
+This will create the Logbookkonni-Plugin_1.2.pkg file in the build directory.
+Executing this file will install the plugin.
+
 Enable the Plugin
 =================
 
@@ -123,6 +132,8 @@ These are necessary to display data e.g. in a browser.
 * In the file dialog select the file 'LogbookKonni_Other.zip'
 
 ###Languages
+
+Note: Not needed for OSX as the languages are in the package.
 
 * Start OpenCPN
 * Select Options from the toolbar (spanner icon) and go to the Plugins tab.
