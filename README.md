@@ -90,6 +90,18 @@ make create-pkg
 This will create the Logbookkonni-Plugin_1.2.pkg file in the build directory.
 Executing this file will install the plugin.
 
+Building zip files
+==================
+
+I can't find any way to successfully build a zip file with cmake, all of
+the online documentation about how to do this appears to be incorrect.
+
+On Linux you can use the makezip.sh script to make the required zip files.
+They can be installed using the instructions in the "Install Additional Files"
+section below.
+
+These zip files will be packaged with the plugin when we make a release.
+
 Enable the Plugin
 =================
 
