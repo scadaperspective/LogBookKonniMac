@@ -52,14 +52,26 @@ MACRO(GETTEXT_BUILD_MO)
     GET_FILENAME_COMPONENT(_poBasename ${_absFile} NAME_WE)
     SET(_gmoFile ${CMAKE_CURRENT_BINARY_DIR}/${_poBasename}.mo)
 
+IF(APPLE)
     ADD_CUSTOM_COMMAND(
       OUTPUT ${_gmoFile}
       COMMAND ${GETTEXT_MSGFMT_EXECUTABLE} --check -o ${_gmoFile} ${_absFile}
-      ##COMMAND ${CMAKE_COMMAND} -E copy ${_gmoFile} "Resources/${_poBasename}.lproj/opencpn-${PACKAGE_NAME}.mo"
+      COMMAND ${CMAKE_COMMAND} -E copy ${_gmoFile} "Resources/${_poBasename}.lproj/opencpn-${PACKAGE_NAME}.mo"
+      DEPENDS ${_absFile}
+      COMMENT "${I18N_NAME}-i18n [${_poBasename}]: Created mo file."
+      )
+ELSE(APPLE)
+    ADD_CUSTOM_COMMAND(
+      OUTPUT ${_gmoFile}
+      COMMAND ${GETTEXT_MSGFMT_EXECUTABLE} --check -o ${_gmoFile} ${_absFile}
       COMMAND ${CMAKE_COMMAND} -E copy ${_gmoFile} "Resources/${_poBasename}/LC_MESSAGES/opencpn-${PACKAGE_NAME}.mo"
       DEPENDS ${_absFile}
       COMMENT "${I18N_NAME}-i18n [${_poBasename}]: Created mo file."
       )
+ENDIF(APPLE)
+
+## Why are we copying files to “/use/local/bin/OpenCPN.app” under OSX? Shouldn’t we copy to “/Applications/OpenCPN.app”?
+## Now the languages files will never be used when we do make install.
 
     IF(APPLE)
       INSTALL(FILES ${_gmoFile} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/OpenCPN.app/Contents/Resources/${_poBasename}.lproj RENAME opencpn-${PACKAGE_NAME}.mo )
