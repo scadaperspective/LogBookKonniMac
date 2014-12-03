@@ -131,7 +131,6 @@ public:
     void SendLogbookMessage(wxString message_id, wxString message_body);
     //	  void SendPluginMessage(wxString &message_id, wxString &message_body);
 
-    void loadLanguages(wxWindow * parent);
     void loadLayouts(wxWindow * parent);
     void startLogbook();
     void shutdown(bool menu);
@@ -168,29 +167,6 @@ public:
 public:
     logbookkonni_pi* plogbook_pi;
 };
-
-#ifdef __WXGTK__
-///////////////////////////////////////////////////////////////////////////////
-/// Class PWDialog
-///////////////////////////////////////////////////////////////////////////////
-class PWDialog : public wxDialog 
-{
-	private:
-	
-	protected:
-		wxStaticText* m_staticText126;
-		wxStdDialogButtonSizer* m_sdbSizer10;
-		wxButton* m_sdbSizer10OK;
-		wxButton* m_sdbSizer10Cancel;
-	
-	public:
-		wxTextCtrl* m_textCtrl89;
-
-		PWDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 233,115 ), long style = wxDEFAULT_DIALOG_STYLE ); 
-		~PWDialog();
-	
-};
-#endif
 #endif
 
 
