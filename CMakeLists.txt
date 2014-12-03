@@ -58,7 +58,7 @@ SET(SRC_LOGBOOKKONNI
  	)
 
 IF(WIN32)
-SET(SRC_TINYXML
+SET(SRC_LTINYXML
 		src/tinyxml/tinyxml.cpp
 		src/tinyxml/tinyxml.h
 		src/tinyxml/tinyxmlerror.cpp
@@ -68,7 +68,7 @@ SET(SRC_TINYXML
 )
 ENDIF(WIN32)
 
-SET(SRC_NMEA0183
+SET(SRC_LNMEA0183
 		src/nmea0183/LatLong.hpp
 		src/nmea0183/latlong.cpp
 		src/nmea0183/long.cpp
@@ -125,7 +125,7 @@ SET(SRC_NMEA0183
         )
 
 ADD_DEFINITIONS(-DTIXML_USE_STL)
-ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_LOGBOOKKONNI} ${SRC_TINYXML} ${SRC_NMEA0183})
+ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_LOGBOOKKONNI} ${SRC_LTINYXML} ${SRC_LNMEA0183})
 
 INCLUDE("cmake/PluginInstall.cmake")
 INCLUDE("cmake/PluginLocalization.cmake")
