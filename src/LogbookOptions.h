@@ -107,10 +107,8 @@ class LogbookOptions : public wxDialog
         wxCheckBox* m_checkBoxPopUp;
 		wxStaticLine* m_staticline10;
 		wxStaticText* m_staticText731;
-		wxStaticText* m_staticText742;
 		wxStaticText* m_staticText751;
 		wxButton* m_buttonInstallHTMLFiles;
-		wxButton* m_buttonInstallLanguages;
 		wxButton* m_buttonUninstall;
 		wxStaticLine* m_staticline261;
 		wxPanel* m_panel20;
@@ -240,7 +238,6 @@ class LogbookOptions : public wxDialog
         virtual void OnCheckBoxEngineRunning( wxCommandEvent& event );
         virtual void onCheckBoNoGPS( wxCommandEvent& event );
         virtual void onButtonClickInstallHTMLFiles( wxCommandEvent& event );
-        virtual void onButtonClickInstallLanguages( wxCommandEvent& event );
         virtual void OnButtonClickUninstall( wxCommandEvent& event );
         virtual void OnTextEnterWaterTank( wxCommandEvent& event );
         virtual void OnTextEnterm_textCtrlWatermaker( wxCommandEvent& event );
@@ -351,7 +348,6 @@ class LogbookOptions : public wxDialog
 
 		void init();
 		void setValues();
-		void loadLanguages();
 		void updateWindChoice();
 		void updateChoiceBoxes();
 		void setDateEnabled(int i);

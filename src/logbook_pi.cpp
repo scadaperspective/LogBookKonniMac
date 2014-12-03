@@ -743,7 +743,6 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 	if(opt->firstTime)
 	{
 //		loadLayouts(parent);
-		AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
 //		delete opt;
 //		opt = new Options();
 //		LoadConfig();
@@ -1504,141 +1503,8 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 				       (!ret)?n.c_str():wxEmptyString,data.c_str(),data1.c_str(),data2.c_str(),data3.c_str());
 		wxMessageBox(ok);
 	}
-	if(opt->firstTime)
-		loadLanguages(parent);
 }
 
-void logbookkonni_pi::loadLanguages(wxWindow *parent)
-{	
-	wxString path;
-	std::auto_ptr<wxZipEntry> entry;
-
-	static const wxChar *FILETYPES = _T(
-		"LogbookKonni_Languages.zip");
-
-	wxString sep = wxFileName::GetPathSeparator(); 
-	wxString languagePath;
-
-/*
- * For some compilers the first of the two lines below seems to be
- * correct, for others it is the second of the two.  The second of the
- * two works for me on Linux with g++ 4.8.2, the first reportedly works
- * on OSX (with compiler ???).  Report here if you have to change the
- * definition to get it to work for you.
- */
-#ifdef __WXOSX__
-	wxStandardPathsBase& sp = wxStandardPaths::Get();
-#else
-	wxStandardPaths sp;
-#endif
-
-	bool restart = false;
-
-	if(NULL != m_plogbook_window)
-	{
-		shutdown(false);
-		restart = true;
-	}
-#ifdef __WXMSW__
-	languagePath = sp.GetExecutablePath();
-	languagePath = languagePath.Remove(languagePath.find_last_of(sep));
-	languagePath.append(sep + _T("share") + sep + _T("locale") + sep);
-#elif defined __WXGTK__
-	languagePath = sp.GetInstallPrefix()+sep;
-	languagePath.append(_T("share") + sep + _T("locale") + sep);
-#elif defined __WXOSX__
-	languagePath = sp.GetExecutablePath();
-	languagePath = languagePath.Remove(languagePath.find_last_of(sep));
-	languagePath = languagePath.Remove(languagePath.find_last_of(sep));
-	languagePath.append(sep + _T("Resources") + sep);
-#endif
-#ifdef __WXOSX__
-    wxFileDialog* openFileDialog =
-		new wxFileDialog( parent, _("Select zipped Languages-Files"), _T(""), FILETYPES, FILETYPES,
-		                  wxFD_DEFAULT_STYLE, wxDefaultPosition, wxDefaultSize);
-#else
-	wxFileDialog* openFileDialog =
-		new wxFileDialog( parent, _("Select zipped Languages-Files"), _T(""), FILETYPES, FILETYPES,
-		                  wxFD_OPEN, wxDefaultPosition);
-#endif
-	if ( openFileDialog->ShowModal() == wxID_OK )
-	{
-#ifdef __WXOSX__
-		wxString tempdir = sp.GetDocumentsDir()+sep+_T("logbooktemp")+sep;
-		wxDir td(tempdir);
-		if(!td.Exists(tempdir))
-			::wxMkdir(tempdir);
-		wxString cmd= _T("unzip -o ")+openFileDialog->GetPath()
-					  +_T(" -d ")+tempdir;
-
-		wxSystem(cmd.c_str());
-
-		wxString filename, filespec;
-		bool cont = td.GetFirst(&filename, wxEmptyString,wxDIR_DIRS);
-		while(cont) {
-			wxString destdir = languagePath+filename+_T(".lproj")+sep+_T("opencpn-logbookkonni_pi.mo");
-			wxString sourcedir = tempdir+filename+sep+_T("LC_MESSAGES")+sep+_T("opencpn-logbookkonni_pi.mo");
-			::wxCopyFile(sourcedir,destdir);
-			cont = td.GetNext(&filename);
-		};
-		
-		cmd = _T("rm -r ")+tempdir;
-		wxSystem(cmd.c_str());
-#elif defined __WXGTK__
-		PWDialog pw(m_parent_window);
-		if(pw.ShowModal() != wxID_OK)
-			return;
-		wxString pwd = pw.m_textCtrl89->GetValue();
-		wxString cmd= wxString::Format(_T("echo %s unzip -o %s -d %s"),pwd.c_str(),openFileDialog->GetPath().c_str(),languagePath.c_str());
-		wxSystem(cmd.c_str());
-#else	
-		wxFFileInputStream in(openFileDialog->GetPath());
-		wxZipInputStream zip(in);
-
-		while (entry.reset(zip.GetNextEntry()), entry.get() != NULL)
-		{
-			if(!entry->GetName().Contains(_T(".mo")))
-				continue;
-			else
-				path = languagePath + entry->GetName();
-
-			wxFileOutputStream out(path);
-			if(zip.OpenEntry(*entry) != true) { out.Close(); break; }
-			zip.Read(out);
-			out.Close();
-		}
-#endif
-		wxString s;
-
-#ifdef __WXOSX__
-		if(wxFile::Exists(languagePath+sep+_T("de.lproj")+sep+_T("opencpn-logbookkonni.mo")))
-#else
-		if(wxFile::Exists(languagePath+sep+_T("de")+sep+_T("LC_MESSAGES")+sep+_T("opencpn-logbookkonni_pi.mo")))
-#endif
-			s = wxString::Format(_("Languages installed at\n\n%s"),languagePath.c_str());
-		else
-			s = wxString::Format(_("Languages not installed at\n\n%s\n\nClick Help Options/Behavoir in the image the button 'Install Languages'"),languagePath.c_str());
-#ifdef __WXOSX__
-        MessageBoxOSX(m_plogbook_window,s,_T("Information"),wxID_OK);
-#elif defined __WXGTK__
-		wxMessageBox(s);
-#elif defined __WXMSW__
-		s = wxString::Format(_("Tried to install Languages at\n\n%s\n\nOn Windows Vista/7/8 you need administrator rights.\nIf no languages installed please restart OpenCPN as admin.\n(Rightclick on the icon and select \"Run as administrator\")\n\nAfter installation restart as normal user.\n\nThe dialog 'Logbook Preferences' is closed now."),languagePath.c_str());
-		wxMessageBox(s);
-#endif
-	}
-
-	AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
-	if(restart)
-	{
-		delete opt;
-		opt = new Options();
-		LoadConfig();
-		startLogbook();
-		m_plogbook_window->Show();
-	}
-	parent->Destroy();
-}
 ////////////////////////////////////////////////////////
 void LogbookTimer::OnTimer(wxTimerEvent& ev)
 {
@@ -1678,39 +1544,3 @@ bool LogbookTimer::popUp()
 
 	return true;
 }
-
-//////////// Password Dialog for language install, Linux only //////////////////
-#ifdef __WXGTK__
-PWDialog::PWDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
-{
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-	
-	wxBoxSizer* bSizer40;
-	bSizer40 = new wxBoxSizer( wxVERTICAL );
-	
-	m_staticText126 = new wxStaticText( this, wxID_ANY, _("Administrator (Sudo) Password:"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE );
-	m_staticText126->Wrap( -1 );
-	bSizer40->Add( m_staticText126, 0, wxALL|wxEXPAND, 5 );
-	
-	m_textCtrl89 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer40->Add( m_textCtrl89, 0, wxALL|wxEXPAND, 5 );
-	
-	m_sdbSizer10 = new wxStdDialogButtonSizer();
-	m_sdbSizer10OK = new wxButton( this, wxID_OK );
-	m_sdbSizer10->AddButton( m_sdbSizer10OK );
-	m_sdbSizer10Cancel = new wxButton( this, wxID_CANCEL );
-	m_sdbSizer10->AddButton( m_sdbSizer10Cancel );
-	m_sdbSizer10->Realize();
-	bSizer40->Add( m_sdbSizer10, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
-	
-	this->SetSizer( bSizer40 );
-	this->Layout();
-	
-	this->Centre( wxBOTH );
-	m_textCtrl89->SetFocus();
-}
-
-PWDialog::~PWDialog()
-{
-}
-#endif

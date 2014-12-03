@@ -406,17 +406,13 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer10->Add( m_staticline10, 0, wxEXPAND|wxTOP, 5 );
 	
 	wxFlexGridSizer* fgSizer28;
-	fgSizer28 = new wxFlexGridSizer( 3, 3, 0, 0 );
+	fgSizer28 = new wxFlexGridSizer( 3, 2, 0, 0 );
 	fgSizer28->SetFlexibleDirection( wxBOTH );
 	fgSizer28->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
 	m_staticText731 = new wxStaticText( m_panel15, wxID_ANY, _("Install Layouts"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText731->Wrap( -1 );
 	fgSizer28->Add( m_staticText731, 0, wxTOP|wxRIGHT|wxLEFT, 5 );
-	
-	m_staticText742 = new wxStaticText( m_panel15, wxID_ANY, _("Install Languages"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText742->Wrap( -1 );
-	fgSizer28->Add( m_staticText742, 0, wxTOP|wxRIGHT|wxLEFT, 5 );
 	
 	m_staticText751 = new wxStaticText( m_panel15, wxID_ANY, _("Uninstall Logbook"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText751->Wrap( -1 );
@@ -426,12 +422,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_buttonInstallHTMLFiles->SetToolTip( _("Install OpenCPN_Logbook_Layouts.zip") );
 	
 	fgSizer28->Add( m_buttonInstallHTMLFiles, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-	
-	m_buttonInstallLanguages = new wxButton( m_panel15, wxID_ANY, _("Install"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_buttonInstallLanguages->SetToolTip( _("Install OpenCPN_Logbook_Languages.zip") );
-	
-	fgSizer28->Add( m_buttonInstallLanguages, 1, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-	
+		
 	m_buttonUninstall = new wxButton( m_panel15, wxID_ANY, _("Uninstall"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_buttonUninstall->SetToolTip( _("Uninstalls\nLogbook-Plugin,\nall Logbook-Data,\nall Logbook-Layouts,\nall Logbook-Languages\nand cleans the OpenCPN.ini") );
 	
@@ -1309,7 +1300,6 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_bpButtonDatamanager->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickDataManager ), NULL, this );
 	m_bpButtonMail->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickMail ), NULL, this );
 	m_buttonInstallHTMLFiles->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickInstallHTMLFiles ), NULL, this );
-	m_buttonInstallLanguages->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickInstallLanguages ), NULL, this );
 	m_bpButtonHTMLEditor->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonHTMLEditor ), NULL, this );
 	m_sKnots->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sKnots ), NULL, this );
 	m_sMeterSec->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sMeterSec ), NULL, this );
@@ -1369,7 +1359,6 @@ LogbookOptions::~LogbookOptions()
 	m_bpButtonDatamanager->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickDataManager ), NULL, this );
 	m_bpButtonMail->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickMail ), NULL, this );
 	m_buttonInstallHTMLFiles->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickInstallHTMLFiles ), NULL, this );
-	m_buttonInstallLanguages->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickInstallLanguages ), NULL, this );
 	m_bpButtonHTMLEditor->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonHTMLEditor ), NULL, this );
 	m_sKnots->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sKnots ), NULL, this );
 	m_sMeterSec->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sMeterSec ), NULL, this );
@@ -2242,12 +2231,6 @@ void LogbookOptions::onButtonClickInstallHTMLFiles( wxCommandEvent& event )
 {
 	log_pi->loadLayouts(this);
 }
-
-void LogbookOptions::onButtonClickInstallLanguages(wxCommandEvent& ev)
-{
-	log_pi->loadLanguages(this);
-}
-
 
 void LogbookOptions::onButtonHTMLEditor(wxCommandEvent & ev)
 {
