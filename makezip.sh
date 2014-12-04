@@ -7,7 +7,9 @@
 
 #
 # Languages zip contains the language resource files.  Build the plugin
-# first using cmake before creating this file.
+# first using cmake before creating this file.  We build this file anyway
+# even though the languages are included in the packages just in case
+# there are changes needed.
 #
 rm -f LogbookKonni_Languages.zip
 (

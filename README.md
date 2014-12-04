@@ -17,11 +17,16 @@ Stand by, we're working on it.
 Compiling
 =========
 
-* This plugin now builds out of the OpenCPN source tree.  You do not need to build the entire of OpenCPN or even clone it from git just to build this plugin.
+This plugin now builds out of the OpenCPN source tree.  You do not need to build
+the entire of OpenCPN or even clone it from git just to build this plugin.  It
+should, however, also successfully build from inside the OpenCPN source tree along
+with the rest of OpenCPN if you clone it into the OpenCPN/plugins directory.
 
-* If you need instructions as to how to build OpenCPN then see the developers manual at http://opencpn.org/ocpn/developers_manual
+If you need instructions as to how to build OpenCPN then see the developers
+manual at http://opencpn.org/ocpn/developers_manual
 
-* You need to have all of the dependencies required to compile OpenCPN installed in order to be able to build this plugin.  Those might vary depending on your system.
+You need to have all of the dependencies required to compile OpenCPN installed in
+order to be able to build this plugin.  Those might vary depending on your system.
 
 ###Clone this repository from github
 
@@ -39,7 +44,14 @@ your own git user name):
 git clone git@github.com:delatbabel/LogbookKonni-1.2.git LogbookKonni_pi
 ```
 
-###Build on Linux:
+###Build on Linux
+
+Note that you will need to have all of the development tools installed that
+are required to build OpenCPN.  If you have any doubts then run the cmake ..
+command and it will complain about missing dependencies.  At the very least
+you will need the g++ compiler and development libraries, cmake, gettext, so
+install those first and see how far you get.
+
 ```
 mkdir LogbookKonni_pi/build
 cd LogbookKonni_pi/build
@@ -47,8 +59,10 @@ cmake ..
 cmake --build .
 ```
 
-###Build on Mac OS X:
+###Build on Mac OS X
+
 Tools: Can be installed either manually or from Homebrew (http://brew.sh)
+
 ```
 #brew install git #If I remember well, it is already available on the system
 brew install cmake
@@ -81,7 +95,28 @@ cmake ..
 cmake --build .
 ```
 
-####Packaging on OS X
+Packaging
+=========
+
+From inside the build directory, the following command will make packages for your
+current platform against the as-built code:
+
+```
+make package
+```
+
+Note that you will need to have the packaging tools installed for your platform and
+any other platforms that you build packages for.  e.g. on Ubuntu you will need the
+development tools required to build deb file as well as the rpm package required to
+build RPM files.
+
+To check the contents of the Debian/Ubuntu package, use this command:
+
+```
+dpkg -c logbookkonni_pi_1.2_6-1_amd64.deb
+```
+
+###Packaging on OS X
 Get and install the Packages application from http://s.sudre.free.fr/Software/Packages/about.html
 After installing Packages create the Plugin package.
 ```
@@ -100,7 +135,10 @@ On Linux you can use the makezip.sh script to make the required zip files.
 They can be installed using the instructions in the "Install Additional Files"
 section below.
 
-These zip files will be packaged with the plugin when we make a release.
+These zip files will be distributed with the plugin when we make a release.
+
+The language files are included with the packages, the layouts and the help
+files are not and will need to be separately installed.
 
 Enable the Plugin
 =================
@@ -145,7 +183,7 @@ These are necessary to display data e.g. in a browser.
 
 ###Languages
 
-Note: Not needed for OSX as the languages are in the package.
+Note: Not needed for OSX or Linux as the languages are in the package.
 
 * Start OpenCPN
 * Select Options from the toolbar (spanner icon) and go to the Plugins tab.
