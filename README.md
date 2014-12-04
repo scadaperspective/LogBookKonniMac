@@ -113,7 +113,7 @@ build RPM files.
 To check the contents of the Debian/Ubuntu package, use this command:
 
 ```
-dpkg -c logbookkonni_pi_1.2_6-1_amd64.deb
+dpkg -c logbookkonni_pi_1.27-1_amd64.deb
 ```
 
 ###Packaging on OS X
