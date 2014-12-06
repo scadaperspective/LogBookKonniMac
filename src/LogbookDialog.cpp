@@ -3411,7 +3411,7 @@ else
 */
     dlg->m_choice15->SetSelection(filterSel);
 
-    if(filterSel != 0 && logbookPlugIn->opt->filterLayout)
+    if(filterSel != 0 && logbookPlugIn->opt->filterLayout[grid])
         layout.Prepend(logbookPlugIn->opt->layoutPrefix[grid]);
 
     dlg->m_textCtrlRename->SetValue(layout);

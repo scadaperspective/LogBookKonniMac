@@ -210,7 +210,7 @@ void LogbookHTML::viewHTML(wxString path, wxString layout, bool mode)
 	setSelection();
 
 	wxString prefix = logbook->opt->engineStr[logbook->opt->engines]+logbook->opt->layoutPrefix[LogbookDialog::LOGBOOK];
-    if(logbook->opt->filterLayout)
+    if(logbook->opt->filterLayout[LogbookDialog::LOGBOOK])
         layout.Prepend(prefix);
     wxString file = toHTML(path, layout, mode);
 	if(file != wxT(""))
@@ -696,7 +696,7 @@ wxString LogbookHTML::readLayoutFileODT(wxString layout)
 void LogbookHTML::viewODT(wxString path, wxString layout, bool mode)
 {
 	wxString prefix = logbook->opt->engineStr[logbook->opt->engines]+logbook->opt->layoutPrefix[LogbookDialog::LOGBOOK];
-    if(logbook->opt->filterLayout)
+    if(logbook->opt->filterLayout[LogbookDialog::LOGBOOK])
         layout.Prepend(prefix);
 
     setSelection();

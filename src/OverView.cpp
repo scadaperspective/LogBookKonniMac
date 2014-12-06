@@ -57,7 +57,7 @@ void OverView::viewODT(wxString path,wxString layout,int mode)
 {
 	wxString fn;
 
-	if(opt->filterLayout)
+	if(opt->filterLayout[LogbookDialog::OVERVIEW])
 		layout.Prepend(opt->layoutPrefix[LogbookDialog::OVERVIEW]);
 
 	fn = toODT(path, layout, mode);
@@ -73,7 +73,7 @@ void OverView::viewHTML(wxString path,wxString layout,int mode)
 {
 	wxString fn;
 
-	if(opt->filterLayout)
+	if(opt->filterLayout[LogbookDialog::OVERVIEW])
 		layout.Prepend(opt->layoutPrefix[LogbookDialog::OVERVIEW]);
 
 	fn = toHTML(path, layout, mode);

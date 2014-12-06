@@ -2115,7 +2115,7 @@ wxString CrewList::readLayout(wxString layoutFileName)
 
 void CrewList::viewHTML(wxString path, wxString layout)
 {
-	if(opt->filterLayout)
+	if(opt->filterLayout[LogbookDialog::CREW])
         layout.Prepend(opt->layoutPrefix[LogbookDialog::CREW]);
 
     saveHTML(path, layout, true);
@@ -2126,7 +2126,7 @@ void CrewList::viewHTML(wxString path, wxString layout)
 
 void CrewList::viewODT(wxString path, wxString layout)
 {
-	if(opt->filterLayout)
+	if(opt->filterLayout[LogbookDialog::CREW])
         layout.Prepend(opt->layoutPrefix[LogbookDialog::CREW]);
 
     saveODT(path, layout, true);

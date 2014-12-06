@@ -1383,21 +1383,21 @@ void Maintenance::viewODT(int tab,wxString path,wxString layout,int mode)
 	  {
 	    locn = layout_locnService;
 	    fn = data_locn;
-        if(opt->filterLayout)
+        if(opt->filterLayout[LogbookDialog::GSERVICE])
             layout.Prepend(opt->layoutPrefix[LogbookDialog::GSERVICE]);
 	  }
 	else if(tab == dialog->REPAIRS)
 	{
 	    locn = layout_locnRepairs;
 	    fn = data_locnRepairs;
-        if(opt->filterLayout)
+        if(opt->filterLayout[LogbookDialog::GREPAIRS])
             layout.Prepend(opt->layoutPrefix[LogbookDialog::GREPAIRS]);
 	}
 	else if(tab == dialog->BUYPARTS)
 	{
 	    locn = this->layout_locnBuyParts;
 	    fn = data_locnBuyParts;
-        if(opt->filterLayout)
+        if(opt->filterLayout[LogbookDialog::GBUYPARTS])
             layout.Prepend(opt->layoutPrefix[LogbookDialog::GBUYPARTS]);
 	}
 
@@ -1418,21 +1418,21 @@ void Maintenance::viewHTML(int tab,wxString path,wxString layout,int mode)
 	  {
 	    locn = layout_locnService;
 	    fn = data_locn;
-          if(opt->filterLayout)
+          if(opt->filterLayout[LogbookDialog::GSERVICE])
               layout.Prepend(opt->layoutPrefix[LogbookDialog::GSERVICE]);
 	  }
 	else if(tab == dialog->REPAIRS)
 	{
 	    locn = layout_locnRepairs;
 	    fn = data_locnRepairs;
-        if(opt->filterLayout)
+        if(opt->filterLayout[LogbookDialog::GREPAIRS])
             layout.Prepend(opt->layoutPrefix[LogbookDialog::GREPAIRS]);
 	}
 	else if(tab == dialog->BUYPARTS)
 	{
 	    locn = this->layout_locnBuyParts;
 	    fn = data_locnBuyParts;
-        if(opt->filterLayout)
+        if(opt->filterLayout[LogbookDialog::GBUYPARTS])
             layout.Prepend(opt->layoutPrefix[LogbookDialog::GBUYPARTS]);
 	}
 

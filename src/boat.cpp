@@ -265,7 +265,7 @@ wxString Boat::readLayoutFileODT(wxString layout)
 
 void Boat::viewODT(wxString path,wxString layout,bool mode)
 {
-	if(parent->logbookPlugIn->opt->filterLayout)
+	if(parent->logbookPlugIn->opt->filterLayout[LogbookDialog::BOAT])
         layout.Prepend(parent->logbookPlugIn->opt->layoutPrefix[LogbookDialog::BOAT]);
 
     toODT(path, layout, mode);
@@ -774,7 +774,7 @@ wxString Boat::repeatArea(wxString html)
 
 void Boat::viewHTML(wxString path, wxString layout, bool mode)
 {
-	if(parent->logbookPlugIn->opt->filterLayout)
+	if(parent->logbookPlugIn->opt->filterLayout[LogbookDialog::BOAT])
         layout.Prepend(parent->logbookPlugIn->opt->layoutPrefix[LogbookDialog::BOAT]);
 
     toHTML(path, layout, mode);
