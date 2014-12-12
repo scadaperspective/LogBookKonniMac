@@ -683,9 +683,9 @@ wxString logbookkonni_pi::GetShortDescription()
 wxString logbookkonni_pi::GetLongDescription()
 {
 	return _("Logbook for OpenCPN\n\n\
-Thanks's to the community for their helpfull suggestions.\n\n\
-If You find a bug post it on\nhttp://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html\n\
-Helpfull Videos are at Youtube, search for LogbookKonni.");
+Thanks to the community for their helpful suggestions.\n\n\
+If you find a bug post it on\nhttp://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html\n\
+Helpful videos are at Youtube, search for LogbookKonni.");
 }
 
 
