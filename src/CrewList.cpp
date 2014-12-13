@@ -130,7 +130,7 @@ void CrewList::firstColumn()
 	e.Set(19,59);
 	gridWake->SetCellValue(1,0,wxDateTime::Now().Format(dialog->logbookPlugIn->opt->sdateformat));
 	gridWake->SetCellValue(2,0,wxString::Format(_T("%s-%s"),dt.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str(),
-															e.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));//_T("00:00-23:39"));
+						e.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));//_T("00:00-23:39"));
 	gridWake->SetCellValue(3,0,wxEmptyString);
 
 	gridWake->SetReadOnly(1,0);

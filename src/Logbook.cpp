@@ -1,4 +1,4 @@
-﻿#ifndef WX_PRECOMP
+#ifndef WX_PRECOMP
 #include <wx/wx.h>
 #endif
 
@@ -97,7 +97,8 @@ Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString
 	bSOW = false;
 	bTemperatureWater = false;
 	bTemperatureAir = false;
-	bWind = false;
+	bWindA = false;
+	bWindT = false;
 	bDepth = false;
 	dtEngine1Off = -1;
 	bRPM1 = false;
@@ -333,7 +334,10 @@ void Logbook::SetSentence(wxString &sentence)
 				else
 					dWind = m_NMEA0183.Mwv.WindAngle;
 
-				sWind = wxString::Format(_T("%3.0f %s %s"), dWind,opt->Deg.c_str(),m_NMEA0183.Mwv.Reference.c_str());
+				if(m_NMEA0183.Mwv.Reference == _T("T"))
+					sWindT = wxString::Format(_T("%3.0f %s"), dWind,opt->Deg.c_str());
+				else
+					sWindA = wxString::Format(_T("%3.0f %s"), dWind,opt->Deg.c_str());
 
 				wxString temp = _T("");
 				if(m_NMEA0183.Mwv.WindSpeedUnits == 'N')
@@ -343,9 +347,75 @@ void Logbook::SetSentence(wxString &sentence)
 				else if(m_NMEA0183.Mwv.WindSpeedUnits == 'K')
 					temp = opt->windkmh;
 
-				sWindSpeed = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Mwv.WindSpeed,temp.c_str());
-				dtWind = wxDateTime::Now();
-				bWind = true;
+				if(m_NMEA0183.Mwv.Reference == _T("T"))
+				{
+					sWindSpeedT = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Mwv.WindSpeed,temp.c_str());
+					dtWindT = wxDateTime::Now();
+					bWindT = true;
+				}
+				else
+				{
+					sWindSpeedA = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Mwv.WindSpeed,temp.c_str());
+					dtWindA = wxDateTime::Now();
+					bWindA = true;
+				}
+			}
+		}
+		else if(m_NMEA0183.LastSentenceIDReceived == _T("VWT"))
+		{
+			if(m_NMEA0183.Parse())
+			{
+				double dWind = 0;
+				dWind = m_NMEA0183.Vwt.WindDirectionMagnitude;
+
+				if(m_NMEA0183.Vwt.DirectionOfWind == Left)
+				{
+					dWind = 360 - dWind;
+				}
+
+				if(opt->showWindHeading && bCOW)
+				{
+					dWind = dWind + dCOW;
+					if(dWind > 360) { dWind -= 360; }
+				}
+
+				sWindT = wxString::Format(_T("%3.0f %s"), dWind,opt->Deg.c_str());
+
+				wxString temp = _T("");
+				temp = opt->windkts;
+
+				sWindSpeedT = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Vwt.WindSpeedKnots,temp.c_str());
+				dtWindT = wxDateTime::Now();
+				bWindT = true;
+			}
+		}
+		else if(m_NMEA0183.LastSentenceIDReceived == _T("VWR"))
+		{
+			if(m_NMEA0183.Parse())
+			{
+				double dWind = 0;
+				dWind = m_NMEA0183.Vwr.WindDirectionMagnitude;
+
+				if(m_NMEA0183.Vwr.DirectionOfWind == Left)
+				{
+					dWind = 360 - dWind;
+				}
+
+				if(opt->showWindHeading && bCOW)
+				{
+					dWind = dWind + dCOW;
+					if(dWind > 360) { dWind -= 360; }
+				}
+
+				sWindA = wxString::Format(_T("%3.0f %s"), dWind,opt->Deg.c_str());
+
+				wxString temp = _T("");
+				temp = opt->windkts;
+
+
+				sWindSpeedA = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Vwr.WindSpeedKnots,temp.c_str());
+				dtWindA = wxDateTime::Now();
+				bWindA = true;
 			}
 		}
 		else if(m_NMEA0183.LastSentenceIDReceived == _T("MTW"))
@@ -925,8 +995,7 @@ void Logbook::loadData()
 			case 35:	dialog->m_gridMotorSails->SetCellValue(row,LogbookHTML::WATERT,s);
 				break;
 
-			case 36:
-				dialog->m_gridMotorSails->SetCellValue(row,LogbookHTML::MREMARKS,s);
+			case 36:	dialog->m_gridMotorSails->SetCellValue(row,LogbookHTML::MREMARKS,s);
 				break;
 			case 37:	dialog->m_gridWeather->SetCellValue(row,LogbookHTML::HYDRO,s);
 				break;
@@ -963,6 +1032,10 @@ void Logbook::loadData()
 			case 53:	dialog->m_gridMotorSails->SetCellValue(row,LogbookHTML::RPM1,s);
 				break;
 			case 54:	dialog->m_gridMotorSails->SetCellValue(row,LogbookHTML::RPM2,s);
+				break;
+			case 55:	dialog->m_gridWeather->SetCellValue(row,LogbookHTML::WINDR,s);
+				break;
+			case 56:	dialog->m_gridWeather->SetCellValue(row,LogbookHTML::WSPDR,s);
 				//    int in =  0;
 				break;
 			}			
@@ -1398,8 +1471,10 @@ void Logbook::appendRow(bool mode)
 	dialog->logGrids[0]->SetCellValue(lastRow,SOW,sSOW);
 	dialog->logGrids[0]->SetCellValue(lastRow,DEPTH,sDepth);
 	dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WATERTE,sTemperatureWater);
-	dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WIND,sWind);
-	dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WSPD,sWindSpeed);
+	dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WIND,sWindT);
+	dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WSPD,sWindSpeedT);
+	dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WINDR,sWindA);
+	dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WSPDR,sWindSpeedA);
 	dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::MOTOR,_T("00.00"));
 	dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::MOTOR1,_T("00.00"));
 	dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::GENE,_T("00.00"));
@@ -1584,11 +1659,17 @@ void Logbook::checkNMEADeviceIsOn()
 		sSOW = wxEmptyString;
 		bSOW = false;
 	}
-	if(bWind && dtn.Subtract(dtWind).GetSeconds() > DEVICE_TIMEOUT)							// Wind
+	if(bWindA && dtn.Subtract(dtWindA).GetSeconds() > DEVICE_TIMEOUT)						// Wind Rel
 	{
-		sWind = wxEmptyString;
-		sWindSpeed = wxEmptyString;
-		bWind = false;
+		sWindA = wxEmptyString;
+		sWindSpeedA = wxEmptyString;
+		bWindA = false;
+	}
+	if(bWindT && dtn.Subtract(dtWindT).GetSeconds() > DEVICE_TIMEOUT)						// Wind True
+	{
+		sWindT = wxEmptyString;
+		sWindSpeedT = wxEmptyString;
+		bWindT = false;
 	}
 	if(bCOW && dtn.Subtract(dtCOW).GetSeconds() > DEVICE_TIMEOUT)							// Heading
 	{
@@ -1920,7 +2001,8 @@ void Logbook::update()
 		{
 			for(int c = 0; c < dialog->logGrids[g]->GetNumberCols(); c++)
 			{
-				if(g == 1 && (c == LogbookHTML::HYDRO || c == LogbookHTML::WATERTE || c == LogbookHTML::AIRTE))
+				if(g == 1 && (c == LogbookHTML::HYDRO || c == LogbookHTML::WATERTE || c == LogbookHTML::AIRTE ||
+					c == LogbookHTML::WINDR || c == LogbookHTML::WSPDR))
 					continue;
 				if(g == 2 && (c == LogbookHTML::MOTOR1  || c == LogbookHTML::MOTOR1T ||
 					c == LogbookHTML::RPM1	|| c == LogbookHTML::RPM2	 ||
@@ -2008,6 +2090,13 @@ void Logbook::update()
 		for(int ext = LogbookHTML::RPM2; ext < LogbookHTML::FUEL; ext ++) // extend RPM #2
 		{
 			temp = dialog->logGrids[2]->GetCellValue(r,ext);
+			s += dialog->replaceDangerChar(temp);
+			s += _T(" \t");
+		}
+
+		for(int ext = LogbookHTML::WINDR; ext < LogbookHTML::CURRENT; ext ++) // extend WINDR
+		{
+			temp = dialog->logGrids[1]->GetCellValue(r,ext);
 			s += dialog->replaceDangerChar(temp);
 			s += _T(" \t");
 		}
