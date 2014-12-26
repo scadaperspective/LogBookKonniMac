@@ -321,7 +321,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
 	m_gridWeather = new wxGrid( m_panel7, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxALWAYS_SHOW_SB );
 	
 	// Grid
-	m_gridWeather->CreateGrid( 0, 13 );
+	m_gridWeather->CreateGrid( 0, 15 );
 	m_gridWeather->EnableEditing( true );
 	m_gridWeather->EnableGridLines( true );
 	m_gridWeather->EnableDragGridSize( false );
@@ -334,13 +334,15 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
 	m_gridWeather->SetColSize( 3, 66 );
 	m_gridWeather->SetColSize( 4, 81 );
 	m_gridWeather->SetColSize( 5, 76 );
-	m_gridWeather->SetColSize( 6, 63 );
+	m_gridWeather->SetColSize( 6, 81 );
 	m_gridWeather->SetColSize( 7, 76 );
-	m_gridWeather->SetColSize( 8, 92 );
-	m_gridWeather->SetColSize( 9, 89 );
-	m_gridWeather->SetColSize( 10, 80 );
-	m_gridWeather->SetColSize( 11, 80 );
+	m_gridWeather->SetColSize( 8, 63 );
+	m_gridWeather->SetColSize( 9, 76 );
+	m_gridWeather->SetColSize( 10, 92 );
+	m_gridWeather->SetColSize( 11, 89 );
 	m_gridWeather->SetColSize( 12, 80 );
+	m_gridWeather->SetColSize( 13, 80 );
+	m_gridWeather->SetColSize( 14, 80 );
 	m_gridWeather->EnableDragColMove( false );
 	m_gridWeather->EnableDragColSize( true );
 	m_gridWeather->SetColLabelSize( 30 );
@@ -348,15 +350,17 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
 	m_gridWeather->SetColLabelValue( 1, _("Hygrometer") );
 	m_gridWeather->SetColLabelValue( 2, _("Air") );
 	m_gridWeather->SetColLabelValue( 3, _("Water") );
-	m_gridWeather->SetColLabelValue( 4, _("Wind") );
-	m_gridWeather->SetColLabelValue( 5, _("W/Strength") );
-	m_gridWeather->SetColLabelValue( 6, _("Current") );
-	m_gridWeather->SetColLabelValue( 7, _("C/Strength") );
-	m_gridWeather->SetColLabelValue( 8, _("Wave") );
-	m_gridWeather->SetColLabelValue( 9, _("Swell") );
-	m_gridWeather->SetColLabelValue( 10, _("Weather") );
-	m_gridWeather->SetColLabelValue( 11, _("Clouds") );
-	m_gridWeather->SetColLabelValue( 12, _("Visibility") );
+	m_gridWeather->SetColLabelValue( 4, _("TWA") );
+	m_gridWeather->SetColLabelValue( 5, _("TWS") );
+	m_gridWeather->SetColLabelValue( 6, _("AWA") );
+	m_gridWeather->SetColLabelValue( 7, _("AWS") );
+	m_gridWeather->SetColLabelValue( 8, _("Current") );
+	m_gridWeather->SetColLabelValue( 9, _("C/Strength") );
+	m_gridWeather->SetColLabelValue( 10, _("Wave") );
+	m_gridWeather->SetColLabelValue( 11, _("Swell") );
+	m_gridWeather->SetColLabelValue( 12, _("Weather") );
+	m_gridWeather->SetColLabelValue( 13, _("Clouds") );
+	m_gridWeather->SetColLabelValue( 14, _("Visibility") );
 	m_gridWeather->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Rows
@@ -706,7 +710,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
 	m_gridOverview->SetColSize( 18, 80 );
 	m_gridOverview->SetColSize( 19, 100 );
 	m_gridOverview->SetColSize( 20, 80 );
-	m_gridOverview->SetColSize( 21, 108 );
+	m_gridOverview->SetColSize( 21, 80 );
 	m_gridOverview->SetColSize( 22, 80 );
 	m_gridOverview->SetColSize( 23, 80 );
 	m_gridOverview->SetColSize( 24, 123 );
@@ -742,9 +746,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
 	m_gridOverview->SetColLabelValue( 18, _("Watermaker") );
 	m_gridOverview->SetColLabelValue( 19, _("Waterm. Outp") );
 	m_gridOverview->SetColLabelValue( 20, _("Water used") );
-	m_gridOverview->SetColLabelValue( 21, _("Winddirection Avg.") );
-	m_gridOverview->SetColLabelValue( 22, _("Wind Avg.") );
-	m_gridOverview->SetColLabelValue( 23, _("Wind Max.") );
+	m_gridOverview->SetColLabelValue( 21, _("TWA Avg.") );
+	m_gridOverview->SetColLabelValue( 22, _("TWS Avg.") );
+	m_gridOverview->SetColLabelValue( 23, _("TWS Max.") );
 	m_gridOverview->SetColLabelValue( 24, _("Currentdirection Avg.") );
 	m_gridOverview->SetColLabelValue( 25, _("Current Avg.") );
 	m_gridOverview->SetColLabelValue( 26, _("Current Max.") );
@@ -4361,7 +4365,7 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 		addColdFingerTextBlocks(m_menu1);
 	}
 
-	if(ev.GetCol() == 11 && (m_notebook8->GetSelection() == 1))
+	if(ev.GetCol() == 13 && (m_notebook8->GetSelection() == 1))
 	{
 		m_menu1->PrependSeparator();
 		wxString path = *pHome_Locn;
