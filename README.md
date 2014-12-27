@@ -150,16 +150,15 @@ Enable the Plugin
 Install Additional Files
 ========================
 
-There are 3 additional zip files distributed with the logbook, you will need to
-install at least 2 of them to make use of all of the features. First you should copy
+There are 2 additional zip files distributed with the logbook, you will need to
+install the layouts zip file to make use of all of the features. First you should copy
 these files to somewhere convenient, e.g. your home directory, desktop,
 etc.  They can be installed from there.  Either that or if you have the
 logbook source directory from git they can be installed directly from
 there.
 
 * LogbookKonni_Languages.zip (language data files -- included with binary packages)
-* LogbookKonni_Layouts.zip (layouts -- NOT included with packages)
-* LogbookKonni_Other.zip (help and other files -- NOT included with packages)
+* LogbookKonni_Layouts.zip (layouts help and other files -- NOT included with packages)
 
 ###Layouts
 
@@ -175,17 +174,6 @@ These are necessary to display data e.g. in a browser.
 Note that the layouts are customisable by the user and can be distributed to
 and shared with other OpenCPN logbook users.  If you have developed a useful
 custom layout for your logbook then please feel free to send us details.
-
-###Help
-
-These are necessary to get the logbook help window working.
-
-* Start OpenCPN
-* Select Options from the toolbar (spanner icon) and go to the Plugins tab.
-* Select the Logbook plugin
-* Click the Preferences button
-* In the dialog click "Install" below the label "Install Layouts"
-* In the file dialog select the file 'LogbookKonni_Other.zip'
 
 ###Languages
 
