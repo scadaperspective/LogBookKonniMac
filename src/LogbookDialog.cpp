@@ -2539,7 +2539,7 @@ void LogbookDialog::OnIdleMainDialog( wxIdleEvent& event )
 				{
 					logbookTimerWindow->popUp();
 					logbook->guardChange = true;
-					logbook->appendRow(false);
+					logbook->appendRow(true, true);
 					logbook->guardChange = false;
 				}
 			}
@@ -2560,7 +2560,7 @@ void LogbookDialog::OnToggleButtonEngine1( wxCommandEvent& event )
         logbookPlugIn->opt->toggleEngine1 = true;
         logbookPlugIn->opt->dtEngine1On = wxDateTime::Now();
 
-        logbook->appendRow(false);
+        logbook->appendRow(true, false);
 
         logbookPlugIn->opt->engine1Running = true;
         m_toggleBtnEngine1->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[1]);
@@ -2572,7 +2572,7 @@ void LogbookDialog::OnToggleButtonEngine1( wxCommandEvent& event )
         logbook->bRPM1 = false;
         logbook->dtEngine1Off = wxDateTime::Now().Subtract(logbookPlugIn->opt->dtEngine1On);
 
-        logbook->appendRow(false);
+        logbook->appendRow(true, false);
 
         logbookPlugIn->opt->dtEngine1On = -1;
         logbookPlugIn->opt->engine1Running = false;
@@ -2591,7 +2591,7 @@ void LogbookDialog::OnToggleButtonEngine2( wxCommandEvent& event )
         logbookPlugIn->opt->toggleEngine2 = true;
         logbookPlugIn->opt->dtEngine2On = wxDateTime::Now();
 
-        logbook->appendRow(false);
+        logbook->appendRow(true, false);
 
         logbookPlugIn->opt->engine2Running = true;
         m_toggleBtnEngine2->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[1]);
@@ -2602,7 +2602,7 @@ void LogbookDialog::OnToggleButtonEngine2( wxCommandEvent& event )
         logbookPlugIn->opt->toggleEngine2 = false;
         logbook->bRPM2 = false;
         logbook->dtEngine2Off = wxDateTime::Now().Subtract(logbookPlugIn->opt->dtEngine2On);
-        logbook->appendRow(false);
+        logbook->appendRow(true, false);
 
         logbookPlugIn->opt->dtEngine2On = -1;
         logbookPlugIn->opt->engine2Running = false;
@@ -3941,7 +3941,7 @@ void LogbookDialog::OnCheckboxSails( wxCommandEvent& event )
 void LogbookDialog::OnTimerSails(wxTimerEvent &event)
 {
     if(logbook->sailsMessage)
-        logbook->appendRow(false);
+        logbook->appendRow(true, true);
 }
 
 void LogbookDialog::stateSails()
@@ -4487,25 +4487,11 @@ wxTreeItemId LogbookDialog::FindMenuItem(int grid, int col, wxString name)
 
 void LogbookDialog::m_gridWeatherOnGridCellRightClick( wxGridEvent& ev )
 {
-/*
-	for(int i = 0; i < LOGGRIDS; i++)
-		logGrids[i]->ClearSelection();
-
-	selGridCol = ev.GetCol();
-	selGridRow = ev.GetRow();
- */
 	m_gridGlobalOnGridCellRightClick( ev );
 }
 
 void LogbookDialog::m_gridMotorSailsOnGridCellRightClick( wxGridEvent& ev )
 {
-/*
-	for(int i = 0; i < LOGGRIDS; i++)
-		logGrids[i]->ClearSelection();
-
-	selGridCol = ev.GetCol();
-	selGridRow = ev.GetRow();
-*/
 	m_gridGlobalOnGridCellRightClick( ev );
 }
 
@@ -4580,7 +4566,7 @@ void LogbookDialog::logViewOnButtonClick( wxCommandEvent& ev )
 
 void LogbookDialog::m_button4OnButtonClick( wxCommandEvent& ev )
 {
-	logbook->appendRow(true);
+	logbook->appendRow(true, false);
 }
 
 void LogbookDialog::startNormalTimer()
@@ -7206,10 +7192,10 @@ void SelectLogbook::OnInit(wxInitDialogEvent& ev)
 	wxDateTime dtfrom, dtto;
 	wxListItem itemCol;
 	wxString routeFrom, routeTo, description;
-    selRow = -1;
-    bool back = false;
+    	selRow = -1;
+    	bool back = false;
 
-    m_grid13->SetSelectionMode(wxGrid::wxGridSelectRows);
+    	m_grid13->SetSelectionMode(wxGrid::wxGridSelectRows);
 
 	wxDir::GetAllFiles(path,&files,_T("*logbook.txt"),wxDIR_FILES);
 
@@ -7218,71 +7204,74 @@ void SelectLogbook::OnInit(wxInitDialogEvent& ev)
 		wxFileName fn(files[i]);
 		filename = fn.GetName();
 
-        description = routeFrom = routeTo = wxEmptyString;
+		description = routeFrom = routeTo = wxEmptyString;
 
 
 		if(filename == _T("logbook"))
 			back = true;
 		else
-            back = false;
+            		back = false;
 
-        wxTextFile text(files[i]);
-        text.Open();
-        if(text.GetLineCount() > 1)
+        	wxTextFile text(files[i]);
+        	text.Open();
+        	if(text.GetLineCount() > 1)
 		{
-            wxString z = text.GetFirstLine();
-            if(!z.IsEmpty())
-            {
-                wxStringTokenizer header(z,_T("\t"));
-                header.GetNextToken();
-                description = header.GetNextToken();
-                description = parent->restoreDangerChar(description);
-                wxString t = text.GetNextLine();
-                wxStringTokenizer tk(t,_T("\t"));
-                routeFrom = tk.GetNextToken();
-                int month = wxAtoi(tk.GetNextToken());
-                int day = wxAtoi(tk.GetNextToken());
-                int year = wxAtoi(tk.GetNextToken());
-                dtfrom.Set(day,(wxDateTime::Month) month, year);
-            }
+            		wxString z = text.GetFirstLine();
+            		if(!z.IsEmpty())
+            		{
+                		wxStringTokenizer header(z,_T("\t"));
+                		header.GetNextToken();
+                		description = header.GetNextToken();
+                		description = parent->restoreDangerChar(description);
+                		wxString t = text.GetNextLine();
+                		wxStringTokenizer tk(t,_T("\t"));
+                		routeFrom = tk.GetNextToken();
+                		int month = wxAtoi(tk.GetNextToken());
+                		int day = wxAtoi(tk.GetNextToken());
+                		int year = wxAtoi(tk.GetNextToken());
+                		dtfrom.Set(day,(wxDateTime::Month) month, year);
+            		}
 
-            wxString last = text.GetLastLine();
-            if(!last.IsEmpty())
-            {
-                wxStringTokenizer ll(last,_T("\t"));
-                routeTo = ll.GetNextToken();
-                int monthTo = wxAtoi(ll.GetNextToken());
-                int dayTo = wxAtoi(ll.GetNextToken());
-                int yearTo = wxAtoi(ll.GetNextToken());
-                dtto.Set(dayTo,(wxDateTime::Month) monthTo, yearTo);
-            }
+            		wxString last = text.GetLastLine();
+            		if(!last.IsEmpty())
+            		{
+                		wxStringTokenizer ll(last,_T("\t"));
+                		routeTo = ll.GetNextToken();
+                		int monthTo = wxAtoi(ll.GetNextToken());
+                		int dayTo = wxAtoi(ll.GetNextToken());
+                		int yearTo = wxAtoi(ll.GetNextToken());
+                		dtto.Set(dayTo,(wxDateTime::Month) monthTo, yearTo);
+            		}
 		}
 
-        m_grid13->AppendRows();
-        if(back)
-        {
-            for(int col = 0; col < m_grid13->GetNumberCols(); col++)
-                    m_grid13->SetCellBackgroundColour(wxColour(_T("Green")),i,col);
-                description = _("Active Logbook");
-                m_grid13->SetReadOnly(i,2);
-        }
-        m_grid13->SetReadOnly(i,0);
-        m_grid13->SetReadOnly(i,1);
-        m_grid13->SetReadOnly(i,3);
-        if(text.GetLineCount() > 1)
-        {
-            m_grid13->SetCellValue(i,0,routeFrom+_T(" -> ")+routeTo);
-            if(dtfrom.IsValid() && dtto.IsValid())
-                m_grid13->SetCellValue(i,1,
-            wxString::Format(_T("%s - %s"),dtfrom.Format(parent->logbookPlugIn->opt->sdateformat).c_str(),dtto.Format(parent->logbookPlugIn->opt->sdateformat).c_str()));
-        }
-        m_grid13->SetCellValue(i,2,description);
-        m_grid13->SetCellEditor(i,2,new wxGridCellAutoWrapStringEditor);
-        m_grid13->SetCellValue(i,3,files[i]);
+        	m_grid13->AppendRows();
+        	if(back)
+        	{
+            		for(int col = 0; col < m_grid13->GetNumberCols(); col++)
+                    		m_grid13->SetCellBackgroundColour(wxColour(_T("Green")),i,col);
 
-        text.Close();
+                	description = _("Active Logbook");
+                	m_grid13->SetReadOnly(i,2);
+        	}
+        	m_grid13->SetReadOnly(i,0);
+        	m_grid13->SetReadOnly(i,1);
+        	m_grid13->SetReadOnly(i,3);
+        	if(text.GetLineCount() > 1)
+        	{
+            		m_grid13->SetCellValue(i,0,routeFrom+_T(" -> ")+routeTo);
+            		if(dtfrom.IsValid() && dtto.IsValid())
+                		m_grid13->SetCellValue(i,1,
+
+            		wxString::Format(_T("%s - %s"),dtfrom.Format(parent->logbookPlugIn->opt->sdateformat).c_str(),dtto.Format(parent->logbookPlugIn->opt->sdateformat).c_str()));
+        	}
+        	m_grid13->SetCellValue(i,2,description);
+        	m_grid13->SetCellEditor(i,2,new wxGridCellAutoWrapStringEditor);
+        	m_grid13->SetCellValue(i,3,files[i]);
+
+        	text.Close();
 	}
-    m_grid13->AutoSize();
+
+	m_grid13->AutoSize();
 }
 
 //////////////////////////// myGridStringTable /////////

@@ -160,7 +160,7 @@ public:
 	void loadSelectedData(wxString path);
 	void loadDatanew();
 	void deleteRow(int row);
-	void appendRow(bool mode);
+	void appendRow(bool showlastline, bool autoline);
 	void update();
 	void clearNMEAData();
 	void newLogbook();

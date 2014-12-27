@@ -247,7 +247,7 @@ void Logbook::SetSentence(wxString &sentence)
 			if(m_NMEA0183.Parse())
 			{
 				if(opt->showHeading == 0)
-					sCOW = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Hdt.DegreesTrue,opt->Deg.c_str());
+					sCOW = wxString::Format(_T("%5.2f%s"), m_NMEA0183.Hdt.DegreesTrue,opt->Deg.c_str());
 				dCOW = m_NMEA0183.Hdt.DegreesTrue;
 				bCOW = true;
 				dtCOW = wxDateTime::Now();
@@ -258,8 +258,26 @@ void Logbook::SetSentence(wxString &sentence)
 			if(m_NMEA0183.Parse())
 			{
 				if(opt->showHeading == 1)
-					sCOW = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Hdm.DegreesMagnetic,opt->Deg.c_str());
+					sCOW = wxString::Format(_T("%5.2f%s"), m_NMEA0183.Hdm.DegreesMagnetic,opt->Deg.c_str());
 				dCOW = m_NMEA0183.Hdm.DegreesMagnetic;
+				bCOW = true;
+				dtCOW = wxDateTime::Now();
+			}
+		}
+		else if(m_NMEA0183.LastSentenceIDReceived == _T("HDG"))
+		{
+			if(m_NMEA0183.Parse())
+			{
+				if(opt->showHeading == 0)
+				{
+					dCOW = m_NMEA0183.Hdg.MagneticVariationDirection == East ?  m_NMEA0183.Hdg.MagneticSensorHeadingDegrees + m_NMEA0183.Hdg.MagneticVariationDegrees : m_NMEA0183.Hdg.MagneticSensorHeadingDegrees - m_NMEA0183.Hdg.MagneticVariationDegrees;
+					sCOW = wxString::Format(_T("%5.2f%s"), dCOW, opt->Deg.c_str());
+				}
+				else
+				{
+					sCOW = wxString::Format(_T("%5.2f%s"), m_NMEA0183.Hdg.MagneticSensorHeadingDegrees, opt->Deg.c_str());
+					dCOW = m_NMEA0183.Hdg.MagneticSensorHeadingDegrees;
+				}
 				bCOW = true;
 				dtCOW = wxDateTime::Now();
 			}
@@ -294,7 +312,7 @@ void Logbook::SetSentence(wxString &sentence)
 				if(m_NMEA0183.Rmc.SpeedOverGroundKnots != 999.0)
 					sSOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.SpeedOverGroundKnots,opt->speed.c_str());
 				if(m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue != 999.0)
-					sCOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue, opt->Deg.c_str());
+					sCOG = wxString::Format(_T("%5.2f%s"), m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue, opt->Deg.c_str());
 				if(m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue != 999.0)
 					dCOG = m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue;
 
@@ -335,9 +353,9 @@ void Logbook::SetSentence(wxString &sentence)
 					dWind = m_NMEA0183.Mwv.WindAngle;
 
 				if(m_NMEA0183.Mwv.Reference == _T("T"))
-					sWindT = wxString::Format(_T("%3.0f %s"), dWind,opt->Deg.c_str());
+					sWindT = wxString::Format(_T("%3.0f%s"), dWind,opt->Deg.c_str());
 				else
-					sWindA = wxString::Format(_T("%3.0f %s"), dWind,opt->Deg.c_str());
+					sWindA = wxString::Format(_T("%3.0f%s"), dWind,opt->Deg.c_str());
 
 				wxString temp = _T("");
 				if(m_NMEA0183.Mwv.WindSpeedUnits == 'N')
@@ -379,7 +397,7 @@ void Logbook::SetSentence(wxString &sentence)
 					if(dWind > 360) { dWind -= 360; }
 				}
 
-				sWindT = wxString::Format(_T("%3.0f %s"), dWind,opt->Deg.c_str());
+				sWindT = wxString::Format(_T("%3.0f%s"), dWind,opt->Deg.c_str());
 
 				wxString temp = _T("");
 				temp = opt->windkts;
@@ -407,7 +425,7 @@ void Logbook::SetSentence(wxString &sentence)
 					if(dWind > 360) { dWind -= 360; }
 				}
 
-				sWindA = wxString::Format(_T("%3.0f %s"), dWind,opt->Deg.c_str());
+				sWindA = wxString::Format(_T("%3.0f%s"), dWind,opt->Deg.c_str());
 
 				wxString temp = _T("");
 				temp = opt->windkts;
@@ -461,15 +479,45 @@ void Logbook::SetSentence(wxString &sentence)
 				}
 			}
 		}
+		else if(m_NMEA0183.LastSentenceIDReceived == _T("DPT"))
+		{			
+			m_NMEA0183.Parse();
+			dtDepth = wxDateTime::Now();
+			bDepth = true;
+			if(m_NMEA0183.Dpt.ErrorMessage.Contains(_T("Invalid")))
+			{
+				sDepth = _T("-----");
+			}
+			else
+			{
+				switch(opt->showDepth)
+				{
+				case 0:
+					sDepth = wxString::Format(_T("%5.1f %s"), 
+						m_NMEA0183.Dpt.DepthMeters, opt->meter.c_str());
+					break;
+				case 1:
+					sDepth = wxString::Format(_T("%5.1f %s"), 
+						m_NMEA0183.Dpt.DepthMeters / 0.3048, opt->feet.c_str());
+					break;
+				case 2:
+					sDepth = wxString::Format(_T("%5.1f %s"), 
+						m_NMEA0183.Dpt.DepthMeters / 1.8288, opt->fathom.c_str());
+					break;
+				}
+			}
+		}
+
+
 	}
 
-	/*  Propietary NMEA sentences														*/
-	/*																					*/
-	/*  use function appendRow to add the values to the grid							*/
-	/*  For motorhours and/or fuel recalculate the grid with							*/
-	/*	changeCellValue(lastRow, 0,0)													*/
+	/*  Propietary NMEA sentences								*/
+	/*											*/
+	/*  use function appendRow to add the values to the grid 				*/
+	/*  For motorhours and/or fuel recalculate the grid with				*/
+	/*	changeCellValue(lastRow, 0,0)							*/
 	/*	In function checkGPS(bool appendClick) set the strings to emtpy string when GPS */
-	/*  is off.																			*/
+	/*  is off.										*/
 
 	wxStringTokenizer tkz(sentence,_T(","));
 	wxString sentenceInd = tkz.GetNextToken();
@@ -492,7 +540,7 @@ void Logbook::SetSentence(wxString &sentence)
 		tkz.GetNextToken().ToDouble(&t);
 		if(opt->temperature == _T("F"))
 			t = (( t * 9 ) / 5 ) + 32;
-		sTemperatureAir = wxString::Format(_T("%2.2f %s %s"),t,opt->Deg.c_str(),opt->temperature.c_str());
+		sTemperatureAir = wxString::Format(_T("%2.2f%s %s"),t,opt->Deg.c_str(),opt->temperature.c_str());
 
 		tkz.GetNextToken();
 		tkz.GetNextToken();
@@ -530,7 +578,7 @@ void Logbook::SetSentence(wxString &sentence)
 						opt->dtEngine1On = wxDateTime::Now();
 						if(opt->engineMessageSails && opt->engineAllwaysSailsDown)
 							dialog->resetSails();
-						appendRow(false);
+						appendRow(true, true);
 					}
 					opt->engine1Running = true;
 				}
@@ -546,7 +594,7 @@ void Logbook::SetSentence(wxString &sentence)
 					opt->dtEngine1On = -1;
 					if(opt->engineMessageSails)
 						dialog->stateSails();
-					appendRow(false);
+					appendRow(true, true);
 					opt->engine1Running = false;
 				}
 			}
@@ -567,7 +615,7 @@ void Logbook::SetSentence(wxString &sentence)
 						opt->dtEngine2On = wxDateTime::Now();
 						if(opt->engineMessageSails && opt->engineAllwaysSailsDown)
 							dialog->resetSails();
-						appendRow(false);
+						appendRow(true, true);
 					}
 					opt->engine2Running = true;
 				}
@@ -583,7 +631,7 @@ void Logbook::SetSentence(wxString &sentence)
 					opt->dtEngine2On = -1;
 					if(opt->engineMessageSails)
 						dialog->resetSails();
-					appendRow(false);
+					appendRow(true, true);
 					opt->engine2Running = false;
 				}
 			}
@@ -726,7 +774,7 @@ void Logbook::newLogbook()
 	}
 	else
 	{
-		appendRow(true);
+		appendRow(true, false);
 		dialog->logGrids[0]->SetCellValue(0,13,_("Last Logbook is\n")+ss);
 	}
 
@@ -1339,14 +1387,14 @@ void Logbook::switchToActuellLogbook()
 }
 
 
-void Logbook::appendRow(bool mode)
+void Logbook::appendRow(bool showlastline, bool autoline)
 {
 	wxString s;
 
 	if(dialog->m_gridGlobal->IsSelection())
 		dialog->deselectAllLogbookGrids();
 
-	checkGPS(mode);
+	checkGPS(autoline);
 
 	if(noAppend) return;
 	modified = true;
@@ -1612,7 +1660,7 @@ void Logbook::appendRow(bool mode)
 
 	dialog->m_gridGlobal->SetReadOnly(lastRow,6);
 
-	if(mode)
+	if(showlastline)
 	{
 		dialog->m_gridGlobal->MakeCellVisible(lastRow,0);
 		dialog->m_gridWeather->MakeCellVisible(lastRow,0);
@@ -1633,7 +1681,7 @@ void Logbook::resetEngineManuallMode()
 	bRPM2 = false;
 	dtEngine2Off = wxDateTime::Now().Subtract(opt->dtEngine2On);
 
-	appendRow(false);
+	appendRow(true, false);
 
 	opt->dtEngine1On = -1;
 	opt->dtEngine2On = -1;
@@ -1706,7 +1754,7 @@ void Logbook::checkNMEADeviceIsOn()
 		sRPM2 = wxEmptyString;
 		sRPM2Shaft = wxEmptyString;
 
-		appendRow(false);
+		appendRow(true, true);
 		opt->engine1Running = false;
 		opt->engine2Running = false;
 	}
@@ -1779,7 +1827,7 @@ void Logbook::checkCourseChanged()
 			dialog->logbookTimerWindow->popUp();
 			timer = true;
 			courseChange = true;
-			appendRow(false);
+			appendRow(true, true);
 			courseChange = false;
 		}
 	}
@@ -1792,7 +1840,7 @@ void Logbook::checkWayPoint(RMB rmb)
 	dialog->logbookTimerWindow->popUp();
 	tempRMB = rmb;
 	waypointArrived = true;
-	appendRow(false);
+	appendRow(true, true);
 	waypointArrived = false;
 	lastWayPoint = rmb.From;
 }
@@ -1826,7 +1874,7 @@ void Logbook::checkGuardChanged()
 		if(append) 
 		{ 
 			guardChange = true;
-			appendRow(false);
+			appendRow(true, true);
 			guardChange = false;
 		}
 		dLastMinute = m_minute + 1;
@@ -1855,7 +1903,7 @@ void Logbook::checkDistance()
 	{
 		dialog->logbookTimerWindow->popUp();
 		everySM = true;	
-		appendRow(false);
+		appendRow(true, true);
 		everySM = false;
 		oldPosition = newPosition;
 	}
@@ -3059,7 +3107,7 @@ wxString Logbook::toSDMMOpenCPN ( int NEflag, double a, bool hi_precision )
 	return s;
 }
 
-bool Logbook::checkGPS(bool appendClick)
+bool Logbook::checkGPS(bool autoLine)
 {
 	sLogText = _T("");
 
@@ -3067,10 +3115,10 @@ bool Logbook::checkGPS(bool appendClick)
 	{
 		if(opt->showWindHeading == 1 && !bCOW)
 		{
-			sLogText = _("Wind is set to Heading,\nbut GPS sends no Heading Data.\nWind is set now to Realative to boat\n\n"); 
+			sLogText = _("Wind is set to Heading,\nbut GPS sends no Heading Data.\nWind is set now to Relative to boat\n\n"); 
 			opt->showWindHeading = 0;
 		}
-		if(courseChange && !appendClick)
+		if(courseChange && autoLine)
 			sLogText += opt->courseChangeText+opt->courseChangeDegrees+opt->Deg;
 		else if(guardChange)
 			sLogText += opt->guardChangeText;
@@ -3091,9 +3139,9 @@ bool Logbook::checkGPS(bool appendClick)
 			}
 
 		}
-		else if(everySM && !appendClick)
+		else if(everySM && autoLine)
 			sLogText += opt->everySMText+opt->everySMAmount+opt->distance;
-		else if((dialog->timer->IsRunning() || opt->timerType != 0) && !appendClick)
+		else if((dialog->timer->IsRunning() || opt->timerType != 0) && autoLine)
 			sLogText += opt->ttext;
 
 		return true;

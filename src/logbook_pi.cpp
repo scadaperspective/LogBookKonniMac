@@ -211,7 +211,7 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
             m_plogbook_window->logbook->MOB_GUID = data.Item(_T("GUID")).AsString();
             m_plogbook_window->logbook->MOBIsActive = true;
 
-            m_plogbook_window->logbook->appendRow(false);
+            m_plogbook_window->logbook->appendRow(true, false);
         }
         else if(message_id == _T("POLAR_SAVE_LOGBOOK"))
         {
@@ -306,7 +306,7 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 		if(!m_plogbook_window)
 			startLogbook();
 
-		m_plogbook_window->logbook->appendRow(false);
+		m_plogbook_window->logbook->appendRow(true, true);
 		int lastRow = m_plogbook_window->m_gridGlobal->GetRows()-1;
 
 		m_plogbook_window->m_gridGlobal->SetCellValue(lastRow,13,data.Item(_T("Remarks")).AsString());
@@ -1514,7 +1514,7 @@ void LogbookTimer::OnTimer(wxTimerEvent& ev)
 void LogbookTimer::timerEvent()
 {
 	if(popUp())
-		plogbook_pi->m_plogbook_window->logbook->appendRow(false);
+		plogbook_pi->m_plogbook_window->logbook->appendRow(true, true);
 }
 
 bool LogbookTimer::popUp()
