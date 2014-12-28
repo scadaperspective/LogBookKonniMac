@@ -624,7 +624,7 @@ enum FORMAT {HTML,ODT};
 		wxGrid* m_gridMaintenanceBuyParts;
         wxPanel* m_panelPolar;
 
-		LogbookDialog( logbookkonni_pi* d, wxTimer* t, LogbookTimer* lt, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Active Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1010,535 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSTAY_ON_TOP);
+		LogbookDialog( logbookkonni_pi* d, wxTimer* t, LogbookTimer* lt, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Active Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1010,535 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
 		~LogbookDialog();
 		
 		void m_gridGlobalOnContextMenu( wxMouseEvent &event )
