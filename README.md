@@ -23,8 +23,8 @@ Layouts zip file (the languages zip file is already included in the distribution
 If the binaries for your platform are not there, then just stand by, we have several
 people contributing binaries and it takes a few days to get them in from everyone.
 
-How to use the Plugin
-=====================
+After Installing the Plugin
+===========================
 
 ###Enable the Plugin
 
@@ -33,41 +33,6 @@ How to use the Plugin
 * Select the Logbook plugin and click Enable to enable the plugin.
 
 ###Install Additional Files
-
-There are 2 additional zip files distributed with the logbook, you will need to
-install the layouts zip file to make use of all of the features. First you should copy
-these files to somewhere convenient, e.g. your home directory, desktop,
-etc.  They can be installed from there.  Either that or if you have the
-logbook source directory from git they can be installed directly from
-there.
-
-* LogbookKonni_Languages.zip (language data files -- included with binary packages)
-* LogbookKonni_Layouts.zip (layouts help and other files -- NOT included with packages)
-
-###Layouts
-
-These are necessary to display data e.g. in a browser.
-
-* Start OpenCPN
-* Select Options from the toolbar (spanner icon) and go to the Plugins tab.
-* Select the Logbook plugin
-* Click the Preferences button
-* In the dialog click "Install" below the label "Install Layouts"
-* In the file dialog select the file 'LogbookKonni_Layouts.zip'
-
-Note that the layouts are customisable by the user and can be distributed to
-and shared with other OpenCPN logbook users.  If you have developed a useful
-custom layout for your logbook then please feel free to send us details.
-
-Enable the Plugin
-=================
-
-* Start OpenCPN
-* Select Options from the toolbar (spanner icon) and go to the Plugins tab.
-* Select the Logbook plugin and click Enable to enable the plugin.
-
-Install Additional Files
-========================
 
 There are 2 additional zip files distributed with the logbook, you will need to
 install the layouts zip file to make use of all of the features. First you should copy
