@@ -17,11 +17,16 @@ The latest binary release can be found here:
 https://github.com/delatbabel/LogbookKonni-1.2/releases/tag/v1.2011
 
 You should be able to find binaries (RPM and DEB) for Linux as well as some for
-Windows and MacOS there.  There are also two zip files present, you only need the
+Windows and OSX there.  There are also two zip files present, you only need the
 Layouts zip file (the languages zip file is already included in the distribution).
 
 If the binaries for your platform are not there, then just stand by, we have several
 people contributing binaries and it takes a few days to get them in from everyone.
+
+If you can't find the latest OSX release here then have a look at ptulp's fork
+of this repository here, he has the latest OSX version built:
+
+https://github.com/ptulp/LogbookKonni-1.2/releases/
 
 After Installing the Plugin
 ===========================
