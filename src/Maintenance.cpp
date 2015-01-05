@@ -245,7 +245,6 @@ void Maintenance::setAlignmentRepairs()
 	repairs->SetCellAlignment(lastRowRepairs,RPRIORITY,wxALIGN_CENTER, wxALIGN_TOP);
 	repairs->SetCellAlignment(lastRowRepairs,RTEXT,wxALIGN_LEFT, wxALIGN_TOP);
 	repairs->SetCellEditor(lastRowRepairs,RTEXT,new wxGridCellAutoWrapStringEditor);
-
 	repairs->SetCellEditor(lastRowRepairs,RPRIORITY,new myGridCellChoiceEditor(6,m_Priority,false));
 }
 

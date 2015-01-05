@@ -344,18 +344,6 @@ void Logbook::SetSentence(wxString &sentence)
 			if(m_NMEA0183.Parse())
 			{
 				double dWind = 0;
-				if(opt->showWindHeading && bCOW)
-				{
-					dWind = m_NMEA0183.Mwv.WindAngle + dCOW;
-					if(dWind > 360) { dWind -= 360; }
-				}
-				else
-					dWind = m_NMEA0183.Mwv.WindAngle;
-
-				if(m_NMEA0183.Mwv.Reference == _T("T"))
-					sWindT = wxString::Format(_T("%3.0f%s"), dWind,opt->Deg.c_str());
-				else
-					sWindA = wxString::Format(_T("%3.0f%s"), dWind,opt->Deg.c_str());
 
 				wxString temp = _T("");
 				if(m_NMEA0183.Mwv.WindSpeedUnits == 'N')
@@ -367,12 +355,23 @@ void Logbook::SetSentence(wxString &sentence)
 
 				if(m_NMEA0183.Mwv.Reference == _T("T"))
 				{
+					if(opt->showWindHeading && bCOW)
+					{
+						dWind = m_NMEA0183.Mwv.WindAngle + dCOW;
+						if(dWind > 360) { dWind -= 360; }
+					}
+					else
+						dWind = m_NMEA0183.Mwv.WindAngle;
+
+					sWindT = wxString::Format(_T("%3.0f%s"), dWind,opt->Deg.c_str());
 					sWindSpeedT = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Mwv.WindSpeed,temp.c_str());
 					dtWindT = wxDateTime::Now();
 					bWindT = true;
 				}
 				else
 				{
+					dWind = m_NMEA0183.Mwv.WindAngle;
+					sWindA = wxString::Format(_T("%3.0f%s"), dWind,opt->Deg.c_str());
 					sWindSpeedA = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Mwv.WindSpeed,temp.c_str());
 					dtWindA = wxDateTime::Now();
 					bWindA = true;
@@ -417,12 +416,6 @@ void Logbook::SetSentence(wxString &sentence)
 				if(m_NMEA0183.Vwr.DirectionOfWind == Left)
 				{
 					dWind = 360 - dWind;
-				}
-
-				if(opt->showWindHeading && bCOW)
-				{
-					dWind = dWind + dCOW;
-					if(dWind > 360) { dWind -= 360; }
 				}
 
 				sWindA = wxString::Format(_T("%3.0f%s"), dWind,opt->Deg.c_str());
@@ -958,7 +951,7 @@ void Logbook::loadData()
 			case 2:     day = wxAtoi(s);
 				break;
 			case 3:		year = wxAtoi(s);
-				if(month != 0 && day != 0 && year != 0)
+				if(month >= 0 && day != 0 && year != 0)
 				{
 					dt.Set(day,(wxDateTime::Month)month,year);
 					dialog->m_gridGlobal->SetCellValue(row,RDATE,dt.Format(opt->sdateformat));

@@ -214,7 +214,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_checkBoxShowLogbook->SetValue(true); 
 	fgSizer29->Add( m_checkBoxShowLogbook, 0, wxALIGN_CENTER_VERTICAL|wxALL, 0 );
 	
-	m_staticText76 = new wxStaticText( m_panel15, wxID_ANY, _("Show Position Fomat"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText76 = new wxStaticText( m_panel15, wxID_ANY, _("Show Position Format"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText76->Wrap( -1 );
 	fgSizer29->Add( m_staticText76, 0, wxALL|wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT, 0 );
 	
@@ -608,7 +608,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	fgSizer91->Add( m_staticText34, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticText31 = new wxStaticText( m_panel16, wxID_ANY, _("Degres"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText31 = new wxStaticText( m_panel16, wxID_ANY, _("Degrees"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText31->Wrap( -1 );
 	fgSizer91->Add( m_staticText31, 0, wxALIGN_CENTER_VERTICAL, 5 );
 #ifdef __WXOSX__
@@ -1864,7 +1864,7 @@ void LogbookOptions::OnButtonOKClick(wxCommandEvent &ev)
 		(m_sSec->IsEmpty()) || m_sSec->GetValue().Len() != 1)
 	{
 #ifdef __WXOSX__
-        MessageBoxOSX(NULL,_("Please fill in one character in Degrees, Minuts and Seconds"),_T("Information"),wxID_OK);
+        MessageBoxOSX(NULL,_("Please fill in one character in Degrees, Minutes and Seconds"),_T("Information"),wxID_OK);
         return;
 #else
 		wxMessageBox(_("Please fill in one character in Degrees, Minutes and Seconds"));
