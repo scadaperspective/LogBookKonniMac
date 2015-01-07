@@ -63,12 +63,12 @@
 #define LINE_FEED       wxString(wxChar(0x0A))
 
 
-typedef enum _NMEA0183_BOOLEAN
+typedef enum _NMEA0183L_BOOLEAN
 {
    Unknown0183 = 0,
    NTrue,
    NFalse
-} NMEA0183_BOOLEAN;
+} NMEA0183L_BOOLEAN;
 
 typedef enum _leftright
 {
@@ -150,4 +150,4 @@ wxString& talker_id( const wxString& sentence );
 
 #include "nmea0183.hpp"
 
-#endif // NMEA0183_HEADER
+#endif // NMEA0183L_HEADER

@@ -94,7 +94,7 @@ bool VTG::Parse( const SENTENCE& sentence )
 
       int target_field_count = 8;
 
-      NMEA0183_BOOLEAN check = sentence.IsChecksumBad( 9 );
+      NMEA0183L_BOOLEAN check = sentence.IsChecksumBad( 9 );
 
       if ( check == NTrue )
       {

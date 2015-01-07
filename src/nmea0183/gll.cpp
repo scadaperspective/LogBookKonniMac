@@ -88,7 +88,7 @@ bool GLL::Parse( const SENTENCE& sentence )
 
       int target_field_count = 6;
 
-      NMEA0183_BOOLEAN check = sentence.IsChecksumBad( 7 );
+      NMEA0183L_BOOLEAN check = sentence.IsChecksumBad( 7 );
 
       if ( check == NTrue )
       {

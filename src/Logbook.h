@@ -31,7 +31,7 @@ private:
 		char   WEflag;
 				}oldPosition,newPosition;
 
-	NMEA0183       	m_NMEA0183;
+	NMEA0183L      	m_NMEA0183;
 	RMB		tempRMB;
 	wxString	sLat;
 	wxString	sLon;
