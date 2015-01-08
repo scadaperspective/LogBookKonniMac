@@ -229,12 +229,12 @@ bool NMEA0183L::IsGood( void ) const
    ** Next to last character must be a CR
    */
 
-   if ( sentence.Sentence.Mid( sentence.Sentence.Len() - 2, 1 ) != CARRIAGE_RETURN )
+   if ( sentence.Sentence.Mid( sentence.Sentence.Len() - 2, 1 ) != wxString(_T("\r")) )
    {
       return( FALSE );
    }
 
-   if ( sentence.Sentence.Right( 1 ) != LINE_FEED)
+   if ( sentence.Sentence.Right( 1 ) != _T("\n") )
    {
       return( FALSE );
    }
@@ -245,6 +245,10 @@ bool NMEA0183L::IsGood( void ) const
 
 bool NMEA0183L::PreParse( void )
 {
+    wxCharBuffer buf = sentence.Sentence.ToUTF8();
+    if( !buf.data() )                            // badly formed sentence?
+        return false;
+    
       if ( IsGood() )
       {
             wxString mnemonic = sentence.Field( 0 );

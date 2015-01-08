@@ -31,13 +31,6 @@
 
 
 #include "nmea0183.h"
-#include <math.h>
-
-#if !defined(NAN)
-static const long long lNaN = 0xfff8000000000000;
-#define NAN (*(double*)&lNaN)
-
-#endif
 
 /*
 ** Author: Samuel R. Blackburn
@@ -136,29 +129,18 @@ COMMUNICATIONS_MODE SENTENCE::CommunicationsMode( int field_number ) const
 
 unsigned char SENTENCE::ComputeChecksum( void ) const
 {
-//   ASSERT_VALID( this );
-
    unsigned char checksum_value = 0;
-#ifdef __WXOSX__
-   char str_ascii[101];
-   strncpy(str_ascii, (const char *)Sentence.mb_str(), 99);
-   str_ascii[100] = '\0';
-#endif
 
-   int string_length = Sentence.Len();
+   int string_length = Sentence.Length();
    int index = 1; // Skip over the $ at the begining of the sentence
 
    while( index < string_length    &&
-          Sentence[ index ] != '*' &&
-          Sentence[ index ] != CARRIAGE_RETURN &&
-          Sentence[ index ] != LINE_FEED )
+       Sentence[ index ] != '*' &&
+       Sentence[ index ] != CARRIAGE_RETURN &&
+       Sentence[ index ] != LINE_FEED )
    {
-#ifdef __WXOSX__
-      checksum_value ^= str_ascii[ index ];
-#else
-      checksum_value ^= (unsigned char)(Sentence[ index ]);
-#endif
-      index++;
+       checksum_value ^= (char)Sentence[ index ];
+       index++;
    }
 
    return( checksum_value );
@@ -167,10 +149,11 @@ unsigned char SENTENCE::ComputeChecksum( void ) const
 double SENTENCE::Double( int field_number ) const
 {
  //  ASSERT_VALID( this );
-      if(Field( field_number ).Len() == 0)
-            return 999.;
-
-      return( ::atof( Field( field_number ).mb_str() ) );
+    wxCharBuffer abuf = Field( field_number).ToUTF8();
+    if( !abuf.data() )                            // badly formed sentence?
+        return (999.);
+ 
+    return( ::atof( abuf.data() ));
 }
 
 
@@ -215,6 +198,9 @@ const wxString& SENTENCE::Field( int desired_field_number ) const
       {
          current_field_number++;
       }
+
+      if( Sentence[ index ] == '*')
+          return_string += Sentence[ index ];
 
       index++;
    }
@@ -271,7 +257,7 @@ void SENTENCE::Finish( void )
 
    wxString temp_string;
 
-   temp_string.Printf(_T("*%02X%s%s"), (int) checksum, CARRIAGE_RETURN.c_str(), LINE_FEED.c_str() );
+   temp_string.Printf(_T("*%02X%c%c"), (int) checksum, CARRIAGE_RETURN, LINE_FEED );
    Sentence += temp_string;
 }
 
@@ -279,7 +265,11 @@ int SENTENCE::Integer( int field_number ) const
 {
 //   ASSERT_VALID( this );
 
-    return( ::atoi( Field( field_number ).mb_str() ) );
+    wxCharBuffer abuf = Field( field_number).ToUTF8();
+    if( !abuf.data() )                            // badly formed sentence?
+        return 0;
+    
+    return( ::atoi( abuf.data() ));
 }
 
 NMEA0183L_BOOLEAN SENTENCE::IsChecksumBad( int checksum_field_number ) const
@@ -297,7 +287,8 @@ NMEA0183L_BOOLEAN SENTENCE::IsChecksumBad( int checksum_field_number ) const
       return( Unknown0183 );
    }
 
-   if ( ComputeChecksum() != HexValue( checksum_in_sentence ) )
+   wxString check = checksum_in_sentence.Mid( 1 );
+   if ( ComputeChecksum() != HexValue( check ) )
    {
       return( NTrue );
    }
