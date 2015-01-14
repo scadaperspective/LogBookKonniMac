@@ -54,7 +54,7 @@ RESPONSE::~RESPONSE()
    ErrorMessage.Empty();
 }
 
-void RESPONSE::SetContainer( NMEA0183 *container )
+void RESPONSE::SetContainer( NMEA0183L *container )
 {
    container_p = container;
 }

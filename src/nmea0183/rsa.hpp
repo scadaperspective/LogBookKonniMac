@@ -55,9 +55,9 @@ class RSA : public RESPONSE
       */
 
       double           Starboard;
-      NMEA0183_BOOLEAN IsStarboardDataValid;
+      NMEA0183L_BOOLEAN IsStarboardDataValid;
       double           Port;
-      NMEA0183_BOOLEAN IsPortDataValid;
+      NMEA0183L_BOOLEAN IsPortDataValid;
 
       /*
       ** Methods

@@ -20,7 +20,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,  USA.             *
  ***************************************************************************
  *
  *   S Blackburn's original source license:                                *
@@ -50,6 +50,7 @@
 #include "wx/string.h"
 #include "wx/list.h"
 #include "wx/arrstr.h"
+#include <wx/math.h>
 
 /*
 ** Turn off the warning about precompiled headers, it is rather annoying
@@ -59,16 +60,16 @@
 #pragma warning( disable : 4699 )
 #endif
 
-#define CARRIAGE_RETURN wxString(wxChar(0x0D))
-#define LINE_FEED       wxString(wxChar(0x0A))
+#define CARRIAGE_RETURN 0x0D
+#define LINE_FEED       0x0A
 
 
-typedef enum _NMEA0183_BOOLEAN
+typedef enum _NMEA0183L_BOOLEAN
 {
    Unknown0183 = 0,
    NTrue,
    NFalse
-} NMEA0183_BOOLEAN;
+} NMEA0183L_BOOLEAN;
 
 typedef enum _leftright
 {
@@ -150,4 +151,4 @@ wxString& talker_id( const wxString& sentence );
 
 #include "nmea0183.hpp"
 
-#endif // NMEA0183_HEADER
+#endif // NMEA0183L_HEADER

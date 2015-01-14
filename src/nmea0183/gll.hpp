@@ -54,7 +54,7 @@ class GLL : public RESPONSE
       */
 
       wxString          UTCTime;
-      NMEA0183_BOOLEAN IsDataValid;
+      NMEA0183L_BOOLEAN IsDataValid;
       LATLONG          Position;
 
       /*

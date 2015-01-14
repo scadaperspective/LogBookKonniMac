@@ -104,7 +104,7 @@ bool RMC::Parse( const SENTENCE& sentence )
    ** First we check the checksum...
    */
 
-   NMEA0183_BOOLEAN check = sentence.IsChecksumBad( 12 );
+   NMEA0183L_BOOLEAN check = sentence.IsChecksumBad( 12 );
 
    if ( check == NTrue )
    {

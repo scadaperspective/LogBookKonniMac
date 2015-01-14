@@ -99,7 +99,7 @@ bool RMB::Parse( const SENTENCE& sentence )
    ** First we check the checksum...
    */
 
-   NMEA0183_BOOLEAN check = sentence.IsChecksumBad( 14 );
+   NMEA0183L_BOOLEAN check = sentence.IsChecksumBad( 14 );
 
    if ( check == NTrue )
    {
@@ -155,7 +155,7 @@ bool RMB::Write( SENTENCE& sentence )
 
    sentence.Finish();
 
-//   NMEA0183_BOOLEAN check = sentence.IsChecksumBad( 14 );
+//   NMEA0183L_BOOLEAN check = sentence.IsChecksumBad( 14 );
 
    return( TRUE );
 }
