@@ -193,13 +193,15 @@ class LogbookOptions : public wxDialog
         wxStaticText* m_staticText129;
         wxStaticText* m_staticText1291;
         wxPanel* m_panel28;
-        wxCheckBox* m_checkBoxUseRPMOnOff;
+	wxStaticText* m_staticTextUseRPM;
         wxStaticText* m_staticTextRPMSentence;
         wxToggleButton* m_toggleBtnRPMCheck;
-        wxStaticText* m_staticText138;
+        wxCheckBox* m_checkBoxEng1RPM;
         wxTextCtrl* m_textCtrlEngine1;
-        wxStaticText* m_staticText139;
+        wxCheckBox* m_checkBoxEng2RPM;
         wxTextCtrl* m_textCtrlEngine2;
+        wxCheckBox* m_checkBoxGenRPM;
+        wxTextCtrl* m_textCtrlGenerator;
         wxButton* m_buttonToSailsSpace;
         wxStaticText* m_staticText1351;
         wxButton* m_buttonBackToSails;
@@ -235,6 +237,7 @@ class LogbookOptions : public wxDialog
         virtual void onCheckBoxToolTips( wxCommandEvent& event );
         virtual void OnChoiceNoEngines( wxCommandEvent& event );
         virtual void OnCheckBoxEngineMessage( wxCommandEvent& event );
+        virtual void OnCheckBoxGeneratorMessage( wxCommandEvent& event );
         virtual void OnCheckBoxEngineRunning( wxCommandEvent& event );
         virtual void onCheckBoNoGPS( wxCommandEvent& event );
         virtual void onButtonClickInstallHTMLFiles( wxCommandEvent& event );
@@ -253,7 +256,9 @@ class LogbookOptions : public wxDialog
         virtual void onButtonClickMail( wxCommandEvent& event );
         virtual void onButtonHTMLEditor( wxCommandEvent& event );
         virtual void OnButtonResetPaths( wxCommandEvent& event );
-        virtual void OnCheckBoxUseRPM( wxCommandEvent& event );
+	virtual void OnCheckBoxEng1RPM( wxCommandEvent& event );
+	virtual void OnCheckBoxEng2RPM( wxCommandEvent& event );
+	virtual void OnCheckBoxGenRPM( wxCommandEvent& event );
         virtual void OnToggleButtonRPMCheck( wxCommandEvent& event );
         virtual void OnButtonToSailsSpace( wxCommandEvent& event );
         virtual void onButtonBackToSails( wxCommandEvent& event );
@@ -264,7 +269,10 @@ class LogbookOptions : public wxDialog
         virtual void OnButtonSpaceReset( wxCommandEvent& event );
         virtual void OnCancel( wxCommandEvent& event );
         virtual void OnButtonOKClick( wxCommandEvent& event );
-    
+        virtual void OnTextEng1IdEntry( wxCommandEvent& event );
+        virtual void OnTextEng2IdEntry( wxCommandEvent& event );
+        virtual void OnTextGenIdEntry( wxCommandEvent& event );
+   
 	public:
         wxRadioButton* m_radioBtnLocal;
         wxChoice* m_choiceTzIndicator;
@@ -316,6 +324,7 @@ class LogbookOptions : public wxDialog
         wxFlexGridSizer* fgSizerSailsCheckboxes;
         wxCheckBox* m_checkBoxEngine;
         wxCheckBox* m_checkBoxEngineRunning;
+        wxCheckBox* m_checkBoxGenerator;
 
 #ifdef __WXOSX__
         LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi* log_pi, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(680,700), long style = wxDEFAULT_DIALOG_STYLE|wxVSCROLL );
@@ -352,6 +361,6 @@ class LogbookOptions : public wxDialog
 		void updateChoiceBoxes();
 		void setDateEnabled(int i);
 		void resetToOldDateTimeFormat();
-        void setUseRPM(bool bIsChecked);
+        void setUseRPM();
 };
 #endif

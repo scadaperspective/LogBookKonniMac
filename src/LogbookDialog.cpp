@@ -157,8 +157,11 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
 	
 	m_toggleBtnEngine2 = new wxToggleButton( m_panelEngine, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer49->Add( m_toggleBtnEngine2, 0, wxALIGN_CENTER_VERTICAL|wxRIGHT|wxLEFT, 0 );
-		
-	bSizer45->Add( bSizer49, 0, wxRIGHT|wxLEFT, 5 );
+
+    m_toggleBtnGenerator = new wxToggleButton( m_panelEngine, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+    bSizer49->Add( m_toggleBtnGenerator, 0, wxALIGN_CENTER_VERTICAL|wxRIGHT|wxLEFT, 0 );
+    
+    bSizer45->Add( bSizer49, 0, wxRIGHT|wxLEFT|wxBOTTOM, 5 );
 	
 	fgSizerSails = new wxFlexGridSizer( 3, 5, 0, 0 );
 	fgSizerSails->SetFlexibleDirection( wxBOTH );
@@ -2085,6 +2088,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
     m_bpButtonShowHideLayout->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtomClickShowHideLayout ), NULL, this );
     m_toggleBtnEngine1->Connect( wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnToggleButtonEngine1 ), NULL, this );
     m_toggleBtnEngine2->Connect( wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnToggleButtonEngine2 ), NULL, this );
+    m_toggleBtnGenerator->Connect( wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnToggleButtonGenerator ), NULL, this );
 
 	m_notebook8->Connect( wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED, wxNotebookEventHandler( LogbookDialog::OnNotebookPageChangedLoggrids ), NULL, this );
 	m_bpButtonShowHideStatusGlobal->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtomClickStatusbarGlobal ), NULL, this );
@@ -2346,6 +2350,7 @@ LogbookDialog::~LogbookDialog()
     m_bpButtonShowHideLayout->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtomClickShowHideLayout ), NULL, this );
     m_toggleBtnEngine1->Disconnect( wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnToggleButtonEngine1 ), NULL, this );
     m_toggleBtnEngine2->Disconnect( wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnToggleButtonEngine2 ), NULL, this );
+    m_toggleBtnGenerator->Disconnect( wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnToggleButtonGenerator ), NULL, this );
     m_buttonSailsReset->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtonClickResetSails ), NULL, this );
 	m_gridMaintanence->Disconnect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::onGridCellLeftClickService ), NULL, this );
 	m_gridCrewWake->Disconnect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellRightClickWake ), NULL, this );
@@ -2556,27 +2561,12 @@ void LogbookDialog::OnToggleButtonEngine1( wxCommandEvent& event )
         SendPluginMessage(_T("LOGBOOK_ENGINEBUTTON1"), _T("ON"));
         if(logbookPlugIn->opt->engineMessageSails && logbookPlugIn->opt->engineAllwaysSailsDown)
             resetSails();
-        logbook->bRPM1 = true;
-        logbookPlugIn->opt->toggleEngine1 = true;
-        logbookPlugIn->opt->dtEngine1On = wxDateTime::Now();
-
-        logbook->appendRow(true, false);
-
-        logbookPlugIn->opt->engine1Running = true;
-        m_toggleBtnEngine1->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[1]);
+        startEngine1(true, true, true);
     }
     else
     {
         SendPluginMessage(_T("LOGBOOK_ENGINEBUTTON1"), _T("OFF"));
-        logbookPlugIn->opt->toggleEngine1 = false;
-        logbook->bRPM1 = false;
-        logbook->dtEngine1Off = wxDateTime::Now().Subtract(logbookPlugIn->opt->dtEngine1On);
-
-        logbook->appendRow(true, false);
-
-        logbookPlugIn->opt->dtEngine1On = -1;
-        logbookPlugIn->opt->engine1Running = false;
-        m_toggleBtnEngine1->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[0]);
+        stopEngine1(true, true);
     }
 }
 
@@ -2587,26 +2577,26 @@ void LogbookDialog::OnToggleButtonEngine2( wxCommandEvent& event )
         SendPluginMessage(_T("LOGBOOK_ENGINEBUTTON2"), _T("ON"));
         if(logbookPlugIn->opt->engineMessageSails && logbookPlugIn->opt->engineAllwaysSailsDown)
             resetSails();
-        logbook->bRPM2 = true;
-        logbookPlugIn->opt->toggleEngine2 = true;
-        logbookPlugIn->opt->dtEngine2On = wxDateTime::Now();
-
-        logbook->appendRow(true, false);
-
-        logbookPlugIn->opt->engine2Running = true;
-        m_toggleBtnEngine2->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[1]);
+        startEngine2(true, true, true);
     }
     else
     {
         SendPluginMessage(_T("LOGBOOK_ENGINEBUTTON2"), _T("OFF"));
-        logbookPlugIn->opt->toggleEngine2 = false;
-        logbook->bRPM2 = false;
-        logbook->dtEngine2Off = wxDateTime::Now().Subtract(logbookPlugIn->opt->dtEngine2On);
-        logbook->appendRow(true, false);
+        stopEngine2(true, true, true);
+    }
+}
 
-        logbookPlugIn->opt->dtEngine2On = -1;
-        logbookPlugIn->opt->engine2Running = false;
-        m_toggleBtnEngine2->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[0]);
+void LogbookDialog::OnToggleButtonGenerator( wxCommandEvent& event )
+{
+    if(event.IsChecked())
+    {
+        SendPluginMessage(_T("LOGBOOK_GENERATORBUTTON"), _T("ON"));
+        startGenerator(true, true, true);
+    }
+    else
+    {
+        SendPluginMessage(_T("LOGBOOK_GENERATORBUTTON"), _T("OFF"));
+        stopGenerator(true, true, true);
     }
 }
 
@@ -3848,27 +3838,24 @@ Backup Logbook(*.txt)|*.txt");
     onOff[1] = _(" on");
     m_toggleBtnEngine1->SetValue(logbookPlugIn->opt->toggleEngine1);
     m_toggleBtnEngine2->SetValue(logbookPlugIn->opt->toggleEngine2);
-    m_toggleBtnEngine1->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[(int) m_toggleBtnEngine1->GetValue()]);
-    m_toggleBtnEngine2->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[(int) m_toggleBtnEngine2->GetValue()]);
+
+    m_toggleBtnGenerator->SetValue(logbookPlugIn->opt->toggleGenerator);
 
     logbook->bRPM1 = logbookPlugIn->opt->engine1Running;
     logbook->bRPM2 = logbookPlugIn->opt->engine2Running;
+    logbook->bGEN = logbookPlugIn->opt->generatorRunning;
 
     setToNumberEngine();
-
-    m_toggleBtnEngine1->Enable(!logbookPlugIn->opt->bRPMIsChecked);
-    if(logbookPlugIn->opt->engines == 1)
-        m_toggleBtnEngine2->Enable(!logbookPlugIn->opt->bRPMIsChecked);
-    else
-        m_toggleBtnEngine2->Enable(false);
-
-    if((!logbookPlugIn->opt->toggleEngine1 && logbookPlugIn->opt->engine1Running) ||
-            (!logbookPlugIn->opt->toggleEngine2 && logbookPlugIn->opt->engine2Running))
+    setShowGenerator();
+                         
+    if((!logbookPlugIn->opt->toggleEngine1 && logbookPlugIn->opt->engine1Running)
+       || (!logbookPlugIn->opt->toggleEngine2 && logbookPlugIn->opt->engine2Running)
+       || (!logbookPlugIn->opt->toggleGenerator && logbookPlugIn->opt->generatorRunning))
     {
         logbook->rpmSentence = true;
         logbook->dtRPM = wxDateTime::Now();
     }
-
+                         
 #ifdef PBVE_DEBUG
 	if(PBVE_DEBUG)
 	{
@@ -4003,21 +3990,224 @@ void LogbookDialog::setToNumberEngine()
         m_gridMotorSails->SetColumnWidth(LogbookHTML::MOTOR1,0);
         m_gridMotorSails->SetColumnWidth(LogbookHTML::MOTOR1T,0);
         m_gridMotorSails->SetColumnWidth(LogbookHTML::RPM2,0);
+        m_toggleBtnEngine1->Enable(!logbookPlugIn->opt->bEng1RPMIsChecked);
+        m_toggleBtnEngine1->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[(int) m_toggleBtnEngine1->GetValue()]);
         m_toggleBtnEngine2->Enable(false);
+        m_toggleBtnEngine2->SetLabel("-----------");
     }
     else
     {
-	m_gridMotorSails->SetColumnWidth(LogbookHTML::MOTOR1,1);
+        m_gridMotorSails->SetColumnWidth(LogbookHTML::MOTOR1,1);
         m_gridMotorSails->AutoSizeColumn(LogbookHTML::MOTOR1,false);
-	m_gridMotorSails->SetColumnWidth(LogbookHTML::MOTOR1T,1);
+        m_gridMotorSails->SetColumnWidth(LogbookHTML::MOTOR1T,1);
         m_gridMotorSails->AutoSizeColumn(LogbookHTML::MOTOR1T,false);
-	m_gridMotorSails->SetColumnWidth(LogbookHTML::RPM2,1);
+        m_gridMotorSails->SetColumnWidth(LogbookHTML::RPM2,1);
         m_gridMotorSails->AutoSizeColumn(LogbookHTML::RPM2,false);
-        m_toggleBtnEngine1->Enable(true);
-        m_toggleBtnEngine2->Enable(true);
+        m_toggleBtnEngine1->Enable(!logbookPlugIn->opt->bEng1RPMIsChecked);
+        m_toggleBtnEngine1->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[(int) m_toggleBtnEngine1->GetValue()]);
+        m_toggleBtnEngine2->Enable(!logbookPlugIn->opt->bEng2RPMIsChecked);
+        m_toggleBtnEngine2->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[(int) m_toggleBtnEngine2->GetValue()]);
     }
     m_panel2->Layout();
     Refresh();
+}
+
+void LogbookDialog::setShowGenerator()
+{
+        if(logbookPlugIn->opt->generator == 1)
+        {
+            m_gridMotorSails->SetColumnWidth(LogbookHTML::GENE,1);
+            m_gridMotorSails->AutoSizeColumn(LogbookHTML::GENE,false);
+            m_gridMotorSails->SetColumnWidth(LogbookHTML::GENET,1);
+            m_gridMotorSails->AutoSizeColumn(LogbookHTML::GENET,false);
+            m_toggleBtnGenerator->Enable(!logbookPlugIn->opt->bGenRPMIsChecked);
+            m_toggleBtnGenerator->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::GENE)+onOff[(int) m_toggleBtnGenerator->GetValue()]);
+        }
+        else
+        {
+            m_gridMotorSails->SetColumnWidth(LogbookHTML::GENE,0);
+            m_gridMotorSails->SetColumnWidth(LogbookHTML::GENET,0);
+            m_toggleBtnGenerator->Enable(false);
+            m_toggleBtnGenerator->SetLabel("-----------");
+
+        }
+    m_panel2->Layout();
+    Refresh();
+}
+
+void LogbookDialog::stopEngine1(bool enabled, bool print)
+{
+    logbook->bRPM1 = false;
+    if(logbookPlugIn->opt->engine1Running)
+        logbook->dtEngine1Off = wxDateTime::Now().Subtract(logbookPlugIn->opt->dtEngine1On);
+    logbookPlugIn->opt->dtEngine1On = -1;
+    if(print)
+        logbook->appendRow(true, false);
+    logbookPlugIn->opt->engine1Running = false;
+    logbookPlugIn->opt->toggleEngine1 = false;
+    m_toggleBtnEngine1->SetValue(false);
+    m_toggleBtnEngine1->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[0]);
+    if(enabled)
+    {
+        m_toggleBtnEngine1->Enable(true);
+    }
+    else
+    {
+        m_toggleBtnEngine1->Enable(false);
+    }
+}
+
+void LogbookDialog::stopEngine2(bool enabled, bool show, bool print)
+{
+    logbook->bRPM2 = false;
+    if(logbookPlugIn->opt->engine2Running)
+        logbook->dtEngine2Off = wxDateTime::Now().Subtract(logbookPlugIn->opt->dtEngine2On);
+    logbookPlugIn->opt->dtEngine2On = -1;
+    if(print)
+        logbook->appendRow(true, false);
+    logbookPlugIn->opt->engine2Running = false;
+    logbookPlugIn->opt->toggleEngine2 = false;
+    m_toggleBtnEngine2->SetValue(false);
+    if(enabled)
+    {
+        m_toggleBtnEngine2->Enable(true);
+    }
+    else
+    {
+        m_toggleBtnEngine2->Enable(false);
+    }
+    if(show)
+    {
+        m_toggleBtnEngine2->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[0]);
+    }
+    else
+    {
+        m_toggleBtnEngine2->SetLabel("-----------");
+    }
+
+}
+                         
+void LogbookDialog::stopGenerator(bool enabled, bool show, bool print)
+{
+    logbook->bGEN = false;
+    if(logbookPlugIn->opt->generatorRunning)
+        logbook->dtGeneratorOff = wxDateTime::Now().Subtract(logbookPlugIn->opt->dtGeneratorOn);
+    logbookPlugIn->opt->dtGeneratorOn = -1;
+    if(print)
+        logbook->appendRow(true, false);
+    logbookPlugIn->opt->generatorRunning = false;
+    logbookPlugIn->opt->toggleGenerator = false;
+    m_toggleBtnGenerator->SetValue(false);
+    if(enabled)
+    {
+        m_toggleBtnGenerator->Enable(true);
+    }
+    else
+    {
+        m_toggleBtnGenerator->Enable(false);
+    }
+    if(show)
+    {
+        m_toggleBtnGenerator->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::GENE)+onOff[0]);
+    }
+    else
+    {
+        m_toggleBtnGenerator->SetLabel("-----------");
+    }
+}
+                         
+void LogbookDialog::startEngine1(bool enabled, bool active, bool print)
+{
+    
+    logbookPlugIn->opt->dtEngine1On = wxDateTime::Now();
+    if(enabled)
+    {
+        logbook->bRPM1 = true;
+        m_toggleBtnEngine1->Enable(true);
+        m_toggleBtnEngine1->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[1]);
+        logbook->engine1Manual = true;
+    }
+    else
+    {
+        logbook->bRPM1 = true; //Set for NMEA RPM message
+        m_toggleBtnEngine1->Enable(false);
+        m_toggleBtnEngine1->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[0]);
+        logbook->engine1Manual = false;
+    }
+    if(active)
+    {
+        logbookPlugIn->opt->toggleEngine1 = true;
+    }
+    else
+    {
+        logbookPlugIn->opt->toggleEngine1 = false;
+    }
+    if(print)
+        logbook->appendRow(true, false);
+    logbookPlugIn->opt->engine1Running = true;
+}
+    
+void LogbookDialog::startEngine2(bool enabled, bool active, bool print)
+{
+        
+    logbookPlugIn->opt->dtEngine2On = wxDateTime::Now();
+    if(enabled)
+    {
+        logbook->bRPM2 = true;
+        m_toggleBtnEngine2->Enable(true);
+        m_toggleBtnEngine2->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[1]);
+        logbook->engine2Manual = true;
+    }
+    else
+    {
+        logbook->bRPM2 = true;  //Set for NMEA RPM message
+        m_toggleBtnEngine2->Enable(false);
+        m_toggleBtnEngine2->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[0]);
+        logbook->engine2Manual = false;
+    }
+    if(active)
+    {
+        logbookPlugIn->opt->toggleEngine2 = true;
+    }
+    else
+    {
+        logbookPlugIn->opt->toggleEngine2 = false;
+    }
+    if(print)
+        logbook->appendRow(true, false);
+    logbookPlugIn->opt->engine2Running = true;
+}
+                         
+void LogbookDialog::startGenerator(bool enabled, bool active, bool print)
+{
+        
+    logbookPlugIn->opt->dtGeneratorOn = wxDateTime::Now();
+    if(enabled)
+    {
+        logbook->bGEN = true;
+        m_toggleBtnGenerator->Enable(true);
+        m_toggleBtnGenerator->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::GENE)+onOff[1]);
+        logbook->generatorManual = true;
+    }
+    else
+    {
+        logbook->bGEN = true;  //Set for NMEA RPM message
+        m_toggleBtnGenerator->Enable(false);
+        m_toggleBtnGenerator->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::GENE)+onOff[0]);
+        logbook->generatorManual = false;
+    }
+    if(active)
+    {
+        logbookPlugIn->opt->toggleGenerator = true;
+    }
+    else
+    {
+        logbookPlugIn->opt->toggleGenerator = false;
+    }
+    if(print)
+        logbook->appendRow(true, false);
+    logbookPlugIn->opt->generatorRunning = true;
+
 }
 
 void LogbookDialog::loadTimerEx()
@@ -4259,26 +4449,29 @@ void LogbookDialog::OnMenuSelectionShowHiddenCols(wxCommandEvent &ev)
 	int selGrid = this->m_notebook8->GetSelection();
 	for(int i = 0; i < logGrids[selGrid]->GetNumberCols(); i++)
 		if(logGrids[selGrid]->GetColumnWidth(i) == 0)
-        	{
-			if((selGrid == 2 && logbookPlugIn->opt->engines == 0) && ((i == LogbookHTML::MOTOR1 || i == LogbookHTML::MOTOR1T) || i == LogbookHTML::RPM2) )
+        {
+			if((selGrid == 2 && logbookPlugIn->opt->engines == 0) && ((i == LogbookHTML::MOTOR1 || i == LogbookHTML::MOTOR1T) || i == LogbookHTML::RPM2
+                                                                     || (i == LogbookHTML::GENE || i == LogbookHTML::GENET)) )
 				continue;
-            		else
+            else
 #ifdef __WXOSX__
-            			{
+            {
 				logGrids[selGrid]->SetColumnWidth(i,1);
-                		logGrids[selGrid]->AutoSizeColumn(i,false);
-            			}
+                logGrids[selGrid]->AutoSizeColumn(i,false);
+            }
 #else
-                		logGrids[selGrid]->AutoSizeColumn(i,false);
+                logGrids[selGrid]->AutoSizeColumn(i,false);
 #endif
-        	}	
+        }
  
 	m_gridMotorSails->SetColumnWidth(LogbookHTML::ROUTEID,0);
 	m_gridMotorSails->SetColumnWidth(LogbookHTML::TRACKID,0);
     
 	if(logbookPlugIn->opt->engines == 0)
-        	setToNumberEngine();
+        setToNumberEngine();
 
+    setShowGenerator();
+    
 	logGrids[selGrid]->Refresh();
 }
 
