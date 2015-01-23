@@ -3854,6 +3854,12 @@ Backup Logbook(*.txt)|*.txt");
     {
         logbook->rpmSentence = true;
         logbook->dtRPM = wxDateTime::Now();
+        if(logbookPlugIn->opt->engine1Running && logbookPlugIn->opt->bEng1RPMIsChecked)
+           m_toggleBtnEngine1->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[1]);
+        if(logbookPlugIn->opt->engine2Running && logbookPlugIn->opt->bEng2RPMIsChecked)
+            m_toggleBtnEngine2->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[1]);
+        if(logbookPlugIn->opt->generatorRunning && logbookPlugIn->opt->bGenRPMIsChecked)
+            m_toggleBtnGenerator->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::GENE)+onOff[1]);
     }
                          
 #ifdef PBVE_DEBUG
@@ -3993,7 +3999,7 @@ void LogbookDialog::setToNumberEngine()
         m_toggleBtnEngine1->Enable(!logbookPlugIn->opt->bEng1RPMIsChecked);
         m_toggleBtnEngine1->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[(int) m_toggleBtnEngine1->GetValue()]);
         m_toggleBtnEngine2->Enable(false);
-        m_toggleBtnEngine2->SetLabel("-----------");
+        m_toggleBtnEngine2->SetLabel(_T("-----------"));
     }
     else
     {
@@ -4028,7 +4034,7 @@ void LogbookDialog::setShowGenerator()
             m_gridMotorSails->SetColumnWidth(LogbookHTML::GENE,0);
             m_gridMotorSails->SetColumnWidth(LogbookHTML::GENET,0);
             m_toggleBtnGenerator->Enable(false);
-            m_toggleBtnGenerator->SetLabel("-----------");
+            m_toggleBtnGenerator->SetLabel(_T("-----------"));
 
         }
     m_panel2->Layout();
@@ -4082,7 +4088,7 @@ void LogbookDialog::stopEngine2(bool enabled, bool show, bool print)
     }
     else
     {
-        m_toggleBtnEngine2->SetLabel("-----------");
+        m_toggleBtnEngine2->SetLabel(_T("-----------"));
     }
 
 }
@@ -4112,7 +4118,7 @@ void LogbookDialog::stopGenerator(bool enabled, bool show, bool print)
     }
     else
     {
-        m_toggleBtnGenerator->SetLabel("-----------");
+        m_toggleBtnGenerator->SetLabel(_T("-----------"));
     }
 }
                          
