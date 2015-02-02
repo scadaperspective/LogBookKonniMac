@@ -5571,6 +5571,7 @@ void LogbookDialog::m_gridCrewWakeOnGridCellChange( wxGridEvent& ev )
 	crewList->updateWatchTime(0,ev.GetCol(),&insertCols);
 	m_gridCrewWake->EndBatch();
 	insertCols = false;
+	m_buttonCalculate->Enable();
 
 	crewList->updateLine();
 
@@ -6693,7 +6694,7 @@ bool LogbookDialog::myParseDate(wxString s, wxDateTime &dt)
     return false;
 #else
 	s = wxString::Format(_T("%i/%i/%i"),month,day,year);
-	if(dt.ParseDate(s))
+	if(dt.ParseFormat(s, _T("%m/%d/%Y")))
 		return true;
 	else
 		return false;
