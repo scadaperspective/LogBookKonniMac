@@ -2198,7 +2198,6 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
 
 	m_splitterWatch->Connect( wxEVT_COMMAND_SPLITTER_SASH_POS_CHANGED, wxSplitterEventHandler( LogbookDialog::OnSplitterSashPositionChangedWake ), NULL, this );
 	m_buttonSetTimer->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtonClickStatusTimer ), NULL, this );
-	m_buttonSetTimer->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtonClickStatusTimer ), NULL, this );
 	m_bpButtonTimer->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnStatusBulletTimer ), NULL, this );
 	m_bpButtonWatch->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnStatusBulletWatch ), NULL, this );
 	m_bpButton8Waypoint->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnStatusBulletWaypoint ), NULL, this );
@@ -2841,6 +2840,7 @@ void LogbookDialog::OnButtonClickStatusTimer( wxCommandEvent& event )
 	TimerInterval* ti = new TimerInterval(this,logbookPlugIn->opt);
 	ti->ShowModal();
 	delete ti;
+        this->Raise();
 }
 
 void LogbookDialog::OnStatusBulletTimer( wxCommandEvent& event )
@@ -3348,6 +3348,7 @@ void LogbookDialog::onButtonClickEditLayoutLogbook(wxCommandEvent & ev)
 
 	showLayoutDialog(LogbookDialog::LOGBOOK, logbookChoice,logbook->layout_locn, format);
 	logGrids[m_logbook->GetSelection()]->SetFocus();
+	this->Raise();
 }
 
 int LogbookDialog::showLayoutDialog(int grid, wxChoice *choice, wxString location, int format)
@@ -3999,7 +4000,7 @@ void LogbookDialog::setToNumberEngine()
         m_toggleBtnEngine1->Enable(!logbookPlugIn->opt->bEng1RPMIsChecked);
         m_toggleBtnEngine1->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[(int) m_toggleBtnEngine1->GetValue()]);
         m_toggleBtnEngine2->Enable(false);
-        m_toggleBtnEngine2->SetLabel(_T("-----------"));
+	m_toggleBtnEngine2->Hide();
     }
     else
     {
@@ -4011,6 +4012,7 @@ void LogbookDialog::setToNumberEngine()
         m_gridMotorSails->AutoSizeColumn(LogbookHTML::RPM2,false);
         m_toggleBtnEngine1->Enable(!logbookPlugIn->opt->bEng1RPMIsChecked);
         m_toggleBtnEngine1->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[(int) m_toggleBtnEngine1->GetValue()]);
+	m_toggleBtnEngine2->Show();
         m_toggleBtnEngine2->Enable(!logbookPlugIn->opt->bEng2RPMIsChecked);
         m_toggleBtnEngine2->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[(int) m_toggleBtnEngine2->GetValue()]);
     }
@@ -4026,6 +4028,7 @@ void LogbookDialog::setShowGenerator()
             m_gridMotorSails->AutoSizeColumn(LogbookHTML::GENE,false);
             m_gridMotorSails->SetColumnWidth(LogbookHTML::GENET,1);
             m_gridMotorSails->AutoSizeColumn(LogbookHTML::GENET,false);
+	    m_toggleBtnGenerator->Show();
             m_toggleBtnGenerator->Enable(!logbookPlugIn->opt->bGenRPMIsChecked);
             m_toggleBtnGenerator->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::GENE)+onOff[(int) m_toggleBtnGenerator->GetValue()]);
         }
@@ -4034,8 +4037,7 @@ void LogbookDialog::setShowGenerator()
             m_gridMotorSails->SetColumnWidth(LogbookHTML::GENE,0);
             m_gridMotorSails->SetColumnWidth(LogbookHTML::GENET,0);
             m_toggleBtnGenerator->Enable(false);
-            m_toggleBtnGenerator->SetLabel(_T("-----------"));
-
+	    m_toggleBtnGenerator->Hide();
         }
     m_panel2->Layout();
     Refresh();
@@ -4084,11 +4086,12 @@ void LogbookDialog::stopEngine2(bool enabled, bool show, bool print)
     }
     if(show)
     {
+	m_toggleBtnEngine2->Show();
         m_toggleBtnEngine2->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[0]);
     }
     else
     {
-        m_toggleBtnEngine2->SetLabel(_T("-----------"));
+	m_toggleBtnEngine2->Hide();
     }
 
 }
@@ -4114,11 +4117,12 @@ void LogbookDialog::stopGenerator(bool enabled, bool show, bool print)
     }
     if(show)
     {
+	m_toggleBtnGenerator->Show();
         m_toggleBtnGenerator->SetLabel(m_gridMotorSails->GetColLabelValue(LogbookHTML::GENE)+onOff[0]);
     }
     else
     {
-        m_toggleBtnGenerator->SetLabel(_T("-----------"));
+	m_toggleBtnGenerator->Hide();
     }
 }
                          

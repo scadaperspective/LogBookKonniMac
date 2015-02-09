@@ -784,6 +784,13 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 
 void logbookkonni_pi::OnToolbarToolCallback(int id)
 {
+#ifdef __WXOSX__
+	if(dlgShow && !m_plogbook_window->IsIconized())
+	{
+		m_plogbook_window->Raise();
+		return;
+	}
+#endif
 	dlgShow = !dlgShow;
       // show the Logbook dialog
 	if(NULL == m_plogbook_window)
