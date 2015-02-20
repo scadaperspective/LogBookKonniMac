@@ -142,10 +142,13 @@ public:
 	wxDateTime	dtRPM;
 	bool		engine1Manual;
 	bool		engine2Manual;
+    bool        generatorManual;
 	wxTimeSpan	dtEngine1Off;
 	wxTimeSpan	dtEngine2Off;
+    wxTimeSpan  dtGeneratorOff;
 	bool		bRPM2;
 	bool		bRPM1;
+    bool        bGEN;
 	bool		sailsMessage;
 	int		sailsState;
 	int		oldSailsState;
@@ -178,7 +181,7 @@ public:
 	void deleteRows();
     void setTrackToNewID(wxString target);
     void checkNMEADeviceIsOn();
-    void resetEngineManuallMode();
+    void resetEngineManualMode(int enginenumber);
 
 	static wxString makeDateFromFile(wxString date, wxString dateformat);
 	static wxString makeWatchtimeFromFile(wxString time, wxString timeformat);

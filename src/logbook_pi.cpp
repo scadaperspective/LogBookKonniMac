@@ -180,11 +180,12 @@ void logbookkonni_pi::shutdown(bool menu)
 		m_plogbook_window->setIniValues();
 
 		if((opt->engine1Running && opt->toggleEngine1)
-            || (opt->engine2Running && opt->toggleEngine2))
+            || (opt->engine2Running && opt->toggleEngine2)
+            || (opt->generatorRunning && opt->toggleGenerator))
         {
             int a = wxMessageBox(_("Your engine(s) are still running\n\nStop engine(s) ?"),_T(""),wxYES_NO | wxICON_QUESTION, NULL);
             if( a == wxYES)
-                m_plogbook_window->logbook->resetEngineManuallMode();
+                m_plogbook_window->logbook->resetEngineManualMode(0);
         }
         SaveConfig();
 		m_plogbook_window->Close();
@@ -783,6 +784,13 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 
 void logbookkonni_pi::OnToolbarToolCallback(int id)
 {
+#ifdef __WXOSX__
+	if(dlgShow && !m_plogbook_window->IsIconized())
+	{
+		m_plogbook_window->Raise();
+		return;
+	}
+#endif
 	dlgShow = !dlgShow;
       // show the Logbook dialog
 	if(NULL == m_plogbook_window)
@@ -977,17 +985,27 @@ void logbookkonni_pi::SaveConfig()
             pConf->Write ( _T ( "KMLTrackColor" ), opt->kmlTrackColor);
 
             pConf->Write ( _T ( "RPMIsChecked" ), opt->bRPMIsChecked);
+            pConf->Write ( _T ( "Eng1RPMIsChecked" ), opt->bEng1RPMIsChecked);
+            pConf->Write ( _T ( "Eng2RPMIsChecked" ), opt->bEng2RPMIsChecked);
+            pConf->Write ( _T ( "GenRPMIsChecked" ), opt->bGenRPMIsChecked);
+
             pConf->Write ( _T ( "NMEAUseRPM" ), opt->NMEAUseERRPM);
             pConf->Write ( _T ( "NMEAUseWIMDA" ), opt->NMEAUseWIMDA);
-            pConf->Write ( _T ( "Engine1" ), opt->engine1);
-            pConf->Write ( _T ( "Engine2" ), opt->engine2);
+            pConf->Write ( _T ( "Engine1" ), opt->engine1Id);
+            pConf->Write ( _T ( "Engine2" ), opt->engine2Id);
             pConf->Write ( _T ( "Engine1Runs" ), opt->engine1Running);
             pConf->Write ( _T ( "Engine2Runs" ), opt->engine2Running);
+
+            pConf->Write ( _T ( "Generator" ), opt->generator);
+            pConf->Write ( _T ( "GeneratorId" ), opt->generatorId);
+
+            pConf->Write ( _T ( "GeneratorRuns" ), opt->generatorRunning);
 
             pConf->Write ( _T ( "ShowLayoutP" ), opt->layoutShow);
 
             pConf->Write ( _T ( "toggleEngine1" ), opt->toggleEngine1);
             pConf->Write ( _T ( "toggleEngine2" ), opt->toggleEngine2);
+            pConf->Write ( _T ( "toggleGenerator" ), opt->toggleGenerator);
 
             wxString sails = wxEmptyString;
             sails = wxString::Format(_T("%i,%i,"),opt->rowGap,opt->colGap);
@@ -1007,6 +1025,12 @@ void logbookkonni_pi::SaveConfig()
                     opt->dtEngine2On.FormatISOTime());
             else
                 pConf->Write ( _T ( "Engine2TimeStart" ),wxEmptyString);
+
+            if(opt->dtGeneratorOn.IsValid())
+                pConf->Write ( _T ( "GeneratorTimeStart" ), opt->dtGeneratorOn.FormatISODate()+_T(" ")+
+                            opt->dtGeneratorOn.FormatISOTime());
+            else
+                pConf->Write ( _T ( "GeneratorTimeStart" ),wxEmptyString);
 
             writeCols(pConf,opt->NavColWidth,		_T("NavGridColWidth"));
             writeCols(pConf,opt->WeatherColWidth,	_T("WeatherGridColWidth"));
@@ -1189,17 +1213,26 @@ void logbookkonni_pi::LoadConfig()
             pConf->Read ( _T ( "KMLTrackColor" ), &opt->kmlTrackColor,3);
 
             pConf->Read ( _T ( "RPMIsChecked" ), &opt->bRPMIsChecked,false);
+            pConf->Read ( _T ( "Eng1RPMIsChecked" ), &opt->bEng1RPMIsChecked,false);
+            pConf->Read ( _T ( "Eng2RPMIsChecked" ), &opt->bEng2RPMIsChecked,false);
+            pConf->Read ( _T ( "GenRPMIsChecked" ), &opt->bGenRPMIsChecked,false);
+
             pConf->Read ( _T ( "NMEAUseRPM" ), &opt->NMEAUseERRPM,false);
             pConf->Read ( _T ( "NMEAUseWIMDA" ), &opt->NMEAUseWIMDA,false);
-            pConf->Read ( _T ( "Engine1" ), &opt->engine1,_T(""));
-            pConf->Read ( _T ( "Engine2" ), &opt->engine2,_T(""));
+            pConf->Read ( _T ( "Engine1" ), &opt->engine1Id,_T(""));
+            pConf->Read ( _T ( "Engine2" ), &opt->engine2Id,_T(""));
             pConf->Read ( _T ( "Engine1Runs" ), &opt->engine1Running);
             pConf->Read ( _T ( "Engine2Runs" ), &opt->engine2Running);
+
+            pConf->Read ( _T ( "Generator" ), &opt->generator,false);
+            pConf->Read ( _T ( "GeneratorId" ), &opt->generatorId,_T(""));
+            pConf->Read ( _T ( "GeneratorRuns" ), &opt->generatorRunning);
 
             pConf->Read ( _T ( "ShowLayoutP" ), &opt->layoutShow,true);
 
             pConf->Read ( _T ( "toggleEngine1" ), &opt->toggleEngine1);
             pConf->Read ( _T ( "toggleEngine2" ), &opt->toggleEngine2);
+            pConf->Read ( _T ( "toggleGenerator" ), &opt->toggleGenerator);
 
             wxString sails = wxEmptyString;
             pConf->Read ( _T ( "Sails" ), &sails);
@@ -1220,9 +1253,10 @@ void logbookkonni_pi::LoadConfig()
                 }
             }
 
-            wxString engine1 = wxEmptyString, engine2 = wxEmptyString;
+            wxString engine1 = wxEmptyString, engine2 = wxEmptyString, genny = wxEmptyString;
             pConf->Read ( _T ( "Engine1TimeStart" ), &engine1);
             pConf->Read ( _T ( "Engine2TimeStart" ), &engine2);
+            pConf->Read ( _T ( "GeneratorTimeStart" ), &genny);
 
             if(!engine1.IsEmpty())
             {
@@ -1251,6 +1285,21 @@ void logbookkonni_pi::LoadConfig()
                 if(dt.GetYear() != 1970)
                     opt->dtEngine2On = dt;
             }
+
+            if(!genny.IsEmpty())
+            {
+                wxStringTokenizer tkz(genny,_T(" "));
+                wxString date = tkz.GetNextToken();
+                wxString time = tkz.GetNextToken();
+
+                wxDateTime dt;
+                dt.ParseDate(date);
+                dt.ParseTime(time);
+              
+                if(dt.GetYear() != 1970)
+                    opt->dtGeneratorOn = dt;
+            }
+          
 
 			bool r;
           r = pConf->Read (_T ( "NavGridColWidth"),&str);

@@ -104,6 +104,8 @@ Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString
 	bRPM1 = false;
 	dtEngine2Off = -1;
 	bRPM2 = false;
+	dtGeneratorOff = -1;
+	bGEN = false;
 	sRPM1Shaft = wxEmptyString;
 	sRPM1Source = wxEmptyString;
 	sRPM2Shaft = wxEmptyString;
@@ -189,7 +191,11 @@ void Logbook::clearNMEAData()
 void Logbook::SetSentence(wxString &sentence)
 {
 	wxDateTime dt;
-	m_NMEA0183 << sentence;
+    wxString    onOff[2];
+    onOff[0] = _(" off");
+    onOff[1] = _(" on");
+
+    m_NMEA0183 << sentence;
 
 #ifdef PBVE_DEBUG
 	if(sentence.Contains(_T("$PBVE")))
@@ -554,7 +560,7 @@ void Logbook::SetSentence(wxString &sentence)
 		wxString speed = tkz.GetNextToken();
 		wxString pitch = tkz.GetNextToken();
 
-		if(engineNr == opt->engine1)
+		if(engineNr == opt->engine1Id && opt->bEng1RPMIsChecked)
 		{
 			speed.ToLong(&Umin1);
 			if(source == _T("E"))
@@ -563,36 +569,35 @@ void Logbook::SetSentence(wxString &sentence)
 
 			if(Umin1 != 0L)
 			{
-				bRPM1 = true;
 				if(source == _T("E"))
 				{
 					if(!opt->engine1Running)
 					{
-						opt->dtEngine1On = wxDateTime::Now();
 						if(opt->engineMessageSails && opt->engineAllwaysSailsDown)
 							dialog->resetSails();
-						appendRow(true, true);
-					}
-					opt->engine1Running = true;
+                        dialog->startEngine1(false, false, true);
+                        dialog->m_toggleBtnEngine1->SetLabel(dialog->m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[1]);
+                    }
 				}
 				if(source == _T("S"))
-					sRPM1Shaft = speed;
+				{
+				    bRPM1 = true;
+				    sRPM1Shaft = speed;
+				}
 			}
 			else
 			{
-				bRPM1 = false;
 				if(opt->engine1Running)
 				{
-					dtEngine1Off = wxDateTime::Now().Subtract(opt->dtEngine1On);
-					opt->dtEngine1On = -1;
-					if(opt->engineMessageSails)
-						dialog->stateSails();
-					appendRow(true, true);
-					opt->engine1Running = false;
-				}
+				    if(opt->engineMessageSails)
+					dialog->stateSails();
+                    dialog->stopEngine1(false, true);
+                    dialog->m_toggleBtnEngine1->SetLabel(dialog->m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[0]);
+                }
 			}
 		}
-		else if(opt->engines == 1)
+        
+		if(engineNr == opt->engine2Id && opt->bEng2RPMIsChecked)
 		{
 			speed.ToLong(&Umin2);
 			if(source == _T("E"))
@@ -600,35 +605,56 @@ void Logbook::SetSentence(wxString &sentence)
 
 			if(Umin2 != 0L)
 			{
-				bRPM2 = true;
 				if(source == _T("E"))
 				{
 					if(!opt->engine2Running)
 					{
-						opt->dtEngine2On = wxDateTime::Now();
 						if(opt->engineMessageSails && opt->engineAllwaysSailsDown)
 							dialog->resetSails();
-						appendRow(true, true);
-					}
-					opt->engine2Running = true;
+                        dialog->startEngine2(false, false, true);
+                        dialog->m_toggleBtnEngine2->SetLabel(dialog->m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[1]);
+                    }
 				}
 				if(source == _T("S"))
-					sRPM2Shaft = speed;
+				{
+				    bRPM2 = true;
+				    sRPM2Shaft = speed;
+				}
 			}
 			else
 			{
-				bRPM2 = false;
-				if(opt->engine2Running)
-				{
-					dtEngine2Off = wxDateTime::Now().Subtract(opt->dtEngine2On);
-					opt->dtEngine2On = -1;
-					if(opt->engineMessageSails)
-						dialog->resetSails();
-					appendRow(true, true);
-					opt->engine2Running = false;
-				}
-			}
+                if(opt->engine2Running)
+                {
+                    dialog->stopEngine2(false, true, true);
+                    dialog->m_toggleBtnEngine2->SetLabel(dialog->m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[0]);
+                }
+            }
 		}
+
+        if(engineNr == opt->generatorId && opt->bGenRPMIsChecked)
+        {
+            speed.ToLong(&Umin2);
+            
+            if(Umin2 != 0L)
+            {
+                if(source == _T("E"))
+                {
+                    if(!opt->generatorRunning)
+                    {
+                        dialog->startGenerator(false, false, true);
+                        dialog->m_toggleBtnGenerator->SetLabel(dialog->m_gridMotorSails->GetColLabelValue(LogbookHTML::GENE)+onOff[1]);
+                    }
+                }
+            }
+            else
+            {
+                if(opt->generatorRunning)
+                {
+                    dialog->stopGenerator(false, true, true);
+                    dialog->m_toggleBtnGenerator->SetLabel(dialog->m_gridMotorSails->GetColLabelValue(LogbookHTML::GENE)+onOff[0]);
+                }
+            }
+        }
 
 	}
 
@@ -1563,7 +1589,7 @@ void Logbook::appendRow(bool showlastline, bool autoline)
 		{
 			if(opt->engineMessageRunning)
 			{
-				if(dialog->logGrids[2]->GetCellValue(lastRow,LogbookHTML::MREMARKS).IsEmpty())
+				if(dialog->logGrids[2]->GetCellValue(lastRow,LogbookHTML::MREMARKS).IsEmpty() || dialog->logGrids[2]->GetCellValue(lastRow,LogbookHTML::MREMARKS).GetChar(0) == ' ')
 					dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::MREMARKS,_("Engine #2 running"));
 				else
 					dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::MREMARKS,dialog->logGrids[2]->GetCellValue(lastRow,LogbookHTML::MREMARKS)+_("\nEngine #2 running"));
@@ -1573,7 +1599,7 @@ void Logbook::appendRow(bool showlastline, bool autoline)
 				dtEngine2Off = wxDateTime::Now().Subtract(opt->dtEngine2On);
 				opt->dtEngine2On = wxDateTime::Now();
 				dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::MOTOR1,dtEngine2Off.Format(_T("%H:%M")));
-				//				wxMessageBox(dtEngine2Off.Format(_T("%H:%M:%S")));
+				//	wxMessageBox(dtEngine2Off.Format(_T("%H:%M:%S")));
 			}
 		}
 	}
@@ -1587,8 +1613,43 @@ void Logbook::appendRow(bool showlastline, bool autoline)
 			dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::MREMARKS,dialog->logGrids[2]->GetCellValue(lastRow,LogbookHTML::MREMARKS)+_("\nEngine #2 stopped"));
 	}
 
-	wxString sEngine = _T(" ")+opt->rpm+_T(" (")+opt->engine+_T(")");
-	wxString sShaft =  _T(" ")+opt->rpm+_T(" (")+opt->shaft+_T(")");
+    if(bGEN)
+    {
+        if(	!opt->generatorRunning)
+            dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::MREMARKS,_("Generator started"));
+        else
+        {
+            if(opt->engineMessageRunning)
+            {
+                if(dialog->logGrids[2]->GetCellValue(lastRow,LogbookHTML::MREMARKS).IsEmpty() || dialog->logGrids[2]->GetCellValue(lastRow,LogbookHTML::MREMARKS).GetChar(0) == ' ')
+                    dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::MREMARKS,_("Generator running"));
+                else
+                    dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::MREMARKS,dialog->logGrids[2]->GetCellValue(lastRow,LogbookHTML::MREMARKS)+_("\nGenerator running"));
+            }
+            if(opt->NMEAUseERRPM || generatorManual)
+            {
+                dtGeneratorOff = wxDateTime::Now().Subtract(opt->dtGeneratorOn);
+                opt->dtGeneratorOn = wxDateTime::Now();
+                dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::GENE,dtGeneratorOff.Format(_T("%H:%M")));
+                //	wxMessageBox(dtEngine2Off.Format(_T("%H:%M:%S")));
+            }
+        }
+    }
+                                            
+    if(!bGEN && opt->generatorRunning)
+    {
+        if(opt->NMEAUseERRPM || !opt->toggleGenerator)
+            dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::GENE,dtGeneratorOff.Format(_T("%H:%M")));
+        if(dialog->logGrids[2]->GetCellValue(lastRow,LogbookHTML::MREMARKS).IsEmpty() || dialog->logGrids[2]->GetCellValue(lastRow,LogbookHTML::MREMARKS).GetChar(0) == ' ')
+            dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::MREMARKS,_("Generator stopped"));
+        else
+            dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::MREMARKS,dialog->logGrids[2]->GetCellValue(lastRow,LogbookHTML::MREMARKS)+_("\nGenerator stopped"));
+    }
+
+//	wxString sEngine = _T(" ")+opt->rpm+_T(" (")+opt->engine+_T(")");
+//	wxString sShaft =  _T(" ")+opt->rpm+_T(" (")+opt->shaft+_T(")");
+    wxString sEngine = _T(" (")+opt->engine+_T(")");
+    wxString sShaft =  _T(" (")+opt->shaft+_T(")");
 
 	if(!sRPM1.IsEmpty())
 		dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::RPM1,sRPM1+sEngine+
@@ -1661,35 +1722,71 @@ void Logbook::appendRow(bool showlastline, bool autoline)
 	}
 }
 
-void Logbook::resetEngineManuallMode()
+void Logbook::resetEngineManualMode(int enginenumber)
 {
-	bool t = opt->bRPMCheck;
-	parent->m_toggleBtnEngine1->SetValue(false);
-	opt->toggleEngine1 = false;
-	bRPM1 = false;
-	dtEngine1Off = wxDateTime::Now().Subtract(opt->dtEngine1On);
+    /* engine number 0=all, 1=engine#1, 2=engine#2, 3=generator */
+    bool t = opt->bRPMCheck;
+    wxString    onOff[2];
+    onOff[0] = _(" off");
+    onOff[1] = _(" on");
 
-	parent->m_toggleBtnEngine2->SetValue(false);
-	opt->toggleEngine2 = false;
-	bRPM2 = false;
-	dtEngine2Off = wxDateTime::Now().Subtract(opt->dtEngine2On);
+    if(enginenumber == 1 || enginenumber == 0)
+    {
+        parent->m_toggleBtnEngine1->SetValue(false);
+        opt->toggleEngine1 = false;
+        bRPM1 = false;
+        dtEngine1Off = wxDateTime::Now().Subtract(opt->dtEngine1On);
+        parent->m_toggleBtnEngine1->SetLabel(parent->m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[0]);
+    }
+    if(enginenumber == 2 || enginenumber == 0)
+    {
+        parent->m_toggleBtnEngine2->SetValue(false);
+        opt->toggleEngine2 = false;
+        bRPM2 = false;
+        dtEngine2Off = wxDateTime::Now().Subtract(opt->dtEngine2On);
+        parent->m_toggleBtnEngine2->SetLabel(parent->m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[0]);
+    }
+    if(enginenumber == 3 || enginenumber == 0)
+    {
+        parent->m_toggleBtnGenerator->SetValue(false);
+        opt->toggleGenerator = false;
+        bGEN = false;
+        dtGeneratorOff = wxDateTime::Now().Subtract(opt->dtGeneratorOn);
+        parent->m_toggleBtnGenerator->SetLabel(parent->m_gridMotorSails->GetColLabelValue(LogbookHTML::GENE)+onOff[0]);
+    }
 
-	appendRow(true, false);
+    appendRow(true, false);
 
+    if(enginenumber == 1 || enginenumber == 0)
+    {
 	opt->dtEngine1On = -1;
-	opt->dtEngine2On = -1;
-
 	engine1Manual = false;
 	opt->engine1Running = false;
+    }
+    if(enginenumber == 2 || enginenumber == 0)
+    {
+	opt->dtEngine2On = -1;
 	engine2Manual = false;
 	opt->engine2Running = false;
-	opt->bRPMCheck = t;
+    }
+    if(enginenumber == 3 || enginenumber == 0)
+    {
+        opt->dtGeneratorOn = -1;
+        generatorManual = false;
+        opt->generatorRunning = false;
+    }
+
+    opt->bRPMCheck = t;
 
 }
 
 void Logbook::checkNMEADeviceIsOn()
 {
 	wxDateTime dtn = wxDateTime::Now();
+    wxString    onOff[2];
+    onOff[0] = _(" off");
+    onOff[1] = _(" on");
+    
 	if(bDepth && dtn.Subtract(dtDepth).GetSeconds() > DEVICE_TIMEOUT)						// Sounder
 	{
 		sDepth = wxEmptyString;
@@ -1735,21 +1832,48 @@ void Logbook::checkNMEADeviceIsOn()
 		rpmSentence = false;
 		wxDateTime now = wxDateTime::Now();
 
-		bRPM1 = false;
-		dtEngine1Off = now.Subtract(opt->dtEngine1On);
-		opt->dtEngine1On = -1;
-		sRPM1 = wxEmptyString;
-		sRPM1Shaft = wxEmptyString;
+        if(opt->bEng1RPMIsChecked)
+        {
+            bRPM1 = false;
+            dtEngine1Off = now.Subtract(opt->dtEngine1On);
+            opt->dtEngine1On = -1;
+            sRPM1 = wxEmptyString;
+            sRPM1Shaft = wxEmptyString;
+            dialog->m_toggleBtnEngine1->SetLabel(dialog->m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR)+onOff[0]);
+        }
 
-		bRPM2 = false;
-		dtEngine2Off = now.Subtract(opt->dtEngine2On);
-		opt->dtEngine2On = -1;
-		sRPM2 = wxEmptyString;
-		sRPM2Shaft = wxEmptyString;
+        if(opt->bEng2RPMIsChecked)
+        {
+            bRPM2 = false;
+            dtEngine2Off = now.Subtract(opt->dtEngine2On);
+            opt->dtEngine2On = -1;
+            sRPM2 = wxEmptyString;
+            sRPM2Shaft = wxEmptyString;
+            dialog->m_toggleBtnEngine2->SetLabel(dialog->m_gridMotorSails->GetColLabelValue(LogbookHTML::MOTOR1)+onOff[0]);
+        }
+
+        if(opt->bGenRPMIsChecked)
+        {
+            bGEN = false;
+            dtGeneratorOff = now.Subtract(opt->dtGeneratorOn);
+            opt->dtGeneratorOn = -1;
+            dialog->m_toggleBtnGenerator->SetLabel(dialog->m_gridMotorSails->GetColLabelValue(LogbookHTML::GENE)+onOff[0]);
+        }
 
 		appendRow(true, true);
-		opt->engine1Running = false;
-		opt->engine2Running = false;
+        
+        if(opt->bEng1RPMIsChecked)
+        {
+            opt->engine1Running = false;
+        }
+        if(opt->bEng1RPMIsChecked)
+        {
+            opt->engine2Running = false;
+        }
+        if(opt->bGenRPMIsChecked)
+        {
+            opt->generatorRunning = false;
+        }
 	}
 }
 
@@ -2227,7 +2351,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 			dialog->maintenance->checkService(row);
 
 		s.Replace(_T(","),_T("."));
-		if(wxAtof(s) >= 0.01) 
+		if(wxAtof(s) >= 0.1) 
 			dialog->m_gridGlobal->SetCellValue(row,SIGN,_T("S"));
 		else
 			dialog->m_gridGlobal->SetCellValue(row,SIGN,_T(""));
@@ -2303,7 +2427,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 				if(dist >= 0.1)
 					dialog->m_gridGlobal->SetCellValue(i,3,_T("S"));
 				else
-					dialog->m_gridGlobal->SetCellValue(i,3,dialog->m_gridGlobal->GetCellValue(i-1,3));
+					dialog->m_gridGlobal->SetCellValue(i,3,_T(""));
 
 				if(i < dialog->m_gridGlobal->GetNumberRows()-1)
 				{

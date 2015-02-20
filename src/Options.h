@@ -35,8 +35,10 @@ public:
     int			engines;
     bool		toggleEngine1;
     bool		toggleEngine2;
+    bool        toggleGenerator;
     wxDateTime	dtEngine1On;
     wxDateTime	dtEngine2On;
+    wxDateTime  dtGeneratorOn;
     wxString	engineStr[2];
     bool		engineMessageSails;
     bool		engineMessageRunning;
@@ -136,14 +138,21 @@ public:
 
     //NMEA
     bool		bRPMIsChecked;
+    bool		bEng1RPMIsChecked;
+    bool		bEng2RPMIsChecked;
+    bool		bGenRPMIsChecked;
+
     wxString	sentence;
-    wxString	engine1;
-    wxString	engine2;
-    bool		engine1Running;
-    bool		engine2Running;
-    bool		bRPMCheck;
-    bool		NMEAUseERRPM;
-    bool		NMEAUseWIMDA;
+    wxString	engine1Id;
+    wxString	engine2Id;
+    wxString    generatorId;
+    bool        generator;
+    bool	engine1Running;
+    bool	engine2Running;
+    bool        generatorRunning;
+    bool	bRPMCheck;
+    bool	NMEAUseERRPM;
+    bool	NMEAUseWIMDA;
 
     // Sails
     wxArrayString	abrSails;
