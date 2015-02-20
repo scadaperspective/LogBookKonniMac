@@ -127,10 +127,10 @@ void CrewList::firstColumn()
 	dt = wxDateTime::Now();
 	e = dt;
 	dt.Set(8,0);
-	e.Set(19,59);
+	e.Set(7,59);
 	gridWake->SetCellValue(1,0,wxDateTime::Now().Format(dialog->logbookPlugIn->opt->sdateformat));
 	gridWake->SetCellValue(2,0,wxString::Format(_T("%s-%s"),dt.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str(),
-						e.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));//_T("00:00-23:39"));
+						e.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));//_T("08:00-07:59"));
 	gridWake->SetCellValue(3,0,wxEmptyString);
 
 	gridWake->SetReadOnly(1,0);
@@ -496,7 +496,7 @@ wxTimeSpan CrewList::createDefaultDateTime(wxDateTime &dt, wxDateTime &dtend, wx
 	e.Add(df);
 	e.Subtract(ed);
 	gridWake->SetCellValue(2,0,wxString::Format(_T("%s-%s"),dt.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str(),
-															e.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));
+								e.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));
 	dt.Add(df);
 
 	return df;
@@ -512,11 +512,11 @@ void CrewList::insertWatchColumn(int col, wxString time, wxDateTime wtime, wxDat
 		gridWake->SetCellValue(0,col,wxString::Format(_T("%s %s"),wtime.Format(_T("%H:%M")).c_str(),dialog->logbookPlugIn->opt->motorh.c_str()));
 		if(dt.GetDateOnly() != dtend.GetDateOnly())
 			gridWake->SetCellValue(1,col,wxString::Format(_T("%s\n%s"),dt.Format(dialog->logbookPlugIn->opt->sdateformat).c_str(),
-																		dtend.Format(dialog->logbookPlugIn->opt->sdateformat).c_str()));
+										dtend.Format(dialog->logbookPlugIn->opt->sdateformat).c_str()));
 		else
 			gridWake->SetCellValue(1,col,dt.Format(dialog->logbookPlugIn->opt->sdateformat));
 		gridWake->SetCellValue(2,col,wxString::Format(_T("%s-%s"),dt.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str(),
-																  dtend.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));
+									dtend.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));
 		gridWake->SetCellValue(3,col,_T(" "));
 		gridWake->SetReadOnly(1,col);
 		gridWake->SetReadOnly(2,col);
@@ -552,7 +552,7 @@ wxString CrewList::updateWatchTime(unsigned int day, int col, bool* insertCols)
 		else
 		{
 			str = gridWake->GetCellValue(2,i-1);
-		    wxStringTokenizer tkz(str,_T("-"));
+		    	wxStringTokenizer tkz(str,_T("-"));
 			str1 = tkz.GetNextToken();
 			str2 = tkz.GetNextToken();
 			//dialog->myParseTime(str1,dtst);
@@ -598,7 +598,7 @@ wxString CrewList::updateWatchTime(unsigned int day, int col, bool* insertCols)
 			gridWake->SetCellValue(1,i,dtst.Format(dialog->logbookPlugIn->opt->sdateformat)+_T("\n")+dtend.Format(dialog->logbookPlugIn->opt->sdateformat));
 
 		gridWake->SetCellValue(2,i,wxString::Format(_T("%s-%s"),dtst.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str(),
-																dtend.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));
+									dtend.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));
 
 		h.Subtract(df);
 		if(h.GetMinutes() < 0)
@@ -653,7 +653,7 @@ wxString CrewList::updateWatchTime(unsigned int day, int col, bool* insertCols)
 		}
 
 		gridWake->SetCellValue(2,delcol,wxString::Format(_T("%s-%s"),dt.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str(),
-																	dtend.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));
+									dtend.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));
 		gridWake->BeginBatch();
 		gridWake->SetCellValue(0,delcol,t.Format(_T("%H:%M")));
 		gridWake->EndBatch();
@@ -769,8 +769,7 @@ void CrewList::Calculate()
 					wxStringTokenizer tkz(t,_T("\n"));
 					dialog->myParseDate(tkz.GetNextToken(),dtstart1);
 					dialog->myParseDate(tkz.GetNextToken(),dtend1);
-					s += dialog->replaceDangerChar(wxString::Format(_T("%i/%i/%i\n%i/%i/%i\t"),dtstart1.GetMonth(),dtstart1.GetDay(),dtstart1.GetYear(),
-																								dtend1.GetMonth(),dtend1.GetDay(),dtend1.GetYear()));
+					s += dialog->replaceDangerChar(wxString::Format(_T("%i/%i/%i\n%i/%i/%i\t"),dtstart1.GetMonth(),dtstart1.GetDay(),dtstart1.GetYear(),															dtend1.GetMonth(),dtend1.GetDay(),dtend1.GetYear()));
 				}
 				else
 				{
@@ -879,7 +878,7 @@ void CrewList::Calculate()
 
 					if(dtend.GetDateOnly() != dtstart.GetDateOnly())
 						s += wxString::Format(_T("%i/%i/%i\n%i/%i/%i\t"),dtstart.GetMonth(),dtstart.GetDay(),dtstart.GetYear(),
-																			 dtend.GetMonth(),dtend.GetDay(),dtend.GetYear());
+												dtend.GetMonth(),dtend.GetDay(),dtend.GetYear());
 					else
 						s += wxString::Format(_T("%i/%i/%i\t"),dtstart.GetMonth(),dtstart.GetDay(),dtstart.GetYear());
 
@@ -1297,7 +1296,7 @@ void CrewList::dayNow(bool mode)
 	wxDateTime dtstart, dtend, now;
 	wxTimeSpan ed(0,0,0,1);
 	long d;
-    int lineno;
+    	int lineno;
 	unsigned int col = 0, daylast = 1;
 	
 	if(dialog->logbook->sDate != wxEmptyString)
@@ -1534,7 +1533,7 @@ void CrewList::readRecord(int nr)
 				from.Set(fh,fm);
 				to.Set(th,tm);
 				gridWake->SetCellValue(row,col,wxString::Format(_T("%s-%s"),from.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str(),
-																			to.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));
+											to.Format(dialog->logbookPlugIn->opt->stimeformatw).c_str()));
 			}
 
 		}
@@ -1587,7 +1586,7 @@ void CrewList::updateLine()
 					LogbookDialog::myParseDate(end  ,dtend);
 
 					s += wxString::Format(_T("%i/%i/%i\n%i/%i/%i\t"),dtstart.GetMonth(),dtstart.GetDay(),dtstart.GetYear(),
-																	 dtend.GetMonth(),dtend.GetDay(),dtend.GetYear());
+											dtend.GetMonth(),dtend.GetDay(),dtend.GetYear());
 				}
 				else
 				{
@@ -1649,63 +1648,68 @@ int CrewList::getDayOne(int dayone)
 
 bool CrewList::checkHourFormat(wxString s, int row, int col, wxDateTime *dt)
 {
-						bool t = false;
-						wxString sep;
+	bool t = false;
+	wxString sep;
 
-						if(s.IsEmpty())
-						{
-							gridWake->SetCellValue(row,col,_T("00:00"));
-							s = _T("0");
-						}
+	if(s.IsEmpty())
+	{
+		gridWake->SetCellValue(row,col,_T("00:00"));
+		s = _T("0");
+	}
 
-						if(s.GetChar(0) == ',' || s.GetChar(0) == '.') // no leading zero when ,3 is entered
-							s.Prepend(_T("0"));
+	if(s.GetChar(0) == ',' || s.GetChar(0) == '.') // no leading zero when ,3 is entered
+		s.Prepend(_T("0"));
 
-						if(s.Length() == 4 && (!s.Contains(_T(".")) && !s.Contains(_T(",")))) // NATO-Format entered 1230 => 12.30
-							s.insert(2,_T("."));
+	if(s.Length() == 4 && (!s.Contains(_T(".")) && !s.Contains(_T(",")))) // NATO-Format entered 1230 => 12.30
+		s.insert(2,_T("."));
 
-						if(s.Contains(_T(".")))
-						{
-							t = true;
-							sep = _T(".");
-						}
-						if(s.Contains(_T(",")))
-						{
-							t = true;
-							sep = _T(",");
-						}
-						if(s.Contains(_T(":")))
-						{
-							t = true;
-							sep = _T(":");
-						}
 
-						if(true != t)
-						{
-							s.Append(_T(":0"));
-							sep = _T(":");
-						}
+	if(s.Contains(_T(".")))
+	{
+		t = true;
+		sep = _T(".");
+	}
 
-						wxStringTokenizer tkz(s,sep);
-						wxString h = tkz.GetNextToken();
-						wxString m;
-						if(tkz.HasMoreTokens())
-							m = tkz.GetNextToken();
-						else
-							m = _T("0");
-						if(!h.IsNumber()) h = _T("24");
-						if(!m.IsNumber()) m = _T("60");
-						if(wxAtoi(h) > 23 || wxAtoi(m) > 59 || wxAtoi(h) < 0 || wxAtoi(m) < 0)
-							{
-							  //wxMessageBox(_("Hours < 0 or > 23\nMinutes < 0 or > 59"),_T(""));
-								if(row != -1)
-									gridWake->SetCellValue(row,col,_T("00:00"));
-								return false;
-							}
-						else
-							s = wxString::Format(_T("%s:%s"),h.c_str(),m.c_str());
-		dialog->myParseTime(s,*dt);
-		return true;
+	if(s.Contains(_T(",")))
+	{
+		t = true;
+		sep = _T(",");
+	}
+
+	if(s.Contains(_T(":")))
+	{
+		t = true;
+		sep = _T(":");
+	}
+
+	if(true != t)
+	{
+		s.Append(_T(":0"));
+		sep = _T(":");
+	}
+
+	wxStringTokenizer tkz(s,sep);
+	wxString h = tkz.GetNextToken();
+	wxString m;
+	if(tkz.HasMoreTokens())
+		m = tkz.GetNextToken();
+	else
+		m = _T("0");
+	if(!h.IsNumber()) h = _T("24");
+	if(!m.IsNumber()) m = _T("60");
+
+	if(wxAtoi(h) > 23 || wxAtoi(m) > 59 || wxAtoi(h) < 0 || wxAtoi(m) < 0)
+	{
+		  //wxMessageBox(_("Hours < 0 or > 23\nMinutes < 0 or > 59"),_T(""));
+		if(row != -1)
+			gridWake->SetCellValue(row,col,_T("00:00"));
+		return false;
+	}
+	else
+		s = wxString::Format(_T("%s:%s"),h.c_str(),m.c_str());
+
+	dialog->myParseTime(s,*dt);
+	return true;
 }
 
 void CrewList::saveCSV(wxString path)
@@ -1717,30 +1721,30 @@ void CrewList::saveCSV(wxString path)
 	wxTextFile csvFile(path);
 
 	if(csvFile.Exists())
-		{
-			::wxRemoveFile(path);
-			csvFile.Create();
-		}
+	{
+		::wxRemoveFile(path);
+		csvFile.Create();
+	}
 
-		crewListFile->Open();
+	crewListFile->Open();
 
 
 	for(unsigned int i = 0; i < crewListFile->GetLineCount(); i++)
-		{
-			wxString line = crewListFile->GetLine(i);
-			wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY);
+	{
+		wxString line = crewListFile->GetLine(i);
+		wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY);
 
-			while ( tkz.HasMoreTokens() )
-			{
-				wxString s;
-				s += tkz.GetNextToken().RemoveLast();
-				s= dialog->restoreDangerChar(s);
-				result += wxT("\"")+s+wxT("\",");
-			}
-			result.RemoveLast();
-			csvFile.AddLine(result);
-			result=_T("");
+		while ( tkz.HasMoreTokens() )
+		{
+			wxString s;
+			s += tkz.GetNextToken().RemoveLast();
+			s= dialog->restoreDangerChar(s);
+			result += wxT("\"")+s+wxT("\",");
 		}
+		result.RemoveLast();
+		csvFile.AddLine(result);
+		result=_T("");
+	}
 
 	csvFile.Write();
 	csvFile.Close();

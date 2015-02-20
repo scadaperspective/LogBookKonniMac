@@ -2351,7 +2351,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 			dialog->maintenance->checkService(row);
 
 		s.Replace(_T(","),_T("."));
-		if(wxAtof(s) >= 0.01) 
+		if(wxAtof(s) >= 0.1) 
 			dialog->m_gridGlobal->SetCellValue(row,SIGN,_T("S"));
 		else
 			dialog->m_gridGlobal->SetCellValue(row,SIGN,_T(""));
@@ -2427,7 +2427,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 				if(dist >= 0.1)
 					dialog->m_gridGlobal->SetCellValue(i,3,_T("S"));
 				else
-					dialog->m_gridGlobal->SetCellValue(i,3,dialog->m_gridGlobal->GetCellValue(i-1,3));
+					dialog->m_gridGlobal->SetCellValue(i,3,_T(""));
 
 				if(i < dialog->m_gridGlobal->GetNumberRows()-1)
 				{
