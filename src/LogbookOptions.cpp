@@ -29,6 +29,14 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	this->opt = opt;
 	this->log_pi = log_pi;
 
+	// for small screens: don't let boat dialog be larger than screen
+	int w,h;
+	wxDisplaySize( &w, &h );
+	w = wxMin(w, GetMinWidth());
+	h = wxMin(h-32, GetMinHeight());
+	SetMinSize(wxSize(w/2, h/2)); // allow to half normal dimensions
+	SetSize(wxSize(w, h));
+
 //	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
 	wxBoxSizer* bSizer21;
@@ -1303,6 +1311,8 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	this->Layout();
 	
 	this->Centre( wxBOTH );
+
+	SetSize(wxSize(w, h));
 
 	// Connect Events
 	m_choicePositionFormat->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( LogbookOptions::onChoicePositionFormat ), NULL, this );

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-24 12:23+0100\n"
+"POT-Creation-Date: 2015-02-21 17:50+0100\n"
 "PO-Revision-Date: 2014-12-02 08:46-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Swedish\n"
@@ -2036,23 +2036,30 @@ msgstr "Skriv din egen märkning"
 msgid "yellow"
 msgstr ""
 #
+#
 #~ msgid "Install Languages"
 #~ msgstr "Installera språk"
+#
 #
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "Installera OpenCPN_Logbook_Languages.zip"
 #
+#
 #~ msgid "Please fill in one character in Degrees, Minuts and Seconds"
 #~ msgstr "Vänligen fyll i ett tecken i grader, minuter och sekunder"
+#
 #
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Välj zippade språk-filer"
 #
+#
 #~ msgid "W/Strength"
 #~ msgstr "W/styrka"
 #
+#
 #~ msgid "Wind"
 #~ msgstr "Vind"
+#
 #
 #~ msgid "Winddirection Avg."
 #~ msgstr "Genomsn. Vindriktning"

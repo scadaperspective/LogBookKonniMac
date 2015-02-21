@@ -329,7 +329,7 @@ class LogbookOptions : public wxDialog
 #ifdef __WXOSX__
         LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi* log_pi, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(680,700), long style = wxDEFAULT_DIALOG_STYLE|wxVSCROLL );
 #else
-		LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi* log_pi, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(654,622), long style = wxDEFAULT_DIALOG_STYLE|wxVSCROLL );
+		LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi* log_pi, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(654,422), long style = wxDEFAULT_DIALOG_STYLE|wxVSCROLL );
 #endif
 		~LogbookOptions();
 

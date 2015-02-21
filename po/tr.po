@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-24 12:23+0100\n"
+"POT-Creation-Date: 2015-02-21 17:50+0100\n"
 "PO-Revision-Date: 2014-12-02 11:05-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Turkish\n"
@@ -2194,11 +2194,14 @@ msgstr "kendi etiketini yaz"
 msgid "yellow"
 msgstr ""
 #
+#
 #~ msgid "Install Languages"
 #~ msgstr "Dil dosyasını kur"
 #
+#
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "\"OpenCPN_Logbook_Languages.zip\"i kur"
+#
 #
 #~ msgid ""
 #~ "Languages installed at\n"
@@ -2209,19 +2212,24 @@ msgstr ""
 #~ "\n"
 #~ "%s"
 #
+#
 #~ msgid "Please fill in one character in Degrees, Minuts and Seconds"
 #~ msgstr "Lütfen Derece, Dakika ve Saniye olarak doldurun."
 #
+#
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Sıkıştırılmış dil dosyalarından birini seçin"
+#
 #
 #~ msgid "W/Strength"
 #~ msgstr ""
 #~ "Rüzgar\n"
 #~ "Kuvveti"
 #
+#
 #~ msgid "Wind"
 #~ msgstr "Rüzgar"
+#
 #
 #~ msgid "Winddirection Avg."
 #~ msgstr ""

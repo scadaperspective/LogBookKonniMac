@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-24 12:23+0100\n"
+"POT-Creation-Date: 2015-02-21 17:50+0100\n"
 "PO-Revision-Date: 2014-12-02 10:38-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Czech\n"
@@ -2114,11 +2114,14 @@ msgstr "Napiš vlastní popis"
 msgid "yellow"
 msgstr ""
 #
+#
 #~ msgid "Install Languages"
 #~ msgstr "Instalovat jazyky"
 #
+#
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "Nainstalovat OpenCPN_Logbook_Languages.zip"
+#
 #
 #~ msgid ""
 #~ "Languages installed at\n"
@@ -2129,17 +2132,22 @@ msgstr ""
 #~ "\n"
 #~ "%s"
 #
+#
 #~ msgid "Please fill in one character in Degrees, Minuts and Seconds"
 #~ msgstr "Prosím, vyplň jeden znak do stupňů, minut a sekund"
+#
 #
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Vyber zabalené soubory s překlady"
 #
+#
 #~ msgid "W/Strength"
 #~ msgstr "V/Síla"
 #
+#
 #~ msgid "Wind"
 #~ msgstr "Vítr"
+#
 #
 #~ msgid "Winddirection Avg."
 #~ msgstr "Prům. směr větru"

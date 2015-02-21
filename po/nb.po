@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-24 12:23+0100\n"
+"POT-Creation-Date: 2015-02-21 17:50+0100\n"
 "PO-Revision-Date: 2014-12-02 11:05-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Norwegian Bokmal\n"
@@ -2000,11 +2000,14 @@ msgstr ""
 msgid "yellow"
 msgstr ""
 #
+#
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Velg pakkede språkfiler"
 #
+#
 #~ msgid "W/Strength"
 #~ msgstr "V/styrke"
+#
 #
 #~ msgid "Wind"
 #~ msgstr "Vind"

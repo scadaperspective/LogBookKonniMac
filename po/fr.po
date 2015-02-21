@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-24 12:23+0100\n"
+"POT-Creation-Date: 2015-02-21 17:50+0100\n"
 "PO-Revision-Date: 2014-12-02 10:02-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: French\n"
@@ -2301,14 +2301,18 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 msgid "yellow"
 msgstr "Jaune"
 #
+#
 #~ msgid "Administrator (Sudo) Password:"
 #~ msgstr "Password Administrateur (sudo) :"
+#
 #
 #~ msgid "Install Languages"
 #~ msgstr "Installer les langues"
 #
+#
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "Installer les mises en page possibles (OpenCPN_Logbook_Layouts.zip)"
+#
 #
 #~ msgid ""
 #~ "Languages installed at\n"
@@ -2318,6 +2322,7 @@ msgstr "Jaune"
 #~ "Langues installées dans\n"
 #~ "\n"
 #~ "%s"
+#
 #
 #~ msgid ""
 #~ "Languages not installed at\n"
@@ -2332,11 +2337,14 @@ msgstr "Jaune"
 #~ "Cliquer sur le bouton d'aide correspondant à l'image du bouton 'Installer "
 #~ "les langues'"
 #
+#
 #~ msgid "Please fill in one character in Degrees, Minuts and Seconds"
 #~ msgstr "Veuillez remplir en degrés, minutes, secondes"
 #
+#
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Sélectionner la langue du fichier"
+#
 #
 #~ msgid ""
 #~ "Tried to install Languages at\n"
@@ -2362,18 +2370,22 @@ msgstr "Jaune"
 #~ "\n"
 #~ "La fenêtre de dialogue 'Préférences de LogBook' est maintenant fermée. "
 #
+#
 #~ msgid "Use ERRPM-Sentence (see help)"
 #~ msgstr ""
 #~ "Utiliser la trame nmea0183 ERRPM  pour une gestion automatique des moteurs "
 #~ "(voir l'aide)"
+#
 #
 #~ msgid "W/Strength"
 #~ msgstr ""
 #~ "Force\n"
 #~ "du vent"
 #
+#
 #~ msgid "Wind"
 #~ msgstr "Vent"
+#
 #
 #~ msgid "Winddirection Avg."
 #~ msgstr ""
