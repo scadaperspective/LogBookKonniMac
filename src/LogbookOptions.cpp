@@ -2206,8 +2206,9 @@ void LogbookOptions::setValues()
         m_textCtrlEngine2->SetValue(opt->engine2Id);
         m_textCtrlGenerator->SetValue(opt->generatorId);
         m_checkBoxNMEAUseRPM->SetValue(opt->NMEAUseERRPM);
-        m_checkBoxNMEAUseWIMDA->SetValue(opt->NMEAUseWIMDA);
     }
+
+    m_checkBoxNMEAUseWIMDA->SetValue(opt->NMEAUseWIMDA);
 
 	int row = 0;
     for(unsigned int col = 0; col < opt->abrSails.Count(); col++)
