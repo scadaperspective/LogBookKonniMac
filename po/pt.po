@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-24 12:23+0100\n"
+"POT-Creation-Date: 2015-02-21 17:50+0100\n"
 "PO-Revision-Date: 2014-12-02 08:46-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Portuguese, Brazilian\n"
@@ -2087,23 +2087,30 @@ msgstr "Escreva sua própria etiqueta"
 msgid "yellow"
 msgstr ""
 #
+#
 #~ msgid "Install Languages"
 #~ msgstr "Instalar idiomas"
+#
 #
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "Instalar OpenCPN_Diáriodebordo_idiomas.zip"
 #
+#
 #~ msgid "Please fill in one character in Degrees, Minuts and Seconds"
 #~ msgstr "Por favor, preencha um caractere em graus, minutos e segundos"
+#
 #
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Selecione arquivos-idiomas compactados"
 #
+#
 #~ msgid "W/Strength"
 #~ msgstr "W/força"
 #
+#
 #~ msgid "Wind"
 #~ msgstr "Vento"
+#
 #
 #~ msgid "Winddirection Avg."
 #~ msgstr "Winddirection AVG."

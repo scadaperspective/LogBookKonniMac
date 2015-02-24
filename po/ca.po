@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-24 12:23+0100\n"
+"POT-Creation-Date: 2015-02-21 17:50+0100\n"
 "PO-Revision-Date: 2014-12-02 08:45-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Catalan\n"
@@ -2015,14 +2015,18 @@ msgstr "Escriure en la pròpia etiqueta"
 msgid "yellow"
 msgstr ""
 #
+#
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Seleccionar arxius comprimits d'idiomes"
+#
 #
 #~ msgid "W/Strength"
 #~ msgstr "Força del vent"
 #
+#
 #~ msgid "Wind"
 #~ msgstr "Vent"
+#
 #
 #~ msgid "Winddirection Avg."
 #~ msgstr "Direcció mitj. del vent"

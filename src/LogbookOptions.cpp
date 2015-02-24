@@ -29,6 +29,14 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	this->opt = opt;
 	this->log_pi = log_pi;
 
+	// for small screens: don't let boat dialog be larger than screen
+	int w,h;
+	wxDisplaySize( &w, &h );
+	w = wxMin(w, GetMinWidth());
+	h = wxMin(h-32, GetMinHeight());
+	SetMinSize(wxSize(w/2, h/2)); // allow to half normal dimensions
+	SetSize(wxSize(w, h));
+
 //	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
 	wxBoxSizer* bSizer21;
@@ -1304,6 +1312,8 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	this->Centre( wxBOTH );
 
+	SetSize(wxSize(w, h));
+
 	// Connect Events
 	m_choicePositionFormat->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( LogbookOptions::onChoicePositionFormat ), NULL, this );
 	m_checkBoxToolTips->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCheckBoxToolTips ), NULL, this );
@@ -2196,8 +2206,9 @@ void LogbookOptions::setValues()
         m_textCtrlEngine2->SetValue(opt->engine2Id);
         m_textCtrlGenerator->SetValue(opt->generatorId);
         m_checkBoxNMEAUseRPM->SetValue(opt->NMEAUseERRPM);
-        m_checkBoxNMEAUseWIMDA->SetValue(opt->NMEAUseWIMDA);
     }
+
+    m_checkBoxNMEAUseWIMDA->SetValue(opt->NMEAUseWIMDA);
 
 	int row = 0;
     for(unsigned int col = 0; col < opt->abrSails.Count(); col++)

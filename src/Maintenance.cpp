@@ -90,11 +90,11 @@ Maintenance::Maintenance(LogbookDialog* d, wxString data, wxString layout, wxStr
 
 	m_choices[0] = dialog->m_gridGlobal->GetColLabelValue(6)+_T(" +");								// Distance/T
 	m_choices[1] = wxString(_("Engine "))+dialog->m_gridMotorSails->GetColLabelValue(1)+_T(" +");	// Motor1/h
-	m_choices[2] = wxString(_("Engine "))+dialog->m_gridMotorSails->GetColLabelValue(3)+_T(" +");	// Motor2/h
-	m_choices[3] = dialog->m_gridMotorSails->GetColLabelValue(8)+_T(" +");							// Generator/h
-	m_choices[4] = dialog->m_gridMotorSails->GetColLabelValue(11)+_T(" <=");						// Bank1/AH
-	m_choices[5] = dialog->m_gridMotorSails->GetColLabelValue(13)+_T(" <=");						// Bank2/AH
-	m_choices[6] = dialog->m_gridMotorSails->GetColLabelValue(14)+_T(" +");							// Watermaker/h
+	m_choices[2] = wxString(_("Engine "))+dialog->m_gridMotorSails->GetColLabelValue(4)+_T(" +");	// Motor2/h
+	m_choices[3] = dialog->m_gridMotorSails->GetColLabelValue(11)+_T(" +");							// Generator/h
+	m_choices[4] = dialog->m_gridMotorSails->GetColLabelValue(13)+_T(" <=");						// Bank1/AH
+	m_choices[5] = dialog->m_gridMotorSails->GetColLabelValue(15)+_T(" <=");						// Bank2/AH
+	m_choices[6] = dialog->m_gridMotorSails->GetColLabelValue(17)+_T(" +");							// Watermaker/h
 	m_choices[7] = dialog->m_gridGlobal->GetColLabelValue(3);										// Sign
 	m_choices[8]  = _("Fix Date");
 	m_choices[9]  = _("Date + Days");
