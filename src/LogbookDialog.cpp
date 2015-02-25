@@ -4715,6 +4715,7 @@ void LogbookDialog::m_gridMotorSailsOnGridCmdCellChange( wxGridEvent& ev )
 
 void LogbookDialog::logSaveOnButtonClick( wxCommandEvent& ev )
 {
+    wxString layout;
 	wxString filter = saveDialogFilter;
     filter.Prepend(_T("Google-Format(*.kml)|*.kml|"));
 	if(m_radioBtnHTML->GetValue())
@@ -4736,14 +4737,17 @@ void LogbookDialog::logSaveOnButtonClick( wxCommandEvent& ev )
 	wxString path = saveFileDialog->GetPath();
 	int sel = saveFileDialog->GetFilterIndex();
 
+    layout = logbookChoice->GetString(logbookChoice->GetSelection());
+    wxString prefix = logbook->opt->engineStr[logbook->opt->engines]+logbook->opt->layoutPrefix[LogbookDialog::LOGBOOK];
+    if(logbook->opt->filterLayout[LogbookDialog::LOGBOOK])
+        layout.Prepend(prefix);
+
 	switch(sel)
 	{
 	case 0: if(m_radioBtnHTML->GetValue())
-				logbook->toHTML(path, 
-				logbookChoice->GetString(logbookChoice->GetSelection()),true);
+				logbook->toHTML(path,layout,true);
 			else
-				logbook->toODT(path,
-				logbookChoice->GetString(logbookChoice->GetSelection()),true); 
+				logbook->toODT(path,layout,true);
 			break;
 	case 1: logbook->toKML(path); break;
 	case 2:	logbook->toODS(path); break;

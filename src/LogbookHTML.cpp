@@ -1057,7 +1057,7 @@ void LogbookHTML::toODS(wxString path)
 void LogbookHTML::backup(wxString path)
 {
     logbook->update();
-	wxCopyFile(data_locn+parent->backupFile,path);
+	wxCopyFile(data_locn+parent->backupFile+_T(".txt"),path);
 }
 
 void LogbookHTML::toKML(wxString path)
