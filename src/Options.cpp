@@ -168,7 +168,7 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 	// Grid MotorSails
 	vol = _("gal");
 	motorh = _("h");
-    engine = _("E");
+    engine = _T("E");
     shaft = _T("S");
     rpm = _T("RPM");
 
