@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 17:50+0100\n"
+"POT-Creation-Date: 2015-03-13 21:26+0100\n"
 "PO-Revision-Date: 2014-12-02 10:38-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Czech\n"
@@ -406,7 +406,8 @@ msgstr "Datum"
 msgid "Date + Days"
 msgstr "Datum + dny"
 #
-msgid "Date + Month"
+#, fuzzy
+msgid "Date + Months"
 msgstr "Datum + měsíce"
 #
 msgid "Date + Weeks"
@@ -1495,9 +1496,6 @@ msgstr ""
 msgid "Shutdown Logbook"
 msgstr "Zobraz ikonu deníku"
 #
-msgid "Sign"
-msgstr "Značka"
-#
 msgid "Sorry, Logbook has no lines"
 msgstr "Promiň, deník nemá žádné záznamy"
 #
@@ -1550,6 +1548,9 @@ msgstr ""
 #
 msgid "Startvalue"
 msgstr "Počáteční hodnota"
+#
+msgid "Status"
+msgstr ""
 #
 msgid "Staysail"
 msgstr ""
@@ -2115,12 +2116,21 @@ msgid "yellow"
 msgstr ""
 #
 #
+#
+#
+#
 #~ msgid "Install Languages"
 #~ msgstr "Instalovat jazyky"
 #
 #
+#
+#
+#
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "Nainstalovat OpenCPN_Logbook_Languages.zip"
+#
+#
+#
 #
 #
 #~ msgid ""
@@ -2133,20 +2143,40 @@ msgstr ""
 #~ "%s"
 #
 #
+#
+#
+#
 #~ msgid "Please fill in one character in Degrees, Minuts and Seconds"
 #~ msgstr "Prosím, vyplň jeden znak do stupňů, minut a sekund"
+#
+#
+#
 #
 #
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Vyber zabalené soubory s překlady"
 #
 #
+#
+#~ msgid "Sign"
+#~ msgstr "Značka"
+#
+#
+#
+#
+#
 #~ msgid "W/Strength"
 #~ msgstr "V/Síla"
 #
 #
+#
+#
+#
 #~ msgid "Wind"
 #~ msgstr "Vítr"
+#
+#
+#
 #
 #
 #~ msgid "Winddirection Avg."

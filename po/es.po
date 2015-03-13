@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 17:50+0100\n"
+"POT-Creation-Date: 2015-03-13 21:26+0100\n"
 "PO-Revision-Date: 2014-12-02 10:39-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Spanish\n"
@@ -404,7 +404,8 @@ msgstr "Fecha"
 msgid "Date + Days"
 msgstr "DistanciaEtmal"
 #
-msgid "Date + Month"
+#, fuzzy
+msgid "Date + Months"
 msgstr "Fecha de nacimiento"
 #
 msgid "Date + Weeks"
@@ -1450,9 +1451,6 @@ msgstr ""
 msgid "Shutdown Logbook"
 msgstr "Ver ícono bitácora"
 #
-msgid "Sign"
-msgstr "Signo"
-#
 msgid "Sorry, Logbook has no lines"
 msgstr "Siento, la bitácora no tiene entradas"
 #
@@ -1505,6 +1503,9 @@ msgstr ""
 #
 msgid "Startvalue"
 msgstr "Valor inicial"
+#
+msgid "Status"
+msgstr ""
 #
 msgid "Staysail"
 msgstr ""
@@ -2029,12 +2030,21 @@ msgid "yellow"
 msgstr ""
 #
 #
+#
+#
+#
 #~ msgid "Install Languages"
 #~ msgstr "Instalar OpenCPN_Logbook_Layouts.zip"
 #
 #
+#
+#
+#
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "Instalar OpenCPN_Logbook_Layouts.zip"
+#
+#
+#
 #
 #
 #~ msgid ""
@@ -2047,16 +2057,33 @@ msgstr ""
 #~ "%s"
 #
 #
+#
+#
+#
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Seleccione fichero .zip de idioma"
+#
+#
+#
+#~ msgid "Sign"
+#~ msgstr "Signo"
+#
+#
+#
 #
 #
 #~ msgid "W/Strength"
 #~ msgstr "Fuerza viento"
 #
 #
+#
+#
+#
 #~ msgid "Wind"
 #~ msgstr "Viento"
+#
+#
+#
 #
 #
 #~ msgid "Winddirection Avg."

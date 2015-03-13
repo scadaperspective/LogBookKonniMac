@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 17:50+0100\n"
+"POT-Creation-Date: 2015-03-13 21:26+0100\n"
 "PO-Revision-Date: 2014-12-02 10:38-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Finnish\n"
@@ -397,7 +397,7 @@ msgstr "Päivämäärä"
 msgid "Date + Days"
 msgstr ""
 #
-msgid "Date + Month"
+msgid "Date + Months"
 msgstr ""
 #
 msgid "Date + Weeks"
@@ -1438,9 +1438,6 @@ msgstr ""
 msgid "Shutdown Logbook"
 msgstr "Sulje lokikirja"
 #
-msgid "Sign"
-msgstr "Merkki"
-#
 msgid "Sorry, Logbook has no lines"
 msgstr ""
 #
@@ -1492,6 +1489,9 @@ msgid ""
 msgstr ""
 #
 msgid "Startvalue"
+msgstr ""
+#
+msgid "Status"
 msgstr ""
 #
 msgid "Staysail"
@@ -2026,16 +2026,33 @@ msgid "yellow"
 msgstr ""
 #
 #
+#
+#
+#
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Valitse zip kielet-tiedostot"
+#
+#
+#
+#~ msgid "Sign"
+#~ msgstr "Merkki"
+#
+#
+#
 #
 #
 #~ msgid "W/Strength"
 #~ msgstr "W/vahvuus"
 #
 #
+#
+#
+#
 #~ msgid "Wind"
 #~ msgstr "Tuuli"
+#
+#
+#
 #
 #
 #~ msgid "Winddirection Avg."

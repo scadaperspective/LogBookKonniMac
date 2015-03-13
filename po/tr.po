@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 17:50+0100\n"
+"POT-Creation-Date: 2015-03-13 21:26+0100\n"
 "PO-Revision-Date: 2014-12-02 11:05-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Turkish\n"
@@ -426,7 +426,8 @@ msgstr "Tarih"
 msgid "Date + Days"
 msgstr "Tarih + Günler"
 #
-msgid "Date + Month"
+#, fuzzy
+msgid "Date + Months"
 msgstr "Tarih + Ay"
 #
 msgid "Date + Weeks"
@@ -1535,9 +1536,6 @@ msgstr ""
 msgid "Shutdown Logbook"
 msgstr "Seyir Defteri simgesini göster"
 #
-msgid "Sign"
-msgstr "İşaret"
-#
 msgid "Sorry, Logbook has no lines"
 msgstr "Afedersizniz Seyir Defterinde satır yok."
 #
@@ -1596,6 +1594,9 @@ msgstr ""
 #
 msgid "Startvalue"
 msgstr "Başlangıç Değeri"
+#
+msgid "Status"
+msgstr ""
 #
 msgid "Staysail"
 msgstr ""
@@ -2195,12 +2196,21 @@ msgid "yellow"
 msgstr ""
 #
 #
+#
+#
+#
 #~ msgid "Install Languages"
 #~ msgstr "Dil dosyasını kur"
 #
 #
+#
+#
+#
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "\"OpenCPN_Logbook_Languages.zip\"i kur"
+#
+#
+#
 #
 #
 #~ msgid ""
@@ -2213,12 +2223,26 @@ msgstr ""
 #~ "%s"
 #
 #
+#
+#
+#
 #~ msgid "Please fill in one character in Degrees, Minuts and Seconds"
 #~ msgstr "Lütfen Derece, Dakika ve Saniye olarak doldurun."
 #
 #
+#
+#
+#
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Sıkıştırılmış dil dosyalarından birini seçin"
+#
+#
+#
+#~ msgid "Sign"
+#~ msgstr "İşaret"
+#
+#
+#
 #
 #
 #~ msgid "W/Strength"
@@ -2227,8 +2251,14 @@ msgstr ""
 #~ "Kuvveti"
 #
 #
+#
+#
+#
 #~ msgid "Wind"
 #~ msgstr "Rüzgar"
+#
+#
+#
 #
 #
 #~ msgid "Winddirection Avg."

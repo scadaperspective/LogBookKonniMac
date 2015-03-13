@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 17:50+0100\n"
+"POT-Creation-Date: 2015-03-13 21:26+0100\n"
 "PO-Revision-Date: 2014-12-02 10:02-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: French\n"
@@ -436,7 +436,8 @@ msgstr "Date"
 msgid "Date + Days"
 msgstr "Date + Jours"
 #
-msgid "Date + Month"
+#, fuzzy
+msgid "Date + Months"
 msgstr "Date + Mois"
 #
 msgid "Date + Weeks"
@@ -1600,9 +1601,6 @@ msgstr ""
 msgid "Shutdown Logbook"
 msgstr "Fermer le livre de bord"
 #
-msgid "Sign"
-msgstr "Signature"
-#
 msgid "Sorry, Logbook has no lines"
 msgstr "Désolé, le livre de bord ne contient aucune ligne"
 #
@@ -1666,6 +1664,9 @@ msgstr ""
 #
 msgid "Startvalue"
 msgstr "Valeur initiale"
+#
+msgid "Status"
+msgstr ""
 #
 msgid "Staysail"
 msgstr "Trinquette"
@@ -2302,16 +2303,28 @@ msgid "yellow"
 msgstr "Jaune"
 #
 #
+#
+#
+#
 #~ msgid "Administrator (Sudo) Password:"
 #~ msgstr "Password Administrateur (sudo) :"
+#
+#
+#
 #
 #
 #~ msgid "Install Languages"
 #~ msgstr "Installer les langues"
 #
 #
+#
+#
+#
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "Installer les mises en page possibles (OpenCPN_Logbook_Layouts.zip)"
+#
+#
+#
 #
 #
 #~ msgid ""
@@ -2322,6 +2335,9 @@ msgstr "Jaune"
 #~ "Langues installées dans\n"
 #~ "\n"
 #~ "%s"
+#
+#
+#
 #
 #
 #~ msgid ""
@@ -2338,12 +2354,26 @@ msgstr "Jaune"
 #~ "les langues'"
 #
 #
+#
+#
+#
 #~ msgid "Please fill in one character in Degrees, Minuts and Seconds"
 #~ msgstr "Veuillez remplir en degrés, minutes, secondes"
 #
 #
+#
+#
+#
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Sélectionner la langue du fichier"
+#
+#
+#
+#~ msgid "Sign"
+#~ msgstr "Signature"
+#
+#
+#
 #
 #
 #~ msgid ""
@@ -2371,10 +2401,16 @@ msgstr "Jaune"
 #~ "La fenêtre de dialogue 'Préférences de LogBook' est maintenant fermée. "
 #
 #
+#
+#
+#
 #~ msgid "Use ERRPM-Sentence (see help)"
 #~ msgstr ""
 #~ "Utiliser la trame nmea0183 ERRPM  pour une gestion automatique des moteurs "
 #~ "(voir l'aide)"
+#
+#
+#
 #
 #
 #~ msgid "W/Strength"
@@ -2383,8 +2419,14 @@ msgstr "Jaune"
 #~ "du vent"
 #
 #
+#
+#
+#
 #~ msgid "Wind"
 #~ msgstr "Vent"
+#
+#
+#
 #
 #
 #~ msgid "Winddirection Avg."

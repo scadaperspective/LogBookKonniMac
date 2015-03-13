@@ -95,11 +95,11 @@ Maintenance::Maintenance(LogbookDialog* d, wxString data, wxString layout, wxStr
 	m_choices[4] = dialog->m_gridMotorSails->GetColLabelValue(13)+_T(" <=");						// Bank1/AH
 	m_choices[5] = dialog->m_gridMotorSails->GetColLabelValue(15)+_T(" <=");						// Bank2/AH
 	m_choices[6] = dialog->m_gridMotorSails->GetColLabelValue(17)+_T(" +");							// Watermaker/h
-	m_choices[7] = dialog->m_gridGlobal->GetColLabelValue(3);										// Sign
+	m_choices[7] = dialog->m_gridGlobal->GetColLabelValue(3);										// Status
 	m_choices[8]  = _("Fix Date");
 	m_choices[9]  = _("Date + Days");
 	m_choices[10] = _("Date + Weeks");
-	m_choices[11] = _("Date + Month");
+	m_choices[11] = _("Date + Months");
 	m_choicesCount = 12;
 
 	m_YesNo[0] = _("Yes"); 
@@ -563,7 +563,7 @@ void Maintenance::checkService(int row)
 		else if (g == m_choices[7])
 		{
 			choice = 7;
-			col = LogbookHTML::SIGN;
+			col = LogbookHTML::STATUS;
 		}
 		else if (g == m_choices[8])
 			choice = 8;
@@ -738,8 +738,8 @@ void Maintenance::checkService(int row)
 						dialog->m_gridMotorSails->SetCellBackgroundColour(white,i,col);
 				}
 				break;
-			case 7: //Sign
-				if(grid->GetCellValue(r,URGENT) == dialog->m_gridGlobal->GetCellValue(row,LogbookHTML::SIGN))
+			case 7: //Status
+				if(grid->GetCellValue(r,URGENT) == dialog->m_gridGlobal->GetCellValue(row,LogbookHTML::STATUS))
 				{
 					border = 2;
 					rowBack = red;
@@ -1152,7 +1152,7 @@ void Maintenance::cellCollChanged(int col, int row)
 						grid->SetCellValue(selectedRow,WARN,_T("1"));
 						grid->SetCellValue(selectedRow,URGENT,_T("2"));
 		}
-		else if (g == m_choices[7]) //Sign
+		else if (g == m_choices[7]) //Status
 		{
 						grid->BeginBatch();
 						grid->SetCellValue(selectedRow,WARN,_T(""));

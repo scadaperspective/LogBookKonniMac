@@ -251,7 +251,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
 	m_gridGlobal->SetColLabelValue( 0, _("Route") );
 	m_gridGlobal->SetColLabelValue( 1, _("Date") );
 	m_gridGlobal->SetColLabelValue( 2, _("Time") );
-	m_gridGlobal->SetColLabelValue( 3, _("Sign") );
+	m_gridGlobal->SetColLabelValue( 3, _("Status") );
 	m_gridGlobal->SetColLabelValue( 4, _("Watch") );
 	m_gridGlobal->SetColLabelValue( 5, _("Distance") );
 	m_gridGlobal->SetColLabelValue( 6, _("DistanceTotal") );
@@ -2663,7 +2663,7 @@ void LogbookDialog::OnButtomClickStatusbarGlobal( wxCommandEvent& event )
 
 void LogbookDialog::OnClickButtonHelpGlobal( wxCommandEvent& event )
 {
-	startBrowser(data+_T("Help.html"));
+	startBrowser(help_locn+_T("Help.html"));
 }
 
 void LogbookDialog::OnChoiceGlobal( wxCommandEvent& event )
@@ -3082,9 +3082,7 @@ void LogbookDialog::clearDataDir()
 	f = wxFindFirstFile(data+_T("*.html"));
 	while ( !f.empty() )
 	{
-		if(!f.Contains(_T("Help.html")))
-			wxRemoveFile(f);
-
+		wxRemoveFile(f);
 		f = wxFindNextFile();
 	}
 
@@ -3726,12 +3724,6 @@ Backup Logbook(*.txt)|*.txt");
 	if(!wxDir::Exists(data))
 		wxMkdir(data);
 
-	image_locn = data;
-	image_locn.append(_T("Images"));
-	appendOSDirSlash(&image_locn);
-	if(!wxDir::Exists(image_locn))
-		wxMkdir(image_locn);
-
 	layoutHTML = data;
 	layoutHTML.append(_T("HTMLLayouts"));
 	appendOSDirSlash(&layoutHTML);
@@ -3739,6 +3731,10 @@ Backup Logbook(*.txt)|*.txt");
 	layoutODT = data;
 	layoutODT.append(_T("ODTLayouts"));
 	appendOSDirSlash(&layoutODT);
+
+	wxString s = wxFileName::GetPathSeparator();
+	help_locn = *GetpSharedDataLocation() + _T("plugins") + s + _T("logbookkonni_pi") + s + _T("data") + s;
+	image_locn = help_locn + _T("Images") + s;
 
 	lastRowSelectedRepairs = 0;
 	lastRowSelectedBuyParts = 0;
@@ -4571,16 +4567,15 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 	if(ev.GetCol() == 13 && (m_notebook8->GetSelection() == 1))
 	{
 		m_menu1->PrependSeparator();
-		wxString path = *pHome_Locn;
-		path += _T("data") + wxString(wxFileName::GetPathSeparator());
-		path +=_T("Clouds") + wxString(wxFileName::GetPathSeparator());
+		wxString s = wxFileName::GetPathSeparator();
+		clouds_locn = *GetpSharedDataLocation() + _T("plugins") + s + _T("logbookkonni_pi") + s + _T("data") + s + _T("Clouds") + s;
 
 		for(int i = 0; i < 10; i++)
 		{
 			wxMenu *temp = new wxMenu();
 			wxMenuItem *item = new wxMenuItem( temp, wxID_ANY, clouds[i], wxEmptyString,wxITEM_NORMAL);
 
-			const wxBitmap bmp ((path+clouds[i].Lower()+_T(".jpg")), wxBITMAP_TYPE_ANY);
+			const wxBitmap bmp ((clouds_locn+clouds[i].Lower()+_T(".jpg")), wxBITMAP_TYPE_ANY);
 			item->SetBitmap(bmp);
 			temp->Append(item);
 			m_menu1->Prepend( -1, clouds[i], temp );
@@ -4745,9 +4740,9 @@ void LogbookDialog::logSaveOnButtonClick( wxCommandEvent& ev )
 	switch(sel)
 	{
 	case 0: if(m_radioBtnHTML->GetValue())
-				logbook->toHTML(path,layout,true);
+				logbook->toHTML(path, layout, true);
 			else
-				logbook->toODT(path,layout,true);
+				logbook->toODT(path, layout, true);
 			break;
 	case 1: logbook->toKML(path); break;
 	case 2:	logbook->toODS(path); break;
@@ -5342,6 +5337,7 @@ void LogbookDialog::OnMenuSelectionNewWatchWake( wxCommandEvent& event )
 
 void LogbookDialog::crewSaveOnButtonClick( wxCommandEvent& ev )
 {
+	wxString layout;
 	wxString filter = saveDialogFilter;
 	if(m_radioBtnHTMLCrew->GetValue())
 		filter.Prepend(_T("HTML Format(*.html)|*.html|"));
@@ -5360,14 +5356,16 @@ void LogbookDialog::crewSaveOnButtonClick( wxCommandEvent& ev )
 	wxString path = saveFileDialog->GetPath();
 	int sel = saveFileDialog->GetFilterIndex();
 
+    layout = crewChoice->GetString(crewChoice->GetSelection());
+    if(logbook->opt->filterLayout[LogbookDialog::CREW])
+        layout.Prepend(logbook->opt->layoutPrefix[LogbookDialog::CREW]);
+
 	switch(sel)
 	{
 	case 0: if(m_radioBtnHTMLCrew->GetValue())
-				crewList->saveHTML(path,
-				crewChoice->GetString(crewChoice->GetSelection()),false); 
+				crewList->saveHTML(path, layout, false); 
 			else
-				crewList->saveODT(path,
-				crewChoice->GetString(crewChoice->GetSelection()),true); 
+				crewList->saveODT(path, layout, true); 
 			break;
 	case 1: crewList->saveODS(path); break;
 	case 2:	crewList->saveXML(path); break;
@@ -5685,6 +5683,8 @@ void LogbookDialog::OnToggleButtonShowEquip(wxCommandEvent& ev)
 void LogbookDialog::boatSaveOnButtonClick( wxCommandEvent& ev )
 {
 	wxString filter = saveDialogFilter;
+	wxString layout;
+
 	if(m_radioBtnHTMLBoat->GetValue())
 		filter.Prepend(_T("HTML Format(*.html)|*.html|"));
 	else
@@ -5701,14 +5701,16 @@ void LogbookDialog::boatSaveOnButtonClick( wxCommandEvent& ev )
 	wxString path = saveFileDialog->GetPath();
 	int sel = saveFileDialog->GetFilterIndex();
 
+    layout = boatChoice->GetString(boatChoice->GetSelection());
+    if(logbook->opt->filterLayout[LogbookDialog::BOAT])
+        layout.Prepend(logbook->opt->layoutPrefix[LogbookDialog::BOAT]);
+
 	switch(sel)
 	{
 	case 0: if(m_radioBtnHTMLBoat->GetValue())
-				boat->toHTML(path,
-				boatChoice->GetString(boatChoice->GetSelection()), true); 
+				boat->toHTML(path, layout, true); 
 			else
-				boat->toODT(path,
-				boatChoice->GetString(boatChoice->GetSelection()), true); 
+				boat->toODT(path, layout, true); 
 		break;
 	case 1: boat->toODS(path); break;
 	case 2:	boat->toXML(path); break;
@@ -5843,6 +5845,7 @@ void LogbookDialog::OnGridLabelLeftClickService( wxGridEvent& event )
 
 void LogbookDialog::onButtobClickSaveService(wxCommandEvent & ev)
 {
+	wxString layout;
 	wxString filter = _T("");
 	if(m_radioBtnHTMLService->GetValue())
 		filter = _T("HTML Format(*.html)|*.html");
@@ -5859,14 +5862,16 @@ void LogbookDialog::onButtobClickSaveService(wxCommandEvent & ev)
 	wxString path = saveFileDialog->GetPath();
 	int sel = saveFileDialog->GetFilterIndex();
 
+    layout = m_choiceSelectLayoutService->GetString(m_choiceSelectLayoutService->GetSelection());
+    if(logbook->opt->filterLayout[LogbookDialog::GSERVICE])
+        layout.Prepend(logbook->opt->layoutPrefix[LogbookDialog::GSERVICE]);
+
 	switch(sel)
 	{
 	case 0: if(m_radioBtnHTMLService->GetValue())
-				maintenance->toHTML(0,path,
-				m_choiceSelectLayoutService->GetString(m_choiceSelectLayoutService->GetSelection()),2);
+				maintenance->toHTML(0, path, layout, 2);
 			else
-				maintenance->toODT(0,path,
-				m_choiceSelectLayoutService->GetString(m_choiceSelectLayoutService->GetSelection()),2); 
+				maintenance->toODT(0, path, layout, 2); 
 			break;
 	default: wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
 	}
@@ -6091,6 +6096,7 @@ void LogbookDialog::onMenuSelectionRepairsBuyParts(wxCommandEvent &ev)
 
 void LogbookDialog::onButtobClickSaveRepairs( wxCommandEvent& event )
 {
+	wxString layout;
 	wxString filter = _T("");
 	if(m_radioBtnHTMLRepairs->GetValue())
 		filter = _T("HTML Format(*.html)|*.html");
@@ -6108,14 +6114,16 @@ void LogbookDialog::onButtobClickSaveRepairs( wxCommandEvent& event )
 	wxString path = saveFileDialog->GetPath();
 	int sel = saveFileDialog->GetFilterIndex();
 
+    layout = m_choiceSelectLayoutRepairs->GetString(m_choiceSelectLayoutRepairs->GetSelection());
+    if(logbook->opt->filterLayout[LogbookDialog::GREPAIRS])
+        layout.Prepend(logbook->opt->layoutPrefix[LogbookDialog::GREPAIRS]);
+
 	switch(sel)
 	{
 	case 0: if(m_radioBtnHTMLRepairs->GetValue())
-				maintenance->toHTML(1,path, 
-				m_choiceSelectLayoutRepairs->GetString(m_choiceSelectLayoutRepairs->GetSelection()),2);
+				maintenance->toHTML(1, path, layout, 2);
 			else
-				maintenance->toODT(1,path,
-				m_choiceSelectLayoutRepairs->GetString(m_choiceSelectLayoutRepairs->GetSelection()),2); 
+				maintenance->toODT(1, path, layout, 2); 
 			break;
 
 	default: wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
@@ -6305,6 +6313,7 @@ void LogbookDialog::onGridCellChangeBuyParts(wxGridEvent &ev)
 }
 void LogbookDialog::onButtobClickSaveBuyParts( wxCommandEvent& event )
 {
+	wxString layout;
 	wxString filter = _T("");
 	if(m_radioBtnHTMLBuyParts->GetValue())
 		filter = _T("HTML Format(*.html)|*.html");
@@ -6322,14 +6331,16 @@ void LogbookDialog::onButtobClickSaveBuyParts( wxCommandEvent& event )
 	wxString path = saveFileDialog->GetPath();
 	int sel = saveFileDialog->GetFilterIndex();
 
+    layout = m_choiceSelectLayoutBuyParts->GetString(m_choiceSelectLayoutBuyParts->GetSelection());
+    if(logbook->opt->filterLayout[LogbookDialog::GBUYPARTS])
+        layout.Prepend(logbook->opt->layoutPrefix[LogbookDialog::GBUYPARTS]);
+
 	switch(sel)
 	{
 	case 0: if(m_radioBtnHTMLBuyParts->GetValue())
-				maintenance->toHTML(2,path, 
-				m_choiceSelectLayoutBuyParts->GetString(m_choiceSelectLayoutBuyParts->GetSelection()),2);
+				maintenance->toHTML(2, path, layout, 2);
 			else
-				maintenance->toODT(2,path,
-				m_choiceSelectLayoutBuyParts->GetString(m_choiceSelectLayoutBuyParts->GetSelection()),2); 
+				maintenance->toODT(2, path, layout, 2); 
 			break;
 
 	default: wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
@@ -6524,6 +6535,7 @@ void LogbookDialog::OnMenuSelectionHideColumnOverView(wxCommandEvent& ev)
 
 void LogbookDialog::OnButtonClickOverviewSave( wxCommandEvent& ev )
 {
+	wxString layout;
 	wxString filter = _T("");
 	if(m_radioBtnHTMLOverview->GetValue())
 		filter = _T("HTML Format(*.html)|*.html");
@@ -6541,14 +6553,16 @@ void LogbookDialog::OnButtonClickOverviewSave( wxCommandEvent& ev )
 	wxString path = saveFileDialog->GetPath();
 	int sel = saveFileDialog->GetFilterIndex();
 
+    layout = overviewChoice->GetString(overviewChoice->GetSelection());
+    if(logbook->opt->filterLayout[LogbookDialog::OVERVIEW])
+        layout.Prepend(logbook->opt->layoutPrefix[LogbookDialog::OVERVIEW]);
+
 	switch(sel)
 	{
 	case 0: if(m_radioBtnHTMLOverview->GetValue())
-				overview->toHTML(path, 
-				overviewChoice->GetString(overviewChoice->GetSelection()),2);
+				overview->toHTML(path, layout, 2);
 			else
-				overview->toODT(path,
-				overviewChoice->GetString(overviewChoice->GetSelection()),2); 
+				overview->toODT(path, layout, 2); 
 			break;
 
 	default: wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
