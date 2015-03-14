@@ -4568,7 +4568,7 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 	{
 		m_menu1->PrependSeparator();
 		wxString s = wxFileName::GetPathSeparator();
-		clouds_locn = *GetpSharedDataLocation() + _T("plugins") + s + _T("logbookkonni_pi") + s + _T("data") + s + _T("Clouds") + s;
+		clouds_locn = data  + _T("Clouds") + s;
 
 		for(int i = 0; i < 10; i++)
 		{
