@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 17:50+0100\n"
+"POT-Creation-Date: 2015-03-13 21:26+0100\n"
 "PO-Revision-Date: 2014-12-02 08:45-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Catalan\n"
@@ -392,8 +392,9 @@ msgstr "Data"
 msgid "Date + Days"
 msgstr ""
 #
-msgid "Date + Month"
-msgstr ""
+#, fuzzy
+msgid "Date + Months"
+msgstr "Data de naixement"
 #
 msgid "Date + Weeks"
 msgstr ""
@@ -1424,9 +1425,6 @@ msgstr ""
 msgid "Shutdown Logbook"
 msgstr ""
 #
-msgid "Sign"
-msgstr "Signe"
-#
 msgid "Sorry, Logbook has no lines"
 msgstr ""
 #
@@ -1479,6 +1477,9 @@ msgstr ""
 #
 msgid "Startvalue"
 msgstr "Valor inicial"
+#
+msgid "Status"
+msgstr ""
 #
 msgid "Staysail"
 msgstr ""
@@ -2016,16 +2017,33 @@ msgid "yellow"
 msgstr ""
 #
 #
+#
+#
+#
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Seleccionar arxius comprimits d'idiomes"
+#
+#
+#
+#~ msgid "Sign"
+#~ msgstr "Signe"
+#
+#
+#
 #
 #
 #~ msgid "W/Strength"
 #~ msgstr "Força del vent"
 #
 #
+#
+#
+#
 #~ msgid "Wind"
 #~ msgstr "Vent"
+#
+#
+#
 #
 #
 #~ msgid "Winddirection Avg."

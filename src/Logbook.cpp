@@ -998,7 +998,7 @@ void Logbook::loadData()
 						dt.Set(hour,min,sec);
 						dialog->m_gridGlobal->SetCellValue(row,RTIME,dt.Format(opt->stimeformat));
 				break;
-			case 7:		dialog->m_gridGlobal->SetCellValue(row,SIGN,s);
+			case 7:		dialog->m_gridGlobal->SetCellValue(row,STATUS,s);
 				break;
 			case 8:		dialog->m_gridGlobal->SetCellValue(row,WAKE,s);
 				break;
@@ -1111,9 +1111,9 @@ void Logbook::loadData()
 		wxString temp = dialog->m_gridGlobal->GetCellValue(row,DISTANCE);
 		temp.Replace(_T(","),_T("."));
 		double dist = wxAtof(temp);
-		if((dialog->m_gridGlobal->GetCellValue(row,SIGN) == wxEmptyString || 
-			dialog->m_gridGlobal->GetCellValue(row,SIGN).GetChar(0) == ' ') && dist > 0)
-			dialog->m_gridGlobal->SetCellValue(row,SIGN,_T("S"));
+		if((dialog->m_gridGlobal->GetCellValue(row,STATUS) == wxEmptyString || 
+			dialog->m_gridGlobal->GetCellValue(row,STATUS).GetChar(0) == ' ') && dist > 0)
+			dialog->m_gridGlobal->SetCellValue(row,STATUS,_T("S"));
 
 		if(fields < dialog->totalColumns) // data from 0.910 ? need zero-values to calculate the columns 
 		{
@@ -1379,18 +1379,18 @@ void Logbook::convertTo_1_2()
 
 void Logbook::setCellAlign(int i)
 {
-	dialog->m_gridGlobal->SetCellAlignment    (i,ROUTE,                wxALIGN_LEFT, wxALIGN_TOP);
-	dialog->m_gridGlobal->SetCellAlignment    (i,RDATE,                wxALIGN_CENTRE, wxALIGN_TOP);
-	dialog->m_gridGlobal->SetCellAlignment    (i,RTIME,                wxALIGN_CENTRE, wxALIGN_TOP);
-	dialog->m_gridGlobal->SetCellAlignment    (i,SIGN,                 wxALIGN_CENTRE, wxALIGN_TOP);
-	dialog->m_gridGlobal->SetCellAlignment    (i,WAKE,                 wxALIGN_LEFT, wxALIGN_TOP);
-	dialog->m_gridGlobal->SetCellAlignment    (i,REMARKS,              wxALIGN_LEFT, wxALIGN_TOP);
-	dialog->m_gridWeather->SetCellAlignment   (i,WEATHER,   wxALIGN_LEFT, wxALIGN_TOP);
-	dialog->m_gridWeather->SetCellAlignment   (i,CLOUDS,    wxALIGN_LEFT, wxALIGN_TOP);
-	dialog->m_gridWeather->SetCellAlignment   (i,VISIBILITY,wxALIGN_LEFT, wxALIGN_TOP);
-	dialog->m_gridMotorSails->SetCellAlignment(i,LogbookHTML::SAILS,       wxALIGN_LEFT, wxALIGN_TOP);
-	dialog->m_gridMotorSails->SetCellAlignment(i,LogbookHTML::REEF,        wxALIGN_LEFT, wxALIGN_TOP);
-	dialog->m_gridMotorSails->SetCellAlignment(i,LogbookHTML::MREMARKS,    wxALIGN_LEFT, wxALIGN_TOP);
+	dialog->m_gridGlobal->SetCellAlignment    (i,ROUTE, wxALIGN_LEFT, wxALIGN_TOP);
+	dialog->m_gridGlobal->SetCellAlignment    (i,RDATE, wxALIGN_CENTRE, wxALIGN_TOP);
+	dialog->m_gridGlobal->SetCellAlignment    (i,RTIME, wxALIGN_CENTRE, wxALIGN_TOP);
+	dialog->m_gridGlobal->SetCellAlignment    (i,STATUS, wxALIGN_CENTRE, wxALIGN_TOP);
+	dialog->m_gridGlobal->SetCellAlignment    (i,WAKE, wxALIGN_LEFT, wxALIGN_TOP);
+	dialog->m_gridGlobal->SetCellAlignment    (i,REMARKS, wxALIGN_LEFT, wxALIGN_TOP);
+	dialog->m_gridWeather->SetCellAlignment   (i,WEATHER, wxALIGN_LEFT, wxALIGN_TOP);
+	dialog->m_gridWeather->SetCellAlignment   (i,CLOUDS, wxALIGN_LEFT, wxALIGN_TOP);
+	dialog->m_gridWeather->SetCellAlignment   (i,VISIBILITY, wxALIGN_LEFT, wxALIGN_TOP);
+	dialog->m_gridMotorSails->SetCellAlignment(i,LogbookHTML::SAILS, wxALIGN_LEFT, wxALIGN_TOP);
+	dialog->m_gridMotorSails->SetCellAlignment(i,LogbookHTML::REEF, wxALIGN_LEFT, wxALIGN_TOP);
+	dialog->m_gridMotorSails->SetCellAlignment(i,LogbookHTML::MREMARKS, wxALIGN_LEFT, wxALIGN_TOP);
 
 	dialog->m_gridGlobal->SetReadOnly(i,POSITION,true);
 }
@@ -2352,12 +2352,12 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 
 		s.Replace(_T(","),_T("."));
 		if(wxAtof(s) >= 0.1) 
-			dialog->m_gridGlobal->SetCellValue(row,SIGN,_T("S"));
+			dialog->m_gridGlobal->SetCellValue(row,STATUS,_T("S"));
 		else
-			dialog->m_gridGlobal->SetCellValue(row,SIGN,_T(""));
+			dialog->m_gridGlobal->SetCellValue(row,STATUS,_T(""));
 	}
 
-	else if(grid == 0 && col== SIGN)
+	else if(grid == 0 && col== STATUS)
 	{
 		dialog->logGrids[grid]->SetCellValue(row,col,s.Upper());
 		if(row == dialog->m_gridGlobal->GetNumberRows()-1)

@@ -326,7 +326,8 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 					endtime = s;
 								}
 								break;
-			case SIGN:		   sign = s;
+			case STATUS:
+				sign = s;
 				break;
 			case WATCH:	
 				break;

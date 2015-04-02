@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 17:50+0100\n"
+"POT-Creation-Date: 2015-03-13 21:26+0100\n"
 "PO-Revision-Date: 2014-12-02 08:46-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Portuguese, Brazilian\n"
@@ -402,7 +402,8 @@ msgstr "Data"
 msgid "Date + Days"
 msgstr "Data + dias"
 #
-msgid "Date + Month"
+#, fuzzy
+msgid "Date + Months"
 msgstr "Data + mês"
 #
 msgid "Date + Weeks"
@@ -1470,9 +1471,6 @@ msgstr ""
 msgid "Shutdown Logbook"
 msgstr ""
 #
-msgid "Sign"
-msgstr "Sinal"
-#
 msgid "Sorry, Logbook has no lines"
 msgstr "Desculpa, diário de bordo não tem linhas"
 #
@@ -1525,6 +1523,9 @@ msgstr ""
 #
 msgid "Startvalue"
 msgstr "IniciarValor"
+#
+msgid "Status"
+msgstr ""
 #
 msgid "Staysail"
 msgstr ""
@@ -2088,28 +2089,54 @@ msgid "yellow"
 msgstr ""
 #
 #
+#
+#
+#
 #~ msgid "Install Languages"
 #~ msgstr "Instalar idiomas"
+#
+#
+#
 #
 #
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "Instalar OpenCPN_Diáriodebordo_idiomas.zip"
 #
 #
+#
+#
+#
 #~ msgid "Please fill in one character in Degrees, Minuts and Seconds"
 #~ msgstr "Por favor, preencha um caractere em graus, minutos e segundos"
+#
+#
+#
 #
 #
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Selecione arquivos-idiomas compactados"
 #
 #
+#
+#~ msgid "Sign"
+#~ msgstr "Sinal"
+#
+#
+#
+#
+#
 #~ msgid "W/Strength"
 #~ msgstr "W/força"
 #
 #
+#
+#
+#
 #~ msgid "Wind"
 #~ msgstr "Vento"
+#
+#
+#
 #
 #
 #~ msgid "Winddirection Avg."

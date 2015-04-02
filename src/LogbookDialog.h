@@ -699,6 +699,8 @@ enum FORMAT {HTML,ODT};
         wxString			  basePath;
 		wxString              data;
 		wxString              image_locn;
+		wxString              help_locn;
+		wxString              clouds_locn;
 		Logbook*			  logbook;
 		OverView*			  overview;
         wxString			  onOff[2];
@@ -850,7 +852,7 @@ class SelectLogbook : public wxDialog
 #ifdef __WXMSW__		
 		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = _("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 700,252), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 #else
-		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = _("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 297,260), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER  );		
+		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = _("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 610,350), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER  );		
 #endif
 		~SelectLogbook();
 	

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 17:50+0100\n"
+"POT-Creation-Date: 2015-03-13 21:26+0100\n"
 "PO-Revision-Date: 2014-12-02 10:38-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Danish\n"
@@ -410,7 +410,8 @@ msgstr "Dato"
 msgid "Date + Days"
 msgstr "Dato + Dage"
 #
-msgid "Date + Month"
+#, fuzzy
+msgid "Date + Months"
 msgstr "Dato + Måned"
 #
 msgid "Date + Weeks"
@@ -1501,9 +1502,6 @@ msgstr ""
 msgid "Shutdown Logbook"
 msgstr "Vis logbogs Ikon"
 #
-msgid "Sign"
-msgstr "Aktivitet"
-#
 msgid "Sorry, Logbook has no lines"
 msgstr "Beklager, logbog indeholder ingen linjer"
 #
@@ -1556,6 +1554,9 @@ msgstr ""
 #
 msgid "Startvalue"
 msgstr "Startværdi"
+#
+msgid "Status"
+msgstr ""
 #
 msgid "Staysail"
 msgstr ""
@@ -2122,12 +2123,21 @@ msgid "yellow"
 msgstr ""
 #
 #
+#
+#
+#
 #~ msgid "Install Languages"
 #~ msgstr "Installer sprog"
 #
 #
+#
+#
+#
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "Installer OpenCPN_Logbook_Languages.zip"
+#
+#
+#
 #
 #
 #~ msgid ""
@@ -2140,20 +2150,40 @@ msgstr ""
 #~ "%s"
 #
 #
+#
+#
+#
 #~ msgid "Please fill in one character in Degrees, Minuts and Seconds"
 #~ msgstr "Anfør én karakter i  Grader, Minutter og Sekunder"
+#
+#
+#
 #
 #
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Vælg zip pakket Sprog filer"
 #
 #
+#
+#~ msgid "Sign"
+#~ msgstr "Aktivitet"
+#
+#
+#
+#
+#
 #~ msgid "W/Strength"
 #~ msgstr "Vindstyrke"
 #
 #
+#
+#
+#
 #~ msgid "Wind"
 #~ msgstr "Vind"
+#
+#
+#
 #
 #
 #~ msgid "Winddirection Avg."

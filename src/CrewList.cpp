@@ -2428,7 +2428,7 @@ wxString CrewList::readLayoutODT(wxString layout)
 
 	if(wxFileExists(filename))
 	{
-//#ifdef __WXOSX__
+#ifdef __WXOSX__
         auto_ptr<wxZipEntry> entry;
         static const wxString fn = _T("content.xml");
         wxString name = wxZipEntry::GetInternalName(fn);
@@ -2445,14 +2445,14 @@ wxString CrewList::readLayoutODT(wxString layout)
             while(!zip.Eof())
                 odt += txt.ReadLine();
         }
-//#else
+#else
 		/*static const wxString fn = _T("content.xml");
 		wxFileInputStream in(filename);
 		wxZipInputStream zip(in);
 		wxTextInputStream txt(zip);
 		while(!zip.Eof())
 			odt += txt.ReadLine();*/
-//#endif
+#endif
 	}
 	return odt;
 }

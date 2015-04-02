@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 17:50+0100\n"
+"POT-Creation-Date: 2015-03-13 21:26+0100\n"
 "PO-Revision-Date: 2014-12-02 11:58-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Dutch\n"
@@ -419,7 +419,8 @@ msgstr "Datum"
 msgid "Date + Days"
 msgstr "Datum + Dagen"
 #
-msgid "Date + Month"
+#, fuzzy
+msgid "Date + Months"
 msgstr "Datum + Maand"
 #
 msgid "Date + Weeks"
@@ -1522,9 +1523,6 @@ msgstr ""
 msgid "Shutdown Logbook"
 msgstr "Toon Logbook icoon"
 #
-msgid "Sign"
-msgstr "Paraaf"
-#
 msgid "Sorry, Logbook has no lines"
 msgstr "Fout: het journaal bevat geen regel(s)!"
 #
@@ -1581,6 +1579,9 @@ msgstr ""
 #
 msgid "Startvalue"
 msgstr "Startwaarde"
+#
+msgid "Status"
+msgstr ""
 #
 msgid "Staysail"
 msgstr ""
@@ -2166,12 +2167,21 @@ msgid "yellow"
 msgstr ""
 #
 #
+#
+#
+#
 #~ msgid "Install Languages"
 #~ msgstr "Installeer talen"
 #
 #
+#
+#
+#
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "Installeer OpenCPN_Logbook_Layouts.zip"
+#
+#
+#
 #
 #
 #~ msgid ""
@@ -2184,12 +2194,26 @@ msgstr ""
 #~ "%s"
 #
 #
+#
+#
+#
 #~ msgid "Please fill in one character in Degrees, Minuts and Seconds"
 #~ msgstr "Voer graden, minuten , seconden in"
 #
 #
+#
+#
+#
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Selecteer de taalbestanden (zip)"
+#
+#
+#
+#~ msgid "Sign"
+#~ msgstr "Paraaf"
+#
+#
+#
 #
 #
 #~ msgid "W/Strength"
@@ -2198,8 +2222,14 @@ msgstr ""
 #~ "kracht"
 #
 #
+#
+#
+#
 #~ msgid "Wind"
 #~ msgstr "Wind"
+#
+#
+#
 #
 #
 #~ msgid "Winddirection Avg."

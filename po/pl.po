@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 17:50+0100\n"
+"POT-Creation-Date: 2015-03-13 21:26+0100\n"
 "PO-Revision-Date: 2014-12-02 10:39-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Polish\n"
@@ -419,7 +419,8 @@ msgstr "Data"
 msgid "Date + Days"
 msgstr "Data + Dni"
 #
-msgid "Date + Month"
+#, fuzzy
+msgid "Date + Months"
 msgstr "Data + Miesięcy"
 #
 msgid "Date + Weeks"
@@ -1499,9 +1500,6 @@ msgstr ""
 msgid "Shutdown Logbook"
 msgstr "Pokazuj ikonę Dziennika"
 #
-msgid "Sign"
-msgstr "Stan"
-#
 msgid "Sorry, Logbook has no lines"
 msgstr "Dziennik nie ma wpisów"
 #
@@ -1562,6 +1560,9 @@ msgid "Startvalue"
 msgstr ""
 "Wartość\n"
 "początkowa"
+#
+msgid "Status"
+msgstr ""
 #
 msgid "Staysail"
 msgstr ""
@@ -2138,12 +2139,21 @@ msgid "yellow"
 msgstr ""
 #
 #
+#
+#
+#
 #~ msgid "Install Languages"
 #~ msgstr "Instaluj Języki"
 #
 #
+#
+#
+#
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "Instaluj OpenCPN_Logbook_Languages.zip"
+#
+#
+#
 #
 #
 #~ msgid ""
@@ -2156,20 +2166,40 @@ msgstr ""
 #~ "%s"
 #
 #
+#
+#
+#
 #~ msgid "Please fill in one character in Degrees, Minuts and Seconds"
 #~ msgstr "Wprowadź jeden znak dla stopni, minut i sekund"
+#
+#
+#
 #
 #
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Wybierz spakowane pliki Języków"
 #
 #
+#
+#~ msgid "Sign"
+#~ msgstr "Stan"
+#
+#
+#
+#
+#
 #~ msgid "W/Strength"
 #~ msgstr "Siła Wiatru"
 #
 #
+#
+#
+#
 #~ msgid "Wind"
 #~ msgstr "Wiatr"
+#
+#
+#
 #
 #
 #~ msgid "Winddirection Avg."

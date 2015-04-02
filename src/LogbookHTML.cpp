@@ -47,9 +47,9 @@ void LogbookHTML::setPlaceholders()
 	gridc gridcols2 = { 0,LogbookHTML::RTIME};
 	placeholders[_T("TIME")]=gridcols2;
 	placeholders[_T("LTIME")]=gridcols2;
-	gridc gridcols3 = { 0,LogbookHTML::SIGN};
-	placeholders[_T("SIGN")]=gridcols3;
-	placeholders[_T("LSIGN")]=gridcols3;
+	gridc gridcols3 = { 0,LogbookHTML::STATUS};
+	placeholders[_T("STATUS")]=gridcols3;
+	placeholders[_T("LSTATUS")]=gridcols3;
 	gridc gridcols4 = { 0,LogbookHTML::WAKE};
 	placeholders[_T("WAKE")]=gridcols4;
 	placeholders[_T("LWAKE")]=gridcols4;
@@ -442,8 +442,8 @@ wxString LogbookHTML::replacePlaceholder(wxString html,wxString htmlHeader,int g
 						case RTIME:		html.Replace(wxT("#TIME#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false),false);
 										html.Replace(wxT("#LTIME#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true),false);
 								break;
-						case SIGN:		html.Replace(wxT("#SIGN#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false),false);
-										html.Replace(wxT("#LSIGN#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true),false);
+						case STATUS:		html.Replace(wxT("#STATUS#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false),false);
+										html.Replace(wxT("#LSTATUS#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true),false);
 								break;
 						case WAKE:		html.Replace(wxT("#WAKE#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false),false);
 										html.Replace(wxT("#LWAKE#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true),false);
@@ -1057,7 +1057,7 @@ void LogbookHTML::toODS(wxString path)
 void LogbookHTML::backup(wxString path)
 {
     logbook->update();
-	wxCopyFile(data_locn+parent->backupFile,path);
+	wxCopyFile(data_locn+parent->backupFile+_T(".txt"),path);
 }
 
 void LogbookHTML::toKML(wxString path)

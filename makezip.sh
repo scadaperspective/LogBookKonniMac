@@ -25,6 +25,7 @@ rm -f build/LogbookKonni_Languages.zip
 #
 rm -f build/LogbookKonni_Layouts.zip
 (
-    cd data
-    zip -r ../build/LogbookKonni_Layouts.zip HTMLLayouts ODTLayouts Help.html Clouds Images
+    cd Layouts
+    zip -r ../build/LogbookKonni_Layouts.zip HTMLLayouts ODTLayouts Clouds
+
 )

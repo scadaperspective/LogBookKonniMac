@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 17:50+0100\n"
+"POT-Creation-Date: 2015-03-13 21:26+0100\n"
 "PO-Revision-Date: 2014-12-02 11:05-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Norwegian Bokmal\n"
@@ -394,8 +394,9 @@ msgstr "Dato"
 msgid "Date + Days"
 msgstr ""
 #
-msgid "Date + Month"
-msgstr ""
+#, fuzzy
+msgid "Date + Months"
+msgstr "fødselsdato"
 #
 msgid "Date + Weeks"
 msgstr ""
@@ -1419,9 +1420,6 @@ msgstr ""
 msgid "Shutdown Logbook"
 msgstr ""
 #
-msgid "Sign"
-msgstr ""
-#
 msgid "Sorry, Logbook has no lines"
 msgstr ""
 #
@@ -1473,6 +1471,9 @@ msgid ""
 msgstr ""
 #
 msgid "Startvalue"
+msgstr ""
+#
+msgid "Status"
 msgstr ""
 #
 msgid "Staysail"
@@ -2001,12 +2002,21 @@ msgid "yellow"
 msgstr ""
 #
 #
+#
+#
+#
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Velg pakkede språkfiler"
 #
 #
+#
+#
+#
 #~ msgid "W/Strength"
 #~ msgstr "V/styrke"
+#
+#
+#
 #
 #
 #~ msgid "Wind"

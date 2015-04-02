@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-21 17:50+0100\n"
+"POT-Creation-Date: 2015-03-13 21:26+0100\n"
 "PO-Revision-Date: 2014-12-02 08:46-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Swedish\n"
@@ -400,8 +400,9 @@ msgstr "Datum"
 msgid "Date + Days"
 msgstr ""
 #
-msgid "Date + Month"
-msgstr ""
+#, fuzzy
+msgid "Date + Months"
+msgstr "Födelsedatum"
 #
 msgid "Date + Weeks"
 msgstr ""
@@ -1434,9 +1435,6 @@ msgstr ""
 msgid "Shutdown Logbook"
 msgstr ""
 #
-msgid "Sign"
-msgstr "Signera"
-#
 msgid "Sorry, Logbook has no lines"
 msgstr "Tyvärr, loggboken har inga rader"
 #
@@ -1489,6 +1487,9 @@ msgstr ""
 #
 msgid "Startvalue"
 msgstr "Startvärde"
+#
+msgid "Status"
+msgstr ""
 #
 msgid "Staysail"
 msgstr ""
@@ -2037,28 +2038,54 @@ msgid "yellow"
 msgstr ""
 #
 #
+#
+#
+#
 #~ msgid "Install Languages"
 #~ msgstr "Installera språk"
+#
+#
+#
 #
 #
 #~ msgid "Install OpenCPN_Logbook_Languages.zip"
 #~ msgstr "Installera OpenCPN_Logbook_Languages.zip"
 #
 #
+#
+#
+#
 #~ msgid "Please fill in one character in Degrees, Minuts and Seconds"
 #~ msgstr "Vänligen fyll i ett tecken i grader, minuter och sekunder"
+#
+#
+#
 #
 #
 #~ msgid "Select zipped Languages-Files"
 #~ msgstr "Välj zippade språk-filer"
 #
 #
+#
+#~ msgid "Sign"
+#~ msgstr "Signera"
+#
+#
+#
+#
+#
 #~ msgid "W/Strength"
 #~ msgstr "W/styrka"
 #
 #
+#
+#
+#
 #~ msgid "Wind"
 #~ msgstr "Vind"
+#
+#
+#
 #
 #
 #~ msgid "Winddirection Avg."
