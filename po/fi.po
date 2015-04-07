@@ -3,2057 +3,2419 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-13 21:26+0100\n"
-"PO-Revision-Date: 2014-12-02 10:38-0500\n"
+"PO-Revision-Date: 2015-04-07 11:22-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
-#
-msgid ""
-"\n"
-"Engine #2 running"
-msgstr ""
-#
-msgid ""
-"\n"
-"Engine #2 stopped"
-msgstr ""
-#
-#, fuzzy
-msgid ""
-"\n"
-"Generator running"
-msgstr "Generaattori"
-#
-#, fuzzy
-msgid ""
-"\n"
-"Generator stopped"
-msgstr "Generaattori"
-#
-#, c-format
-msgid ""
-"\n"
-"Name of Waypoint: %s\n"
-"%s %s"
-msgstr ""
-"\n"
-"Reittipisteen nimi: %s\n"
-"%s %s"
-#
-msgid ""
-"\n"
-"not found in layoutfile "
-msgstr ""
-#
-msgid "     Winddirection set to:"
-msgstr ""
-#
-msgid " - Full Hour Timer"
-msgstr ""
-#
-msgid " - Individual Timer"
-msgstr ""
-#
-msgid " - Normal Timer - Interval: "
-msgstr ""
-#
-msgid " Direction "
-msgstr ""
-#
-msgid " off"
-msgstr ""
-#
-msgid " on"
-msgstr ""
-#
-msgid ""
-"!\n"
-"\n"
-"Did you forget to add this line in your layout ?"
-msgstr ""
-#
-msgid "\""
-msgstr "\""
-#
-msgid "#1 Total"
-msgstr "#1 yhteensä"
-#
-msgid "#2 Total"
-msgstr "#2 yhteensä"
-#
-msgid "%E Week(s) %D Day(s) %H:%M "
-msgstr ""
-#
-#, c-format
-msgid "%i Year(s) %i Month(s) %i Day(s)"
-msgstr ""
-#
-msgid "'"
-msgstr "'"
-#
-msgid "*** MAN OVERBOARD ***\n"
-msgstr ""
-#
-msgid ""
-"*Optional* Prepend a * to a member to make this member static to a watch / "
-"Click Calculate"
-msgstr ""
-#
-msgid "+ Minutes"
-msgstr ""
-#
-msgid "-Plugin"
-msgstr "-Lisäosa"
-#
-msgid "."
-msgstr ""
-#
-msgid "1"
-msgstr ""
-#
-msgid "1. Watch"
-msgstr ""
-#
-msgid "12 Hour Format"
-msgstr ""
-#
-msgid "2"
-msgstr ""
-#
-msgid "24 Hour Format"
-msgstr ""
-#
-msgid "4"
-msgstr ""
-#
-msgid "<<  Back"
-msgstr ""
-#
-msgid "?"
-msgstr ""
-#
-msgid "AH #1 Total"
-msgstr "AH #1 yhteensä"
-#
-msgid "AH #2 Total"
-msgstr "AH #2 yhteensä"
-#
-msgid "AM"
-msgstr ""
-#
-msgid "AM/PM"
-msgstr ""
-#
-msgid "AWA"
-msgstr ""
-#
-msgid "AWS"
-msgstr ""
-#
-msgid "Abbreviations"
-msgstr ""
-#
-msgid ""
-"Abbreviations are shown in the Sails-Checkboxes\n"
-"The Name is used for the column \"Sails\" when added a new entry"
-msgstr ""
-#
-msgid "Active"
-msgstr ""
-#
-msgid "Active Logbook"
-msgstr "Aktiivinen lokikirja"
-#
-msgid "Actual Logbook"
-msgstr "Nykyinen lokikirja"
-#
-msgid "Add Crew"
-msgstr ""
-#
-msgid "Add Equipment"
-msgstr ""
-#
-msgid "Add Item"
-msgstr ""
-#
-msgid "Add Line"
-msgstr "Lisää rivi"
-#
-msgid "Add Treenode"
-msgstr ""
-#
-msgid "Add a new Crewmember"
-msgstr ""
-#
-msgid "Add a new line"
-msgstr ""
-#
-msgid "Adress"
-msgstr ""
-#
-msgid "Air"
-msgstr "Ilma"
-#
-msgid "All Logbooks"
-msgstr "Kaikki lokikirjat"
-#
-msgid "All changes depending to this day only."
-msgstr ""
-#
-msgid "Alter watchtimes as desired / Drag 'n Drop members from the Crewlist"
-msgstr ""
-#
-msgid "Ampere"
-msgstr ""
-#
-msgid "Are you sure ?"
-msgstr "Oletko varma ?"
-#
-msgid "At"
-msgstr ""
-#
-msgid ""
-"Automatic line by timer\n"
-"\n"
-"You can set/unset a timer-interval\n"
-"or change this text in Toolbox/Plugins/Logbook\n"
-"\n"
-"Shift+Enter appends a new line"
-msgstr ""
-"Automaattinen viiva ajastimesta\n"
-"\n"
-"Voit asettaa/poistaa ajastimen aikavälin\n"
-"tai muuttaa tätä tekstiä Toolbox/plugins/Logbook\n"
-"\n"
-"Shift + Enter lisää uuden rivin"
-#
-msgid "Back to Sailnames"
-msgstr ""
-#
-msgid "Bank #1"
-msgstr "Akusto #1"
-#
-msgid "Bank #1 gen."
-msgstr "Akusto #1 gen."
-#
-msgid "Bank #1 used"
-msgstr "Akustoi #1 käytetty"
-#
-msgid "Bank #2"
-msgstr "Akusto #2"
-#
-msgid "Bank #2 gen."
-msgstr "Akusto #2 gen."
-#
-msgid "Bank #2 used"
-msgstr "Akusto #2 käytetty"
-#
-msgid "Barometer"
-msgstr "Ilmapuntari"
-#
-msgid "Battery"
-msgstr ""
-#
-msgid "Beam"
-msgstr ""
-#
-msgid "Behavior"
-msgstr ""
-#
-msgid "Best Dist. p. Day"
-msgstr "Paras matka/päivä"
-#
-msgid "Birthname"
-msgstr ""
-#
-msgid "Boat"
-msgstr ""
-#
-msgid "Builder"
-msgstr ""
-#
-msgid "Buy Parts"
-msgstr ""
-#
-msgid "Buy parts for this repair"
-msgstr ""
-#
-msgid "Buy parts for this service"
-msgstr ""
-#
-msgid "C/Strength"
-msgstr "W/vahvuus"
-#
-msgid "COG (T)"
-msgstr "COG(T)"
-#
-msgid "Calculate"
-msgstr ""
-#
-msgid "Calculate the watches with the members entered in the columns"
-msgstr ""
-#
-msgid "Callsign"
-msgstr ""
-#
-msgid "Capacity"
-msgstr ""
-#
-msgid "Category"
-msgstr ""
-#
-msgid "Check"
-msgstr ""
-#
-msgid ""
-"Check if there is a Generator onboard.\n"
-"If unchecked the Generator columns will not show in Logbook"
-msgstr ""
-#
-msgid ""
-"Check one of the below checkboxes, if you want use ERRPM-Sentence (see help)"
-msgstr ""
-#
-msgid ""
-"Check this box if the NMEA stream contains RPM messages for this engine\n"
-msgstr ""
-#
-msgid ""
-"Check this box if the NMEA stream contains RPM messages for this generator\n"
-msgstr ""
-#
-msgid "Checkbox Space  >>"
-msgstr ""
-#
-msgid "Clear"
-msgstr ""
-#
-msgid "Clear all"
-msgstr ""
-#
-msgid "Clear all data"
-msgstr ""
-#
-msgid "Clouds"
-msgstr "Pilvet"
-#
-msgid "Column +"
-msgstr ""
-#
-msgid "Column -"
-msgstr ""
-#
-msgid "Confirm"
-msgstr "Vahvista"
-#
-msgid "Construction"
-msgstr ""
-#
-msgid "Copy to watch"
-msgstr ""
-#
-msgid "Country"
-msgstr ""
-#
-msgid "Course"
-msgstr "Kurssi"
-#
-msgid "Course changes"
-msgstr ""
-#
-msgid ""
-"Create a new logbook\n"
-"the active logbook is saved with today's date\n"
-"and can be viewed with Button \"Select Logbook\""
-msgstr ""
-"Luo uusi lokikirja\n"
-"aktiivinen lokikirja tallennetaan nykypäiväksi\n"
-"ja voidaan katsella painikeesta \"Valitse Ajokirja\""
-#
-msgid "Crewlist"
-msgstr ""
-#
-msgid "Current"
-msgstr "Virran nopeus, solmua"
-#
-msgid "Current Avg."
-msgstr "Nykyinen keskimääräinen"
-#
-msgid "Current Max."
-msgstr "Nykyinen Max."
-#
-msgid "Currentdirection Avg."
-msgstr "Nykyinen keskimääräinen suunta"
-#
-msgid "Date"
-msgstr "Päivämäärä"
-#
-msgid "Date + Days"
-msgstr ""
-#
-msgid "Date + Months"
-msgstr ""
-#
-msgid "Date + Weeks"
-msgstr ""
-#
-msgid "Date Launched"
-msgstr ""
-#
-msgid "Date of Birth"
-msgstr ""
-#
-msgid "Date of Issue"
-msgstr ""
-#
-msgid "Date-Format:"
-msgstr ""
-#
-msgid "Day"
-msgstr ""
-#
-msgid "Day backward"
-msgstr ""
-#
-msgid "Day forward"
-msgstr ""
-#
-msgid "Day(s)"
-msgstr ""
-#
-msgid "Day:"
-msgstr ""
-#
-msgid "Days"
-msgstr ""
-#
-msgid "Degrees"
-msgstr ""
-#
-msgid "Delete Crewmembers"
-msgstr ""
-#
-msgid "Delete Item"
-msgstr ""
-#
-msgid "Delete Layout"
-msgstr ""
-#
-msgid "Delete Row"
-msgstr "Poista rivi"
-#
-#, c-format
-msgid "Delete Row Nr. %i ?"
-msgstr "Poista rivi Nr. %i?"
-#
-msgid "Delete Rows"
-msgstr "Poista rivejä"
-#
-msgid "Delete Treenode"
-msgstr ""
-#
-msgid "Demo Engine stopped"
-msgstr ""
-#
-msgid "Demo Sails up"
-msgstr ""
-#
-msgid "Depth"
-msgstr "Syvyys"
-#
-msgid "Description"
-msgstr ""
-#
-msgid "Designer"
-msgstr ""
-#
-msgid "Details"
-msgstr ""
-#
-msgid "Displacement"
-msgstr ""
-#
-msgid "Display"
-msgstr ""
-#
-msgid "Distance"
-msgstr "Etäisyys"
-#
-msgid "Distance p. Day"
-msgstr "Matka/päivä"
-#
-msgid "DistanceTotal"
-msgstr "Kokonaismatka"
-#
-msgid "Draft"
-msgstr ""
-#
-msgid "E"
-msgstr "E"
-#
-msgid "Edit Layout"
-msgstr "Muokkaa asettelua"
-#
-msgid "Edit Layouts"
-msgstr ""
-#
-msgid "End"
-msgstr "Lopeta"
-#
-msgid "Engine"
-msgstr ""
-#
-msgid "Engine "
-msgstr ""
-#
-msgid "Engine #1"
-msgstr "Moottori #1"
-#
-msgid "Engine #1 running"
-msgstr ""
-#
-msgid "Engine #1 started"
-msgstr ""
-#
-msgid "Engine #1 stopped"
-msgstr ""
-#
-msgid "Engine #2"
-msgstr "Moottori #2"
-#
-msgid "Engine #2 running"
-msgstr ""
-#
-msgid "Engine #2 started"
-msgstr ""
-#
-msgid "Engine #2 stopped"
-msgstr ""
-#
-msgid ""
-"Engine stopped\n"
-"\n"
-"Demo - Rightclick-Menu 'use Testextblocks' for help"
-msgstr ""
-#
-msgid "Engine-No. corresponds with column Engine #1"
-msgstr ""
-#
-msgid "Engine-No. corresponds with column Engine #2"
-msgstr ""
-#
-msgid "Engine-No. corresponds with column Generator"
-msgstr ""
-#
-msgid ""
-"Enter default watchtime e.g. 3.30 / available formats are 3.30, 3,30, 3:30, "
-"0330 for 3 hours 30 minutes"
-msgstr ""
-#
-msgid "Equipment"
-msgstr ""
-#
-msgid "Event"
-msgstr ""
-#
-msgid ""
-"Event/s running\n"
-"Click the button to suspend or a bullet to stop"
-msgstr ""
-#
-msgid ""
-"Event/s suspended\n"
-"Click the button to restart all events"
-msgstr ""
-#
-msgid "Events"
-msgstr ""
-#
-msgid "Export"
-msgstr "&Vie"
-#
-msgid "F"
-msgstr "F"
-#
-msgid "Fathom"
-msgstr ""
-#
-msgid "Feet"
-msgstr ""
-#
-msgid "File"
-msgstr ""
-#
-msgid "Filter Layout by"
-msgstr ""
-#
-msgid "First/Last Entry"
-msgstr ""
-#
-msgid "Firstname"
-msgstr ""
-#
-msgid "Firstname only"
-msgstr ""
-#
-msgid "Fix Date"
-msgstr ""
-#
-msgid "Flip Day<->Month"
-msgstr "Vaihda päivä <-> kuukausi"
-#
-msgid "Fo1"
-msgstr ""
-#
-msgid "Fo2"
-msgstr ""
-#
-msgid "Fo3"
-msgstr ""
-#
-msgid "Fock 1"
-msgstr ""
-#
-msgid "Fock 2"
-msgstr ""
-#
-msgid "Fock 3"
-msgstr ""
-#
-msgid "For Barometer, Air Temperature and rel. Humidity"
-msgstr ""
-#
-msgid "Fuel"
-msgstr "Polttoaine"
-#
-msgid "Fuel/Water"
-msgstr ""
-#
-msgid "FuelTotal"
-msgstr "Kaikki polttoaine"
-#
-msgid "Full Hour Timer"
-msgstr ""
-#
-msgid "GPS Auto"
-msgstr ""
-#
-msgid "GUID"
-msgstr ""
-#
-msgid "Ge1"
-msgstr ""
-#
-msgid "Ge2"
-msgstr ""
-#
-msgid "Ge3"
-msgstr ""
-#
-msgid "Gen. total"
-msgstr "Generaattorit yht."
-#
-msgid "Generator"
-msgstr "Generaattori"
-#
-#, fuzzy
-msgid "Generator On Board"
-msgstr "Generaattori"
-#
-#, fuzzy
-msgid "Generator running"
-msgstr "Generaattori"
-#
-#, fuzzy
-msgid "Generator started"
-msgstr "Generaattori"
-#
-#, fuzzy
-msgid "Generator stopped"
-msgstr "Generaattori"
-#
-msgid "Genoa 1"
-msgstr ""
-#
-msgid "Genoa 2"
-msgstr ""
-#
-msgid "Genoa 3"
-msgstr ""
-#
-msgid "Go to date/time now"
-msgstr ""
-#
-msgid "Goto Route"
-msgstr ""
-#
-msgid "Greatest Width of Hull"
-msgstr ""
-#
-msgid "HIN-Nr."
-msgstr ""
-#
-msgid "HTML"
-msgstr "HTML"
-#
-msgid ""
-"Have You forgotten to enclose the Header with [[ and ]]\n"
-" or Data with {{ and }} ?"
-msgstr ""
-#
-msgid "Heading"
-msgstr "Suunta"
-#
-msgid "Help"
-msgstr "Ohje"
-#
-msgid ""
-"Help\n"
-"-----\n"
-"\n"
-"Open treenode\n"
-"  'Texts when using this Dialog only'\n"
-"  and select e.g. 'Remarks'\n"
-"\n"
-"Rightclick in TreeView for menu\n"
-"\n"
-"Add a item and rename it\n"
-"   USE UNIQUE NAMES FOR ITEMS !\n"
-"\n"
-"Insert text\n"
-"\n"
-"In 'Texts when using this Dialog only' you can insert/delete treenodes only\n"
-"\n"
-"Use Drag 'n Drop to move item from/to menu\n"
-"\n"
-"see next treenodes for more help"
-msgstr ""
-#
-msgid "Hide Equipment"
-msgstr ""
-#
-msgid "Hide column"
-msgstr "Piilota sarake"
-#
-msgid "Homeport"
-msgstr ""
-#
-msgid "Hour"
-msgstr ""
-#
-msgid "Hull"
-msgstr ""
-#
-msgid "Hull Identification No."
-msgstr ""
-#
-msgid "Hygrometer"
-msgstr "Kosteusmittari"
-#
-msgid "If"
-msgstr ""
-#
-msgid "If GPS off use for manual entry"
-msgstr ""
-#
-msgid "In Column"
-msgstr "Sarakkeessa"
-#
-msgid "Individual"
-msgstr ""
-#
-msgid "Individual Timer"
-msgstr ""
-#
-msgid "Information"
-msgstr "Informaatiota"
-#
-msgid "Install"
-msgstr ""
-#
-msgid "Install Layouts"
-msgstr ""
-#
-msgid "Install OpenCPN_Logbook_Layouts.zip"
-msgstr ""
-#
-msgid "Install single Layout"
-msgstr ""
-#
-msgid "Insurance"
-msgstr ""
-#
-msgid "Issued in"
-msgstr ""
-#
-msgid ""
-"It's not allowed to append Data to a old Logbook\n"
-"\n"
-"\t\t\t\t\t\t\t\t\t\t\t\t\t\t OpenCPN switchs to actual logbook"
-msgstr ""
-"Ei ole sallitua liittää tietoa vanhaan Lokikirjaan\n"
-"\n"
-"\t\t\t\t\t\t\t\t\t\t\t\t\t\t OpenCPN kääntää on nykyiseen lokikirjaan"
-#
-msgid "Ji"
-msgstr ""
-#
-msgid "Jib"
-msgstr ""
-#
-msgid "KML"
-msgstr ""
-#
-msgid "LOA"
-msgstr ""
-#
-msgid "LOD"
-msgstr ""
-#
-msgid "LWL"
-msgstr ""
-#
-msgid "Last Logbook is\n"
-msgstr "Viime lokikirja on\n"
-#
-msgid "Last line from Logbook\n"
-msgstr "Viimeinen rivi Lokikirjasta\n"
-#
-msgid "Last waypoint of the Route"
-msgstr "Viimeinen reittipiste reitistä"
-#
-msgid "Lastname only"
-msgstr ""
-#
-#, c-format
-msgid ""
-"Layouts %sinstalled at\n"
-"\n"
-"%s\n"
-"%s\n"
-"%s\n"
-"%s"
-msgstr ""
-#
-msgid "Length in Waterline"
-msgstr ""
-#
-msgid "Length of your sailing trip"
-msgstr ""
-#
-msgid "Length over Deck"
-msgstr ""
-#
-msgid "Length over all"
-msgstr ""
-#
-msgid "Local = UTC"
-msgstr ""
-#
-msgid "Local Format"
-msgstr ""
-#
+"X-Crowdin-Project: opencpn\n"
+"X-Crowdin-Language: fi\n"
+"X-Crowdin-File: /plugins/LogbookKonni_pi/po/logbookkonni_pi.pot\n"
+
+#: src/logbook_pi.cpp:126 src/logbook_pi.cpp:676 src/logbook_pi.cpp:721
+#: src/logbook_pi.cpp:776 src/LogbookDialog.cpp:598 src/LogbookDialog.cpp:731
+#: src/LogbookDialog.cpp:7298
 msgid "Logbook"
 msgstr "Lokikirja"
-#
-msgid "Logbook Preferences"
-msgstr "Lokikirja asetukset"
-#
-msgid "Logbook Total"
-msgstr ""
-#
+
+#: src/logbook_pi.cpp:186
+msgid "Your engine(s) are still running\n\nStop engine(s) ?"
+msgstr "Sinun kone(esi) käy(vät)\n\nPysäytätkö?"
+
+#: src/logbook_pi.cpp:266
+msgid "from "
+msgstr "mistä "
+
+#: src/logbook_pi.cpp:268
+msgid "-Plugin"
+msgstr "-Lisäosa"
+
+#: src/logbook_pi.cpp:505 src/logbook_pi.cpp:805 src/Logbook.cpp:842
+#: src/Logbook.cpp:875 src/Logbook.cpp:1404 src/LogbookDialog.h:629
+#: src/LogbookDialog.cpp:7369 src/LogbookDialog.cpp:7475 src/OverView.cpp:216
+msgid "Active Logbook"
+msgstr "Aktiivinen lokikirja"
+
+#: src/logbook_pi.cpp:681
 msgid "Logbook for OpenCPN"
 msgstr "OpenCPN lokikirja"
-#
-msgid ""
-"Logbook for OpenCPN\n"
-"\n"
-"Thanks to the community for their helpful suggestions.\n"
-"\n"
-"If you find a bug post it on\n"
-"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945."
-"html\n"
-"Helpful videos are at Youtube, search for LogbookKonni."
+
+#: src/logbook_pi.cpp:686
+msgid "Logbook for OpenCPN\n\nThanks to the community for their helpful suggestions.\n\nIf you find a bug post it on\nhttp://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html\nHelpful videos are at Youtube, search for LogbookKonni."
 msgstr ""
-#
-msgid "Logbook until "
-msgstr ""
-#
-msgid "MMSI"
-msgstr ""
-#
+
+#: src/logbook_pi.cpp:755 src/logbook_pi.cpp:758 src/logbook_pi.cpp:761
+msgid "Logbook Preferences"
+msgstr "Lokikirja asetukset"
+
+#: src/logbook_pi.cpp:1470 src/logbook_pi.cpp:1474
+msgid "Select zipped Layout-Files"
+msgstr "Valitse zip asettelu-tiedostot"
+
+#: src/logbook_pi.cpp:1551
+#, c-format
+msgid "Layouts %sinstalled at\n\n%s\n%s\n%s\n%s"
+msgstr "Asettelut %sasennettu at\n\n%s\n%s\n%s\n%s"
+
+#: src/Options.cpp:59
 msgid "Ma"
-msgstr ""
-#
-msgid "Magnetic"
-msgstr ""
-#
-msgid "Main"
-msgstr ""
-#
-msgid "Maintenance"
-msgstr ""
-#
-msgid "Member"
-msgstr ""
-#
-msgid "Merge Watches"
-msgstr ""
-#
-msgid "Meteo"
-msgstr "Sää"
-#
-msgid "Meter"
-msgstr ""
-#
+msgstr "Ma"
+
+#: src/Options.cpp:60
+msgid "Tr"
+msgstr "Tr"
+
+#: src/Options.cpp:61
+msgid "Ge1"
+msgstr "Ge1"
+
+#: src/Options.cpp:62
+msgid "Ge2"
+msgstr "Ge2"
+
+#: src/Options.cpp:63
+msgid "Ge3"
+msgstr "Ge3"
+
+#: src/Options.cpp:64
+msgid "Fo1"
+msgstr "Fo1"
+
+#: src/Options.cpp:65
+msgid "Fo2"
+msgstr "Fo2"
+
+#: src/Options.cpp:66
+msgid "Fo3"
+msgstr "Fo3"
+
+#: src/Options.cpp:67
+msgid "Ji"
+msgstr "Ji"
+
+#: src/Options.cpp:68
 msgid "Mi"
-msgstr ""
-#
-msgid "Minutes"
-msgstr ""
-#
-msgid "Minutes greater than 59"
-msgstr "Suurempi kuin 59 minuuttia"
-#
-msgid "Miscellaneous"
-msgstr ""
-#
-msgid "Mizzen"
-msgstr ""
-#
-msgid "Mizzen Storm"
-msgstr ""
-#
-msgid "Month"
-msgstr ""
-#
-msgid "Month "
-msgstr ""
-#
-msgid "Motor Hours"
-msgstr ""
-#
-msgid "Motor/Sails"
-msgstr "Moottorilla/Purjein"
-#
+msgstr "Mi"
+
+#: src/Options.cpp:69
 msgid "Mt"
-msgstr ""
-#
+msgstr "Mt"
+
+#: src/Options.cpp:70
+msgid "St"
+msgstr "St"
+
+#: src/Options.cpp:71
+msgid "Sp"
+msgstr "Sp"
+
+#: src/Options.cpp:72
+msgid "?"
+msgstr "?"
+
+#: src/Options.cpp:74
+msgid "Main"
+msgstr "Pää"
+
+#: src/Options.cpp:75
+msgid "Try"
+msgstr "Kokeile"
+
+#: src/Options.cpp:76
+msgid "Genoa 1"
+msgstr "Genoa 1"
+
+#: src/Options.cpp:77
+msgid "Genoa 2"
+msgstr "Genoa 2"
+
+#: src/Options.cpp:78
+msgid "Genoa 3"
+msgstr "Genoa 3"
+
+#: src/Options.cpp:79
+msgid "Fock 1"
+msgstr "Fokka 1"
+
+#: src/Options.cpp:80
+msgid "Fock 2"
+msgstr "Fokka 2"
+
+#: src/Options.cpp:81
+msgid "Fock 3"
+msgstr "Fokka 3"
+
+#: src/Options.cpp:82
+msgid "Jib"
+msgstr "Jib"
+
+#: src/Options.cpp:83
+msgid "Mizzen"
+msgstr "Välipurje"
+
+#: src/Options.cpp:84
+msgid "Mizzen Storm"
+msgstr "Myrskyvälipurje"
+
+#: src/Options.cpp:85
+msgid "Staysail"
+msgstr "Staysail"
+
+#: src/Options.cpp:86
+msgid "Spinnacker"
+msgstr "Spinnacker"
+
+#: src/Options.cpp:87
+msgid "You can change the abreviations and the names of the sails\nin Options/Miscellaneous/Sails"
+msgstr "Voit muuttaa lyhenteitä ja purjenimiä\nasetuksissa/Sekalaiset/Purjeet"
+
+#: src/Options.cpp:120
+msgid "automatic line Waypoint arrived"
+msgstr "Automaattilisäys reittipiste saavutettu"
+
+#: src/Options.cpp:122 src/LogbookOptions.cpp:375
+msgid "automatic line\nchange of guards"
+msgstr "Automaattilisäys\nsuoja-alue muutos"
+
+#: src/Options.cpp:125 src/LogbookOptions.cpp:397
+msgid "automatic line\nchange of course >"
+msgstr "Automaattilisäys\nkurssimuutos >"
+
+#: src/Options.cpp:129 src/LogbookOptions.cpp:386
+msgid "automatic line\nDistance > "
+msgstr "Automaattilisäys\nEtäisyys > "
+
+#: src/Options.cpp:144
+msgid "Automatic line by timer\n\nYou can set/unset a timer-interval\nor change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line"
+msgstr "Automaattilisäys ajastimesta\n\nVoit asettaa/poistaa ajastimen aikavälin\ntai muuttaa tätä tekstiä Toolbox/plugins/Logbook\n\nShift + Enter lisää uuden rivin"
+
+#: src/Options.cpp:151 src/LogbookOptions.cpp:635
+msgid "'"
+msgstr "'"
+
+#: src/Options.cpp:152 src/LogbookOptions.cpp:642
+msgid "\""
+msgstr "\""
+
+#: src/Options.cpp:154 src/LogbookOptions.cpp:652
 msgid "NM"
 msgstr "NM"
-#
-msgid "NMEA"
-msgstr ""
-#
-msgid "Name"
-msgstr ""
-#
-msgid "Name      "
-msgstr ""
-#
-msgid "Name in full"
-msgstr ""
-#
-msgid "Nationality"
-msgstr ""
-#
-msgid "Navigation"
-msgstr "Navigointi"
-#
+
+#: src/Options.cpp:155 src/Options.cpp:164 src/LogbookOptions.cpp:659
+#: src/LogbookOptions.cpp:741 src/LogbookOptions.cpp:872
+msgid "kts"
+msgstr "Kts"
+
+#: src/Options.cpp:157 src/LogbookDialog.cpp:8545 src/LogbookOptions.cpp:679
+msgid "m"
+msgstr "m"
+
+#: src/Options.cpp:158 src/LogbookOptions.cpp:699
+msgid "ft"
+msgstr "jalkaa"
+
+#: src/Options.cpp:159
+msgid "fth"
+msgstr "FTH"
+
+#: src/Options.cpp:162 src/LogbookOptions.cpp:734
+msgid "mb"
+msgstr "mb"
+
+#: src/Options.cpp:163 src/LogbookOptions.cpp:769
+msgid "F"
+msgstr "F"
+
+#: src/Options.cpp:165 src/LogbookOptions.cpp:750 src/LogbookOptions.cpp:872
+msgid "m/s"
+msgstr "m/s"
+
+#: src/Options.cpp:166 src/LogbookOptions.cpp:759 src/LogbookOptions.cpp:872
+msgid "km/h"
+msgstr "km/h"
+
+#: src/Options.cpp:169 src/LogbookOptions.cpp:786
+msgid "gal"
+msgstr "gal"
+
+#: src/Options.cpp:170 src/LogbookDialog.cpp:8538 src/LogbookDialog.cpp:8587
+#: src/LogbookOptions.cpp:186 src/LogbookOptions.cpp:793
+msgid "h"
+msgstr "h"
+
+#: src/Options.cpp:176
+msgid "day(s)"
+msgstr "päivä(ä)"
+
+#: src/Options.cpp:177
+msgid "week(s)"
+msgstr "viikko(ja)"
+
+#: src/Options.cpp:178
+msgid "month"
+msgstr "kuukausi"
+
+#: src/Logbook.h:228 src/Logbook.cpp:1447 src/Logbook.cpp:2308
+#: src/Logbook.cpp:2374 src/Logbook.cpp:2379 src/LogbookOptions.cpp:1549
+#: src/LogbookOptions.cpp:1665 src/LogbookOptions.cpp:1690
+#: src/LogbookOptions.cpp:1715 src/LogbookOptions.cpp:2231
+#: src/LogbookHTML.cpp:299 src/LogbookHTML.cpp:408 src/LogbookHTML.cpp:636
+#: src/LogbookHTML.cpp:639 src/LogbookHTML.cpp:741 src/CrewList.cpp:1762
+#: src/CrewList.cpp:2148 src/CrewList.cpp:2489 src/boat.cpp:286
+#: src/boat.cpp:546
+msgid "Information"
+msgstr "Informaatiota"
+
+#: src/Logbook.h:247
+msgid "Reminder"
+msgstr "Muistutus"
+
+#: src/Logbook.h:309 src/LogbookDialog.cpp:293
+msgid "Search in Logbook"
+msgstr "Hae lokikirjasta"
+
+#: src/Logbook.cpp:48
 #, c-format
-msgid "New Item%i"
-msgstr ""
-#
+msgid "Your Logbook has %i lines\n\nYou should create a new logbook to minimize loadingtime."
+msgstr "Lokikirjassasi on %i riviä\n\nSinun on aloitettava uusi lokikirja minimoimaan latausaika."
+
+#: src/Logbook.cpp:195 src/Logbook.cpp:1730 src/Logbook.cpp:1787
+#: src/LogbookDialog.cpp:3834
+msgid " off"
+msgstr " pois"
+
+#: src/Logbook.cpp:196 src/Logbook.cpp:1731 src/Logbook.cpp:1788
+#: src/LogbookDialog.cpp:3835
+msgid " on"
+msgstr " päällä"
+
+#: src/Logbook.cpp:731
+msgid "Are you sure ?"
+msgstr "Oletko varma ?"
+
+#: src/Logbook.cpp:731 src/Logbook.cpp:741 src/LogbookDialog.cpp:191
 msgid "New Logbook"
 msgstr "Uusi lokikirja"
-#
-#, c-format
-msgid "New Node%i"
-msgstr ""
-#
-msgid "Next WP Name: "
-msgstr "Seuraava WP nimi: "
-#
-msgid "No"
-msgstr ""
-#
-msgid "No GPS-Signal !"
-msgstr "Ei GPS-signaalia!"
-#
-msgid ""
-"No Path set to HTML-Editor\n"
-"in ToolBox/Plugins/LogbookKonni/Preferences"
-msgstr ""
-#
-msgid "No Seconds"
-msgstr ""
-#
-msgid "No. of Inboard Engines"
-msgstr ""
-#
-msgid "Normal Timer"
-msgstr ""
-#
-msgid ""
-"Normal Timer has 0 h 0 Min.\n"
-"\n"
-"Please change settings (Timer-Interval)"
-msgstr ""
-#
-msgid "Now"
-msgstr ""
-#
-msgid "ODT"
-msgstr "ODT"
-#
+
+#: src/Logbook.cpp:735
+msgid "Reset all Values to zero ?"
+msgstr "Palauta kaikki arvot nollaksi?"
+
+#: src/Logbook.cpp:741
+msgid "Your Logbook has no lines ?"
+msgstr "Lokikirjassasi ei ole rivejä?"
+
+#: src/Logbook.cpp:789
+msgid "Last line from Logbook\n"
+msgstr "Viimeinen rivi Lokikirjasta\n"
+
+#: src/Logbook.cpp:797
+msgid "Last Logbook is\n"
+msgstr "Viime lokikirja on\n"
+
+#: src/Logbook.cpp:848
 #, c-format
 msgid "Old Logbook until %s"
 msgstr "Vanha lokikirja %s asti"
-#
-msgid "On engine start set always all sails down"
-msgstr ""
-#
-msgid "Onboard"
-msgstr ""
-#
-msgid ""
-"Only used when you enter 1/2, 1/4 ... in a total-field, or to calculate the "
-"watermaker\n"
-msgstr ""
-#
-msgid ""
-"Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
-"Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
-msgstr ""
-#
-msgid "Overview"
-msgstr ""
-#
-msgid "Owner"
-msgstr ""
-#
-msgid "PM"
-msgstr ""
-#
-msgid "Passport-Nr"
-msgstr ""
-#
-msgid "Path"
-msgstr ""
-#
-msgid "Path to Datamanager"
-msgstr ""
-#
-msgid ""
-"Path to HTML-Editor\n"
-"(optional)"
-msgstr ""
-#
-msgid "Path to MailClient"
-msgstr ""
-#
-msgid "Path to ODT-Editor"
-msgstr ""
-#
-msgid "Paths"
-msgstr ""
-#
-msgid "Place of Birth"
-msgstr ""
-#
-msgid ""
-"Please enter 05445.1234n03012.0504e for\n"
-"054Deg 45.1234Min N 030Deg 12.0504Min E"
-msgstr ""
-"Anna 05445.1234n03012.0504e for\n"
-"054Deg 45.1234Min N 030Deg 12.0504Min E"
-#
-msgid ""
-"Please enter 0544512.15n0301205.15e for\n"
-"054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
-msgstr ""
-"Anna 0544512.15n0301205.15e for\n"
-"054Deg 45Min 12.15 Sec N 030Deg 12Min 05.15 s E"
-#
+
+#: src/Logbook.cpp:908
 #, c-format
-msgid ""
-"Please enter the Date in the format:\n"
-"      %s"
-msgstr ""
-"Kirjoita päivämäärä muodossa: \n"
-" %s"
-#
+msgid "Start converting to new Date/Time-Format\nand backup all datafiles from version 1.1 to\n\n%s"
+msgstr "Aloittaa muuntamaan uuteen päivämäärä/aika-muotoon\nja varmuuskopioi kaikki datatiedostot versiosta 1.1 \n\n%s versioon"
+
+#: src/Logbook.cpp:1446
 #, c-format
-msgid ""
-"Please enter the Time in the format:\n"
-"   %s"
+msgid "Your Logbook has %i lines\n\n\t\t\tYou should create a new logbook to minimize loadingtime."
+msgstr "Lokikirjassasi on %i riviä\n\n\t\t\tSinun on aloitettava uusi lokikirja minimoimaan latausaika."
+
+#: src/Logbook.cpp:1486
+msgid "unnamed Route"
+msgstr "nimeämätön reitti"
+
+#: src/Logbook.cpp:1511
+msgid "*** MAN OVERBOARD ***\n"
+msgstr "*** MIES yli LAIDAN *** \n"
+
+#: src/Logbook.cpp:1528
+msgid "Track "
+msgstr "Jälki "
+
+#: src/Logbook.cpp:1562
+msgid "Engine #1 started"
+msgstr "Moottorin #1 käynnistetty"
+
+#: src/Logbook.cpp:1566
+msgid "Engine #1 running"
+msgstr "Moottori #1 käynnissä"
+
+#: src/Logbook.cpp:1582
+msgid "Engine #1 stopped"
+msgstr "Moottori #1 pysäytetty"
+
+#: src/Logbook.cpp:1587
+msgid "Engine #2 started"
+msgstr "Moottorin #2 käynnistetty"
+
+#: src/Logbook.cpp:1593
+msgid "Engine #2 running"
+msgstr "Moottori #2 käynnissä"
+
+#: src/Logbook.cpp:1595
+msgid "\nEngine #2 running"
+msgstr "\nKone #2 käynnissä"
+
+#: src/Logbook.cpp:1611
+msgid "Engine #2 stopped"
+msgstr "Moottori #2 pysäytetty"
+
+#: src/Logbook.cpp:1613
+msgid "\nEngine #2 stopped"
+msgstr "\nKone #2 pysäytetty"
+
+#: src/Logbook.cpp:1619
+msgid "Generator started"
 msgstr ""
-"Kirjoita ajan muoto: \n"
-" %s"
-#
-msgid "Please fill in one character in Degrees, Minutes and Seconds"
+
+#: src/Logbook.cpp:1625
+msgid "Generator running"
 msgstr ""
-#
-msgid "Policy"
+
+#: src/Logbook.cpp:1627
+msgid "\nGenerator running"
 msgstr ""
-#
-msgid "Popup logbook on event"
+
+#: src/Logbook.cpp:1644
+msgid "Generator stopped"
 msgstr ""
-#
-msgid "Position"
-msgstr "Sijainti"
-#
-msgid "Priority"
+
+#: src/Logbook.cpp:1646
+msgid "\nGenerator stopped"
 msgstr ""
-#
-msgid "PropShaft"
-msgstr ""
-#
-msgid "R"
-msgstr "R"
-#
-msgid "RPM"
-msgstr ""
-#
-msgid "Reef"
-msgstr "Reivi"
-#
-msgid "Registration"
-msgstr ""
-#
-msgid "Relative"
-msgstr ""
-#
-msgid "Reload Layouts"
-msgstr "Lataa asettelut"
-#
-msgid "Remarks"
-msgstr "Huomautukset"
-#
-msgid "Reminder"
-msgstr ""
-#
-msgid "Rename Item"
-msgstr ""
-#
-msgid "Rename Layout"
-msgstr ""
-#
-msgid "Repair done"
-msgstr ""
-#
-msgid "Repairs"
-msgstr ""
-#
-msgid "RepairsTODO"
-msgstr ""
-#
-msgid "Reset"
-msgstr ""
-#
-msgid "Reset Paths"
-msgstr ""
-#
-msgid "Reset all Values to zero ?"
-msgstr "Palauta kaikki arvot nollaksi?"
-#
-msgid "Reset data to edit-level"
-msgstr ""
-#
-msgid "Revolutions"
-msgstr ""
-#
-msgid "Route"
-msgstr "Reitti"
-#
-msgid "RouteID"
-msgstr "Reitin tunniste"
-#
-msgid "Routepoints"
-msgstr ""
-#
-msgid "Row +"
-msgstr ""
-#
-msgid "Row -"
-msgstr ""
-#
-msgid "S"
-msgstr ""
-#
-msgid "SOG"
-msgstr "SOG"
-#
-msgid "STW"
-msgstr "STW"
-#
-msgid "Sail-Nr."
-msgstr ""
-#
-msgid "Sails"
-msgstr "Purjeet"
-#
-msgid "Sails Messages"
-msgstr ""
-#
-msgid "Sails changed"
-msgstr "Purjeet vaihdettu"
-#
-msgid "Sails down"
-msgstr "Purjeet alas"
-#
+
+#: src/Logbook.cpp:1668
 msgid "Sails hoisted"
 msgstr "Purjeet nostettu"
-#
-msgid ""
-"Sails up\n"
-"Engine stopped\n"
-"\n"
-"Demo - Rightclick-Menu 'use Testextblocks' for help"
-msgstr ""
-#
-msgid "Sails used mostly"
-msgstr ""
-#
-msgid "Save Boat File"
-msgstr ""
-#
-msgid "Save BuyParts File"
-msgstr ""
-#
-msgid "Save CrewList File"
-msgstr ""
-#
-msgid "Save Logbook File"
-msgstr ""
-#
-msgid "Save Overview File"
-msgstr ""
-#
-msgid "Save Repairs File"
-msgstr ""
-#
-msgid "Save Service File"
-msgstr ""
-#
-msgid "Search in"
-msgstr "Haku"
-#
-msgid "Search in Logbook"
-msgstr "Hae lokikirjasta"
-#
-msgid "Searchstring"
-msgstr "Hakumerkkijono"
-#
-msgid "Seconds"
-msgstr ""
-#
-msgid "Select"
-msgstr "Valitse"
-#
-msgid "Select Layout:"
-msgstr ""
-#
-msgid "Select Layout: "
-msgstr "Valitse asettelu: "
-#
-msgid "Select Logbook"
-msgstr "Valitse lokikirja"
-#
-msgid "Select Route"
-msgstr "Valitse reitti"
-#
-msgid "Select Track"
-msgstr ""
-#
-msgid "Select a date"
-msgstr ""
-#
-msgid ""
-"Select a layout which is displayed\n"
-"with button \"View\""
-msgstr ""
-"Valitse asettelu, jossa on näytetään\n"
-"\"View\" painike"
-#
-msgid ""
-"Select a old logbook\n"
-"Everytime a new logbook is created, you'll \n"
-"find the active logbook as old logbook here"
-msgstr ""
-"Valitse vanha lokikirja\n"
-"Ainakun uusi lokikirja luodaan,\n"
-"löydät aktiivisen lokikirjan vanhana lokikirjana täältä"
-#
-msgid "Select one of the old logbooks"
-msgstr "Valitse jokin vanhoista lokikirjoista"
-#
-msgid "Select zipped Layout-Files"
-msgstr "Valitse zip asettelu-tiedostot"
-#
-msgid "Send Layout by email"
-msgstr ""
-#
-msgid "Separator"
-msgstr ""
-#
-msgid "Serial-Nr."
-msgstr ""
-#
-msgid "Service"
-msgstr ""
-#
-msgid "Service TODO"
-msgstr ""
-#
-msgid "Service done"
-msgstr ""
-#
-msgid "Set Linewidth to"
-msgstr ""
-#
-msgid "Set Path to DataManager"
-msgstr ""
-#
-msgid "Set Path to HTML-Editor"
-msgstr ""
-#
-msgid "Set Path to MailClient"
-msgstr ""
-#
-msgid "Set Path to ODT-Editor"
-msgstr ""
-#
-msgid "Set Route-Linecolor to"
-msgstr ""
-#
-msgid "Set Timer"
-msgstr "Aseta ajastin"
-#
-msgid "Set Timer Interval"
-msgstr "Aseta ajastimen aikaväli"
-#
-msgid "Set Track-Linecolor to"
-msgstr ""
-#
-msgid "Set Transparency to"
-msgstr ""
-#
-msgid "Set Watchtimes"
-msgstr ""
-#
-msgid "Set as Watchbase"
-msgstr ""
-#
-msgid ""
-"Set desired Degrees\n"
-"if the course changes by this amount\n"
-"a course-changed-event occurs"
-msgstr ""
-"Määritä haluamasi asteet\n"
-"jos kurssi muuttuu tämän verran\n"
-"a kurssi-muuttunut-tapahtuma toteutuu"
-#
-msgid ""
-"Set desired delay in minutes\n"
-"It's a good idea to set here a value > 0\n"
-"to find the right wind."
-msgstr ""
-"Asettaa haluttu minuutit\n"
-"viivästyminen on hyvä asettaa tässä > 0\n"
-"jotta löydät oikean tuulen."
-#
-msgid "Set gal/liter in Abbreviations "
-msgstr ""
-#
-msgid ""
-"Set the desired distance in NM\n"
-" = (Track made good)"
-msgstr ""
-"Aseta haluttu etäisyys NM\n"
-" = (TMG)"
-#
-msgid "Set the interval for the timer"
-msgstr "Asetta ajastimen aikaväli"
-#
-msgid "Set the startdate of the sailing trip"
-msgstr ""
-#
-msgid "Set the starttime of your sailing trip"
-msgstr ""
-#
-msgid "Show"
-msgstr ""
-#
-msgid "Show Depth in"
-msgstr ""
-#
-msgid "Show Engines/Sails Mode"
-msgstr ""
-#
-msgid "Show Equipment"
-msgstr ""
-#
-msgid "Show Layout Selection Mode"
-msgstr "Näytä valinta asettelutilassa"
-#
-msgid "Show Logbook Icon"
-msgstr ""
-#
-msgid "Show Position Format"
-msgstr ""
-#
-msgid "Show ToolTips"
-msgstr ""
-#
-msgid "Show Wave/Swell in"
-msgstr ""
-#
-msgid "Show all entries"
-msgstr ""
-#
-msgid "Show hidden columns"
-msgstr "Näytä piilotetut sarakkeet"
-#
-msgid "Show onboard only"
-msgstr ""
-#
-msgid "Show/Hide Equipmentgrid"
-msgstr ""
-#
-msgid "Show/Hide Statusbar"
-msgstr "Näytä tai Piilota tilarivi"
-#
-msgid ""
-"Shows/Sets the day\n"
-"Displays the data in your ODT/Browser-program from this day to end"
-msgstr ""
-#
-msgid "Shutdown Logbook"
-msgstr "Sulje lokikirja"
-#
-msgid "Sorry, Logbook has no lines"
-msgstr ""
-#
-msgid "Sorry, no Layout installed"
-msgstr ""
-#
-msgid "Sort ascending"
-msgstr ""
-#
-msgid "Sort descending"
-msgstr ""
-#
-msgid "Sp"
-msgstr ""
-#
-msgid "Speed"
-msgstr ""
-#
-msgid "Speed Avg."
-msgstr "Nopeus keskim."
-#
-msgid "Speed Max."
-msgstr "Nopeus Max."
-#
-msgid "Spinnacker"
-msgstr ""
-#
-msgid "Split Watch"
-msgstr ""
-#
-msgid "St"
-msgstr ""
-#
-msgid "Start"
-msgstr "Aloita"
-#
+
+#: src/Logbook.cpp:1672
+msgid "Sails changed"
+msgstr "Purjeet vaihdettu"
+
+#: src/Logbook.cpp:1675
+msgid "Sails down"
+msgstr "Purjeet alas"
+
+#: src/Logbook.cpp:2122 src/CrewList.cpp:2462 src/boat.cpp:823
 #, c-format
-msgid ""
-"Start converting to new Date/Time-Format\n"
-"and backup all datafiles from version 1.1 to\n"
-"\n"
-"%s"
+msgid "Delete Row Nr. %i ?"
+msgstr "Poista rivi Nr. %i?"
+
+#: src/Logbook.cpp:2122 src/CrewList.cpp:2462 src/boat.cpp:823
+msgid "Confirm"
+msgstr "Vahvista"
+
+#: src/Logbook.cpp:2308
+#, c-format
+msgid "Please enter the Date in the format:\n      %s"
+msgstr "Kirjoita päivämäärä muodossa: \n %s"
+
+#: src/Logbook.cpp:2330
+#, c-format
+msgid "Please enter the Time in the format:\n   %s"
+msgstr "Kirjoita ajan muoto: \n %s"
+
+#: src/Logbook.cpp:2374
+msgid "Please enter 0544512.15n0301205.15e for\n054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
+msgstr "Anna 0544512.15n0301205.15e for\n054Deg 45Min 12.15 Sec N 030Deg 12Min 05.15 s E"
+
+#: src/Logbook.cpp:2379
+msgid "Please enter 05445.1234n03012.0504e for\n054Deg 45.1234Min N 030Deg 12.0504Min E"
+msgstr "Anna 05445.1234n03012.0504e for\n054Deg 45.1234Min N 030Deg 12.0504Min E"
+
+#: src/Logbook.cpp:2695
+msgid "Minutes greater than 59"
+msgstr "Suurempi kuin 59 minuuttia"
+
+#: src/Logbook.cpp:3235
+msgid "Wind is set to Heading,\nbut GPS sends no Heading Data.\nWind is set now to Relative to boat\n\n"
 msgstr ""
-#
-msgid ""
-"Start your engine(s) and hit the button.\n"
-"You should see the ERRPM-Sentence\n"
-"left to the button"
-msgstr ""
-#
-msgid "Startvalue"
-msgstr ""
-#
-msgid "Status"
-msgstr ""
-#
-msgid "Staysail"
-msgstr ""
-#
-msgid "Stop"
-msgstr "Seis"
-#
-msgid "Street"
-msgstr ""
-#
-msgid "Suspend/Resume running event/s"
-msgstr "Keskeyttää/jatkaa käynnissä tapahtuma/s"
-#
-msgid "Swap two Watches"
-msgstr ""
-#
-msgid "Swell"
-msgstr "Maininki"
-#
-msgid "Swell Avg."
-msgstr ""
-#
-msgid "Swell Max."
-msgstr ""
-#
-#, fuzzy
-msgid "TWA"
-msgstr "STW"
-#
-#, fuzzy
-msgid "TWA Avg."
-msgstr "Tuuli suht."
-#
-#, fuzzy
-msgid "TWS"
-msgstr "STW"
-#
-#, fuzzy
-msgid "TWS Avg."
-msgstr "Tuuli suht."
-#
-#, fuzzy
-msgid "TWS Max."
-msgstr "Tuuli Max."
-#
-msgid "Tank"
-msgstr ""
-#
-msgid "Telephone"
-msgstr ""
-#
-msgid "Temperature"
-msgstr ""
-#
-msgid "Text"
-msgstr ""
-#
-msgid "Textblocks"
-msgstr ""
-#
-msgid "Textblocks Dialog"
-msgstr "Tekstien valintaikkuna"
-#
-msgid "Texts for Rightclick-Menu"
-msgstr ""
-#
-msgid "Texts when using this Dialog only"
-msgstr ""
-#
-msgid ""
-"The itemname is shown in the rightcklick-menu of the following Columns\n"
-"By clicking on it the text is inserted\n"
-"\n"
-msgstr ""
-#
-msgid ""
-"These texts are inserted into the grid-colmn\n"
-"by calling this dialog\n"
-"\n"
-"Select Item\n"
-"Click OK-Button\n"
-"\n"
-"Use Drag 'n Drop to place a item in menu"
-msgstr ""
-#
-msgid "Time"
-msgstr "Aika"
-#
-msgid "Time-Format:"
-msgstr ""
-#
-msgid "Timer"
-msgstr "Ajastin"
-#
-msgid "Title"
-msgstr ""
-#
-msgid "Total Time"
-msgstr "Kokonaisaika"
-#
-msgid "Town"
-msgstr ""
-#
-msgid "Tr"
-msgstr ""
-#
-msgid "Track"
-msgstr ""
-#
-msgid "Track "
-msgstr ""
-#
-msgid "TrackID"
-msgstr "Jäljen tunniste"
-#
-msgid "True"
-msgstr ""
-#
-msgid "Try"
-msgstr ""
-#
-msgid "Type"
-msgstr ""
-#
-msgid "UTC"
-msgstr ""
-#
-msgid ""
-"Uncheck if You have no GPS\n"
-"If GPS is out of order, uncheck to\n"
-"prevent that the message repeats."
-msgstr ""
-#
-msgid "Uninstall"
-msgstr ""
-#
-msgid "Uninstall Logbook"
-msgstr ""
-#
-msgid ""
-"Uninstalls\n"
-"Logbook-Plugin,\n"
-"all Logbook-Data,\n"
-"all Logbook-Layouts,\n"
-"all Logbook-Languages\n"
-"and cleans the OpenCPN.ini"
-msgstr ""
-#
-msgid "Urgentvalue"
-msgstr ""
-#
-msgid "Use ERRPM-Sentence to calculate the engine-hours"
-msgstr ""
-#
-msgid "Use WIMDA-Sentence from the weatherstation"
-msgstr ""
-#
-msgid ""
-"Used for ODT/Browser-program\n"
-"One Row for the day + selected days = Days displayed"
-msgstr ""
-#
-msgid "Usefull for Tablet-PC's"
-msgstr ""
-#
-msgid "UserLabel"
-msgstr ""
-#
-msgid "View"
-msgstr "Näkymä"
-#
-msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
-msgstr "Näytä tiedot selaimessa (HTML) tai Openoffice/LibreOffice (ODT)"
-#
-msgid "Visibility"
-msgstr "Näkyvyys"
-#
-msgid "W-Output"
-msgstr "W-tuotos"
-#
-msgid "W-Total"
-msgstr "W-yhteensä"
-#
-msgid "Warnvalue"
-msgstr ""
-#
-msgid "Watch"
-msgstr "Vahti"
-#
-msgid "Watchtime"
-msgstr ""
-#
-msgid "Water"
-msgstr "Vesi"
-#
-msgid "Water used"
-msgstr "Käytetty vettä"
-#
-msgid "WaterTotal"
-msgstr "Kaikki vesi"
-#
-msgid "Waterm. Outp"
-msgstr "Juomavesi tuotto"
-#
-msgid "Watermaker"
-msgstr "Juomaveden valmistin"
-#
-msgid "Wave"
-msgstr "Aalto"
-#
-msgid "Wave Avg."
-msgstr "Aalto Keskim."
-#
-msgid "Wave Max."
-msgstr "Aalto Max."
-#
-msgid "WayPoint arrived"
-msgstr "Saavuttu reittipisteen"
-#
-msgid "Waypoint"
-msgstr "Reittipiste"
-#
+
+#: src/Logbook.cpp:3274
+msgid "No GPS-Signal !"
+msgstr "Ei GPS-signaalia!"
+
+#: src/Logbook.cpp:3291
+msgid "Next WP Name: "
+msgstr "Seuraava WP nimi: "
+
+#: src/Logbook.cpp:3293
+msgid "Last waypoint of the Route"
+msgstr "Viimeinen reittipiste reitistä"
+
+#: src/Logbook.cpp:3295
+#, c-format
+msgid "\nName of Waypoint: %s\n%s %s"
+msgstr "\nReittipisteen nimi: %s\n%s %s"
+
+#: src/Logbook.cpp:3298
 msgid "Waypoint skipped"
 msgstr "Reittipiste ohitettu"
-#
-msgid "Weather"
-msgstr "Sää"
-#
-msgid "Week(s)"
-msgstr ""
-#
-msgid "Weeks(s)"
-msgstr ""
-#
-#, fuzzy
-msgid ""
-"Wind is set to Heading,\n"
-"but GPS sends no Heading Data.\n"
-"Wind is set now to Relative to boat\n"
-"\n"
-msgstr ""
-"Tuuli on asetettu kulkusuunnalle,\n"
-"mutta GPS ei lähetä suuntatietoa.\n"
-"Tuuli on asetettu nyt suhteelliseksi but\n"
-"\n"
-#
-msgid "Windspeed"
-msgstr ""
-#
-msgid "Windspeed "
-msgstr ""
-#
-msgid "Write message \"Engine running\" "
-msgstr ""
-#
-msgid "Write warning \"No GPS\""
-msgstr ""
-#
-msgid ""
-"Writes this text to the logbook when the event occurs, alter texts as desired"
-msgstr ""
-#
-msgid "Yard-Nr."
-msgstr ""
-#
-msgid "Year"
-msgstr ""
-#
-msgid "Yes"
-msgstr ""
-#
-msgid ""
-"You can change the abreviations and the names of the sails\n"
-"in Options/Miscellaneous/Sails"
-msgstr ""
-#
-#, c-format
-msgid ""
-"You cannot set this dateformat.\n"
-"\n"
-"%s%s%s%s%s\n"
-"\n"
-"Please use a different Dateformat in all three Choiceboxes."
-msgstr ""
-#
-msgid ""
-"Your Country has 24 Hour Format.\n"
-"In this case the OS doen't serve AM/PM-Strings.\n"
-msgstr ""
-#
-msgid ""
-"Your Engine #1 is running in manual mode.\n"
-"\n"
-"Engine stopped now."
-msgstr ""
-#
-msgid ""
-"Your Engine #2 is running in manual mode.\n"
-"\n"
-"Engine stopped now."
-msgstr ""
-#
-msgid ""
-"Your Engine #2 is still running .\n"
-"\n"
-"Engine #2 stopped now."
-msgstr ""
-#
-msgid ""
-"Your Generator is running in manual mode.\n"
-"\n"
-"Generator stopped now."
-msgstr ""
-#
-msgid ""
-"Your Generator is still running .\n"
-"\n"
-"Generator stopped now."
-msgstr ""
-#
-#, c-format
-msgid ""
-"Your Logbook has %i lines\n"
-"\n"
-"\t\t\tYou should create a new logbook to minimize loadingtime."
-msgstr ""
-#
-#, c-format
-msgid ""
-"Your Logbook has %i lines\n"
-"\n"
-"You should create a new logbook to minimize loadingtime."
-msgstr ""
-#
-msgid "Your Logbook has no lines ?"
-msgstr "Lokikirjassasi ei ole rivejä?"
-#
-msgid ""
-"Your engine(s) are still running\n"
-"\n"
-"Stop engine(s) ?"
-msgstr ""
-#
-msgid "Zip"
-msgstr ""
-#
+
+#: src/Logbook.cpp:3300
+msgid "WayPoint arrived"
+msgstr "Saavuttu reittipisteen"
+
+#: src/Logbook.cpp:3335
+msgid "It's not allowed to append Data to a old Logbook\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t OpenCPN switchs to actual logbook"
+msgstr "Ei ole sallitua liittää tietoa vanhaan Lokikirjaan\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t OpenCPN kääntää on nykyiseen lokikirjaan"
+
+#: src/Logbook.cpp:3410
+msgid "Search in"
+msgstr "Haku"
+
+#: src/Logbook.cpp:3414 src/LogbookDialog.cpp:664
+msgid "Actual Logbook"
+msgstr "Nykyinen lokikirja"
+
+#: src/Logbook.cpp:3417 src/LogbookDialog.cpp:668
+msgid "All Logbooks"
+msgstr "Kaikki lokikirjat"
+
+#: src/Logbook.cpp:3430
+msgid "Searchstring"
+msgstr "Hakumerkkijono"
+
+#: src/Logbook.cpp:3437
+msgid "In Column"
+msgstr "Sarakkeessa"
+
+#: src/Logbook.cpp:3446 src/LogbookDialog.cpp:252 src/LogbookDialog.cpp:1089
+#: src/LogbookDialog.cpp:1935
+msgid "Date"
+msgstr "Päivämäärä"
+
+#: src/Logbook.cpp:3464
+msgid "Select"
+msgstr "Valitse"
+
+#: src/LogbookDialog.h:782 src/LogbookDialog.cpp:4391
+#: src/LogbookDialog.cpp:4549
+msgid "Select Route"
+msgstr "Valitse reitti"
+
+#: src/LogbookDialog.h:853 src/LogbookDialog.h:855 src/LogbookDialog.cpp:196
+#: src/LogbookDialog.cpp:674
+msgid "Select Logbook"
+msgstr "Valitse lokikirja"
+
+#: src/LogbookDialog.h:966
+msgid "Textblocks Dialog"
+msgstr "Tekstien valintaikkuna"
+
+#: src/LogbookDialog.h:1102
+msgid "Set Timer Interval"
+msgstr "Aseta ajastimen aikaväli"
+
+#: src/LogbookDialog.h:1149 src/LogbookDialog.cpp:258
+msgid "Position"
+msgstr "Sijainti"
+
+#: src/LogbookDialog.cpp:98 src/LogbookDialog.cpp:1615
+#: src/LogbookDialog.cpp:1741 src/LogbookDialog.cpp:1858
+msgid "Add Line"
+msgstr "Lisää rivi"
+
+#: src/LogbookDialog.cpp:99
 msgid "add a line to the end of your logbook"
 msgstr "Lisää rivi lokikirjasi loppuun"
-#
-msgid "add the equipment of your boat"
+
+#: src/LogbookDialog.cpp:103 src/LogbookDialog.cpp:621
+#: src/LogbookDialog.cpp:811 src/LogbookDialog.cpp:1177
+#: src/LogbookDialog.cpp:1619 src/LogbookDialog.cpp:1745
+#: src/LogbookDialog.cpp:1862
+msgid "Export"
+msgstr "&Vie"
+
+#: src/LogbookDialog.cpp:104
+msgid "export your logbook-data as:\nHTML, ODT,  ODS, XML, CSV"
+msgstr "vie lokikirja-tietoja mudossa:\nHTML, ODT, XML, CSV, ODS"
+
+#: src/LogbookDialog.cpp:112 src/LogbookDialog.cpp:3821
+msgid "Show Layout Selection Mode"
+msgstr "Näytä valinta asettelutilassa"
+
+#: src/LogbookDialog.cpp:120 src/LogbookDialog.cpp:628
+#: src/LogbookDialog.cpp:819 src/LogbookDialog.cpp:1185
+msgid "Select Layout: "
+msgstr "Valitse asettelu: "
+
+#: src/LogbookDialog.cpp:127 src/LogbookDialog.cpp:634
+#: src/LogbookDialog.cpp:826 src/LogbookDialog.cpp:1191
+#: src/LogbookDialog.cpp:1632 src/LogbookDialog.cpp:1758
+#: src/LogbookDialog.cpp:1875
+msgid "Select a layout which is displayed\nwith button \"View\""
+msgstr "Valitse asettelu, jossa on näytetään\n\"View\" painike"
+
+#: src/LogbookDialog.cpp:131 src/LogbookDialog.cpp:639
+#: src/LogbookDialog.cpp:830 src/LogbookDialog.cpp:1195
+#: src/LogbookDialog.cpp:1636 src/LogbookDialog.cpp:1762
+#: src/LogbookDialog.cpp:1879
+msgid "R"
+msgstr "R"
+
+#: src/LogbookDialog.cpp:132 src/LogbookDialog.cpp:640
+#: src/LogbookDialog.cpp:831 src/LogbookDialog.cpp:1196
+#: src/LogbookDialog.cpp:1637 src/LogbookDialog.cpp:1763
+#: src/LogbookDialog.cpp:1880
+msgid "Reload Layouts"
+msgstr "Lataa asettelut"
+
+#: src/LogbookDialog.cpp:136 src/LogbookDialog.cpp:644
+#: src/LogbookDialog.cpp:835 src/LogbookDialog.cpp:1200
+#: src/LogbookDialog.cpp:1641 src/LogbookDialog.cpp:1767
+#: src/LogbookDialog.cpp:1884 src/LogbookOptions.cpp:808
+msgid "E"
+msgstr "E"
+
+#: src/LogbookDialog.cpp:137 src/LogbookDialog.cpp:645
+#: src/LogbookDialog.cpp:836 src/LogbookDialog.cpp:1642
+#: src/LogbookDialog.cpp:1768 src/LogbookDialog.cpp:1885
+#: src/LogbookDialog.cpp:7160
+msgid "Edit Layout"
+msgstr "Muokkaa asettelua"
+
+#: src/LogbookDialog.cpp:176 src/LogbookDialog.cpp:840
+msgid "HTML"
+msgstr "HTML"
+
+#: src/LogbookDialog.cpp:180 src/LogbookDialog.cpp:844
+msgid "ODT"
+msgstr "ODT"
+
+#: src/LogbookDialog.cpp:183 src/LogbookDialog.cpp:656
+#: src/LogbookDialog.cpp:847 src/LogbookDialog.cpp:1212
+#: src/LogbookDialog.cpp:1653 src/LogbookDialog.cpp:1779
+#: src/LogbookDialog.cpp:1896
+msgid "View"
+msgstr "Näkymä"
+
+#: src/LogbookDialog.cpp:184 src/LogbookDialog.cpp:657
+#: src/LogbookDialog.cpp:848 src/LogbookDialog.cpp:1213
+#: src/LogbookDialog.cpp:1654 src/LogbookDialog.cpp:1780
+#: src/LogbookDialog.cpp:1897
+msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
+msgstr "Näytä tiedot selaimessa (HTML) tai Openoffice/LibreOffice (ODT)"
+
+#: src/LogbookDialog.cpp:192
+msgid "Create a new logbook\nthe active logbook is saved with today's date\nand can be viewed with Button \"Select Logbook\""
+msgstr "Luo uusi lokikirja\naktiivinen lokikirja tallennetaan nykypäiväksi\nja voidaan katsella painikeesta \"Valitse Ajokirja\""
+
+#: src/LogbookDialog.cpp:197
+msgid "Select a old logbook\nEverytime a new logbook is created, you'll \nfind the active logbook as old logbook here"
+msgstr "Valitse vanha lokikirja\nAinakun uusi lokikirja luodaan,\nlöydät aktiivisen lokikirjan vanhana lokikirjana täältä"
+
+#: src/LogbookDialog.cpp:205
+msgid "Show/Hide Statusbar"
+msgstr "Näytä tai Piilota tilarivi"
+
+#: src/LogbookDialog.cpp:210
+msgid "Help"
+msgstr "Ohje"
+
+#: src/LogbookDialog.cpp:251 src/LogbookDialog.cpp:732
+#: src/LogbookDialog.cpp:4392 src/LogbookOptions.cpp:1018
+msgid "Route"
+msgstr "Reitti"
+
+#: src/LogbookDialog.cpp:253 src/LogbookDialog.cpp:1090
+msgid "Time"
+msgstr "Aika"
+
+#: src/LogbookDialog.cpp:254
+msgid "Status"
 msgstr ""
-#
-msgid "all"
+
+#: src/LogbookDialog.cpp:255 src/LogbookDialog.cpp:493
+#: src/LogbookDialog.cpp:495 src/LogbookOptions.cpp:371
+msgid "Watch"
+msgstr "Vahti"
+
+#: src/LogbookDialog.cpp:256 src/LogbookDialog.cpp:520
+#: src/LogbookDialog.cpp:522 src/LogbookDialog.cpp:736
+#: src/LogbookOptions.cpp:382 src/LogbookOptions.cpp:648
+msgid "Distance"
+msgstr "Etäisyys"
+
+#: src/LogbookDialog.cpp:257
+msgid "DistanceTotal"
+msgstr "Kokonaismatka"
+
+#: src/LogbookDialog.cpp:259
+msgid "COG (T)"
+msgstr "COG(T)"
+
+#: src/LogbookDialog.cpp:260 src/LogbookOptions.cpp:312
+#: src/LogbookOptions.cpp:705
+msgid "Heading"
+msgstr "Suunta"
+
+#: src/LogbookDialog.cpp:261
+msgid "SOG"
+msgstr "SOG"
+
+#: src/LogbookDialog.cpp:262
+msgid "STW"
+msgstr "STW"
+
+#: src/LogbookDialog.cpp:263
+msgid "Depth"
+msgstr "Syvyys"
+
+#: src/LogbookDialog.cpp:264 src/LogbookDialog.cpp:446
+#: src/LogbookDialog.cpp:1566
+msgid "Remarks"
+msgstr "Huomautukset"
+
+#: src/LogbookDialog.cpp:279 src/LogbookDialog.cpp:933
+#: src/LogbookDialog.cpp:1580 src/LogbookDialog.cpp:1718
+#: src/LogbookDialog.cpp:1835 src/LogbookDialog.cpp:1952
+#: src/LogbookDialog.cpp:8626 src/LogbookDialog.cpp:8689
+msgid "Delete Row"
+msgstr "Poista rivi"
+
+#: src/LogbookDialog.cpp:285 src/LogbookDialog.cpp:783
+#: src/LogbookDialog.cpp:937
+msgid "Show hidden columns"
+msgstr "Näytä piilotetut sarakkeet"
+
+#: src/LogbookDialog.cpp:289 src/LogbookDialog.cpp:787
+msgid "Hide column"
+msgstr "Piilota sarake"
+
+#: src/LogbookDialog.cpp:299
+msgid "Shutdown Logbook"
+msgstr "Sulje lokikirja"
+
+#: src/LogbookDialog.cpp:312
+msgid "Delete Rows"
+msgstr "Poista rivejä"
+
+#: src/LogbookDialog.cpp:316
+msgid "Flip Day<->Month"
+msgstr "Vaihda päivä <-> kuukausi"
+
+#: src/LogbookDialog.cpp:319 src/LogbookOptions.cpp:614
+msgid "Navigation"
+msgstr "Navigointi"
+
+#: src/LogbookDialog.cpp:352 src/LogbookOptions.cpp:730
+msgid "Barometer"
+msgstr "Ilmapuntari"
+
+#: src/LogbookDialog.cpp:353
+msgid "Hygrometer"
+msgstr "Kosteusmittari"
+
+#: src/LogbookDialog.cpp:354
+msgid "Air"
+msgstr "Ilma"
+
+#: src/LogbookDialog.cpp:355 src/LogbookDialog.cpp:444
+#: src/LogbookOptions.cpp:482
+msgid "Water"
+msgstr "Vesi"
+
+#: src/LogbookDialog.cpp:356
+msgid "TWA"
 msgstr ""
-#
-msgid ""
-"automatic line\n"
-"Distance > "
+
+#: src/LogbookDialog.cpp:357
+msgid "TWS"
 msgstr ""
-"Automaattinen viiva\n"
-"Etäisyys > "
-#
-msgid ""
-"automatic line\n"
-"Waypoint arrived:"
+
+#: src/LogbookDialog.cpp:358
+msgid "AWA"
 msgstr ""
-#
-msgid ""
-"automatic line\n"
-"change of course >"
+
+#: src/LogbookDialog.cpp:359
+msgid "AWS"
 msgstr ""
-"Automaattinen viiva\n"
-"kurssimuutos >"
-#
-msgid ""
-"automatic line\n"
-"change of guards"
-msgstr ""
-"Automaattinen viiva\n"
-"suoja-alue muutos"
-#
-msgid "automatic line Waypoint arrived"
-msgstr "Automaattinen viivan reittipiste saavutettu"
-#
-msgid ""
-"automatic line by timer\n"
-"You can set/unset a timer\n"
-" by clicking the bullet\n"
-"Change this text in options"
-msgstr ""
-#
-msgid "black"
-msgstr ""
-#
-msgid "day(s)"
-msgstr "päivä(ä)"
-#
-msgid "default"
-msgstr ""
-#
-msgid ""
-"default = Relative to Boat\n"
-"Heading = Actual wind direction"
-msgstr ""
-#
-msgid "every"
-msgstr ""
-#
-msgid "every 15 Degrees +/- 1 hour"
-msgstr ""
-#
-msgid "export your BuyParts-data as HTML or ODT"
-msgstr ""
-#
+
+#: src/LogbookDialog.cpp:360
+msgid "Current"
+msgstr "Virran nopeus, solmua"
+
+#: src/LogbookDialog.cpp:361
+msgid "C/Strength"
+msgstr "W/vahvuus"
+
+#: src/LogbookDialog.cpp:362
+msgid "Wave"
+msgstr "Aalto"
+
+#: src/LogbookDialog.cpp:363
+msgid "Swell"
+msgstr "Maininki"
+
+#: src/LogbookDialog.cpp:364 src/LogbookOptions.cpp:724
+msgid "Weather"
+msgstr "Sää"
+
+#: src/LogbookDialog.cpp:365
+msgid "Clouds"
+msgstr "Pilvet"
+
+#: src/LogbookDialog.cpp:366
+msgid "Visibility"
+msgstr "Näkyvyys"
+
+#: src/LogbookDialog.cpp:383
+msgid "Meteo"
+msgstr "Sää"
+
+#: src/LogbookDialog.cpp:425 src/LogbookDialog.cpp:741
+msgid "Engine #1"
+msgstr "Moottori #1"
+
+#: src/LogbookDialog.cpp:426
+msgid "#1 Total"
+msgstr "#1 yhteensä"
+
+#: src/LogbookDialog.cpp:428 src/LogbookDialog.cpp:742
+msgid "Engine #2"
+msgstr "Moottori #2"
+
+#: src/LogbookDialog.cpp:429
+msgid "#2 Total"
+msgstr "#2 yhteensä"
+
+#: src/LogbookDialog.cpp:431 src/LogbookDialog.cpp:743
+#: src/LogbookOptions.cpp:526
+msgid "Fuel"
+msgstr "Polttoaine"
+
+#: src/LogbookDialog.cpp:432
+msgid "FuelTotal"
+msgstr "Kaikki polttoaine"
+
+#: src/LogbookDialog.cpp:433 src/LogbookOptions.cpp:1285
+msgid "Sails"
+msgstr "Purjeet"
+
+#: src/LogbookDialog.cpp:434
+msgid "Reef"
+msgstr "Reivi"
+
+#: src/LogbookDialog.cpp:435 src/LogbookDialog.cpp:744
+msgid "Generator"
+msgstr "Generaattori"
+
+#: src/LogbookDialog.cpp:436
+msgid "Gen. total"
+msgstr "Generaattorit yht."
+
+#: src/LogbookDialog.cpp:437 src/LogbookOptions.cpp:565
+msgid "Bank #1"
+msgstr "Akusto #1"
+
+#: src/LogbookDialog.cpp:438
+msgid "AH #1 Total"
+msgstr "AH #1 yhteensä"
+
+#: src/LogbookDialog.cpp:439 src/LogbookOptions.cpp:577
+msgid "Bank #2"
+msgstr "Akusto #2"
+
+#: src/LogbookDialog.cpp:440
+msgid "AH #2 Total"
+msgstr "AH #2 yhteensä"
+
+#: src/LogbookDialog.cpp:441 src/LogbookDialog.cpp:749
+#: src/LogbookOptions.cpp:504
+msgid "Watermaker"
+msgstr "Juomaveden valmistin"
+
+#: src/LogbookDialog.cpp:442
+msgid "W-Total"
+msgstr "W-yhteensä"
+
+#: src/LogbookDialog.cpp:443
+msgid "W-Output"
+msgstr "W-tuotos"
+
+#: src/LogbookDialog.cpp:445
+msgid "WaterTotal"
+msgstr "Kaikki vesi"
+
+#: src/LogbookDialog.cpp:447
+msgid "RouteID"
+msgstr "Reitin tunniste"
+
+#: src/LogbookDialog.cpp:448
+msgid "TrackID"
+msgstr "Jäljen tunniste"
+
+#: src/LogbookDialog.cpp:465
+msgid "Motor/Sails"
+msgstr "Moottorilla/Purjein"
+
+#: src/LogbookDialog.cpp:475
+msgid "Set Timer"
+msgstr "Aseta ajastin"
+
+#: src/LogbookDialog.cpp:476
+msgid "Set the interval for the timer"
+msgstr "Asetta ajastimen aikaväli"
+
+#: src/LogbookDialog.cpp:481 src/LogbookDialog.cpp:483
+#: src/LogbookOptions.cpp:351
+msgid "Timer"
+msgstr "Ajastin"
+
+#: src/LogbookDialog.cpp:507 src/LogbookDialog.cpp:509
+#: src/LogbookOptions.cpp:361
+msgid "Waypoint"
+msgstr "Reittipiste"
+
+#: src/LogbookDialog.cpp:531
+msgid "Set the desired distance in NM\n = (Track made good)"
+msgstr "Aseta haluttu etäisyys NM\n = (TMG)"
+
+#: src/LogbookDialog.cpp:539 src/LogbookDialog.cpp:541
+msgid "Course"
+msgstr "Kurssi"
+
+#: src/LogbookDialog.cpp:549
+msgid "Set desired Degrees\nif the course changes by this amount\na course-changed-event occurs"
+msgstr "Määritä haluamasi asteet\njos kurssi muuttuu tämän verran\na kurssi-muuttunut-tapahtuma toteutuu"
+
+#: src/LogbookDialog.cpp:554
+msgid "Set desired delay in minutes\nIt's a good idea to set here a value > 0\nto find the right wind."
+msgstr "Asettaa haluttu minuutit\nviivästyminen on hyvä asettaa tässä > 0\njotta löydät oikean tuulen."
+
+#: src/LogbookDialog.cpp:561 src/LogbookDialog.cpp:2899
+#: src/LogbookDialog.cpp:3032
+msgid "Stop"
+msgstr "Seis"
+
+#: src/LogbookDialog.cpp:563
+msgid "Suspend/Resume running event/s"
+msgstr "Keskeyttää/jatkaa käynnissä tapahtuma/s"
+
+#: src/LogbookDialog.cpp:622
 msgid "export your Overview-data as HTML or ODT"
 msgstr "Yleiskatsaus tietojen vieminen HTML-tai ODT muotoon"
-#
-msgid "export your Repairs-data as HTML or ODT"
+
+#: src/LogbookDialog.cpp:675
+msgid "Select one of the old logbooks"
+msgstr "Valitse jokin vanhoista lokikirjoista"
+
+#: src/LogbookDialog.cpp:733 src/LogbookDialog.cpp:976
+#: src/LogbookDialog.cpp:2913 src/LogbookDialog.cpp:3011
+msgid "Start"
+msgstr "Aloita"
+
+#: src/LogbookDialog.cpp:734
+msgid "End"
+msgstr "Lopeta"
+
+#: src/LogbookDialog.cpp:735
+msgid "Total Time"
+msgstr "Kokonaisaika"
+
+#: src/LogbookDialog.cpp:737
+msgid "Distance p. Day"
+msgstr "Matka/päivä"
+
+#: src/LogbookDialog.cpp:738
+msgid "Best Dist. p. Day"
+msgstr "Paras matka/päivä"
+
+#: src/LogbookDialog.cpp:739
+msgid "Speed Avg."
+msgstr "Nopeus keskim."
+
+#: src/LogbookDialog.cpp:740
+msgid "Speed Max."
+msgstr "Nopeus Max."
+
+#: src/LogbookDialog.cpp:745
+msgid "Bank #1 gen."
+msgstr "Akusto #1 gen."
+
+#: src/LogbookDialog.cpp:746
+msgid "Bank #1 used"
+msgstr "Akustoi #1 käytetty"
+
+#: src/LogbookDialog.cpp:747
+msgid "Bank #2 gen."
+msgstr "Akusto #2 gen."
+
+#: src/LogbookDialog.cpp:748
+msgid "Bank #2 used"
+msgstr "Akusto #2 käytetty"
+
+#: src/LogbookDialog.cpp:750
+msgid "Waterm. Outp"
+msgstr "Juomavesi tuotto"
+
+#: src/LogbookDialog.cpp:751
+msgid "Water used"
+msgstr "Käytetty vettä"
+
+#: src/LogbookDialog.cpp:752
+msgid "TWA Avg."
 msgstr ""
-#
-msgid "export your Service-data as HTML or ODT"
+
+#: src/LogbookDialog.cpp:753
+msgid "TWS Avg."
 msgstr ""
-#
-msgid ""
-"export your boat/equipment-data as:\n"
-"      HTML, ODT,  ODS, XML, CSV"
+
+#: src/LogbookDialog.cpp:754
+msgid "TWS Max."
 msgstr ""
-#
-msgid ""
-"export your crew-data as:\n"
-"HTML, ODT,  ODS, XML, CSV"
-msgstr ""
-#
-msgid ""
-"export your logbook-data as:\n"
-"HTML, ODT,  ODS, XML, CSV"
-msgstr ""
-"vie lokikirja-tietoja mudossa:\n"
-"HTML, ODT, XML, CSV, ODS"
-#
-msgid "fm"
-msgstr ""
-#
-msgid "from"
-msgstr ""
-#
-msgid "from "
-msgstr "mistä "
-#
-msgid "ft"
-msgstr "jalkaa"
-#
-msgid "fth"
-msgstr "FTH"
-#
-msgid "gal"
-msgstr "gal"
-#
-msgid ""
-"green = Event is running\n"
-"red = Event is stopped\n"
-"yellow = Event is suspended. Restart event with Start-Button"
-msgstr ""
-#
-msgid "h"
-msgstr "h"
-#
-msgid "km/h"
-msgstr "km/h"
-#
-msgid "kts"
-msgstr "Kts"
-#
-msgid "m"
-msgstr "m"
-#
-msgid "m/s"
-msgstr "m/s"
-#
-msgid "mb"
-msgstr "mb"
-#
-msgid "month"
-msgstr "kuukausi"
-#
-msgid ""
-"no Event/s\n"
-"Click one or more bullets to start"
-msgstr ""
-#
-msgid "none"
-msgstr ""
-#
-msgid "red"
-msgstr ""
-#
-msgid "solid"
-msgstr ""
-#
+
+#: src/LogbookDialog.cpp:755
+msgid "Currentdirection Avg."
+msgstr "Nykyinen keskimääräinen suunta"
+
+#: src/LogbookDialog.cpp:756
+msgid "Current Avg."
+msgstr "Nykyinen keskimääräinen"
+
+#: src/LogbookDialog.cpp:757
+msgid "Current Max."
+msgstr "Nykyinen Max."
+
+#: src/LogbookDialog.cpp:758
+msgid "Wave Avg."
+msgstr "Aalto Keskim."
+
+#: src/LogbookDialog.cpp:759
+msgid "Wave Max."
+msgstr "Aalto Max."
+
+#: src/LogbookDialog.cpp:760
+msgid "Swell Avg."
+msgstr "keskim. maininki"
+
+#: src/LogbookDialog.cpp:761
+msgid "Swell Max."
+msgstr "Maks. maininki"
+
+#: src/LogbookDialog.cpp:762
+msgid "Sails used mostly"
+msgstr "Purjeita käytetty enimmäkseen"
+
+#: src/LogbookDialog.cpp:763
+msgid "Path"
+msgstr "Polku"
+
+#: src/LogbookDialog.cpp:779
+msgid "Goto Route"
+msgstr "Mene reitille"
+
+#: src/LogbookDialog.cpp:795
+msgid "Overview"
+msgstr "Yleistä"
+
+#: src/LogbookDialog.cpp:806
+msgid "Add Crew"
+msgstr "Lisää miehistö"
+
+#: src/LogbookDialog.cpp:807
+msgid "Add a new Crewmember"
+msgstr "Lisää uusi miehistön jäsen"
+
+#: src/LogbookDialog.cpp:812
+msgid "export your crew-data as:\nHTML, ODT,  ODS, XML, CSV"
+msgstr "vie miehistön-tiedot muodossa: \nHTML, ODT, XML, CSV, ODS"
+
+#: src/LogbookDialog.cpp:855
+msgid "Copy to watch"
+msgstr "Kopioi vahtiin"
+
+#: src/LogbookDialog.cpp:859
+msgid "Name in full"
+msgstr "Täydellinen nimi"
+
+#: src/LogbookDialog.cpp:859
+msgid "Firstname only"
+msgstr "Vain etunimi"
+
+#: src/LogbookDialog.cpp:859
+msgid "Lastname only"
+msgstr "Sukunimi vain"
+
+#: src/LogbookDialog.cpp:905
+msgid "Onboard"
+msgstr "Laivalla"
+
+#: src/LogbookDialog.cpp:906 src/LogbookDialog.cpp:1243
+#: src/LogbookOptions.cpp:1215
+msgid "Name"
+msgstr "Nimi"
+
+#: src/LogbookDialog.cpp:907
+msgid "Birthname"
+msgstr "Syntymä nimi"
+
+#: src/LogbookDialog.cpp:908 src/LogbookDialog.cpp:1331
+msgid "Firstname"
+msgstr "Etunimi"
+
+#: src/LogbookDialog.cpp:909 src/LogbookDialog.cpp:1933
+msgid "Title"
+msgstr "Otsikko"
+
+#: src/LogbookDialog.cpp:910
+msgid "Date of Birth"
+msgstr "Syntymäaika"
+
+#: src/LogbookDialog.cpp:911
+msgid "Place of Birth"
+msgstr "Syntymäpaikka"
+
+#: src/LogbookDialog.cpp:912
+msgid "Nationality"
+msgstr "kansallisuus"
+
+#: src/LogbookDialog.cpp:913
+msgid "Passport-Nr"
+msgstr "Passin nro"
+
+#: src/LogbookDialog.cpp:914
+msgid "Issued in"
+msgstr "Myönnetty"
+
+#: src/LogbookDialog.cpp:915
+msgid "Date of Issue"
+msgstr "Antopäivä"
+
+#: src/LogbookDialog.cpp:916 src/LogbookDialog.cpp:1364
+msgid "Zip"
+msgstr "Postinumero"
+
+#: src/LogbookDialog.cpp:917
+msgid "Country"
+msgstr "Maa"
+
+#: src/LogbookDialog.cpp:918 src/LogbookDialog.cpp:1371
+msgid "Town"
+msgstr "Kaupunki"
+
+#: src/LogbookDialog.cpp:919 src/LogbookDialog.cpp:1357
+msgid "Street"
+msgstr "Katuosoite"
+
+#: src/LogbookDialog.cpp:943
+msgid "Show onboard only"
+msgstr "Näytä vain laivalla"
+
+#: src/LogbookDialog.cpp:948
+msgid "Show all entries"
+msgstr "Näytä kaikki merkinnät"
+
+#: src/LogbookDialog.cpp:954
+msgid "Sort ascending"
+msgstr "Lajittele nousevasti"
+
+#: src/LogbookDialog.cpp:958
+msgid "Sort descending"
+msgstr "Lajittele laskevasti"
+
+#: src/LogbookDialog.cpp:974
+msgid "Set Watchtimes"
+msgstr "Aseta vahtiajat"
+
+#: src/LogbookDialog.cpp:981
+msgid "Set the startdate of the sailing trip"
+msgstr "Määritä purjehduksen aloituspvm"
+
+#: src/LogbookDialog.cpp:987
+msgid "Set the starttime of your sailing trip"
+msgstr "Määritä purjehduksesi aloitusaika"
+
+#: src/LogbookDialog.cpp:991
+msgid "Days"
+msgstr "Päivät"
+
+#: src/LogbookDialog.cpp:996
+msgid "Length of your sailing trip"
+msgstr "Purjehduksen pituus"
+
+#: src/LogbookDialog.cpp:1000
+msgid "Calculate"
+msgstr "Laske"
+
+#: src/LogbookDialog.cpp:1001
+msgid "Calculate the watches with the members entered in the columns"
+msgstr "Laske vahdit sarakkeiden jäsenten kesken"
+
+#: src/LogbookDialog.cpp:1005 src/LogbookDialog.cpp:3903
+#: src/LogbookOptions.cpp:1271 src/LogbookOptions.cpp:1593
+msgid "Reset"
+msgstr "Tyhjennä"
+
+#: src/LogbookDialog.cpp:1007
+msgid "Reset data to edit-level"
+msgstr "Palauta tiedot Muokkaa-tasolle"
+
+#: src/LogbookDialog.cpp:1011
+msgid "Clear"
+msgstr "Tyhjennä"
+
+#: src/LogbookDialog.cpp:1012
+msgid "Clear all data"
+msgstr "Poista kaikki tiedot"
+
+#: src/LogbookDialog.cpp:1021
+msgid "Day backward"
+msgstr "Päivä taaksepäin"
+
+#: src/LogbookDialog.cpp:1025
+msgid "Now"
+msgstr "Nyt"
+
+#: src/LogbookDialog.cpp:1027
+msgid "Go to date/time now"
+msgstr "Mene nyt päiväykseen"
+
+#: src/LogbookDialog.cpp:1033
+msgid "Day forward"
+msgstr "Päivästä"
+
+#: src/LogbookDialog.cpp:1037
+msgid "Day:"
+msgstr "Päivä:"
+
+#: src/LogbookDialog.cpp:1042
+msgid "Shows/Sets the day\nDisplays the data in your ODT/Browser-program from this day to end"
+msgstr "Näyttää tai määrittää päivän\nNäyttää tiedot ODT/Browser-ohjelmassa tästä päivästä loppuun"
+
+#: src/LogbookDialog.cpp:1046
+msgid "Display"
+msgstr "Näyttö"
+
+#: src/LogbookDialog.cpp:1050
+msgid "all"
+msgstr "kaikki"
+
+#: src/LogbookDialog.cpp:1050
 msgid "this day"
-msgstr ""
-#
-msgid "to"
-msgstr ""
-#
-#, c-format
-msgid ""
-"to use MS-Word, append %s like this:\n"
-"\"C:\\yourPathToWinword\\WINWORD.EXE\" %s"
-msgstr ""
-#
-msgid "transparent"
-msgstr ""
-#
-msgid "unnamed Route"
-msgstr ""
-#
-msgid "use Textblocks..."
-msgstr ""
-#
-msgid "week(s)"
-msgstr "viikko(ja)"
-#
-msgid "white"
-msgstr ""
-#
+msgstr "tämä päivä"
+
+#: src/LogbookDialog.cpp:1054
+msgid "Used for ODT/Browser-program\nOne Row for the day + selected days = Days displayed"
+msgstr "Käytetty ODT/selain-ohjelmalle\nYksi rivi käytetään päivälle + valitut päivät = päivät näytetty"
+
+#: src/LogbookDialog.cpp:1077
+msgid "1. Watch"
+msgstr "1. Vahti"
+
+#: src/LogbookDialog.cpp:1088
+msgid "Watchtime"
+msgstr "Vahtiaika"
+
+#: src/LogbookDialog.cpp:1091
+msgid "Member"
+msgstr "Jäsen"
+
+#: src/LogbookDialog.cpp:1101
+msgid "Set as Watchbase"
+msgstr "Aseta Watchbase"
+
+#: src/LogbookDialog.cpp:1105
+msgid "Split Watch"
+msgstr "Jaa vahti osiin"
+
+#: src/LogbookDialog.cpp:1109
+msgid "Merge Watches"
+msgstr "Yhdistä vahdit"
+
+#: src/LogbookDialog.cpp:1113
+msgid "Swap two Watches"
+msgstr "Vaihda kaksi vahtia"
+
+#: src/LogbookDialog.cpp:1117
+msgid "Delete Crewmembers"
+msgstr "Poista miehistön jäsenet"
+
+#: src/LogbookDialog.cpp:1148
+msgid "Crewlist"
+msgstr "Miehistöluettelo"
+
+#: src/LogbookDialog.cpp:1166
+msgid "Add Equipment"
+msgstr "Lisää laite"
+
+#: src/LogbookDialog.cpp:1167
+msgid "add the equipment of your boat"
+msgstr "Lisää veneesi varusteet"
+
+#: src/LogbookDialog.cpp:1170 src/LogbookDialog.cpp:5677
+msgid "Show Equipment"
+msgstr "Näytä laitteet"
+
+#: src/LogbookDialog.cpp:1171
+msgid "Show/Hide Equipmentgrid"
+msgstr "Näytä/Piilota laiteverkko"
+
+#: src/LogbookDialog.cpp:1178
+msgid "export your boat/equipment-data as:\n      HTML, ODT,  ODS, XML, CSV"
+msgstr "tulosta veneen/laitteet-tietoja muodossa:\n HTML, ODT, ODS, XML, CSV"
+
+#: src/LogbookDialog.cpp:1201
+msgid "Edit Layouts"
+msgstr "Muokkaa asetteluja"
+
+#: src/LogbookDialog.cpp:1235 src/LogbookDialog.cpp:1597
+msgid "Boat"
+msgstr "Vene"
+
+#: src/LogbookDialog.cpp:1250
+msgid "Homeport"
+msgstr "Kotisatama"
+
+#: src/LogbookDialog.cpp:1257
+msgid "Callsign"
+msgstr "Kutsu"
+
+#: src/LogbookDialog.cpp:1264
+msgid "HIN-Nr."
+msgstr "HIN-Nr."
+
+#: src/LogbookDialog.cpp:1269
+msgid "Hull Identification No."
+msgstr "Rungon tunnus nro"
+
+#: src/LogbookDialog.cpp:1272
+msgid "Sail-Nr."
+msgstr "Purje-Nr."
+
+#: src/LogbookDialog.cpp:1285
+msgid "Insurance"
+msgstr "Vakuutus"
+
+#: src/LogbookDialog.cpp:1292
+msgid "Registration"
+msgstr "Rekisteröinti"
+
+#: src/LogbookDialog.cpp:1299
+msgid "Policy"
+msgstr "Politiikka"
+
+#: src/LogbookDialog.cpp:1306
+msgid "MMSI"
+msgstr "MMSI"
+
+#: src/LogbookDialog.cpp:1317
+msgid "Owner"
+msgstr "Omistaja"
+
+#: src/LogbookDialog.cpp:1324
+msgid "Name      "
+msgstr "Nimi      "
+
+#: src/LogbookDialog.cpp:1338
+msgid "Telephone"
+msgstr "Puhelin"
+
+#: src/LogbookDialog.cpp:1383
+msgid "Details"
+msgstr "Yksityiskohdat"
+
+#: src/LogbookDialog.cpp:1391 src/LogbookDialog.cpp:1563
+msgid "Type"
+msgstr "Tyyppi"
+
+#: src/LogbookDialog.cpp:1398
+msgid "Builder"
+msgstr "Rakentaja"
+
+#: src/LogbookDialog.cpp:1405
+msgid "Hull"
+msgstr "Runko"
+
+#: src/LogbookDialog.cpp:1412
+msgid "Date Launched"
+msgstr "Vesillelasku pvm"
+
+#: src/LogbookDialog.cpp:1419
+msgid "Yard-Nr."
+msgstr "Telakka-Nr."
+
+#: src/LogbookDialog.cpp:1426
+msgid "Designer"
+msgstr "Suunnittelija"
+
+#: src/LogbookDialog.cpp:1433
+msgid "Construction"
+msgstr "Rakenne"
+
+#: src/LogbookDialog.cpp:1458
+msgid "LOA"
+msgstr "LOA"
+
+#: src/LogbookDialog.cpp:1463
+msgid "Length over all"
+msgstr "Kokonaispituus"
+
+#: src/LogbookDialog.cpp:1467
+msgid "LOD"
+msgstr "LOD"
+
+#: src/LogbookDialog.cpp:1472
+msgid "Length over Deck"
+msgstr "Kannen pituus"
+
+#: src/LogbookDialog.cpp:1476
+msgid "LWL"
+msgstr "LWL"
+
+#: src/LogbookDialog.cpp:1481
+msgid "Length in Waterline"
+msgstr "Vesilinjan pituus"
+
+#: src/LogbookDialog.cpp:1485
+msgid "Beam"
+msgstr "Keula"
+
+#: src/LogbookDialog.cpp:1490
+msgid "Greatest Width of Hull"
+msgstr "Rungon suurin leveys"
+
+#: src/LogbookDialog.cpp:1494
+msgid "Draft"
+msgstr "Syväys"
+
+#: src/LogbookDialog.cpp:1501 src/LogbookDialog.cpp:1509
+#: src/LogbookDialog.cpp:1517
+msgid "UserLabel"
+msgstr "Käyttäjän nimilaatta"
+
+#: src/LogbookDialog.cpp:1502 src/LogbookDialog.cpp:1510
+#: src/LogbookDialog.cpp:1518
 msgid "write your own label"
+msgstr "kirjoitta oman otsakkeesi"
+
+#: src/LogbookDialog.cpp:1526
+msgid "Displacement"
+msgstr "Uppouma"
+
+#: src/LogbookDialog.cpp:1542
+msgid "Equipment"
+msgstr "Varusteet"
+
+#: src/LogbookDialog.cpp:1564 src/LogbookDialog.cpp:7300
+msgid "Description"
+msgstr "Kuvaus"
+
+#: src/LogbookDialog.cpp:1565
+msgid "Serial-Nr."
+msgstr "Sarja-Nr."
+
+#: src/LogbookDialog.cpp:1616 src/LogbookDialog.cpp:1742
+#: src/LogbookDialog.cpp:1859
+msgid "Add a new line"
+msgstr "Lisää uusi rivi"
+
+#: src/LogbookDialog.cpp:1620
+msgid "export your Service-data as HTML or ODT"
+msgstr "Huoltotietojen vieminen HTML-tai ODT"
+
+#: src/LogbookDialog.cpp:1626 src/LogbookDialog.cpp:1752
+#: src/LogbookDialog.cpp:1869
+msgid "Select Layout:"
+msgstr "Valitse asettelu:"
+
+#: src/LogbookDialog.cpp:1688 src/LogbookDialog.cpp:1810
+#: src/LogbookDialog.cpp:1931
+msgid "Priority"
+msgstr "Prioriteetti"
+
+#: src/LogbookDialog.cpp:1689
+msgid "Service TODO"
+msgstr "Huollon tehtävälista"
+
+#: src/LogbookDialog.cpp:1690
+msgid "If"
+msgstr "Jos"
+
+#: src/LogbookDialog.cpp:1691
+msgid "Warnvalue"
+msgstr "Varoitusarvo"
+
+#: src/LogbookDialog.cpp:1692
+msgid "Urgentvalue"
+msgstr "Kiireellisyys"
+
+#: src/LogbookDialog.cpp:1693
+msgid "Startvalue"
+msgstr "Alkuarvo"
+
+#: src/LogbookDialog.cpp:1694
+msgid "Active"
+msgstr "Aktivoi"
+
+#: src/LogbookDialog.cpp:1710
+msgid "Service done"
+msgstr "Huolto on tehty"
+
+#: src/LogbookDialog.cpp:1714
+msgid "Buy parts for this service"
+msgstr "Osta varaosia tähän huoltoon"
+
+#: src/LogbookDialog.cpp:1729 src/Maintenance.cpp:441
+msgid "Service"
+msgstr "Huolto"
+
+#: src/LogbookDialog.cpp:1746
+msgid "export your Repairs-data as HTML or ODT"
+msgstr "Korjaustietojen vieminen HTML-tai ODT"
+
+#: src/LogbookDialog.cpp:1811
+msgid "RepairsTODO"
+msgstr "Korjausten tehtävälista"
+
+#: src/LogbookDialog.cpp:1827
+msgid "Repair done"
+msgstr "Korjaus tehty"
+
+#: src/LogbookDialog.cpp:1831
+msgid "Buy parts for this repair"
+msgstr "Osta osia tähän korjaukseen"
+
+#: src/LogbookDialog.cpp:1846 src/Maintenance.cpp:448
+msgid "Repairs"
+msgstr "Korjaukset"
+
+#: src/LogbookDialog.cpp:1863
+msgid "export your BuyParts-data as HTML or ODT"
+msgstr "Osien ostotietojen vieminen HTML-tai ODT"
+
+#: src/LogbookDialog.cpp:1932
+msgid "Category"
+msgstr "Kategoria"
+
+#: src/LogbookDialog.cpp:1934 src/LogbookDialog.cpp:1963
+msgid "Buy Parts"
+msgstr "Osta osia"
+
+#: src/LogbookDialog.cpp:1936
+msgid "At"
+msgstr "Klo"
+
+#: src/LogbookDialog.cpp:1970 src/LogbookOptions.cpp:824
+msgid "Maintenance"
+msgstr "Asennus"
+
+#: src/LogbookDialog.cpp:3368 src/LogbookDialog.cpp:3902
+#: src/LogbookOptions.cpp:1592
+msgid "none"
+msgstr "ei mitään"
+
+#: src/LogbookDialog.cpp:3608
+msgid " - Normal Timer - Interval: "
+msgstr " -Tavallisen Ajastimen - aikaväli: "
+
+#: src/LogbookDialog.cpp:3612
+msgid " - Full Hour Timer"
+msgstr " -Koko tunnin ajastin"
+
+#: src/LogbookDialog.cpp:3615
+msgid " - Individual Timer"
+msgstr " -Yksilöllinen ajastin"
+
+#: src/LogbookDialog.cpp:3651
+msgid "no Event/s\nClick one or more bullets to start"
+msgstr "ei tapahtuma/s\nKlikkaa yhtä tai useampaa pallukkaa aloittaaksesi"
+
+#: src/LogbookDialog.cpp:3652
+msgid "Event/s suspended\nClick the button to restart all events"
+msgstr "Tapahtuma/s peruttu\nKlikkaa napia jotta käynnistät kaikki tapahtumat uudelleen"
+
+#: src/LogbookDialog.cpp:3653
+msgid "Event/s running\nClick the button to suspend or a bullet to stop"
+msgstr "Tapahtuma/s käynnissä\nKlikkaa painiketta keskeyttääksi tai pallukkaa lopettaaksesi"
+
+#: src/LogbookDialog.cpp:3655
+msgid "green = Event is running\nred = Event is stopped\nyellow = Event is suspended. Restart event with Start-Button"
+msgstr "vihreä = tapahtuma on käynnissä\npunainen = tapahtuma on pysäytetty\nkeltainen = tapahtuma on keskeytetty. Käynnistä tapahtuman Käynnistä-painiketta"
+
+#: src/LogbookDialog.cpp:3662
+msgid "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
+msgstr "OpenDocument-laskentataulukkona (*.ods) | *. ods|Excel 2003-muodossa (*.xml) | *. xml|CSV muodossa OpenOffice (*.csv) | *. csv|Varmuuskopio lokikirja (*.txt) | * .txt"
+
+#: src/LogbookDialog.cpp:3820
+msgid "Show Engines/Sails Mode"
+msgstr "Näytä moottorit/Purjeet tila"
+
+#: src/LogbookDialog.cpp:4336 src/LogbookDialog.cpp:4387
+#: src/LogbookOptions.cpp:1022
+msgid "Track"
+msgstr "Jälki"
+
+#: src/LogbookDialog.cpp:4386 src/LogbookDialog.cpp:4543
+msgid "Select Track"
+msgstr "Valitse jälki"
+
+#: src/LogbookDialog.cpp:4397
+msgid "GUID"
+msgstr "GUID-TUNNUS"
+
+#: src/LogbookDialog.cpp:4616
+msgid "use Textblocks..."
+msgstr "Käytä Tekstiblokkia..."
+
+#: src/LogbookDialog.cpp:4722
+msgid "Save Logbook File"
+msgstr "Tallenna lokikirja"
+
+#: src/LogbookDialog.cpp:4781
+msgid "Normal Timer has 0 h 0 Min.\n\nPlease change settings (Timer-Interval)"
+msgstr "Normaali ajastin on 0 h 0 Min.\n\nMuuta asetuksia (ajastimen aikaväliä)"
+
+#: src/LogbookDialog.cpp:4943
+msgid "No Path set to HTML-Editor\nin ToolBox/Plugins/LogbookKonni/Preferences"
+msgstr "HTML-Editorin polkua ei ole asetettu\n ToolBox/Plugins/LogbookKonni/Asetukset"
+
+#: src/LogbookDialog.cpp:5349
+msgid "Save CrewList File"
+msgstr "Tallenna CrewList"
+
+#: src/LogbookDialog.cpp:5669
+msgid "Hide Equipment"
+msgstr "Piilota laitteet"
+
+#: src/LogbookDialog.cpp:5694
+msgid "Save Boat File"
+msgstr "Tallenna vene"
+
+#: src/LogbookDialog.cpp:5856
+msgid "Save Service File"
+msgstr "Tallenna huolto"
+
+#: src/LogbookDialog.cpp:6107
+msgid "Save Repairs File"
+msgstr "Tallenna korjaukset tiedosto"
+
+#: src/LogbookDialog.cpp:6324
+msgid "Save BuyParts File"
+msgstr "Tallenna Ostavaraosat tiedosto"
+
+#: src/LogbookDialog.cpp:6546
+msgid "Save Overview File"
+msgstr "Tallenna yhteenveto tidosto"
+
+#: src/LogbookDialog.cpp:7170
+msgid "Filter Layout by"
+msgstr "Suodata asettelu"
+
+#: src/LogbookDialog.cpp:7181
+msgid "Rename Layout"
+msgstr "Nimeä asettelu uudelleen"
+
+#: src/LogbookDialog.cpp:7190
+msgid "Delete Layout"
+msgstr "Poista asettelu"
+
+#: src/LogbookDialog.cpp:7199
+msgid "Send Layout by email"
+msgstr "Lähetä asettelu sähkopostilla"
+
+#: src/LogbookDialog.cpp:7208
+msgid "Install single Layout"
+msgstr "Asenna yksi asettelu"
+
+#: src/LogbookDialog.cpp:7299
+msgid "First/Last Entry"
+msgstr "Ensimmäinen/viimeinen merkintä"
+
+#: src/LogbookDialog.cpp:7301
+msgid "File"
+msgstr "Tiedosto"
+
+#: src/LogbookDialog.cpp:7908
+msgid "Add Item"
+msgstr "Lisää kohde"
+
+#: src/LogbookDialog.cpp:7912
+msgid "Delete Item"
+msgstr "Poista kohde"
+
+#: src/LogbookDialog.cpp:7916
+msgid "Rename Item"
+msgstr "Kohteen nimeäminen uudelleen"
+
+#: src/LogbookDialog.cpp:7922 src/LogbookDialog.cpp:8248
+#: src/LogbookDialog.cpp:8250
+msgid "Add Treenode"
+msgstr "Lisää puumuotoinen esitys"
+
+#: src/LogbookDialog.cpp:7926 src/LogbookDialog.cpp:8243
+#: src/LogbookDialog.cpp:8245
+msgid "Delete Treenode"
+msgstr "Poista puumuotoinen esitys"
+
+#: src/LogbookDialog.cpp:7939
+msgid "Text"
+msgstr "Teksti"
+
+#: src/LogbookDialog.cpp:8063
+msgid "Textblocks"
+msgstr "Tekstiblokki"
+
+#: src/LogbookDialog.cpp:8064
+msgid "Help\n-----\n\nOpen treenode\n  'Texts when using this Dialog only'\n  and select e.g. 'Remarks'\n\nRightclick in TreeView for menu\n\nAdd a item and rename it\n   USE UNIQUE NAMES FOR ITEMS !\n\nInsert text\n\nIn 'Texts when using this Dialog only' you can insert/delete treenodes only\n\nUse Drag 'n Drop to move item from/to menu\n\nsee next treenodes for more help"
+msgstr "Help\n---\n\nAvaa puumuoto\n 'Tekstejä käytettäessä vain tässä valintaikkunassa'\n ja valitse esimerkiksi \"Huomautuksia\" \n\nOikeaklikkaus TreeView menu\n\nLisää nimikkeenä ja nimeä se\n KÄYTÄ UNIIKEJA NIMIÄ KOHTEILLE!\n\naseta teksti\n\nIn \"Tekstejä käytettäessä vain tässä valintaikkunassa\" voit lisää/poista vain puumuotoja\n\nKäytä vedä ja pudota tapa siirtäessäsi kohteita menuun ja pois\n\nkatso seuraavista puumuodoista lisäohjeita"
+
+#: src/LogbookDialog.cpp:8068
+msgid "The itemname is shown in the rightcklick-menu of the following Columns\nBy clicking on it the text is inserted\n\n"
+msgstr "Yksikön nimi näytetään seuraavan rivin oikeaklikkaus-valikosta \nKlikkaamalla tekstiä sisäistyksessä\n\n"
+
+#: src/LogbookDialog.cpp:8076
+msgid "Texts for Rightclick-Menu"
+msgstr "Tekstejä klikkaaoikealla Menuun"
+
+#: src/LogbookDialog.cpp:8082
+msgid "Sails up\nEngine stopped\n\nDemo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr "Purjeet ylhäällä\nKone seis\n\nDemo - Oikeaklikkausmenu 'käytä Testextblocks' saadaksesi apua"
+
+#: src/LogbookDialog.cpp:8083
+msgid "Demo Sails up"
+msgstr "Demo purjeet ylhäällä"
+
+#: src/LogbookDialog.cpp:8106
+msgid "These texts are inserted into the grid-colmn\nby calling this dialog\n\nSelect Item\nClick OK-Button\n\nUse Drag 'n Drop to place a item in menu"
+msgstr "Nämä tekstit on lisätty ruudukkopalstoihin\nKun kutsut tätä dialogia\n\nvalitse yksityiskohta\nKlikkaa OK nappia\n\nKäytä vedä ja pudota jos sijoitatyksityiskohdan valikkoon"
+
+#: src/LogbookDialog.cpp:8107
+msgid "Texts when using this Dialog only"
+msgstr "Tekstejä käytettään vain tässä valintaikkunassa"
+
+#: src/LogbookDialog.cpp:8113
+msgid "Engine stopped\n\nDemo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr "Moottori pysäytetty\n\nDemo -Klikkaa oikealla Menua \"Käytä tekstiblokkia\" avun saamiseksi"
+
+#: src/LogbookDialog.cpp:8114
+msgid "Demo Engine stopped"
+msgstr "Demo moottori pysäytetty"
+
+#: src/LogbookDialog.cpp:8187
+#, c-format
+msgid "New Node%i"
+msgstr "Uusi solmu%i"
+
+#: src/LogbookDialog.cpp:8224
+#, c-format
+msgid "New Item%i"
+msgstr "Uusi yksityiskohta%i"
+
+#: src/LogbookDialog.cpp:8527
+msgid "Normal Timer"
+msgstr "Tavallinen ajastin"
+
+#: src/LogbookDialog.cpp:8563 src/LogbookDialog.cpp:8641
+#: src/LogbookDialog.cpp:8705
+msgid "Event"
+msgstr "Tapahtuma"
+
+#: src/LogbookDialog.cpp:8577
+msgid "Full Hour Timer"
+msgstr "Koko tunnin ajastin"
+
+#: src/LogbookDialog.cpp:8580
+msgid "every"
+msgstr "Jokainen"
+
+#: src/LogbookDialog.cpp:8611
+msgid "+ Minutes"
+msgstr "+ Minuuttia"
+
+#: src/LogbookDialog.cpp:8630 src/LogbookDialog.cpp:8693
+msgid "Clear all"
+msgstr "Tyhjennä kaikki"
+
+#: src/LogbookDialog.cpp:8650
+msgid "Individual Timer"
+msgstr "Yksittäinen ajastin"
+
+#: src/LogbookDialog.cpp:8673
+msgid "Hour"
+msgstr "Tunti"
+
+#: src/LogbookDialog.cpp:8674 src/LogbookOptions.cpp:631
+msgid "Minutes"
+msgstr "Minuuttia"
+
+#: src/LogbookDialog.cpp:9046 src/LogbookDialog.cpp:9051
+msgid "PM"
+msgstr "PM"
+
+#: src/LogbookDialog.cpp:9053
+msgid "AM"
+msgstr "AM"
+
+#: src/LogbookDialog.cpp:9154
+msgid "AM/PM"
+msgstr "AM/PM"
+
+#: src/LogbookOptions.cpp:70
+msgid "Date-Format:"
+msgstr "Päivämäärämuoto:"
+
+#: src/LogbookOptions.cpp:74
+msgid "Local Format"
+msgstr "Paikallinen muoto"
+
+#: src/LogbookOptions.cpp:74
+msgid "Individual"
+msgstr "Yksilö"
+
+#: src/LogbookOptions.cpp:85 src/LogbookOptions.cpp:91
+#: src/LogbookOptions.cpp:97 src/LogbookOptions.cpp:848
+msgid "Month"
+msgstr "kuukausi"
+
+#: src/LogbookOptions.cpp:85 src/LogbookOptions.cpp:91
+#: src/LogbookOptions.cpp:97
+msgid "Day"
+msgstr "Päivä"
+
+#: src/LogbookOptions.cpp:85 src/LogbookOptions.cpp:91
+#: src/LogbookOptions.cpp:97
+msgid "Year"
+msgstr "vuosi"
+
+#: src/LogbookOptions.cpp:111
+msgid "Separator"
+msgstr "Erotin"
+
+#: src/LogbookOptions.cpp:115
+msgid "."
+msgstr "."
+
+#: src/LogbookOptions.cpp:129
+msgid "Time-Format:"
+msgstr "Aikamuoto:"
+
+#: src/LogbookOptions.cpp:133
+msgid "24 Hour Format"
+msgstr "24 tunnin muoto"
+
+#: src/LogbookOptions.cpp:133
+msgid "12 Hour Format"
+msgstr "12 tunnin muoto"
+
+#: src/LogbookOptions.cpp:139
+msgid "No Seconds"
+msgstr "Ei sekuntia"
+
+#: src/LogbookOptions.cpp:160
+msgid "UTC"
+msgstr "UTC"
+
+#: src/LogbookOptions.cpp:163
+msgid "Local = UTC"
+msgstr "Paikallinen = UTC"
+
+#: src/LogbookOptions.cpp:190
+msgid "GPS Auto"
+msgstr "GPS Auto"
+
+#: src/LogbookOptions.cpp:191
+msgid "every 15 Degrees +/- 1 hour"
+msgstr "Jokainen 15 astetta on +/-1 tunti"
+
+#: src/LogbookOptions.cpp:221
+msgid "Show Logbook Icon"
+msgstr "Näytä lokikirja kuvake"
+
+#: src/LogbookOptions.cpp:225
+msgid "Show Position Format"
 msgstr ""
-#
+
+#: src/LogbookOptions.cpp:239
+msgid "Show ToolTips"
+msgstr "Näytä Työkaluvihjeet"
+
+#: src/LogbookOptions.cpp:243
+msgid "No. of Inboard Engines"
+msgstr "Sisämoottorien moottoriien nro;t"
+
+#: src/LogbookOptions.cpp:247
+msgid "1"
+msgstr "1"
+
+#: src/LogbookOptions.cpp:247
+msgid "2"
+msgstr "2"
+
+#: src/LogbookOptions.cpp:268
+msgid "Sails Messages"
+msgstr "Purje viestit"
+
+#: src/LogbookOptions.cpp:275
+msgid "Generator On Board"
+msgstr ""
+
+#: src/LogbookOptions.cpp:277
+msgid "Check if there is a Generator onboard.\nIf unchecked the Generator columns will not show in Logbook"
+msgstr ""
+
+#: src/LogbookOptions.cpp:282
+msgid "Write warning \"No GPS\""
+msgstr "Kirjoita varoitus \"Ei GPS:ää\""
+
+#: src/LogbookOptions.cpp:284
+msgid "Uncheck if You have no GPS\nIf GPS is out of order, uncheck to\nprevent that the message repeats."
+msgstr "Poista valinta, jos sinulla ei ole GPS:ää\nJos GPS on epäkunnossa, poista niin\nestät viestin toistumisen."
+
+#: src/LogbookOptions.cpp:290
+msgid "Write message \"Engine running\" "
+msgstr ""
+
+#: src/LogbookOptions.cpp:308
+msgid "     Winddirection set to:"
+msgstr "     Tuulen suunta asetettu:"
+
+#: src/LogbookOptions.cpp:312
+msgid "default"
+msgstr "Oletus"
+
+#: src/LogbookOptions.cpp:316
+msgid "default = Relative to Boat\nHeading = Actual wind direction"
+msgstr "oletus = suhteessa veneeseen\nKulkusuunta = tosi tuulensuunta"
+
+#: src/LogbookOptions.cpp:321
+msgid "On engine start set always all sails down"
+msgstr "Kun Moottori Käynnistetään lasketaan aina kaikki purjeet"
+
+#: src/LogbookOptions.cpp:331
+msgid "Events"
+msgstr "Tapahtumat"
+
+#: src/LogbookOptions.cpp:340
+msgid "Writes this text to the logbook when the event occurs, alter texts as desired"
+msgstr "Kirjoittaa tämän tekstin lokikirjaan kun tapahtuma sattuu, muuttaa tekstejä halutusti"
+
+#: src/LogbookOptions.cpp:355
+msgid "automatic line by timer\nYou can set/unset a timer\n by clicking the bullet\nChange this text in options"
+msgstr "Automaattinen ajastimen rivi\nVoit asettaa/poistaa ajastimen\n klikkaamalla pallukkaa\nMuuta tätä tekstiä asetuksissa"
+
+#: src/LogbookOptions.cpp:365
+msgid "automatic line\nWaypoint arrived:"
+msgstr "Automaattinen rivi\n reittipiste saavutettu:"
+
+#: src/LogbookOptions.cpp:393
+msgid "Course changes"
+msgstr "Kurssimuutoksia"
+
+#: src/LogbookOptions.cpp:407
+msgid "Popup logbook on event"
+msgstr "Näytä lokikirja tapahtuman sattuessa"
+
+#: src/LogbookOptions.cpp:422
+msgid "Install Layouts"
+msgstr "Asenna näyttöasetelmia"
+
+#: src/LogbookOptions.cpp:426
+msgid "Uninstall Logbook"
+msgstr "Poista lokikirja"
+
+#: src/LogbookOptions.cpp:430
+msgid "Install"
+msgstr "Asenna"
+
+#: src/LogbookOptions.cpp:431
+msgid "Install OpenCPN_Logbook_Layouts.zip"
+msgstr "Asenna OpenCPN_Logbook_Layouts.zip"
+
+#: src/LogbookOptions.cpp:435
+msgid "Uninstall"
+msgstr "Poista asennus"
+
+#: src/LogbookOptions.cpp:436
+msgid "Uninstalls\nLogbook-Plugin,\nall Logbook-Data,\nall Logbook-Layouts,\nall Logbook-Languages\nand cleans the OpenCPN.ini"
+msgstr "Uninstalls\nLogbook-lisäosa,\nkaikki klokikirjojen tiedot \nkaikki l lokikirja-asettelut, \nkaikki Lokikirjan kielet\npuhdistetaan OpenCPN.ini"
+
+#: src/LogbookOptions.cpp:453
+msgid "Behavior"
+msgstr "Käyttäytyminen"
+
+#: src/LogbookOptions.cpp:467
+msgid "Only used when you enter 1/2, 1/4 ... in a total-field, or to calculate the watermaker\n"
+msgstr "Käytetty vain, kun annat 1/2, 1/4... yhteensä-kentässä tai lasket watermakerin arvoja\n"
+
+#: src/LogbookOptions.cpp:491 src/LogbookOptions.cpp:535
+msgid "Tank"
+msgstr "Säiliö"
+
+#: src/LogbookOptions.cpp:498 src/LogbookOptions.cpp:511
+#: src/LogbookOptions.cpp:542
+msgid "Set gal/liter in Abbreviations "
+msgstr "Aseta gal/liter lyhenteet "
+
+#: src/LogbookOptions.cpp:556
+msgid "Battery"
+msgstr "Akku"
+
+#: src/LogbookOptions.cpp:593 src/LogbookOptions.cpp:782
+msgid "Capacity"
+msgstr "Kapasiteetti"
+
+#: src/LogbookOptions.cpp:620
+msgid "Degrees"
+msgstr ""
+
+#: src/LogbookOptions.cpp:638
+msgid "Seconds"
+msgstr "sekunnit"
+
+#: src/LogbookOptions.cpp:655
+msgid "Speed"
+msgstr "Nopeus"
+
+#: src/LogbookOptions.cpp:665
+msgid "Show Depth in"
+msgstr "Näytä syvyys muodossa"
+
+#: src/LogbookOptions.cpp:669 src/LogbookOptions.cpp:675
+#: src/LogbookOptions.cpp:689
+msgid "Meter"
+msgstr "Metri"
+
+#: src/LogbookOptions.cpp:669 src/LogbookOptions.cpp:689
+#: src/LogbookOptions.cpp:695
+msgid "Feet"
+msgstr "Jalat"
+
+#: src/LogbookOptions.cpp:669 src/LogbookOptions.cpp:689
+#: src/LogbookOptions.cpp:715
+msgid "Fathom"
+msgstr "Syli"
+
+#: src/LogbookOptions.cpp:685
+msgid "Show Wave/Swell in"
+msgstr "Näytä aalto/maininki"
+
+#: src/LogbookOptions.cpp:709 src/LogbookOptions.cpp:886
+msgid "True"
+msgstr "Tosi"
+
+#: src/LogbookOptions.cpp:709
+msgid "Magnetic"
+msgstr "Magneettinen"
+
+#: src/LogbookOptions.cpp:719
+msgid "fm"
+msgstr "fm"
+
+#: src/LogbookOptions.cpp:737
+msgid "Windspeed"
+msgstr "Tuulen nopeus"
+
+#: src/LogbookOptions.cpp:765
+msgid "Temperature"
+msgstr "Lämpötila"
+
+#: src/LogbookOptions.cpp:776
+msgid "Fuel/Water"
+msgstr "Polttoainetta/vettä"
+
+#: src/LogbookOptions.cpp:789
+msgid "Motor Hours"
+msgstr "Moottorin tunnit"
+
+#: src/LogbookOptions.cpp:796
+msgid "Ampere"
+msgstr "Ampeeri"
+
+#: src/LogbookOptions.cpp:804
+msgid "Engine"
+msgstr "Moottori"
+
+#: src/LogbookOptions.cpp:811
+msgid "PropShaft"
+msgstr "Potkuriakseli"
+
+#: src/LogbookOptions.cpp:815
+msgid "S"
+msgstr "S"
+
+#: src/LogbookOptions.cpp:818
+msgid "Revolutions"
+msgstr "Kierrokset"
+
+#: src/LogbookOptions.cpp:822
+msgid "RPM"
+msgstr "RPM"
+
+#: src/LogbookOptions.cpp:830 src/LogbookOptions.cpp:834
+msgid "Day(s)"
+msgstr "päivä(t)"
+
+#: src/LogbookOptions.cpp:837
+msgid "Week(s)"
+msgstr "viikko(ja)"
+
+#: src/LogbookOptions.cpp:841
+msgid "Weeks(s)"
+msgstr "Viikon (s)"
+
+#: src/LogbookOptions.cpp:844
+msgid "Month "
+msgstr "kuukausi "
+
+#: src/LogbookOptions.cpp:856
+msgid "If GPS off use for manual entry"
+msgstr "Jos GPS pois käytöstä manuaalisessa määrityksessä"
+
+#: src/LogbookOptions.cpp:868
+msgid "Windspeed "
+msgstr "Tuulen nopeus "
+
+#: src/LogbookOptions.cpp:882
+msgid " Direction "
+msgstr " Suunta "
+
+#: src/LogbookOptions.cpp:886
+msgid "Relative"
+msgstr "Suhteellinen"
+
+#: src/LogbookOptions.cpp:901 src/LogbookOptions.cpp:1214
+msgid "Abbreviations"
+msgstr "Lyhenteet"
+
+#: src/LogbookOptions.cpp:921
+msgid "Path to ODT-Editor"
+msgstr "Polku ODT-Editorille"
+
+#: src/LogbookOptions.cpp:926
+#, c-format
+msgid "to use MS-Word, append %s like this:\n\"C:\\yourPathToWinword\\WINWORD.EXE\" %s"
+msgstr "Jos käytät MS-Wordia liitä %s näin:\n\"C:\\yourPathToWinword\\WINWORD.EXE\"%s"
+
+#: src/LogbookOptions.cpp:933
+msgid "Path to Datamanager"
+msgstr "Datamanager polku"
+
+#: src/LogbookOptions.cpp:947
+msgid "Path to MailClient"
+msgstr "Polku MailClient"
+
+#: src/LogbookOptions.cpp:961
+msgid "Path to HTML-Editor\n(optional)"
+msgstr "Polku HTML-Editor\n(optional)"
+
+#: src/LogbookOptions.cpp:973
+msgid "Reset Paths"
+msgstr "Nollaa polut"
+
+#: src/LogbookOptions.cpp:979
+msgid "Paths"
+msgstr "Polut"
+
+#: src/LogbookOptions.cpp:1009
+msgid "Show"
+msgstr "Näytä"
+
+#: src/LogbookOptions.cpp:1030
+msgid "Set Linewidth to"
+msgstr "Aseta viivanleveys"
+
+#: src/LogbookOptions.cpp:1034
+msgid "4"
+msgstr "4"
+
+#: src/LogbookOptions.cpp:1040
+msgid "Set Transparency to"
+msgstr "Aseta läpinäkyvyys"
+
+#: src/LogbookOptions.cpp:1044
+msgid "transparent"
+msgstr "Läpinäkyvä"
+
+#: src/LogbookOptions.cpp:1044
+msgid "solid"
+msgstr "kiinteä"
+
+#: src/LogbookOptions.cpp:1053
+msgid "Set Route-Linecolor to"
+msgstr "Asettaa reitin viivaväri"
+
+#: src/LogbookOptions.cpp:1057 src/LogbookOptions.cpp:1070
+msgid "white"
+msgstr "valkoinen"
+
+#: src/LogbookOptions.cpp:1057 src/LogbookOptions.cpp:1070
+msgid "black"
+msgstr "musta"
+
+#: src/LogbookOptions.cpp:1057 src/LogbookOptions.cpp:1070
+msgid "red"
+msgstr "punainen"
+
+#: src/LogbookOptions.cpp:1057 src/LogbookOptions.cpp:1070
 msgid "yellow"
+msgstr "keltainen"
+
+#: src/LogbookOptions.cpp:1066
+msgid "Set Track-Linecolor to"
+msgstr "Aseta jäljen viivan väri"
+
+#: src/LogbookOptions.cpp:1081
+msgid "KML"
+msgstr "KML"
+
+#: src/LogbookOptions.cpp:1091
+msgid "Check one of the below checkboxes, if you want use ERRPM-Sentence (see help)"
 msgstr ""
-#
-#
-#
-#
-#
-#~ msgid "Select zipped Languages-Files"
-#~ msgstr "Valitse zip kielet-tiedostot"
-#
-#
-#
-#~ msgid "Sign"
-#~ msgstr "Merkki"
-#
-#
-#
-#
-#
-#~ msgid "W/Strength"
-#~ msgstr "W/vahvuus"
-#
-#
-#
-#
-#
-#~ msgid "Wind"
-#~ msgstr "Tuuli"
-#
-#
-#
-#
-#
-#~ msgid "Winddirection Avg."
-#~ msgstr "Keskimääräinen tuulensuunta"
+
+#: src/LogbookOptions.cpp:1110
+msgid "Check"
+msgstr "Tarkista"
+
+#: src/LogbookOptions.cpp:1112
+msgid "Start your engine(s) and hit the button.\nYou should see the ERRPM-Sentence\nleft to the button"
+msgstr "Käynnistä koneesi ja näpäytä painiketta.\nSinun pitäisi nähdä ERRPM lauseke\npainikkeen vasemmalla puolella"
+
+#: src/LogbookOptions.cpp:1118
+msgid "Engine-No. corresponds with column Engine #1"
+msgstr "Moottorin nro vastaa moottorin #1 sarakkeessa"
+
+#: src/LogbookOptions.cpp:1120 src/LogbookOptions.cpp:1133
+msgid "Check this box if the NMEA stream contains RPM messages for this engine\n"
+msgstr ""
+
+#: src/LogbookOptions.cpp:1131
+msgid "Engine-No. corresponds with column Engine #2"
+msgstr "Moottorin nro vastaa moottorin #2 sarakkeessa"
+
+#: src/LogbookOptions.cpp:1145
+msgid "Engine-No. corresponds with column Generator"
+msgstr ""
+
+#: src/LogbookOptions.cpp:1147
+msgid "Check this box if the NMEA stream contains RPM messages for this generator\n"
+msgstr ""
+
+#: src/LogbookOptions.cpp:1160
+msgid "Use ERRPM-Sentence to calculate the engine-hours"
+msgstr "ERRPM lauseen avulla lasket moottorin käyttötunnit"
+
+#: src/LogbookOptions.cpp:1169
+msgid "Use WIMDA-Sentence from the weatherstation"
+msgstr "Käytä WIMDA lausetta sääasemasta"
+
+#: src/LogbookOptions.cpp:1170
+msgid "For Barometer, Air Temperature and rel. Humidity"
+msgstr "Barometri, ilman lämpötila ja ilmankosteus"
+
+#: src/LogbookOptions.cpp:1177
+msgid "NMEA"
+msgstr "NMEA"
+
+#: src/LogbookOptions.cpp:1190
+msgid "Checkbox Space  >>"
+msgstr "Valintaruutu tilaa >>"
+
+#: src/LogbookOptions.cpp:1191
+msgid "Usefull for Tablet-PC's"
+msgstr "Käyttökelpoinen Tablet-PC:lle"
+
+#: src/LogbookOptions.cpp:1195
+msgid "Abbreviations are shown in the Sails-Checkboxes\nThe Name is used for the column \"Sails\" when added a new entry"
+msgstr "Lyhenteet on esitetty purjeet valintaruuduissa\nNimeä käytetään sarakkeessa \"Purjeet\", kun lisätään uusi merkintä"
+
+#: src/LogbookOptions.cpp:1242
+msgid "<<  Back"
+msgstr "<< Takaisin"
+
+#: src/LogbookOptions.cpp:1243
+msgid "Back to Sailnames"
+msgstr "Palaa purjenimiin"
+
+#: src/LogbookOptions.cpp:1259
+msgid "Row +"
+msgstr "Rivi +"
+
+#: src/LogbookOptions.cpp:1262
+msgid "Row -"
+msgstr "Rivi-"
+
+#: src/LogbookOptions.cpp:1265
+msgid "Column +"
+msgstr "Sarake +"
+
+#: src/LogbookOptions.cpp:1268
+msgid "Column -"
+msgstr "Sarake -"
+
+#: src/LogbookOptions.cpp:1293
+msgid "Miscellaneous"
+msgstr "Sekalaista"
+
+#: src/LogbookOptions.cpp:1549
+msgid "Your Generator is still running .\n\nGenerator stopped now."
+msgstr ""
+
+#: src/LogbookOptions.cpp:1665
+msgid "Your Engine #1 is running in manual mode.\n\nEngine stopped now."
+msgstr ""
+
+#: src/LogbookOptions.cpp:1690
+msgid "Your Engine #2 is running in manual mode.\n\nEngine stopped now."
+msgstr ""
+
+#: src/LogbookOptions.cpp:1715
+msgid "Your Generator is running in manual mode.\n\nGenerator stopped now."
+msgstr ""
+
+#: src/LogbookOptions.cpp:1921
+msgid "Your Country has 24 Hour Format.\nIn this case the OS doen't serve AM/PM-Strings.\n"
+msgstr "Maasi on 24 tunnin muodossa. \nTässä tapauksessa OS ei käytä AM/PM-muotoja.\n"
+
+#: src/LogbookOptions.cpp:1987
+#, c-format
+msgid "You cannot set this dateformat.\n\n%s%s%s%s%s\n\nPlease use a different Dateformat in all three Choiceboxes."
+msgstr "Et voi asettaa tätä päivämäärämuotoa.\n\n%s%s%s%s%s\n\nKäytä eri päivämäärämuotoa kaikkissa kolmessa valintalokerossa."
+
+#: src/LogbookOptions.cpp:2020 src/LogbookOptions.cpp:2023
+msgid "Please fill in one character in Degrees, Minutes and Seconds"
+msgstr "Täytä yksi merkki asteteisiin, minuutteihin ja sekunteihin"
+
+#: src/LogbookOptions.cpp:2231
+msgid "Your Engine #2 is still running .\n\nEngine #2 stopped now."
+msgstr ""
+
+#: src/LogbookOptions.cpp:2424
+msgid "Set Path to HTML-Editor"
+msgstr "Aseta polku HTML-editori"
+
+#: src/LogbookOptions.cpp:2438
+msgid "Set Path to DataManager"
+msgstr "Aseta polku DataManagerille"
+
+#: src/LogbookOptions.cpp:2452
+msgid "Set Path to MailClient"
+msgstr "Asetettu polku MailClient"
+
+#: src/LogbookOptions.cpp:2466
+msgid "Set Path to ODT-Editor"
+msgstr "Aseta polku ODT-Editor:lle"
+
+#: src/LogbookHTML.cpp:192 src/LogbookHTML.cpp:352 src/LogbookHTML.cpp:771
+#: src/CrewList.cpp:1851 src/CrewList.cpp:1867 src/CrewList.cpp:2210
+#: src/CrewList.cpp:2247
+msgid "from"
+msgstr "lähtien"
+
+#: src/LogbookHTML.cpp:193 src/LogbookHTML.cpp:353 src/LogbookHTML.cpp:772
+#: src/CrewList.cpp:1852 src/CrewList.cpp:1868 src/CrewList.cpp:2211
+#: src/CrewList.cpp:2248
+msgid "to"
+msgstr "loppuen"
+
+#: src/LogbookHTML.cpp:297 src/LogbookHTML.cpp:299 src/LogbookHTML.cpp:739
+#: src/LogbookHTML.cpp:741 src/CrewList.cpp:1762 src/CrewList.cpp:2148
+#: src/boat.cpp:286 src/boat.cpp:546
+msgid "Sorry, no Layout installed"
+msgstr "Anteeksi, ei asettelua asennettu"
+
+#: src/LogbookHTML.cpp:406 src/LogbookHTML.cpp:408 src/CrewList.cpp:2489
+msgid "Sorry, Logbook has no lines"
+msgstr "Valitettavasti lokikirjassa ei ole rivejä"
+
+#: src/LogbookHTML.cpp:636 src/LogbookHTML.cpp:639
+msgid "\nnot found in layoutfile "
+msgstr "\nlayoutfile ei löytynyt "
+
+#: src/LogbookHTML.cpp:636 src/LogbookHTML.cpp:639
+msgid "!\n\nDid you forget to add this line in your layout ?"
+msgstr "!\n\nUnohditko lisätä tämän rivin layouttiisi ?"
+
+#: src/LogbookHTML.cpp:751 src/LogbookHTML.cpp:753
+msgid "Have You forgotten to enclose the Header with [[ and ]]\n or Data with {{ and }} ?"
+msgstr "Oletko unohtanut kirjoittaa otsikon [[ja]] \n tai tietoja {{ ja }}?"
+
+#: src/LogbookHTML.cpp:1288
+msgid "Routepoints"
+msgstr "Reittipisteet"
+
+#: src/CrewList.cpp:113
+msgid "Enter default watchtime e.g. 3.30 / available formats are 3.30, 3,30, 3:30, 0330 for 3 hours 30 minutes"
+msgstr "Anna oletus vahtiaika esimerkiksi 3,30 / käytettävissä olevat muodot ovat 3,30, 3,30, 3:30, 0330 on 3 tuntia 30 minuuttia"
+
+#: src/CrewList.cpp:114
+msgid "Alter watchtimes as desired / Drag 'n Drop members from the Crewlist"
+msgstr "Kun vahtiajat on asetettu / vedä ja pudota jäsenet miehistöluettelosta"
+
+#: src/CrewList.cpp:115
+msgid "*Optional* Prepend a * to a member to make this member static to a watch / Click Calculate"
+msgstr "* Valinnainen * Prepend * jäsenelle, jotta tämä jäsen on vakio vahti / Valitse Laske"
+
+#: src/CrewList.cpp:116
+msgid "All changes depending to this day only."
+msgstr "Kaikki muutokset liityen vain tähän päivään."
+
+#: src/CrewList.cpp:184 src/CrewList.cpp:216 src/CrewList.cpp:339
+#: src/CrewList.cpp:348 src/Maintenance.cpp:105 src/Maintenance.cpp:202
+#: src/Maintenance.cpp:214 src/Maintenance.cpp:577
+msgid "Yes"
+msgstr "Kyllä"
+
+#: src/CrewList.cpp:2095
+msgid "Adress"
+msgstr "Osoite"
+
+#: src/Maintenance.h:145
+msgid "Select a date"
+msgstr "Valitse päivämäärä"
+
+#: src/Maintenance.cpp:92 src/Maintenance.cpp:93
+msgid "Engine "
+msgstr "Moottori "
+
+#: src/Maintenance.cpp:99
+msgid "Fix Date"
+msgstr "Korjaa päivämäärä"
+
+#: src/Maintenance.cpp:100
+msgid "Date + Days"
+msgstr "Pvm + päivät"
+
+#: src/Maintenance.cpp:101
+msgid "Date + Weeks"
+msgstr "Pvm + viikot"
+
+#: src/Maintenance.cpp:102
+msgid "Date + Months"
+msgstr ""
+
+#: src/Maintenance.cpp:106 src/Maintenance.cpp:202 src/Maintenance.cpp:1051
+#: src/Maintenance.cpp:1055
+msgid "No"
+msgstr "Ei"
+
+#: src/OverView.cpp:220
+msgid "Logbook until "
+msgstr "Lokikirja asti "
+
+#: src/OverView.cpp:906
+msgid "Logbook Total"
+msgstr "Lokikirja yhteensä"
+
+#: src/OverView.cpp:1101
+#, c-format
+msgid "%i Year(s) %i Month(s) %i Day(s)"
+msgstr "%i vuotta %i kk %i päivä(ä)"
+
+#: src/OverView.cpp:1104
+msgid "%E Week(s) %D Day(s) %H:%M "
+msgstr "%E viikoa %D päivää % H: %M "
+
