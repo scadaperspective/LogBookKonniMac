@@ -1115,7 +1115,7 @@ void Logbook::loadData()
 			dialog->m_gridGlobal->GetCellValue(row,STATUS).GetChar(0) == ' ') && dist > 0)
 			dialog->m_gridGlobal->SetCellValue(row,STATUS,_T("S"));
 
-		if(fields < dialog->totalColumns) // data from 0.910 ? need zero-values to calculate the columns 
+		if(fields < 50) // data from 0.910 ? need zero-values to calculate the columns 
 		{
 			dialog->m_gridMotorSails->SetCellValue(row,LogbookHTML::MOTOR1, wxString::Format(_T("%s %s"),nullhstr.c_str(),opt->motorh.c_str()));
 			dialog->m_gridMotorSails->SetCellValue(row,LogbookHTML::MOTOR1T,wxString::Format(_T("%s %s"),nullhstr.c_str(),opt->motorh.c_str()));
