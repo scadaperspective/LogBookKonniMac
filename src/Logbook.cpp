@@ -527,13 +527,13 @@ void Logbook::SetSentence(wxString &sentence)
 		dtWimda = wxDateTime::Now();
 
 		double t;
-		long p;
+		double p;
 
 		tkz.GetNextToken();
 		tkz.GetNextToken();
-		tkz.GetNextToken().ToLong(&p);
-
-		sPressure = wxString::Format(_T("%4d %s"),p,opt->baro.c_str());
+		tkz.GetNextToken().ToDouble(&p);
+        p = p * 1000;
+		sPressure = wxString::Format(_T("%4.1f %s"),p,opt->baro.c_str());
 		tkz.GetNextToken();
 
 		tkz.GetNextToken().ToDouble(&t);
@@ -2504,7 +2504,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 	{
 		if(s != _T(""))
 		{
-			s = wxString::Format(_T("%u %s"),wxAtoi(s),opt->baro.c_str());
+			s = wxString::Format(_T("%4.1f %s"),wxAtof(s),opt->baro.c_str());
 			s.Replace(_T("."),dialog->decimalPoint);
 			dialog->logGrids[grid]->SetCellValue(row,col,s);
 		}
