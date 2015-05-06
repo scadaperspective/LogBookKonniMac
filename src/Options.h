@@ -43,6 +43,7 @@ public:
     bool		engineMessageSails;
     bool		engineMessageRunning;
     bool		engineAllwaysSailsDown;
+    bool        statusbar;
 
 	wxString    layoutPrefix[7];
     bool		filterLayout[7];

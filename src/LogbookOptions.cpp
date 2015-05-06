@@ -323,7 +323,14 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     
     fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
-	fgSizer10->Add( fgSizer29, 1, 0, 0 );
+    m_checkBoxStatusBar = new wxCheckBox( m_panel15, wxID_ANY, _("StatusBar at bottom of the page"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_checkBoxStatusBar->SetValue(true);
+    m_checkBoxStatusBar->SetToolTip( _("If unchecked the StatusBar will be placed above the Navigation/Meteo/Motor-Sails buttons") );
+    fgSizer29->Add( m_checkBoxStatusBar, 0, 0, 5 );
+    
+    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+
+    fgSizer10->Add( fgSizer29, 1, 0, 0 );
 	
 	m_staticline25 = new wxStaticLine( m_panel15, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	fgSizer10->Add( m_staticline25, 0, wxEXPAND|wxTOP, 5 );
@@ -2189,6 +2196,7 @@ void LogbookOptions::setValues()
     m_checkBoxEngineRunning->SetValue(opt->engineMessageRunning);
 	m_checkBoxSailsDown->SetValue(opt->engineAllwaysSailsDown);
     m_checkBoxGenerator->SetValue(opt->generator);
+    m_checkBoxStatusBar->SetValue(opt->statusbar);
 
     m_checkBoxKMLRoute->SetValue((opt->kmlRoute)?true:false);
     m_checkBoxKMLTrack->SetValue((opt->kmlTrack)?true:false);
@@ -2344,6 +2352,7 @@ void LogbookOptions::getValues()
     opt->engineMessageRunning = m_checkBoxEngineRunning->GetValue();
     opt->engineAllwaysSailsDown = m_checkBoxSailsDown->GetValue();
     opt->generator = m_checkBoxGenerator->GetValue();
+    opt->statusbar = m_checkBoxStatusBar->GetValue();
     
     opt->kmlRoute = m_checkBoxKMLRoute->GetValue();
     opt->kmlTrack = m_checkBoxKMLTrack->GetValue();

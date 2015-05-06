@@ -216,6 +216,139 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
 	m_staticline401 = new wxStaticLine( m_panel2, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	bSizer361->Add( m_staticline401, 0, wxEXPAND | wxALL, 5 );
 
+    // inserted statusbar start
+    
+    Statusbar = new wxPanel( m_panel2, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+    Statusbar->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
+    
+    wxBoxSizer* bSizer39;
+    bSizer39 = new wxBoxSizer( wxHORIZONTAL );
+    
+    m_buttonSetTimer = new wxButton( Statusbar, wxID_ANY, _("Set Timer"), wxDefaultPosition, wxSize( -1,20 ), 0 );
+    m_buttonSetTimer->SetToolTip( _("Set the interval for the timer") );
+    
+    bSizer39->Add( m_buttonSetTimer, 0, wxALIGN_CENTER_VERTICAL|wxLEFT, 0 );
+    
+#if wxCHECK_VERSION(2, 9, 0)
+    m_bpButtonTimer = new myBitmapButton( Statusbar, wxID_ANY, _("Timer"),*_img_Bullet_red, wxDefaultPosition, wxSize( -1,20 ), 0 );
+#else
+    m_staticText1241 = new wxStaticText( Statusbar, wxID_ANY, _("Timer"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_staticText1241->Wrap( -1 );
+    bSizer39->Add( m_staticText1241, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
+    m_bpButtonTimer = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+#endif
+    bSizer39->Add( m_bpButtonTimer, 0, wxALIGN_CENTER_VERTICAL, 5 );
+    m_staticline40 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
+    bSizer39->Add( m_staticline40, 0, wxEXPAND | wxALL, 5 );
+    
+#if wxCHECK_VERSION(2, 9, 0)
+    m_bpButtonWatch = new myBitmapButton( Statusbar, wxID_ANY, _("Watch"), *_img_Bullet_red, wxDefaultPosition, wxSize( -1,20 ), 0 );
+#else
+    m_staticText12411 = new wxStaticText( Statusbar, wxID_ANY, _("Watch"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_staticText12411->Wrap( -1 );
+    bSizer39->Add( m_staticText12411, 0, wxALIGN_CENTER_VERTICAL|wxLEFT, 5 );
+    m_bpButtonWatch = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+#endif
+    
+    bSizer39->Add( m_bpButtonWatch, 0, wxALIGN_CENTER_VERTICAL, 5 );
+    
+    m_staticline41 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
+    bSizer39->Add( m_staticline41, 0, wxEXPAND | wxALL, 5 );
+    
+#if wxCHECK_VERSION(2, 9, 0)
+    m_bpButton8Waypoint = new myBitmapButton( Statusbar, wxID_ANY,  _("Waypoint"), *_img_Bullet_red, wxDefaultPosition, wxSize( -1,20 ), 0 );
+#else
+    m_staticText124111 = new wxStaticText( Statusbar, wxID_ANY, _("Waypoint"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_staticText124111->Wrap( -1 );
+    bSizer39->Add( m_staticText124111, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
+    m_bpButton8Waypoint = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+#endif
+    bSizer39->Add( m_bpButton8Waypoint, 0, wxALIGN_CENTER_VERTICAL, 5 );
+    
+    m_staticline42 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
+    bSizer39->Add( m_staticline42, 0, wxEXPAND | wxALL, 5 );
+    
+#if wxCHECK_VERSION(2, 9, 0)
+    m_bpButtonDistance = new myBitmapButton( Statusbar, wxID_ANY,  _("Distance"), *_img_Bullet_red, wxDefaultPosition, wxSize( -1,20 ), 0 );
+#else
+    m_staticText12411 = new wxStaticText( Statusbar, wxID_ANY, _("Distance"), wxDefaultPosition, wxDefaultSize, 0 );
+    m_staticText12411->Wrap( -1 );
+    bSizer39->Add( m_staticText12411, 0, wxALIGN_CENTER_VERTICAL|wxLEFT, 5 );
+    m_bpButtonDistance = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+#endif
+    
+    bSizer39->Add( m_bpButtonDistance, 0, wxALIGN_CENTER_VERTICAL|wxRIGHT, 5 );
+    
+    m_textCtrlStatusDistance = new wxTextCtrl( Statusbar, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 60,-1 ), wxTE_PROCESS_ENTER  );
+    m_textCtrlStatusDistance->SetToolTip( _("Set the desired distance in NM\n = (Track made good)") );
+    
+    bSizer39->Add( m_textCtrlStatusDistance, 0, wxALIGN_CENTER_VERTICAL, 5 );
+    
+    m_staticline43 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
+    bSizer39->Add( m_staticline43, 0, wxEXPAND | wxALL, 5 );
+    
+#if wxCHECK_VERSION(2, 9, 0)
+    m_bpButtonCourse = new myBitmapButton( Statusbar, wxID_ANY, _("Course"),  *_img_Bullet_red );
+#else
+    m_staticText1241 = new wxStaticText( Statusbar, wxID_ANY, _("Course"), wxDefaultPosition, wxDefaultSize, 0  );
+    m_staticText1241->Wrap( -1 );
+    bSizer39->Add( m_staticText1241, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
+    m_bpButtonCourse = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+#endif
+    bSizer39->Add( m_bpButtonCourse, 0, wxALIGN_CENTER_VERTICAL|wxRIGHT, 5 );
+    
+    m_textCtrlStatusCourseDeg = new wxTextCtrl( Statusbar, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 40,-1 ), wxTE_PROCESS_ENTER  );
+    m_textCtrlStatusCourseDeg->SetToolTip( _("Set desired Degrees\nif the course changes by this amount\na course-changed-event occurs") );
+    
+    bSizer39->Add( m_textCtrlStatusCourseDeg, 0, wxALIGN_CENTER_VERTICAL|wxRIGHT, 5 );
+    
+    m_textCtrlStatusCourseMin = new wxTextCtrl( Statusbar, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 35,-1 ), wxTE_PROCESS_ENTER  );
+    m_textCtrlStatusCourseMin->SetToolTip( _("Set desired delay in minutes\nIt's a good idea to set here a value > 0\nto find the right wind.") );
+    
+    bSizer39->Add( m_textCtrlStatusCourseMin, 0, wxALIGN_CENTER_VERTICAL, 5 );
+    
+    m_staticline44 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
+    bSizer39->Add( m_staticline44, 0, wxEXPAND | wxALL, 5 );
+    
+    m_buttonStartStop = new wxButton( Statusbar, wxID_ANY, _("Stop"), wxDefaultPosition, wxSize( -1,20 ), 0 );
+    m_buttonStartStop->Enable( false );
+    m_buttonStartStop->SetToolTip( _("Suspend/Resume running event/s") );
+    
+    bSizer39->Add( m_buttonStartStop, 0, wxALIGN_CENTER_VERTICAL, 5 );
+    
+    m_staticline46 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
+    bSizer39->Add( m_staticline46, 0, wxEXPAND | wxALL, 5 );
+    
+    wxFlexGridSizer* fgSizer53;
+    fgSizer53 = new wxFlexGridSizer( 1, 1, 0, 0 );
+    fgSizer53->AddGrowableCol( 0 );
+    fgSizer53->AddGrowableRow( 0 );  // T und T ???
+    
+    fgSizer53->SetFlexibleDirection( wxBOTH );
+    fgSizer53->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    
+#ifdef __WXOSX__
+    fgSizer53->SetMinSize( wxSize( -1,45 ) );  // war ,25
+    m_staticTextStatusText = new wxStaticText( Statusbar, wxID_ANY, _T("T\nT"), wxDefaultPosition, wxSize(350,-1), 0 );
+#else
+    m_staticTextStatusText = new wxStaticText( Statusbar, wxID_ANY, _T("T\nT"), wxDefaultPosition, wxDefaultSize, 0 );
+#endif
+    m_staticTextStatusText->Wrap( -1 );
+    fgSizer53->Add( m_staticTextStatusText, 0, wxRIGHT|wxLEFT, 5 );
+    m_staticTextStatusText->SetFont( wxFont( 7, 74, 90, 90, false, wxT("Tahoma") ) );
+    
+    bSizer39->Add( fgSizer53, 1, wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 0 );
+ 
+    if (!logbookPlugIn->opt->statusbar)
+    {
+    Statusbar->SetSizer( bSizer39 );
+    Statusbar->Layout();
+    bSizer39->Fit( Statusbar );
+    bSizer361->Add( Statusbar, 0, wxEXPAND, 5 );
+    }
+    
+// -------inserted statusbar end
+    
 	m_notebook8 = new wxNotebook( m_panel2, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	m_panel6 = new wxPanel( m_notebook8, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
     
@@ -466,132 +599,16 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
 	
 	bSizer361->Add( m_notebook8, 1, wxALL|wxEXPAND, 0 );
 	
-	Statusbar = new wxPanel( m_panel2, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	Statusbar->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
-	
-	wxBoxSizer* bSizer39;
-	bSizer39 = new wxBoxSizer( wxHORIZONTAL );
-	
-	m_buttonSetTimer = new wxButton( Statusbar, wxID_ANY, _("Set Timer"), wxDefaultPosition, wxSize( -1,20 ), 0 );
-	m_buttonSetTimer->SetToolTip( _("Set the interval for the timer") );
-	
-	bSizer39->Add( m_buttonSetTimer, 0, wxALIGN_CENTER_VERTICAL|wxLEFT, 0 );
-	
-#if wxCHECK_VERSION(2, 9, 0)
-	m_bpButtonTimer = new myBitmapButton( Statusbar, wxID_ANY, _("Timer"),*_img_Bullet_red, wxDefaultPosition, wxSize( -1,20 ), 0 );
-#else
-	m_staticText1241 = new wxStaticText( Statusbar, wxID_ANY, _("Timer"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText1241->Wrap( -1 );
-	bSizer39->Add( m_staticText1241, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
-	m_bpButtonTimer = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
-#endif
-    bSizer39->Add( m_bpButtonTimer, 0, wxALIGN_CENTER_VERTICAL, 5 );
-	m_staticline40 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
-	bSizer39->Add( m_staticline40, 0, wxEXPAND | wxALL, 5 );
-	
-#if wxCHECK_VERSION(2, 9, 0)
-	m_bpButtonWatch = new myBitmapButton( Statusbar, wxID_ANY, _("Watch"), *_img_Bullet_red, wxDefaultPosition, wxSize( -1,20 ), 0 );
-#else
-	m_staticText12411 = new wxStaticText( Statusbar, wxID_ANY, _("Watch"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText12411->Wrap( -1 );
-	bSizer39->Add( m_staticText12411, 0, wxALIGN_CENTER_VERTICAL|wxLEFT, 5 );
-	m_bpButtonWatch = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
-#endif
+///------------------------------ deleted status bar
+    
+    if (logbookPlugIn->opt->statusbar)
+    {
+        Statusbar->SetSizer( bSizer39 );
+        Statusbar->Layout();
+        bSizer39->Fit( Statusbar );
+        bSizer361->Add( Statusbar, 0, wxEXPAND, 5 );
+    }
 
-	bSizer39->Add( m_bpButtonWatch, 0, wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_staticline41 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
-	bSizer39->Add( m_staticline41, 0, wxEXPAND | wxALL, 5 );
-	
-#if wxCHECK_VERSION(2, 9, 0)
-	m_bpButton8Waypoint = new myBitmapButton( Statusbar, wxID_ANY,  _("Waypoint"), *_img_Bullet_red, wxDefaultPosition, wxSize( -1,20 ), 0 );
-#else
-	m_staticText124111 = new wxStaticText( Statusbar, wxID_ANY, _("Waypoint"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText124111->Wrap( -1 );
-	bSizer39->Add( m_staticText124111, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
-	m_bpButton8Waypoint = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
-#endif
-	bSizer39->Add( m_bpButton8Waypoint, 0, wxALIGN_CENTER_VERTICAL, 5 );
-
-	m_staticline42 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
-	bSizer39->Add( m_staticline42, 0, wxEXPAND | wxALL, 5 );
-
-#if wxCHECK_VERSION(2, 9, 0)
-	m_bpButtonDistance = new myBitmapButton( Statusbar, wxID_ANY,  _("Distance"), *_img_Bullet_red, wxDefaultPosition, wxSize( -1,20 ), 0 );
-#else
-	m_staticText12411 = new wxStaticText( Statusbar, wxID_ANY, _("Distance"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText12411->Wrap( -1 );
-	bSizer39->Add( m_staticText12411, 0, wxALIGN_CENTER_VERTICAL|wxLEFT, 5 );
-	m_bpButtonDistance = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
-#endif
-
-	bSizer39->Add( m_bpButtonDistance, 0, wxALIGN_CENTER_VERTICAL|wxRIGHT, 5 );
-
-	m_textCtrlStatusDistance = new wxTextCtrl( Statusbar, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 60,-1 ), wxTE_PROCESS_ENTER  );
-	m_textCtrlStatusDistance->SetToolTip( _("Set the desired distance in NM\n = (Track made good)") );
-	
-	bSizer39->Add( m_textCtrlStatusDistance, 0, wxALIGN_CENTER_VERTICAL, 5 );
-	
-	m_staticline43 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
-	bSizer39->Add( m_staticline43, 0, wxEXPAND | wxALL, 5 );
-	
-#if wxCHECK_VERSION(2, 9, 0)
-	m_bpButtonCourse = new myBitmapButton( Statusbar, wxID_ANY, _("Course"),  *_img_Bullet_red );
-#else
-	m_staticText1241 = new wxStaticText( Statusbar, wxID_ANY, _("Course"), wxDefaultPosition, wxDefaultSize, 0  );
-	m_staticText1241->Wrap( -1 );
-	bSizer39->Add( m_staticText1241, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
-	m_bpButtonCourse = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
-#endif
-	bSizer39->Add( m_bpButtonCourse, 0, wxALIGN_CENTER_VERTICAL|wxRIGHT, 5 );
-
-	m_textCtrlStatusCourseDeg = new wxTextCtrl( Statusbar, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 40,-1 ), wxTE_PROCESS_ENTER  );
-	m_textCtrlStatusCourseDeg->SetToolTip( _("Set desired Degrees\nif the course changes by this amount\na course-changed-event occurs") );
-	
-	bSizer39->Add( m_textCtrlStatusCourseDeg, 0, wxALIGN_CENTER_VERTICAL|wxRIGHT, 5 );
-	
-	m_textCtrlStatusCourseMin = new wxTextCtrl( Statusbar, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 35,-1 ), wxTE_PROCESS_ENTER  );
-	m_textCtrlStatusCourseMin->SetToolTip( _("Set desired delay in minutes\nIt's a good idea to set here a value > 0\nto find the right wind.") );
-	
-	bSizer39->Add( m_textCtrlStatusCourseMin, 0, wxALIGN_CENTER_VERTICAL, 5 );
-	
-	m_staticline44 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
-	bSizer39->Add( m_staticline44, 0, wxEXPAND | wxALL, 5 );
-	
-	m_buttonStartStop = new wxButton( Statusbar, wxID_ANY, _("Stop"), wxDefaultPosition, wxSize( -1,20 ), 0 );
-	m_buttonStartStop->Enable( false );
-	m_buttonStartStop->SetToolTip( _("Suspend/Resume running event/s") );
-	
-	bSizer39->Add( m_buttonStartStop, 0, wxALIGN_CENTER_VERTICAL, 5 );
-	
-	m_staticline46 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
-	bSizer39->Add( m_staticline46, 0, wxEXPAND | wxALL, 5 );
-
-	wxFlexGridSizer* fgSizer53;
-	fgSizer53 = new wxFlexGridSizer( 1, 1, 0, 0 );
-	fgSizer53->AddGrowableCol( 0 );
-    fgSizer53->AddGrowableRow( 0 );  // T und T ???
-
-	fgSizer53->SetFlexibleDirection( wxBOTH );
-	fgSizer53->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-
-#ifdef __WXOSX__
-	fgSizer53->SetMinSize( wxSize( -1,45 ) );  // war ,25
-	m_staticTextStatusText = new wxStaticText( Statusbar, wxID_ANY, _T("T\nT"), wxDefaultPosition, wxSize(350,-1), 0 ); 
-#else
-	m_staticTextStatusText = new wxStaticText( Statusbar, wxID_ANY, _T("T\nT"), wxDefaultPosition, wxDefaultSize, 0 );
-#endif
-	m_staticTextStatusText->Wrap( -1 );
-	fgSizer53->Add( m_staticTextStatusText, 0, wxRIGHT|wxLEFT, 5 );
-	m_staticTextStatusText->SetFont( wxFont( 7, 74, 90, 90, false, wxT("Tahoma") ) );	
-	
-	bSizer39->Add( fgSizer53, 1, wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 0 );
-
-	Statusbar->SetSizer( bSizer39 );
-	Statusbar->Layout();
-	bSizer39->Fit( Statusbar );
-	bSizer361->Add( Statusbar, 0, wxEXPAND, 5 );
-	
 	m_panel2->SetSizer( bSizer361 );
 	m_panel2->Layout();
 	bSizer361->Fit( m_panel2 );
