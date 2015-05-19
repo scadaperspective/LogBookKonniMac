@@ -55,6 +55,7 @@ Options::Options(void)
     engineMessageSails = false;
     engineMessageRunning = false;
     engineAllwaysSailsDown = false;
+    statusbar = true;
 
     abrSails.Add(_("Ma"));
     abrSails.Add(_("Tr"));

@@ -527,13 +527,13 @@ void Logbook::SetSentence(wxString &sentence)
 		dtWimda = wxDateTime::Now();
 
 		double t;
-		long p;
+		double p;
 
 		tkz.GetNextToken();
 		tkz.GetNextToken();
-		tkz.GetNextToken().ToLong(&p);
-
-		sPressure = wxString::Format(_T("%4d %s"),p,opt->baro.c_str());
+		tkz.GetNextToken().ToDouble(&p);
+        p = p * 1000;
+		sPressure = wxString::Format(_T("%4.1f %s"),p,opt->baro.c_str());
 		tkz.GetNextToken();
 
 		tkz.GetNextToken().ToDouble(&t);
@@ -1115,7 +1115,7 @@ void Logbook::loadData()
 			dialog->m_gridGlobal->GetCellValue(row,STATUS).GetChar(0) == ' ') && dist > 0)
 			dialog->m_gridGlobal->SetCellValue(row,STATUS,_T("S"));
 
-		if(fields < dialog->totalColumns) // data from 0.910 ? need zero-values to calculate the columns 
+		if(fields < 50) // data from 0.910 ? need zero-values to calculate the columns 
 		{
 			dialog->m_gridMotorSails->SetCellValue(row,LogbookHTML::MOTOR1, wxString::Format(_T("%s %s"),nullhstr.c_str(),opt->motorh.c_str()));
 			dialog->m_gridMotorSails->SetCellValue(row,LogbookHTML::MOTOR1T,wxString::Format(_T("%s %s"),nullhstr.c_str(),opt->motorh.c_str()));
@@ -2504,7 +2504,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 	{
 		if(s != _T(""))
 		{
-			s = wxString::Format(_T("%u %s"),wxAtoi(s),opt->baro.c_str());
+			s = wxString::Format(_T("%4.1f %s"),wxAtof(s),opt->baro.c_str());
 			s.Replace(_T("."),dialog->decimalPoint);
 			dialog->logGrids[grid]->SetCellValue(row,col,s);
 		}
