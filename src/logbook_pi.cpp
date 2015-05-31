@@ -972,6 +972,8 @@ void logbookkonni_pi::SaveConfig()
             pConf->Write ( _T ( "WriteEngineRun" ), opt->engineMessageRunning);
             pConf->Write ( _T ( "SailsDown" ), opt->engineAllwaysSailsDown);
             pConf->Write ( _T ( "StatusBar" ), opt->statusbar);
+			pConf->Write ( _T ( "WindSpeeds" ), opt->windspeeds);
+
             wxString str = wxEmptyString;
             for(int i = 0; i < 7; i++)
                 str += wxString::Format(_T("%i,%s,"),opt->filterLayout[i],opt->layoutPrefix[i].c_str());
@@ -1191,7 +1193,7 @@ void logbookkonni_pi::LoadConfig()
             pConf->Read ( _T ( "WriteEngineRun" ), &opt->engineMessageRunning);
             pConf->Read ( _T ( "SailsDown" ), &opt->engineAllwaysSailsDown);
             pConf->Read ( _T ( "StatusBar" ), &opt->statusbar);
-
+			pConf->Read ( _T ( "WindSpeeds" ), &opt->windspeeds);
 
             wxString str = wxEmptyString;
             pConf->Read ( _T ( "PrefixLayouts" ), &str);

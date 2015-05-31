@@ -215,8 +215,6 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
 	
 	m_staticline401 = new wxStaticLine( m_panel2, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	bSizer361->Add( m_staticline401, 0, wxEXPAND | wxALL, 5 );
-
-    // inserted statusbar start
     
     Statusbar = new wxPanel( m_panel2, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
     Statusbar->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ) );
@@ -346,8 +344,6 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
     bSizer39->Fit( Statusbar );
     bSizer361->Add( Statusbar, 0, wxEXPAND, 5 );
     }
-    
-// -------inserted statusbar end
     
 	m_notebook8 = new wxNotebook( m_panel2, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	m_panel6 = new wxPanel( m_notebook8, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
@@ -487,9 +483,19 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
 	m_gridWeather->SetColLabelValue( 2, _("Air") );
 	m_gridWeather->SetColLabelValue( 3, _("Water") );
 	m_gridWeather->SetColLabelValue( 4, _("TWA") );
-	m_gridWeather->SetColLabelValue( 5, _("TWS") );
-	m_gridWeather->SetColLabelValue( 6, _("AWA") );
-	m_gridWeather->SetColLabelValue( 7, _("AWS") );
+
+	if (logbookPlugIn->opt->windspeeds)
+	{
+		m_gridWeather->SetColLabelValue( 5, _("TWS\nMin|Avg|Max") );
+		m_gridWeather->SetColLabelValue( 6, _("AWA") );
+		m_gridWeather->SetColLabelValue( 7, _("AWS\nMin|Avg|Max") );
+	}
+	else
+	{
+		m_gridWeather->SetColLabelValue( 5, _("TWS") );
+		m_gridWeather->SetColLabelValue( 6, _("AWA") );
+		m_gridWeather->SetColLabelValue( 7, _("AWS") );
+	}
 	m_gridWeather->SetColLabelValue( 8, _("Current") );
 	m_gridWeather->SetColLabelValue( 9, _("C/Strength") );
 	m_gridWeather->SetColLabelValue( 10, _("Wave") );
@@ -598,8 +604,6 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt, 
 	m_notebook8->AddPage( m_panel71, _("Motor/Sails"), false );
 	
 	bSizer361->Add( m_notebook8, 1, wxALL|wxEXPAND, 0 );
-	
-///------------------------------ deleted status bar
     
     if (logbookPlugIn->opt->statusbar)
     {

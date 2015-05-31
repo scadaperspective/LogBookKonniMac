@@ -56,6 +56,7 @@ Options::Options(void)
     engineMessageRunning = false;
     engineAllwaysSailsDown = false;
     statusbar = true;
+	windspeeds = false;
 
     abrSails.Add(_("Ma"));
     abrSails.Add(_("Tr"));

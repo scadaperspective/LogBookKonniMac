@@ -44,6 +44,7 @@ public:
     bool		engineMessageRunning;
     bool		engineAllwaysSailsDown;
     bool        statusbar;
+	bool		windspeeds;
 
 	wxString    layoutPrefix[7];
     bool		filterLayout[7];

@@ -370,17 +370,29 @@ void Logbook::SetSentence(wxString &sentence)
 						dWind = m_NMEA0183.Mwv.WindAngle;
 
 					sWindT = wxString::Format(_T("%3.0f%s"), dWind,opt->Deg.c_str());
-					sWindSpeedT = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Mwv.WindSpeed,temp.c_str());
+					sWindSpeedT = wxString::Format(_T("%3.1f %s"), m_NMEA0183.Mwv.WindSpeed,temp.c_str());
 					dtWindT = wxDateTime::Now();
 					bWindT = true;
+					if ( minwindT > m_NMEA0183.Mwv.WindSpeed)
+						minwindT = m_NMEA0183.Mwv.WindSpeed;
+					if ( maxwindT < m_NMEA0183.Mwv.WindSpeed)
+						maxwindT = m_NMEA0183.Mwv.WindSpeed;
+					avgwindT = (avgwindT + m_NMEA0183.Mwv.WindSpeed)/2;
+					swindspeedsT = wxString::Format(_T("%03.1f|%03.1f|%03.1f"), minwindT, avgwindT, maxwindT);
 				}
 				else
 				{
 					dWind = m_NMEA0183.Mwv.WindAngle;
 					sWindA = wxString::Format(_T("%3.0f%s"), dWind,opt->Deg.c_str());
-					sWindSpeedA = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Mwv.WindSpeed,temp.c_str());
+					sWindSpeedA = wxString::Format(_T("%3.1f %s"), m_NMEA0183.Mwv.WindSpeed,temp.c_str());
 					dtWindA = wxDateTime::Now();
 					bWindA = true;
+					if ( minwindA > m_NMEA0183.Mwv.WindSpeed)
+						minwindA = m_NMEA0183.Mwv.WindSpeed;
+					if ( maxwindA < m_NMEA0183.Mwv.WindSpeed)
+						maxwindA = m_NMEA0183.Mwv.WindSpeed;
+					avgwindA = (avgwindA + m_NMEA0183.Mwv.WindSpeed)/2;
+					swindspeedsA = wxString::Format(_T("%03.1f|%03.1f|%03.1f"), minwindA, avgwindA, maxwindA);
 				}
 			}
 		}
@@ -407,9 +419,15 @@ void Logbook::SetSentence(wxString &sentence)
 				wxString temp = _T("");
 				temp = opt->windkts;
 
-				sWindSpeedT = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Vwt.WindSpeedKnots,temp.c_str());
+				sWindSpeedT = wxString::Format(_T("%3.1f %s"), m_NMEA0183.Vwt.WindSpeedKnots,temp.c_str());
 				dtWindT = wxDateTime::Now();
 				bWindT = true;
+				if ( minwindT > m_NMEA0183.Vwt.WindSpeedKnots)
+					minwindT = m_NMEA0183.Vwt.WindSpeedKnots;
+				if ( maxwindT < m_NMEA0183.Vwt.WindSpeedKnots)
+					maxwindT = m_NMEA0183.Vwt.WindSpeedKnots;
+				avgwindT = (avgwindT + m_NMEA0183.Vwt.WindSpeedKnots)/2;
+				swindspeedsT = wxString::Format(_T("%03.1f|%03.1f|%03.1f"), minwindT, avgwindT, maxwindT);
 			}
 		}
 		else if(m_NMEA0183.LastSentenceIDReceived == _T("VWR"))
@@ -430,9 +448,15 @@ void Logbook::SetSentence(wxString &sentence)
 				temp = opt->windkts;
 
 
-				sWindSpeedA = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Vwr.WindSpeedKnots,temp.c_str());
+				sWindSpeedA = wxString::Format(_T("%3.1f %s"), m_NMEA0183.Vwr.WindSpeedKnots,temp.c_str());
 				dtWindA = wxDateTime::Now();
 				bWindA = true;
+				if ( minwindA > m_NMEA0183.Vwr.WindSpeedKnots)
+					minwindA = m_NMEA0183.Vwr.WindSpeedKnots;
+				if ( maxwindA < m_NMEA0183.Vwr.WindSpeedKnots)
+					maxwindA = m_NMEA0183.Vwr.WindSpeedKnots;
+				avgwindA = (avgwindA + m_NMEA0183.Vwr.WindSpeedKnots)/2;
+				swindspeedsA = wxString::Format(_T("%03.1f|%03.1f|%03.1f"), minwindA, avgwindA, maxwindA);
 			}
 		}
 		else if(m_NMEA0183.LastSentenceIDReceived == _T("MTW"))
@@ -1385,9 +1409,14 @@ void Logbook::setCellAlign(int i)
 	dialog->m_gridGlobal->SetCellAlignment    (i,STATUS, wxALIGN_CENTRE, wxALIGN_TOP);
 	dialog->m_gridGlobal->SetCellAlignment    (i,WAKE, wxALIGN_LEFT, wxALIGN_TOP);
 	dialog->m_gridGlobal->SetCellAlignment    (i,REMARKS, wxALIGN_LEFT, wxALIGN_TOP);
-	dialog->m_gridWeather->SetCellAlignment   (i,WEATHER, wxALIGN_LEFT, wxALIGN_TOP);
-	dialog->m_gridWeather->SetCellAlignment   (i,CLOUDS, wxALIGN_LEFT, wxALIGN_TOP);
-	dialog->m_gridWeather->SetCellAlignment   (i,VISIBILITY, wxALIGN_LEFT, wxALIGN_TOP);
+	if (opt->windspeeds )
+	{
+		dialog->m_gridWeather->SetCellAlignment   (i,LogbookHTML::WSPD, wxALIGN_CENTRE, wxALIGN_TOP);
+		dialog->m_gridWeather->SetCellAlignment   (i,LogbookHTML::WSPDR, wxALIGN_CENTRE, wxALIGN_TOP);
+	}
+	dialog->m_gridWeather->SetCellAlignment   (i,LogbookHTML::WEATHER, wxALIGN_LEFT, wxALIGN_TOP);
+	dialog->m_gridWeather->SetCellAlignment   (i,LogbookHTML::CLOUDS, wxALIGN_LEFT, wxALIGN_TOP);
+	dialog->m_gridWeather->SetCellAlignment   (i,LogbookHTML::VISIBILITY, wxALIGN_LEFT, wxALIGN_TOP);
 	dialog->m_gridMotorSails->SetCellAlignment(i,LogbookHTML::SAILS, wxALIGN_LEFT, wxALIGN_TOP);
 	dialog->m_gridMotorSails->SetCellAlignment(i,LogbookHTML::REEF, wxALIGN_LEFT, wxALIGN_TOP);
 	dialog->m_gridMotorSails->SetCellAlignment(i,LogbookHTML::MREMARKS, wxALIGN_LEFT, wxALIGN_TOP);
@@ -1539,9 +1568,20 @@ void Logbook::appendRow(bool showlastline, bool autoline)
 	dialog->logGrids[0]->SetCellValue(lastRow,DEPTH,sDepth);
 	dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WATERTE,sTemperatureWater);
 	dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WIND,sWindT);
-	dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WSPD,sWindSpeedT);
-	dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WINDR,sWindA);
-	dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WSPDR,sWindSpeedA);
+	if ( opt->windspeeds )
+	{
+		dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WSPD,swindspeedsT);
+		dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WINDR,sWindA);
+		dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WSPDR,swindspeedsA);
+		minwindA = minwindT = 99;
+		maxwindA = maxwindT = 0;
+	}
+	else
+	{
+		dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WSPD,sWindSpeedT);
+		dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WINDR,sWindA);
+		dialog->logGrids[1]->SetCellValue(lastRow,LogbookHTML::WSPDR,sWindSpeedA);
+	}
 	dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::MOTOR,_T("00.00"));
 	dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::MOTOR1,_T("00.00"));
 	dialog->logGrids[2]->SetCellValue(lastRow,LogbookHTML::GENE,_T("00.00"));
@@ -1801,12 +1841,14 @@ void Logbook::checkNMEADeviceIsOn()
 	{
 		sWindA = wxEmptyString;
 		sWindSpeedA = wxEmptyString;
+		swindspeedsA = wxEmptyString;
 		bWindA = false;
 	}
 	if(bWindT && dtn.Subtract(dtWindT).GetSeconds() > DEVICE_TIMEOUT)						// Wind True
 	{
 		sWindT = wxEmptyString;
 		sWindSpeedT = wxEmptyString;
+		swindspeedsT = wxEmptyString;
 		bWindT = false;
 	}
 	if(bCOW && dtn.Subtract(dtCOW).GetSeconds() > DEVICE_TIMEOUT)							// Heading
@@ -2550,19 +2592,22 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 	{
 		if(s != _T(""))
 		{
-			if(!s.Contains(opt->windkts) && !s.Contains(opt->windmeter) && !s.Contains(opt->windkmh))
+			if (!opt->windspeeds)
 			{
-				switch(opt->showWindSpeed)
+				if(!s.Contains(opt->windkts) && !s.Contains(opt->windmeter) && !s.Contains(opt->windkmh))
 				{
-				case 0:	wind = opt->windkts; break;
-				case 1: wind = opt->windmeter; break;
-				case 2: wind = opt->windkmh; break;
+					switch(opt->showWindSpeed)
+					{
+					case 0:	wind = opt->windkts; break;
+					case 1: wind = opt->windmeter; break;
+					case 2: wind = opt->windkmh; break;
+					}
+					s.Replace(_T(","),_T("."));
+					s = wxString::Format(_T("%3.2f %s"),wxAtof(s),wind.c_str());
+					s.Replace(_T("."),dialog->decimalPoint);
 				}
-				s.Replace(_T(","),_T("."));
-				s = wxString::Format(_T("%3.2f %s"),wxAtof(s),wind.c_str());
-				s.Replace(_T("."),dialog->decimalPoint);
+				dialog->logGrids[grid]->SetCellValue(row,col,s);
 			}
-			dialog->logGrids[grid]->SetCellValue(row,col,s);
 		}
 	}
 	else if(grid == 1 && col == LogbookHTML::CURRENT)

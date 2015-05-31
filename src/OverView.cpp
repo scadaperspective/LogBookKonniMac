@@ -388,10 +388,23 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 									break;
 			case WINDFORCE:			if(!s.IsEmpty())
 									{
-										s.ToDouble(&x);
-										wind += x; oneLogbookTotal.wind += x;
-										if(x > windpeak) windpeak = x; 
-										if(x > oneLogbookTotal.windpeak) oneLogbookTotal.windpeak = x;
+                                        if (s.Length() < 11 )
+                                        {
+                                            s.ToDouble(&x);
+                                            wind += x; oneLogbookTotal.wind += x;
+                                            if(x > windpeak) windpeak = x;
+                                            if(x > oneLogbookTotal.windpeak) oneLogbookTotal.windpeak = x;
+                                        }
+                                        else
+                                        {
+                                            wxArrayString WS;
+                                            WS = wxStringTokenize(s,_T("|"));
+                                            WS[1].ToDouble(&x);
+                                            wind += x; oneLogbookTotal.wind += x;
+                                            WS[2].ToDouble(&x);
+                                            if(x > windpeak) windpeak = x;
+                                            if(x > oneLogbookTotal.windpeak) oneLogbookTotal.windpeak = x;
+                                        }
 									}
 									break;
 			case CURRENT:			if(!s.IsEmpty())
@@ -976,20 +989,20 @@ void OverView::writeSumColumnLogbook(total data, int row, wxString logbook, bool
 	grid->SetCellValue(row,FSWELLPEAK,temp);
 
 	if(data.currentcount)
-		wxString::Format(_T("%6.2f %s"),data.currentdir/data.currentcount,opt->Deg.c_str());
+		temp = wxString::Format(_T("%6.2f %s"),data.currentdir/data.currentcount,opt->Deg.c_str());
 	else
 		temp = nothing;
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FCURRENTDIR,temp);
 
 	if(data.currentcount)
-		temp = wxString::Format(_T("%6.2f %s"),data.current/data.currentcount,d.c_str());
+		temp = wxString::Format(_T("%6.2f %s"),data.current/data.currentcount,opt->speed.c_str());
 	else
 		temp = nothing;
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FCURRENT,temp);
 
-	temp = wxString::Format(_T("%6.2f %s"),data.currentpeak,d.c_str());
+	temp = wxString::Format(_T("%6.2f %s"),data.currentpeak,opt->speed.c_str());
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FCURRENTPEAK,temp);
 

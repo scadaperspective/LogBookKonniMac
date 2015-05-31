@@ -317,7 +317,6 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	fgSizer29->Add( m_choiceWindTo, 0, wxRIGHT, 5 );
 	
-//	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
     m_checkBoxSailsDown = new wxCheckBox( m_panel15, wxID_ANY, _("On engine start set always all sails down"), wxDefaultPosition, wxDefaultSize, 0 );
     fgSizer29->Add( m_checkBoxSailsDown, 0, 0, 5 );
     
@@ -329,6 +328,11 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     fgSizer29->Add( m_checkBoxStatusBar, 0, 0, 5 );
     
     fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+
+	m_checkBoxWindspeeds = new wxCheckBox( m_panel15, wxID_ANY, _("Show Min|Avg|Max wind speeds"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_checkBoxWindspeeds->SetValue(false);
+	m_checkBoxWindspeeds->SetToolTip( _("If checked the TWS and AWS will display Min|Avg|Max windspeeds") );
+	fgSizer29->Add( m_checkBoxWindspeeds, 0, wxALIGN_CENTER_VERTICAL|wxTOP, 5 );
 
     fgSizer10->Add( fgSizer29, 1, 0, 0 );
 	
@@ -2197,6 +2201,7 @@ void LogbookOptions::setValues()
 	m_checkBoxSailsDown->SetValue(opt->engineAllwaysSailsDown);
     m_checkBoxGenerator->SetValue(opt->generator);
     m_checkBoxStatusBar->SetValue(opt->statusbar);
+	m_checkBoxWindspeeds->SetValue(opt->windspeeds);
 
     m_checkBoxKMLRoute->SetValue((opt->kmlRoute)?true:false);
     m_checkBoxKMLTrack->SetValue((opt->kmlTrack)?true:false);
@@ -2353,7 +2358,8 @@ void LogbookOptions::getValues()
     opt->engineAllwaysSailsDown = m_checkBoxSailsDown->GetValue();
     opt->generator = m_checkBoxGenerator->GetValue();
     opt->statusbar = m_checkBoxStatusBar->GetValue();
-    
+    opt->windspeeds = m_checkBoxWindspeeds->GetValue();
+
     opt->kmlRoute = m_checkBoxKMLRoute->GetValue();
     opt->kmlTrack = m_checkBoxKMLTrack->GetValue();
     opt->kmlLineWidth = m_textCtrlKMLLineWidt->GetValue();

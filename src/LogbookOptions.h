@@ -219,6 +219,7 @@ class LogbookOptions : public wxDialog
 		wxButton* m_sdbSizer1Cancel;
         wxCheckBox* m_checkBoxSailsDown;
         wxCheckBox* m_checkBoxStatusBar;
+		wxCheckBox* m_checkBoxWindspeeds;
 
 		wxDateTime textCtrlDate;
 
