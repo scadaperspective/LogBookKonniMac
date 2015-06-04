@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-19 06:19-0500\n"
-"PO-Revision-Date: 2015-05-19 07:21-0400\n"
+"PO-Revision-Date: 2015-05-23 05:01-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Catalan\n"
 "Language: ca_ES\n"
@@ -1700,7 +1700,7 @@ msgstr "Desar l'Fitxer Llista de Tripulació"
 
 #: src/LogbookDialog.cpp:5686
 msgid "Hide Equipment"
-msgstr ""
+msgstr "Amagar equipament"
 
 #: src/LogbookDialog.cpp:5711
 msgid "Save Boat File"
@@ -2053,11 +2053,11 @@ msgstr "A l'engegar el motor definir les veles com a abaixades"
 
 #: src/LogbookOptions.cpp:326
 msgid "StatusBar at bottom of the page"
-msgstr ""
+msgstr "Barra d'estat en la part inferior de la pàgina"
 
 #: src/LogbookOptions.cpp:328
 msgid "If unchecked the StatusBar will be placed above the Navigation/Meteo/Motor-Sails buttons"
-msgstr ""
+msgstr "Si no es comprova la Barra d'Estat es posarà sobre els botons de Navegació/Meteo/Motor-veles"
 
 #: src/LogbookOptions.cpp:338
 msgid "Events"
@@ -2584,51 +2584,51 @@ msgstr "Si"
 
 #: src/CrewList.cpp:2095
 msgid "Adress"
-msgstr ""
+msgstr "Adreça"
 
 #: src/Maintenance.h:145
 msgid "Select a date"
-msgstr ""
+msgstr "Seleccioneu una data"
 
 #: src/Maintenance.cpp:92 src/Maintenance.cpp:93
 msgid "Engine "
-msgstr ""
+msgstr "Motor "
 
 #: src/Maintenance.cpp:99
 msgid "Fix Date"
-msgstr ""
+msgstr "Fixeu la data"
 
 #: src/Maintenance.cpp:100
 msgid "Date + Days"
-msgstr ""
+msgstr "Data + Dies"
 
 #: src/Maintenance.cpp:101
 msgid "Date + Weeks"
-msgstr ""
+msgstr "Data + Setmanes"
 
 #: src/Maintenance.cpp:102
 msgid "Date + Months"
-msgstr ""
+msgstr "Data + Mesos"
 
 #: src/Maintenance.cpp:106 src/Maintenance.cpp:202 src/Maintenance.cpp:1051
 #: src/Maintenance.cpp:1055
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: src/OverView.cpp:220
 msgid "Logbook until "
-msgstr ""
+msgstr "Quadern de bitàcola fins "
 
 #: src/OverView.cpp:906
 msgid "Logbook Total"
-msgstr ""
+msgstr "Qadern de Bitàcola Total"
 
 #: src/OverView.cpp:1101
 #, c-format
 msgid "%i Year(s) %i Month(s) %i Day(s)"
-msgstr ""
+msgstr "%i any(s) %i Mes(os) %i Dia(es)"
 
 #: src/OverView.cpp:1104
 msgid "%E Week(s) %D Day(s) %H:%M "
-msgstr ""
+msgstr "%E Setmana(es) %D Dia(es) %H:%M "
 

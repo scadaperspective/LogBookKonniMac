@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-19 06:19-0500\n"
-"PO-Revision-Date: 2015-05-19 07:21-0400\n"
+"PO-Revision-Date: 2015-06-04 16:22-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -2106,11 +2106,11 @@ msgstr "Au lancement du moteur, définir toutes les voiles comme affalées"
 
 #: src/LogbookOptions.cpp:326
 msgid "StatusBar at bottom of the page"
-msgstr ""
+msgstr "Barre d'État au bas de la page"
 
 #: src/LogbookOptions.cpp:328
 msgid "If unchecked the StatusBar will be placed above the Navigation/Meteo/Motor-Sails buttons"
-msgstr ""
+msgstr "Si non coché, la barre d'État sera placé au-dessus des boutons de Navigation/Meteo/moteur-voiles"
 
 #: src/LogbookOptions.cpp:338
 msgid "Events"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-19 06:19-0500\n"
-"PO-Revision-Date: 2015-05-19 07:21-0400\n"
+"PO-Revision-Date: 2015-06-02 20:34-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -1478,7 +1478,7 @@ msgstr "Vesilinjan pituus"
 
 #: src/LogbookDialog.cpp:1502
 msgid "Beam"
-msgstr "Keula"
+msgstr "Leveys"
 
 #: src/LogbookDialog.cpp:1507
 msgid "Greatest Width of Hull"
@@ -2053,11 +2053,11 @@ msgstr "Kun Moottori Käynnistetään lasketaan aina kaikki purjeet"
 
 #: src/LogbookOptions.cpp:326
 msgid "StatusBar at bottom of the page"
-msgstr ""
+msgstr "StatusBar sivun alareunassa"
 
 #: src/LogbookOptions.cpp:328
 msgid "If unchecked the StatusBar will be placed above the Navigation/Meteo/Motor-Sails buttons"
-msgstr ""
+msgstr "Jos  StatusBar ei ole valittu, se sijoitetaan  Navigointi/Meteo/Moottori-Sails painikkeiden yläpuolelle"
 
 #: src/LogbookOptions.cpp:338
 msgid "Events"
