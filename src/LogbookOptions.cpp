@@ -1950,7 +1950,7 @@ void LogbookOptions::OnCheckboxNoSeconds( wxCommandEvent& event )
 void LogbookOptions::OnButtonClickUninstall(wxCommandEvent& ev)
 {
 #ifdef __WXMSW__
-	wxStandardPaths stdpath;
+	wxStandardPathsBase& stdpath = wxStandardPaths::Get();
 	wxString s = stdpath.GetPluginsDir();
 	wxString command = s+_T("\\plugins\\uninst_logbookkonni_pi.exe");
 
