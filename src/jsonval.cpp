@@ -7,11 +7,11 @@
 // Copyright:   (c) 2007 Luciano Cattani
 // Licence:     wxWidgets licence
 /////////////////////////////////////////////////////////////////////////////
-#ifndef __WXOSX__
+
 #ifdef __GNUG__
     #pragma implementation "jsonval.cpp"
 #endif
-#endif
+
 
 // For compilers that support precompilation, includes "wx.h".
 #include "wx/wxprec.h"
@@ -960,9 +960,9 @@ wxJSONValue::AsString() const
         case wxJSONTYPE_CSTRING :
             s.assign( data->m_value.m_valCString);
             break;
- /*       case wxJSONTYPE_INT :
+        case wxJSONTYPE_INT :
             #if defined( wxJSON_64BIT_INT )
-                  s.Printf( _T("%") wxLongLongFmtSpec _T("i"),
+                  s.Printf( _T("%") _T(wxLongLongFmtSpec) _T("i"),
                         data->m_value.m_valInt64 );
             #else
             s.Printf( _T("%ld"), data->m_value.m_valLong );
@@ -970,12 +970,12 @@ wxJSONValue::AsString() const
             break;
         case wxJSONTYPE_UINT :
             #if defined( wxJSON_64BIT_INT )
-            s.Printf( _T("%") wxLongLongFmtSpec _T("u"),
+            s.Printf( _T("%") _T(wxLongLongFmtSpec) _T("u"),
                         data->m_value.m_valUInt64 );
             #else
             s.Printf( _T("%lu"), data->m_value.m_valULong );
             #endif
-            break;*/
+            break;
         case wxJSONTYPE_DOUBLE :
             s.Printf( _T("%.10g"), data->m_value.m_valDouble );
             break;
@@ -1815,11 +1815,8 @@ wxJSONValue&
 wxJSONValue::Item( const wxString& key )
 {
     wxLogTrace( traceMask, _T("(%s) searched key=\'%s\'"), __PRETTY_FUNCTION__, key.c_str());
-#ifdef __WXOSX__
-//    wxLogTrace( traceMask, _T("(%s) actual object: %s"), __PRETTY_FUNCTION__, GetInfo().c_str());
-#else
     wxLogTrace( traceMask, _T("(%s) actual object: %s"), __PRETTY_FUNCTION__, GetInfo().c_str());
-#endif
+
     wxJSONRefData* data = COW();
     wxJSON_ASSERT( data );
 
@@ -1867,11 +1864,8 @@ wxJSONValue
 wxJSONValue::ItemAt( const wxString& key ) const
 {
     wxLogTrace( traceMask, _T("(%s) searched key=\'%s\'"), __PRETTY_FUNCTION__, key.c_str());
-#ifdef __WXOSX__
-//    wxLogTrace( traceMask, _T("(%s) actual object: %s"), __PRETTY_FUNCTION__, GetInfo().c_str());
-#else
     wxLogTrace( traceMask, _T("(%s) actual object: %s"), __PRETTY_FUNCTION__, GetInfo().c_str());
-#endif
+
     wxJSONRefData* data = GetRefData();
     wxJSON_ASSERT( data );
 
