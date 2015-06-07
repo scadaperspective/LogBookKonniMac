@@ -140,10 +140,7 @@ void OverView::loadAllLogbooks()
 
 void OverView::selectLogbook()
 {
-	wxString path(*parent->pHome_Locn);
-	path = path + wxFileName::GetPathSeparator() + _T("data");
-
-	SelectLogbook selLogbook(parent,path);
+	SelectLogbook selLogbook(parent,data_locn);
 
 	if(selLogbook.ShowModal() == wxID_CANCEL)
 		return;

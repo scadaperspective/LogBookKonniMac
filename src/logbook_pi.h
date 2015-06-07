@@ -123,6 +123,7 @@ public:
 
 
     void SetDefaults(void);
+	static wxString StandardPath(void);
     int GetToolbarToolCount(void);
     void ShowPreferencesDialog( wxWindow* parent );
     void OnToolbarToolCallback(int id);

@@ -830,8 +830,7 @@ void Logbook::newLogbook()
 
 void Logbook::selectLogbook()
 {
-	wxString path(*dialog->pHome_Locn);
-	path = path + _T("data");
+	wxString path = dialog->Home_Locn;
 
 	update();
 	SelectLogbook selLogbook(dialog,path);
@@ -904,8 +903,8 @@ void Logbook::loadData()
 
 	/** make a backup of 0.910 */
 	wxString sep = wxFileName::GetPathSeparator();
-	wxString source = *dialog->pHome_Locn +_T("data") + sep;
-	wxString dest   = *dialog->pHome_Locn +_T("data") + sep + _T("910_Backup");
+	wxString source = dialog->Home_Locn;
+	wxString dest   = dialog->Home_Locn + _T("910_Backup");
 
 	wxFileInputStream input1( data_locn );
 	wxTextInputStream* stream1 = new wxTextInputStream (input1);

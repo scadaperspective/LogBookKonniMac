@@ -695,7 +695,7 @@ enum FORMAT {HTML,ODT};
         void stateSails();
 
 		logbookkonni_pi*	  logbookPlugIn;
-		wxString*			  pHome_Locn;
+        wxString			  Home_Locn;
         wxString			  basePath;
 		wxString              data;
 		wxString              image_locn;
