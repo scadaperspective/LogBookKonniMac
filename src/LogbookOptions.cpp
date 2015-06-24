@@ -849,7 +849,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_staticText72->Wrap( -1 );
 	fgSizer91->Add( m_staticText72, 0, wxALL, 5 );
 	
-	m_Weeks = new wxTextCtrl( m_panel16, wxID_ANY, _("Weeks(s)"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
+	m_Weeks = new wxTextCtrl( m_panel16, wxID_ANY, _("Week(s)"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
 	fgSizer91->Add( m_Weeks, 0, wxALL, 0 );
 	
 	m_staticText73 = new wxStaticText( m_panel16, wxID_ANY, _("Month "), wxDefaultPosition, wxDefaultSize, 0 );
