@@ -558,6 +558,7 @@ void Logbook::SetSentence( wxString &sentence )
 
         double t;
         double p;
+        double h;
 
         tkz.GetNextToken();
         tkz.GetNextToken();
@@ -574,7 +575,11 @@ void Logbook::SetSentence( wxString &sentence )
         tkz.GetNextToken();
         tkz.GetNextToken();
         tkz.GetNextToken();
-        sHumidity = tkz.GetNextToken();
+        tkz.GetNextToken().ToDouble( &h );
+        if ( h > 0 )
+            sHumidity = wxString::Format( _T( "%3.1f %" ),h );
+        else
+            sHumidity = wxEmptyString;
     }
     else if ( opt->bRPMIsChecked && sentenceInd.Right( 3 ) == _T( "RPM" ) )
     {
