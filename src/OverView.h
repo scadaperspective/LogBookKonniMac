@@ -83,7 +83,7 @@ public:
     ~OverView( void );
 
     void refresh();
-    void actuellLogbook();
+    void actualLogbook();
     void allLogbooks();
     void selectLogbook();
     void setSelectedRow( int row );

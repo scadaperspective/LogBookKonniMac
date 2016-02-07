@@ -446,7 +446,7 @@ public:
     void OnMenuSelectionGotoRoute( wxCommandEvent& event );
     void OnMenuSelectionShowHiddenColsOverview( wxCommandEvent& event );
     void onButtonClickSelectLogbook( wxCommandEvent& event );
-    void OnRadioButtonActuellLogbook( wxCommandEvent& event );
+    void OnRadioButtonActualLogbook( wxCommandEvent& event );
     void OnRadioButtonAllLogbooks( wxCommandEvent& event );
     void onGridCellLeftClickService( wxGridEvent& event );
     void onGridCellLeftClickBuyParts( wxGridEvent& event );
@@ -575,7 +575,7 @@ public:
     wxButton* m_buttonEditLayoutOview;
     wxRadioButton* m_radioBtnHTMLOverview;
     wxRadioButton* m_radioBtnODTOverview;
-    wxRadioButton* m_radioBtnActuellLogbook;
+    wxRadioButton* m_radioBtnActualLogbook;
     wxRadioButton* m_radioBtnAllLogbooks;
     wxRadioButton* m_radioBtnSelectLogbook;
     wxButton* m_buttonSelectLogbook;

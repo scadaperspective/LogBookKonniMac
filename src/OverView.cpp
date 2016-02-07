@@ -43,8 +43,8 @@ void OverView::refresh()
 {
     grid->DeleteRows( 0,grid->GetNumberRows() );
     row = -1;
-    if ( parent->m_radioBtnActuellLogbook->GetValue() )
-        actuellLogbook();
+    if ( parent->m_radioBtnActualLogbook->GetValue() )
+        actualLogbook();
     else if ( parent->m_radioBtnAllLogbooks->GetValue() )
         allLogbooks();
     else if ( parent->m_radioBtnSelectLogbook->GetValue() )
@@ -156,7 +156,7 @@ void OverView::selectLogbook()
     opt->overviewAll = 2;
 }
 
-void OverView::actuellLogbook()
+void OverView::actualLogbook()
 {
     showAllLogbooks = false;
     clearGrid();

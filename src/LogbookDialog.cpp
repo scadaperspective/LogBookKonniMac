@@ -682,9 +682,9 @@ LogbookDialog::LogbookDialog( logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt,
     m_staticline71 = new wxStaticLine( m_panel142, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
     bSizer61->Add( m_staticline71, 0, wxEXPAND | wxALL, 5 );
 
-    m_radioBtnActuellLogbook = new wxRadioButton( m_panel142, wxID_ANY, _( "Actual Logbook" ), wxDefaultPosition, wxDefaultSize, wxRB_GROUP );
-    m_radioBtnActuellLogbook->SetValue( true );
-    bSizer61->Add( m_radioBtnActuellLogbook, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+    m_radioBtnActualLogbook = new wxRadioButton( m_panel142, wxID_ANY, _( "Actual Logbook" ), wxDefaultPosition, wxDefaultSize, wxRB_GROUP );
+    m_radioBtnActualLogbook->SetValue( true );
+    bSizer61->Add( m_radioBtnActualLogbook, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
     m_radioBtnAllLogbooks = new wxRadioButton( m_panel142, wxID_ANY, _( "All Logbooks" ), wxDefaultPosition, wxDefaultSize, 0 );
     bSizer61->Add( m_radioBtnAllLogbooks, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
@@ -2082,7 +2082,7 @@ LogbookDialog::LogbookDialog( logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt,
     logViewOverview->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtonClickOverView ), NULL, this );
     m_radioBtnHTMLOverview->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::onRadioButtonHTMLOverview ), NULL, this );
     m_radioBtnAllLogbooks->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::OnRadioButtonAllLogbooks ), NULL, this );
-    m_radioBtnActuellLogbook->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::OnRadioButtonActuellLogbook ), NULL, this );
+    m_radioBtnActualLogbook->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::OnRadioButtonActualLogbook ), NULL, this );
     m_toggleBtnShowEquipment->Connect( wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnToggleButtonShowEquip ), NULL, this );
     this->Connect( m_menuItemNewWatch->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionNewWatchWake ) );
     this->Connect( m_menuItem32->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionAsc ) );
@@ -2552,7 +2552,7 @@ void LogbookDialog::OnIdleMainDialog( wxIdleEvent& event )
             }
         }
 
-        if ( ActuellWatch::active && dt >= ActuellWatch::end )
+        if ( ActualWatch::active && dt >= ActualWatch::end )
         {
             static unsigned int wmin = 61;
 
@@ -2569,7 +2569,7 @@ void LogbookDialog::OnIdleMainDialog( wxIdleEvent& event )
                 }
             }
         }
-        else if ( dt >= ActuellWatch::end )
+        else if ( dt >= ActualWatch::end )
             crewList->dayNow( false );
     }
 }
@@ -4566,9 +4566,9 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
     if ( ev.GetCol() == 4 && ( m_notebook8->GetSelection() == 0 ) )
     {
         m_menu1->PrependSeparator();
-        for ( unsigned int i = 0; i < ActuellWatch::menuMembers.Count(); i++ )
+        for ( unsigned int i = 0; i < ActualWatch::menuMembers.Count(); i++ )
         {
-            wxMenuItem *item = new wxMenuItem( m_menu1, wxID_ANY, ActuellWatch::menuMembers[i],wxEmptyString,wxITEM_NORMAL );
+            wxMenuItem *item = new wxMenuItem( m_menu1, wxID_ANY, ActualWatch::menuMembers[i],wxEmptyString,wxITEM_NORMAL );
             m_menu1->Prepend( item );
             this->Connect( item->GetId(), wxEVT_COMMAND_MENU_SELECTED,
                            wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
@@ -5171,13 +5171,13 @@ void LogbookDialog::getIniValues()
     switch ( opt->overviewAll )
     {
     case 0:
-        this->m_radioBtnActuellLogbook->SetValue( true );
+        this->m_radioBtnActualLogbook->SetValue( true );
         break;
     case 1:
         this->m_radioBtnAllLogbooks->SetValue( true );
         break;
     case 2:
-        this->m_radioBtnActuellLogbook->SetValue( true ); // at startup theres no seleted logbook = crash, set to actual logbook
+        this->m_radioBtnActualLogbook->SetValue( true ); // at startup theres no seleted logbook = crash, set to actual logbook
         break;
     }
 
@@ -6751,7 +6751,7 @@ void LogbookDialog::OnGridLabelLeftClickOverview( wxGridEvent& ev )
 {
 }
 
-void LogbookDialog::OnRadioButtonActuellLogbook( wxCommandEvent & ev )
+void LogbookDialog::OnRadioButtonActualLogbook( wxCommandEvent & ev )
 {
     overview->refresh();
 }

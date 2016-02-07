@@ -20,14 +20,14 @@
 #include <memory>
 using namespace std;
 
-bool ActuellWatch::active				= false;
-unsigned int ActuellWatch::day			= 0;
-int ActuellWatch::col					= -1;
-wxTimeSpan ActuellWatch::time			= wxTimeSpan();
-wxDateTime ActuellWatch::start			= wxDateTime();
-wxDateTime ActuellWatch::end			= wxDateTime();
-wxString ActuellWatch::member			= wxEmptyString;
-wxArrayString ActuellWatch::menuMembers	= wxArrayString();
+bool ActualWatch::active				= false;
+unsigned int ActualWatch::day			= 0;
+int ActualWatch::col					= -1;
+wxTimeSpan ActualWatch::time			= wxTimeSpan();
+wxDateTime ActualWatch::start			= wxDateTime();
+wxDateTime ActualWatch::end			= wxDateTime();
+wxString ActualWatch::member			= wxEmptyString;
+wxArrayString ActualWatch::menuMembers	= wxArrayString();
 
 CrewList::CrewList( LogbookDialog* d, wxString data, wxString layout, wxString layoutODT )
 {
@@ -39,7 +39,7 @@ CrewList::CrewList( LogbookDialog* d, wxString data, wxString layout, wxString l
     selRow = 0;
     selCol = 0;
     day = 0;
-    ActuellWatch::end = wxDateTime::Now()+wxDateSpan( 1 );
+    ActualWatch::end = wxDateTime::Now()+wxDateSpan( 1 );
 
     this->layout = layout;
     this->ODTLayout = layoutODT;
@@ -1121,7 +1121,7 @@ void CrewList::setMembersInMenu()
 {
     wxString col, m, member;
 
-    ActuellWatch::menuMembers.clear();
+    ActualWatch::menuMembers.clear();
     if ( watchListFile->GetLineCount() < 1 ) return;
 
     watchListFile->GoToLine( 1 );
@@ -1147,20 +1147,20 @@ void CrewList::setMembersInMenu()
             member = mtkz.GetNextToken();
             member.Replace( _T( "*" ),_T( "" ) );
 
-            if ( ActuellWatch::menuMembers.IsEmpty() && ( member.length() == 1 && member.GetChar( 0 ) != ' ' ) )
-                ActuellWatch::menuMembers.Add( member );
+            if ( ActualWatch::menuMembers.IsEmpty() && ( member.length() == 1 && member.GetChar( 0 ) != ' ' ) )
+                ActualWatch::menuMembers.Add( member );
             else
             {
                 bool found = false;
-                for ( unsigned int i = 0; i < ActuellWatch::menuMembers.Count(); i++ )
-                    if ( ActuellWatch::menuMembers[i] == member || ( member.length() == 1 && member.GetChar( 0 ) == ' ' ) )
+                for ( unsigned int i = 0; i < ActualWatch::menuMembers.Count(); i++ )
+                    if ( ActualWatch::menuMembers[i] == member || ( member.length() == 1 && member.GetChar( 0 ) == ' ' ) )
                     {
                         found = true;
                         break;
                     }
 
                 if ( !found )
-                    ActuellWatch::menuMembers.Add( member );
+                    ActualWatch::menuMembers.Add( member );
             }
         }
         col = watchListFile->GetNextLine();
@@ -1171,9 +1171,9 @@ void CrewList::checkMemberIsInMenu( wxString member )
 {
     bool insert = true;
 
-    for ( unsigned int i = 0; i < ActuellWatch::menuMembers.Count(); i++ )
+    for ( unsigned int i = 0; i < ActualWatch::menuMembers.Count(); i++ )
     {
-        if ( member == ActuellWatch::menuMembers[i] )
+        if ( member == ActualWatch::menuMembers[i] )
         {
             insert = false;
             break;
@@ -1181,7 +1181,7 @@ void CrewList::checkMemberIsInMenu( wxString member )
     }
 
     if ( insert )
-        ActuellWatch::menuMembers.Add( member );
+        ActualWatch::menuMembers.Add( member );
 }
 
 void CrewList::wakeMemberDrag( int row, int col )
@@ -1218,8 +1218,8 @@ void CrewList::watchEditorHidden( int row, int col )
         if ( gridTextCtrl->IsModified() )
         {
             updateLine();
-            if ( ActuellWatch::day == day && ActuellWatch::col == col )
-                ActuellWatch::member = gridTextCtrl->GetValue();
+            if ( ActualWatch::day == day && ActualWatch::col == col )
+                ActualWatch::member = gridTextCtrl->GetValue();
         }
         gridTextCtrl->Disconnect( wxEVT_MOTION, wxMouseEventHandler( LogbookDialog::OnMotion ), NULL, dialog );
     }
@@ -1284,7 +1284,7 @@ void CrewList::clearWake()
     day = 0;
     gridWake->AutoSizeColumns();
     gridWake->AutoSizeRows();
-    ActuellWatch::menuMembers.clear();
+    ActualWatch::menuMembers.clear();
     statusText( DEFAULTWATCH );
 }
 
@@ -1294,8 +1294,8 @@ void CrewList::dayPlus()
         return;
     day++;
     readRecord( day );
-    if ( day == ActuellWatch::day )
-        gridWake->SetCellBackgroundColour( wxColor( 0,255,0 ),2,ActuellWatch::col );
+    if ( day == ActualWatch::day )
+        gridWake->SetCellBackgroundColour( wxColor( 0,255,0 ),2,ActualWatch::col );
 }
 
 void CrewList::dayMinus()
@@ -1303,8 +1303,8 @@ void CrewList::dayMinus()
     if ( day <= 1 ) return;
     day--;
     readRecord( day );
-    if ( day == ActuellWatch::day )
-        gridWake->SetCellBackgroundColour( wxColor( 0,255,0 ),2,ActuellWatch::col );
+    if ( day == ActualWatch::day )
+        gridWake->SetCellBackgroundColour( wxColor( 0,255,0 ),2,ActualWatch::col );
 }
 
 void CrewList::dayNow( bool mode )
@@ -1327,7 +1327,7 @@ void CrewList::dayNow( bool mode )
         return;
     }
 
-    ActuellWatch::active = false;
+    ActualWatch::active = false;
     while ( lineno < ( int ) watchListFile->GetLineCount() )
     {
         s = watchListFile->GetLine( lineno );
@@ -1366,13 +1366,13 @@ void CrewList::dayNow( bool mode )
             gridWake->SetCellBackgroundColour( wxColor( 0,255,0 ),2,col );
             gridWake->MakeCellVisible( 0,col );
 
-            ActuellWatch::active = true;
-            ActuellWatch::day    = d;
-            ActuellWatch::col    = col;
-            ActuellWatch::time   = df;
-            ActuellWatch::start  = dtstart;
-            ActuellWatch::end    = dtend;
-            ActuellWatch::member = dialog->restoreDangerChar( str );
+            ActualWatch::active = true;
+            ActualWatch::day    = d;
+            ActualWatch::col    = col;
+            ActualWatch::time   = df;
+            ActualWatch::start  = dtstart;
+            ActualWatch::end    = dtend;
+            ActualWatch::member = dialog->restoreDangerChar( str );
 
             statusText( ALTERDAY );
             return;
@@ -2824,8 +2824,8 @@ bool DnDWatch::OnDropText( wxCoord x, wxCoord y, const wxString &text )
         m_pOwner->SetCellValue( 3,col,oldTxt );
         m_pOwner->SetCellValue( 3,crewList->selColWake,_T( " " ) );
 
-        if ( crewList->day == ActuellWatch::day && crewList->selColWake )
-            ActuellWatch::member =  wxEmptyString;
+        if ( crewList->day == ActualWatch::day && crewList->selColWake )
+            ActualWatch::member =  wxEmptyString;
     }
     else
     {
@@ -2848,10 +2848,10 @@ bool DnDWatch::OnDropText( wxCoord x, wxCoord y, const wxString &text )
 
         m_pOwner->SetCellValue( 3,crewList->selColWake,oldTxt );
 
-        if ( crewList->day == ActuellWatch::day && ActuellWatch::col != -1 )
+        if ( crewList->day == ActualWatch::day && ActualWatch::col != -1 )
         {
-            wxString m = m_pOwner->GetCellValue( 3,ActuellWatch::col );
-            ActuellWatch::member =  m;
+            wxString m = m_pOwner->GetCellValue( 3,ActualWatch::col );
+            ActualWatch::member =  m;
         }
     }
 
@@ -2860,8 +2860,8 @@ bool DnDWatch::OnDropText( wxCoord x, wxCoord y, const wxString &text )
     m_pOwner->SetRowHeight(	3, m_pOwner->GetRowHeight( 3 )+10 );
 
     crewList->updateLine();
-    if ( ActuellWatch::col == col && ActuellWatch::day == crewList->day )
-        ActuellWatch::member = m_pOwner->GetCellValue( 3,col );
+    if ( ActualWatch::col == col && ActualWatch::day == crewList->day )
+        ActualWatch::member = m_pOwner->GetCellValue( 3,col );
     if ( row == 3 )
         crewList->statusText( CrewList::HITCALCULATE );
 

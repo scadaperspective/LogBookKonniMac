@@ -64,7 +64,7 @@ Logbook::Logbook( LogbookDialog* parent, wxString data, wxString layout, wxStrin
         logbookFile = new wxTextFile( logData );
 
     data_locn = logData;
-    logbookData_actuell = logData;
+    logbookData_actual = logData;
 
     if ( dialog->m_radioBtnHTML->GetValue() )
         logLay = layout;
@@ -760,8 +760,8 @@ void Logbook::newLogbook()
 {
     bool zero = false;
 
-    if ( data_locn != this->logbookData_actuell )
-        this->switchToActuellLogbook();
+    if ( data_locn != this->logbookData_actual )
+        this->switchToActualLogbook();
 
     int i = wxMessageBox( _( "Are you sure ?" ),_( "New Logbook" ),wxYES_NO );
     if ( i == wxNO )
@@ -1503,13 +1503,13 @@ void Logbook::setCellAlign( int i )
     dialog->m_gridGlobal->SetReadOnly( i,POSITION,true );
 }
 
-void Logbook::switchToActuellLogbook()
+void Logbook::switchToActualLogbook()
 {
     dialog->selGridRow = 0;
     dialog->selGridCol = 0;
-    logbookFile = new wxTextFile( logbookData_actuell );
-    data_locn = logbookData_actuell;
-    setFileName( logbookData_actuell,layout_locn );
+    logbookFile = new wxTextFile( logbookData_actual );
+    data_locn = logbookData_actual;
+    setFileName( logbookData_actual,layout_locn );
     dialog->SetTitle( _( "Active Logbook" ) );
     loadData();
 }
@@ -1531,7 +1531,7 @@ void Logbook::appendRow( bool showlastline, bool autoline )
     if ( fn.GetName() != ( _T( "logbook" ) ) )
     {
 
-        switchToActuellLogbook();
+        switchToActualLogbook();
         noAppend = true;
         NoAppendDialog *x = new NoAppendDialog( dialog );
         x->Show();
@@ -1799,8 +1799,8 @@ void Logbook::appendRow( bool showlastline, bool autoline )
         sailsMessage = false;
     }
 
-    if ( ActuellWatch::active == true )
-        dialog->logGrids[0]->SetCellValue( lastRow,WAKE,ActuellWatch::member );
+    if ( ActualWatch::active == true )
+        dialog->logGrids[0]->SetCellValue( lastRow,WAKE,ActualWatch::member );
 
     wxString sails = wxEmptyString;
     unsigned int n = 0;
@@ -3483,7 +3483,7 @@ void Logbook::setWayPointArrivedText()
         sLogText += wxString::Format( _T( "%s\n%s%s" ),opt->waypointText.c_str(),ext.c_str(),s.c_str() );
 }
 
-class ActuellWatch;
+class ActualWatch;
 void Logbook::SetGPSStatus( bool status )
 {
     if ( !status )
@@ -3589,8 +3589,8 @@ LogbookSearch::LogbookSearch( wxWindow* parent, int row, int col, wxWindowID id,
     m_staticText96->Wrap( -1 );
     fgSizer41->Add( m_staticText96, 0, wxALL, 5 );
 
-    m_radioBtnActuell = new wxRadioButton( this, wxID_ANY, _( "Actual Logbook" ), wxDefaultPosition, wxDefaultSize, 0 );
-    fgSizer41->Add( m_radioBtnActuell, 0, wxALL, 5 );
+    m_radioBtnActual = new wxRadioButton( this, wxID_ANY, _( "Actual Logbook" ), wxDefaultPosition, wxDefaultSize, 0 );
+    fgSizer41->Add( m_radioBtnActual, 0, wxALL, 5 );
 
     m_radioBtnAll = new wxRadioButton( this, wxID_ANY, _( "All Logbooks" ), wxDefaultPosition, wxDefaultSize, 0 );
     fgSizer41->Add( m_radioBtnAll, 0, wxALL, 5 );

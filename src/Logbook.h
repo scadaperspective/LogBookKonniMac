@@ -15,7 +15,7 @@
 class Options;
 class LogbookDialog;
 class PBVEDialog;
-class ActuellWatch;
+class ActualWatch;
 
 class Logbook : public LogbookHTML
 {
@@ -177,7 +177,7 @@ public:
     void update();
     void clearNMEAData();
     void newLogbook();
-    void switchToActuellLogbook();
+    void switchToActualLogbook();
     void selectLogbook();
     void changeCellValue( int row, int col, int offset );
     void setLayoutLocation( wxString loc );
@@ -205,7 +205,7 @@ private:
     wxString decimalToHours( double res, bool b );
     void     convertTo_1_2();
 
-    wxString	logbookData_actuell;
+    wxString	logbookData_actual;
     bool		noAppend; // Old Logbook; append Rows not allowed
     wxString	logbookDescription;
 };
@@ -308,7 +308,7 @@ protected:
 
 
 public:
-    wxRadioButton* m_radioBtnActuell;
+    wxRadioButton* m_radioBtnActual;
     wxRadioButton* m_radioBtnAll;
     wxTextCtrl* m_textCtrl72;
     wxChoice* m_choice23;

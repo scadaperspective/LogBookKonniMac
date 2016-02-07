@@ -15,8 +15,8 @@
 
 class LogbookDialog;
 
-/////////////////////////////// holds actuell Watch ///////////////
-class ActuellWatch
+/////////////////////////////// holds actual Watch ///////////////
+class ActualWatch
 {
 public:
     static bool          active;
