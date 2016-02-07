@@ -1,9 +1,9 @@
 #pragma once
 #ifndef  WX_PRECOMP
-  #include "wx/wx.h"
+#include "wx/wx.h"
 #endif //precompiled headers
 
-#include <wx/textfile.h> 
+#include <wx/textfile.h>
 #include <wx/grid.h>
 #include <wx/arrstr.h>
 #include <wx/calctrl.h>
@@ -24,142 +24,145 @@ class Options;
 class Maintenance : public Export
 {
 public:
-	enum fieldsRepairs{RPRIORITY,RTEXT};
-	enum fieldsBuyParts{PPRIORITY,PCATEGORY,TITLE,PARTS,DATE,AT};
-	enum fieldsService{PRIORITY,TEXT,IF,WARN,URGENT,START,ACTIVE};
+    enum fieldsRepairs {RPRIORITY,RTEXT};
+    enum fieldsBuyParts {PPRIORITY,PCATEGORY,TITLE,PARTS,DATE,AT};
+    enum fieldsService {PRIORITY,TEXT,IF,WARN,URGENT,START,ACTIVE};
 public:
-	Maintenance(LogbookDialog* d, wxString data, wxString lay, wxString layoutODT);
+    Maintenance( LogbookDialog* d, wxString data, wxString lay, wxString layoutODT );
 #ifdef __WXOSX__
-	virtual ~Maintenance(void);
+    virtual ~Maintenance( void );
 #else
-	~Maintenance(void);
+    ~Maintenance( void );
 #endif
-	void addLine();
-	void addLineRepairs();
-	void addLineBuyParts();
-	void setRowDone(int row);
-	void setRepairDone(int row);
-	void cellCollChanged(int col, int row);
-    void cellSelected(int col, int row);
-    void checkService(int row);
+    void addLine();
+    void addLineRepairs();
+    void addLineBuyParts();
+    void setRowDone( int row );
+    void setRepairDone( int row );
+    void cellCollChanged( int col, int row );
+    void cellSelected( int col, int row );
+    void checkService( int row );
     void checkRepairs();
     void checkBuyParts();
-	void loadData();
-	void update();
-	void updateRepairs();
-	void updateBuyParts();
-	void buyParts(int i);
-	void setLayoutLocation();
-	wxString toODT(int tab,wxString path,wxString layout,int mode);
-	void viewODT(int tab,wxString path,wxString layout,int mode);
-	void viewHTML(int tab,wxString path,wxString layout,int mode);
-	wxString toHTML(int tab,wxString path,wxString layout,int mode);
-	void showDateDialog( int row, int col, wxGrid* grid);
-	void deleteFindItRow(wxString category,wxString plugin);
-	wxString getDateString(wxString s);
+    void loadData();
+    void update();
+    void updateRepairs();
+    void updateBuyParts();
+    void buyParts( int i );
+    void setLayoutLocation();
+    wxString toODT( int tab,wxString path,wxString layout,int mode );
+    void viewODT( int tab,wxString path,wxString layout,int mode );
+    void viewHTML( int tab,wxString path,wxString layout,int mode );
+    wxString toHTML( int tab,wxString path,wxString layout,int mode );
+    void showDateDialog( int row, int col, wxGrid* grid );
+    void deleteFindItRow( wxString category,wxString plugin );
+    wxString getDateString( wxString s );
 
-	wxGrid*		grid;
-	wxGrid*		buyparts;
-	wxGrid*		repairs;
-	int			lastRow;
-	int			lastRowBuyParts;
-	int			lastRowRepairs;
-	int			selectedCol;
-	int			selectedRow;
-	int			selectedRowRepairs;
-	int			selectedColRepairs;
-	int			selectedRowBuyParts;
-	int			selectedColBuyParts;
-	wxString	layout_locn;
-	wxString	layout_locnService;
-	wxString	layout_locnRepairs;
-	wxString	layout_locnBuyParts;
+    wxGrid*		grid;
+    wxGrid*		buyparts;
+    wxGrid*		repairs;
+    int			lastRow;
+    int			lastRowBuyParts;
+    int			lastRowRepairs;
+    int			selectedCol;
+    int			selectedRow;
+    int			selectedRowRepairs;
+    int			selectedColRepairs;
+    int			selectedRowBuyParts;
+    int			selectedColBuyParts;
+    wxString	layout_locn;
+    wxString	layout_locnService;
+    wxString	layout_locnRepairs;
+    wxString	layout_locnBuyParts;
 
-	wxString		m_choices[12];
-	int				m_choicesCount;
-	wxString		m_YesNo[2];
-	bool			modified;
-	bool			modifiedR;	
-	bool			modifiedB;
+    wxString		m_choices[12];
+    int				m_choicesCount;
+    wxString		m_YesNo[2];
+    bool			modified;
+    bool			modifiedR;
+    bool			modifiedB;
 private:
-	LogbookDialog*	dialog;
-	Options*		opt;
+    LogbookDialog*	dialog;
+    Options*		opt;
 
-	void setRowBackground(int row, wxColour &c);
-	void setRowBackgroundRepairs(int row, wxColour &c);
-	void setRowBackgroundBuyParts(int row, wxColour &c);
-	void setAlignmentService();
-	void setAlignmentRepairs();
-	void setAlignmentBuyParts();
-	void setBuyPartsPriority(wxGrid *grid ,int row, int col, int text);
-	wxString readLayoutHTML(wxString path,wxString layout);
-	wxString setPlaceHolders(int mode, wxGrid *grid, int row, wxString middleODT);
-	wxString setPlaceHoldersService(int mode, wxGrid *grid, int row, wxString middleODT);
-	wxString setPlaceHoldersRepairs(int mode, wxGrid *grid, int row, wxString middleODT);
-	wxString setPlaceHoldersBuyParts(int mode, wxGrid *grid, int row, wxString middleODT);
-	wxString replaceLabels(wxString s, wxGrid* grid);
-	wxString replaceNewLine(int mode, wxString str);
-	int		 getSelection(wxString s);
+    void setRowBackground( int row, wxColour &c );
+    void setRowBackgroundRepairs( int row, wxColour &c );
+    void setRowBackgroundBuyParts( int row, wxColour &c );
+    void setAlignmentService();
+    void setAlignmentRepairs();
+    void setAlignmentBuyParts();
+    void setBuyPartsPriority( wxGrid *grid ,int row, int col, int text );
+    wxString readLayoutHTML( wxString path,wxString layout );
+    wxString setPlaceHolders( int mode, wxGrid *grid, int row, wxString middleODT );
+    wxString setPlaceHoldersService( int mode, wxGrid *grid, int row, wxString middleODT );
+    wxString setPlaceHoldersRepairs( int mode, wxGrid *grid, int row, wxString middleODT );
+    wxString setPlaceHoldersBuyParts( int mode, wxGrid *grid, int row, wxString middleODT );
+    wxString replaceLabels( wxString s, wxGrid* grid );
+    wxString replaceNewLine( int mode, wxString str );
+    int		 getSelection( wxString s );
 
-	wxColour green;
-	wxColour red;
-	wxColour redlight;
-	wxColour yellow;
-	wxColour yellowlight;
-	wxColour white;
-	
-	wxString		layout;
-	wxString		ODTLayout;
+    wxColour green;
+    wxColour red;
+    wxColour redlight;
+    wxColour yellow;
+    wxColour yellowlight;
+    wxColour white;
 
-	wxString		m_Priority[6];
+    wxString		layout;
+    wxString		ODTLayout;
 
-	wxString		data_locn;
-	wxString		data_locnRepairs;
-	wxString		data_locnBuyParts;
+    wxString		m_Priority[6];
+
+    wxString		data_locn;
+    wxString		data_locnRepairs;
+    wxString		data_locnBuyParts;
 #ifdef __WXOSX__
 //
 #else
-	bool			format; // 0 = ODT 1 = HTML
+    bool			format; // 0 = ODT 1 = HTML
 #endif
 };
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Class DateDialog
 ///////////////////////////////////////////////////////////////////////////////
-class DateDialog : public wxDialog 
+class DateDialog : public wxDialog
 {
-	private:
-	
-	protected:
-		wxStdDialogButtonSizer* m_sdbSizer6;
-		wxButton* m_sdbSizer6OK;
-		wxButton* m_sdbSizer6Cancel;
-		
-		// Virtual event handlers, overide them in your derived class
-		void OnCalenderSelChanged( wxCalendarEvent& event ) { event.Skip(); }
-		
-	
-	public:
-		wxCalendarCtrl* m_calendar2;
-		
-		DateDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Select a date"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 221,198 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
-		~DateDialog();
-	
+private:
+
+protected:
+    wxStdDialogButtonSizer* m_sdbSizer6;
+    wxButton* m_sdbSizer6OK;
+    wxButton* m_sdbSizer6Cancel;
+
+    // Virtual event handlers, overide them in your derived class
+    void OnCalenderSelChanged( wxCalendarEvent& event )
+    {
+        event.Skip();
+    }
+
+
+public:
+    wxCalendarCtrl* m_calendar2;
+
+    DateDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _( "Select a date" ), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 221,198 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
+    ~DateDialog();
+
 };
 
 class myGridCellChoiceEditor : public wxGridCellChoiceEditor
 {
 public:
-	myGridCellChoiceEditor(int i, wxString s[], bool mode):wxGridCellChoiceEditor(i,s,mode){}
-	~myGridCellChoiceEditor(void){}
+    myGridCellChoiceEditor( int i, wxString s[], bool mode ):wxGridCellChoiceEditor( i,s,mode ) {}
+    ~myGridCellChoiceEditor( void ) {}
 
-	void StartingClick()
-	{
-		this->Combo()->Show(true);
+    void StartingClick()
+    {
+        this->Combo()->Show( true );
 #if wxCHECK_VERSION(2,9,0)
-		this->Combo()->Popup();
+        this->Combo()->Popup();
 #else
-		
+
 #endif
-	}
+    }
 };

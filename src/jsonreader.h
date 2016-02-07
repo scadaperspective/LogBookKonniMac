@@ -12,22 +12,22 @@
 #define _WX_JSONREADER_H
 #ifndef __WXOSX__
 #ifdef __GNUG__
-    #pragma interface "jsonreader.h"
+#pragma interface "jsonreader.h"
 #endif
 #endif
 // For compilers that support precompilation, includes "wx/wx.h".
 #include "wx/wxprec.h"
 
 #ifdef __BORLANDC__
-    #pragma hdrstop
+#pragma hdrstop
 #endif
 
 // for all others, include the necessary headers (this file is usually all you
 // need because it includes almost all "standard" wxWidgets headers)
 #ifndef WX_PRECOMP
-    #include <wx/stream.h>
-    #include <wx/string.h>
-    #include <wx/arrstr.h>
+#include <wx/stream.h>
+#include <wx/string.h>
+#include <wx/arrstr.h>
 #endif
 
 
@@ -35,7 +35,8 @@
 #include "jsonval.h"
 
 // The flags of the parser
-enum {
+enum
+{
     wxJSONREADER_STRICT          = 0,
     wxJSONREADER_ALLOW_COMMENTS  = 1,
     wxJSONREADER_STORE_COMMENTS  = 2,
@@ -47,7 +48,7 @@ enum {
     wxJSONREADER_MEMORYBUFF      = 128,
 
     wxJSONREADER_TOLERANT        = wxJSONREADER_ALLOW_COMMENTS | wxJSONREADER_CASE |
-                                 wxJSONREADER_MISSING | wxJSONREADER_MULTISTRING,
+                                   wxJSONREADER_MISSING | wxJSONREADER_MULTISTRING,
     wxJSONREADER_COMMENTS_BEFORE = wxJSONREADER_ALLOW_COMMENTS | wxJSONREADER_STORE_COMMENTS
 };
 
