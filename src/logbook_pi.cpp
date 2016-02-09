@@ -1013,6 +1013,7 @@ void logbookkonni_pi::SaveConfig()
         pConf->Write ( _T ( "SailsDown" ), opt->engineAllwaysSailsDown );
         pConf->Write ( _T ( "StatusBar" ), opt->statusbar );
         pConf->Write ( _T ( "WindSpeeds" ), opt->windspeeds );
+        pConf->Write ( _T ( "OverviewLines" ), opt->overviewlines );
 
         wxString str = wxEmptyString;
         for ( int i = 0; i < 7; i++ )
@@ -1234,6 +1235,7 @@ void logbookkonni_pi::LoadConfig()
         pConf->Read ( _T ( "SailsDown" ), &opt->engineAllwaysSailsDown );
         pConf->Read ( _T ( "StatusBar" ), &opt->statusbar );
         pConf->Read ( _T ( "WindSpeeds" ), &opt->windspeeds );
+        pConf->Read ( _T ( "OverviewLines" ), &opt->overviewlines );
 
         wxString str = wxEmptyString;
         pConf->Read ( _T ( "PrefixLayouts" ), &str );

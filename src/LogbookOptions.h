@@ -220,6 +220,7 @@ public:
     wxCheckBox* m_checkBoxSailsDown;
     wxCheckBox* m_checkBoxStatusBar;
     wxCheckBox* m_checkBoxWindspeeds;
+    wxCheckBox* m_checkBoxOverview;
 
     wxDateTime textCtrlDate;
 
@@ -241,6 +242,7 @@ public:
     virtual void OnCheckBoxEngineMessage( wxCommandEvent& event );
     virtual void OnCheckBoxGeneratorMessage( wxCommandEvent& event );
     virtual void OnCheckBoxEngineRunning( wxCommandEvent& event );
+    virtual void OnCheckBoxOverview( wxCommandEvent& event );
     virtual void onCheckBoNoGPS( wxCommandEvent& event );
     virtual void onButtonClickInstallHTMLFiles( wxCommandEvent& event );
     virtual void OnButtonClickUninstall( wxCommandEvent& event );

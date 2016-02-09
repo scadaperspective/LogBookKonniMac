@@ -203,20 +203,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     fgSizer29->SetFlexibleDirection( wxBOTH );
     fgSizer29->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 
-
     fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-
-
-    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-
-
-    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-
-
-    fgSizer29->Add( 250, 0, 1, wxEXPAND, 5 );
-
-
-    fgSizer29->Add( 10, 0, 1, wxEXPAND, 5 );
 
     m_checkBoxShowLogbook = new wxCheckBox( m_panel15, wxID_ANY, _( "Show Logbook Icon" ), wxDefaultPosition, wxSize( -1,-1 ), wxCHK_2STATE );
     m_checkBoxShowLogbook->SetValue( true );
@@ -251,25 +238,12 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     m_choiceNoEngines->SetSelection( 0 );
     fgSizer29->Add( m_choiceNoEngines, 0, wxRIGHT, 5 );
 
-
     fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 
-
-    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-
-
-    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-
-
-    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-
-
-    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-
-    m_checkBoxEngine = new wxCheckBox( m_panel15, wxID_ANY, _( "Sails Messages" ), wxDefaultPosition, wxDefaultSize, 0 );
-    m_checkBoxEngine->SetValue( true );
-    fgSizer29->Add( m_checkBoxEngine, 0, wxTOP, 5 );
-
+    m_checkBoxStatusBar = new wxCheckBox( m_panel15, wxID_ANY, _( "StatusBar at bottom of the page" ), wxDefaultPosition, wxDefaultSize, 0 );
+    m_checkBoxStatusBar->SetValue( true );
+    m_checkBoxStatusBar->SetToolTip( _( "If unchecked the StatusBar will be placed above the Navigation/Meteo/Motor-Sails buttons" ) );
+    fgSizer29->Add( m_checkBoxStatusBar, 0, 0, 5 );
 
     fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 
@@ -277,6 +251,26 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     m_checkBoxGenerator->SetValue( true );
     m_checkBoxGenerator->SetToolTip( _( "Check if there is a Generator onboard.\nIf unchecked the Generator columns will not show in Logbook" ) );
     fgSizer29->Add( m_checkBoxGenerator, 0, wxALIGN_CENTER_VERTICAL|wxTOP, 5 );
+
+    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+
+    m_checkBoxWindspeeds = new wxCheckBox( m_panel15, wxID_ANY, _( "Show Min|Avg|Max wind speeds" ), wxDefaultPosition, wxDefaultSize, 0 );
+    m_checkBoxWindspeeds->SetValue( false );
+    m_checkBoxWindspeeds->SetToolTip( _( "If checked the TWS and AWS will display Min|Avg|Max windspeeds" ) );
+    fgSizer29->Add( m_checkBoxWindspeeds, 0, wxALIGN_CENTER_VERTICAL|wxTOP, 5 );
+
+    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+
+    m_checkBoxEngine = new wxCheckBox( m_panel15, wxID_ANY, _( "Sails Messages" ), wxDefaultPosition, wxDefaultSize, 0 );
+    m_checkBoxEngine->SetValue( true );
+    fgSizer29->Add( m_checkBoxEngine, 0, wxTOP, 5 );
+
+    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+
+    m_checkBoxOverview = new wxCheckBox( m_panel15, wxID_ANY, _( "Show daily entries in Overview" ), wxDefaultPosition, wxDefaultSize, 0 );
+    m_checkBoxOverview->SetValue( false );
+    m_checkBoxOverview->SetToolTip( _( "If checked the Overview for Active or Selected logbook will show daily lines-" ) );
+    fgSizer29->Add( m_checkBoxOverview, 0, wxTOP, 5 );
 
     fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 
@@ -290,19 +284,13 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 
     m_checkBoxEngineRunning = new wxCheckBox( m_panel15, wxID_ANY, _( "Write message \"Engine running\" " ), wxDefaultPosition, wxDefaultSize, 0 );
     m_checkBoxEngineRunning->SetValue( true );
+    m_checkBoxEngineRunning->SetToolTip( _( "If checked the message will be in Remarks when engine is started." ) );
     fgSizer29->Add( m_checkBoxEngineRunning, 0, wxALIGN_CENTER_VERTICAL|wxTOP, 5 );
 
     fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 
-
-    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-
-
-    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-
-
-    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-
+    m_checkBoxSailsDown = new wxCheckBox( m_panel15, wxID_ANY, _( "On engine start set always all sails down" ), wxDefaultPosition, wxDefaultSize, 0 );
+    fgSizer29->Add( m_checkBoxSailsDown, 0, 0, 5 );
 
     fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 
@@ -317,23 +305,6 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     m_choiceWindTo->SetToolTip( _( "default = Relative to Boat\nHeading = Actual wind direction" ) );
 
     fgSizer29->Add( m_choiceWindTo, 0, wxRIGHT, 5 );
-
-    m_checkBoxSailsDown = new wxCheckBox( m_panel15, wxID_ANY, _( "On engine start set always all sails down" ), wxDefaultPosition, wxDefaultSize, 0 );
-    fgSizer29->Add( m_checkBoxSailsDown, 0, 0, 5 );
-
-    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-
-    m_checkBoxStatusBar = new wxCheckBox( m_panel15, wxID_ANY, _( "StatusBar at bottom of the page" ), wxDefaultPosition, wxDefaultSize, 0 );
-    m_checkBoxStatusBar->SetValue( true );
-    m_checkBoxStatusBar->SetToolTip( _( "If unchecked the StatusBar will be placed above the Navigation/Meteo/Motor-Sails buttons" ) );
-    fgSizer29->Add( m_checkBoxStatusBar, 0, 0, 5 );
-
-    fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-
-    m_checkBoxWindspeeds = new wxCheckBox( m_panel15, wxID_ANY, _( "Show Min|Avg|Max wind speeds" ), wxDefaultPosition, wxDefaultSize, 0 );
-    m_checkBoxWindspeeds->SetValue( false );
-    m_checkBoxWindspeeds->SetToolTip( _( "If checked the TWS and AWS will display Min|Avg|Max windspeeds" ) );
-    fgSizer29->Add( m_checkBoxWindspeeds, 0, wxALIGN_CENTER_VERTICAL|wxTOP, 5 );
 
     fgSizer10->Add( fgSizer29, 1, 0, 0 );
 
@@ -1373,6 +1344,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     m_checkBoxEngine->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::OnCheckBoxEngineMessage ), NULL, this );
     m_checkBoxEngineRunning->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::OnCheckBoxEngineRunning ), NULL, this );
     m_checkBoxGenerator->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::OnCheckBoxGeneratorMessage ), NULL, this );
+    m_checkBoxOverview->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::OnCheckBoxOverview ), NULL, this );
     m_textCtrlEngine1->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( LogbookOptions::OnTextEng1IdEntry ), NULL, this );
     m_textCtrlEngine2->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( LogbookOptions::OnTextEng2IdEntry ), NULL, this );
     m_textCtrlGenerator->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( LogbookOptions::OnTextGenIdEntry ), NULL, this );
@@ -1438,6 +1410,7 @@ LogbookOptions::~LogbookOptions()
     m_checkBoxEngine->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::OnCheckBoxEngineMessage ), NULL, this );
     m_checkBoxEngineRunning->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::OnCheckBoxEngineRunning ), NULL, this );
     m_checkBoxGenerator->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::OnCheckBoxGeneratorMessage ), NULL, this );
+    m_checkBoxOverview->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::OnCheckBoxOverview ), NULL, this );
     m_textCtrlEngine1->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( LogbookOptions::OnTextEng1IdEntry ), NULL, this );
     m_textCtrlEngine2->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( LogbookOptions::OnTextEng2IdEntry ), NULL, this );
     m_textCtrlGenerator->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( LogbookOptions::OnTextGenIdEntry ), NULL, this );
@@ -1537,6 +1510,11 @@ void LogbookOptions::OnCheckBoxEngineRunning( wxCommandEvent& event )
 }
 
 void LogbookOptions::OnCheckBoxEngineMessage( wxCommandEvent& event )
+{
+
+}
+
+void LogbookOptions::OnCheckBoxOverview( wxCommandEvent& event )
 {
 
 }
@@ -2198,6 +2176,7 @@ void LogbookOptions::setValues()
     m_checkBoxGenerator->SetValue( opt->generator );
     m_checkBoxStatusBar->SetValue( opt->statusbar );
     m_checkBoxWindspeeds->SetValue( opt->windspeeds );
+    m_checkBoxOverview->SetValue( opt->overviewlines );
 
     m_checkBoxKMLRoute->SetValue( ( opt->kmlRoute )?true:false );
     m_checkBoxKMLTrack->SetValue( ( opt->kmlTrack )?true:false );
@@ -2355,6 +2334,7 @@ void LogbookOptions::getValues()
     opt->generator = m_checkBoxGenerator->GetValue();
     opt->statusbar = m_checkBoxStatusBar->GetValue();
     opt->windspeeds = m_checkBoxWindspeeds->GetValue();
+    opt->overviewlines = m_checkBoxOverview->GetValue();
 
     opt->kmlRoute = m_checkBoxKMLRoute->GetValue();
     opt->kmlTrack = m_checkBoxKMLTrack->GetValue();

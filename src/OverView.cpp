@@ -193,12 +193,16 @@ void OverView::clearGrid()
 
 void OverView::loadLogbookData( wxString logbook, bool colour )
 {
-    wxString t,s;
+    wxString t,s,temp;
     bool test = true;
+    bool overviewflag = false;
     //	bool write = true;
     double x = 0;
     wxStringTokenizer tkz1;
     wxTimeSpan span;
+    wxDateSpan oneday(0,0,0,1);
+    wxDateTime enddt;
+    
     collection::iterator it;
 
     resetValues();
@@ -276,6 +280,25 @@ void OverView::loadLogbookData( wxString logbook, bool colour )
                 tmp.Set( day,( wxDateTime::Month ) month,year );
                 s = tmp.Format( opt->sdateformat );
 
+                if ( s != startdate && !test && !showAllLogbooks && opt->overviewlines )
+                {
+                    temp = route;
+                    endtime = "00:00";
+                    parent->myParseDate( startdate,enddt );
+                    enddt.Add( oneday );
+                    enddate = enddt.Format(opt->sdateformat);
+                    //write = true;
+                    writeSumColumn( lastrow, logbook, path, colour );
+                    resetValues();
+                    grid->AppendRows();
+                    route = temp;
+                    overviewflag = true;
+                    row++;
+                    lastrow = row;
+                    test = true;
+                    grid->SetCellValue( row,FROUTE,route );
+                }
+
                 if ( test )
                 {
                     startdate = s;
@@ -318,7 +341,10 @@ void OverView::loadLogbookData( wxString logbook, bool colour )
 
                 if ( test )
                 {
-                    starttime = s;
+                    if ( overviewflag )
+                        starttime = "00:00";
+                    else
+                        starttime = s;
                     endtime = s;
                     if ( rowNewLogbook == 0 )
                         oneLogbookTotal.logbookTimeStart = oneLogbookTotal.logbookTimeEnd = s;
@@ -667,6 +693,7 @@ void OverView::loadLogbookData( wxString logbook, bool colour )
         //if(test)
         writeSumColumn( lastrow, logbook, path, colour );
         test = false;
+        overviewflag = false;
     }
     if ( !showAllLogbooks )
         writeSumColumnLogbook( oneLogbookTotal,lastrow, logbook, colour );
