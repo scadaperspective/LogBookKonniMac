@@ -4499,14 +4499,10 @@ void LogbookDialog::OnMenuSelectionShowHiddenCols( wxCommandEvent &ev )
                     || ( i == LogbookHTML::GENE || i == LogbookHTML::GENET ) ) )
                 continue;
             else
-#ifdef __WXOSX__
             {
                 logGrids[selGrid]->SetColumnWidth( i,1 );
                 logGrids[selGrid]->AutoSizeColumn( i,false );
             }
-#else
-                logGrids[selGrid]->AutoSizeColumn( i,false );
-#endif
         }
 
     m_gridMotorSails->SetColumnWidth( LogbookHTML::ROUTEID,0 );
