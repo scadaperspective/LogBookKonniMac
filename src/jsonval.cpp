@@ -7,11 +7,11 @@
 // Copyright:   (c) 2007 Luciano Cattani
 // Licence:     wxWidgets licence
 /////////////////////////////////////////////////////////////////////////////
-#ifndef __WXOSX__
+
 #ifdef __GNUG__
 #pragma implementation "jsonval.cpp"
 #endif
-#endif
+
 
 // For compilers that support precompilation, includes "wx.h".
 #include "wx/wxprec.h"
