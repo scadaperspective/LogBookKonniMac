@@ -32,7 +32,7 @@
 #include "wx/wxprec.h"
 
 #ifndef  WX_PRECOMP
-  #include "wx/wx.h"
+#include "wx/wx.h"
 #endif //precompiled headers
 
 #include "version.h"
@@ -75,7 +75,7 @@ class logbookkonni_pi : public opencpn_plugin_17
 public:
     enum states {OFF,ONNOEVENTS,ONWITHEVENTS};
 
-    logbookkonni_pi(void *ppimgr);
+    logbookkonni_pi( void *ppimgr );
     ~logbookkonni_pi();
 
     bool				dlgShow;
@@ -95,8 +95,8 @@ public:
     bool				eventsEnabled;
 
     //    The required PlugIn Methods
-    int Init(void);
-    bool DeInit(void);
+    int Init( void );
+    bool DeInit( void );
 
     int GetAPIVersionMajor();
     int GetAPIVersionMinor();
@@ -106,42 +106,43 @@ public:
     wxString GetCommonName();
     wxString GetShortDescription();
     wxString GetLongDescription();
-    void UpdateAuiStatus(void);
-    void SetColorScheme(PI_ColorScheme cs);
+    void UpdateAuiStatus( void );
+    void SetColorScheme( PI_ColorScheme cs );
     void GetOriginalColors();
     void SetOriginalColors();
 
     //    The optional method overrides
 
-    void SetNMEASentence(wxString &sentence);
-    void SetPositionFix(PlugIn_Position_Fix &pfix);
-    void OnContextMenuItemCallback(int id);
+    void SetNMEASentence( wxString &sentence );
+    void SetPositionFix( PlugIn_Position_Fix &pfix );
+    void OnContextMenuItemCallback( int id );
 
     //    The required override PlugIn Methods
     //     bool RenderOverlay(wxMemoryDC *pmdc, PlugIn_ViewPort *vp);
     //      void SetCursorLatLon(double lat, double lon);
 
 
-    void SetDefaults(void);
-    int GetToolbarToolCount(void);
+    void SetDefaults( void );
+    static wxString StandardPath( void );
+    int GetToolbarToolCount( void );
     void ShowPreferencesDialog( wxWindow* parent );
-    void OnToolbarToolCallback(int id);
-    void SetPluginMessage(wxString &message_id, wxString &message_body);
-    void SendLogbookMessage(wxString message_id, wxString message_body);
+    void OnToolbarToolCallback( int id );
+    void SetPluginMessage( wxString &message_id, wxString &message_body );
+    void SendLogbookMessage( wxString message_id, wxString message_body );
     //	  void SendPluginMessage(wxString &message_id, wxString &message_body);
 
-    void loadLayouts(wxWindow * parent);
+    void loadLayouts( wxWindow * parent );
     void startLogbook();
-    void shutdown(bool menu);
+    void shutdown( bool menu );
 
 private:
-    void					OnTimer(wxTimerEvent& ev);
+    void					OnTimer( wxTimerEvent& ev );
     void					SaveConfig();
     void					LoadConfig();
-    ArrayOfGridColWidth	readCols(ArrayOfGridColWidth ar, wxString str);
-    void					writeCols(wxFileConfig *pConf, ArrayOfGridColWidth ar, wxString entry);
-    ArrayOfGridColWidth	readColsOld(wxFileConfig *pConf, ArrayOfGridColWidth ar, wxString entry);
-    void					dialogDimmer(PI_ColorScheme cs,wxWindow* ctrl,wxColour col,wxColour col1, wxColour back_color,wxColour text_color, wxColour uitext, wxColour udkrd);
+    ArrayOfGridColWidth	readCols( ArrayOfGridColWidth ar, wxString str );
+    void					writeCols( wxFileConfig *pConf, ArrayOfGridColWidth ar, wxString entry );
+    ArrayOfGridColWidth	readColsOld( wxFileConfig *pConf, ArrayOfGridColWidth ar, wxString entry );
+    void					dialogDimmer( PI_ColorScheme cs,wxWindow* ctrl,wxColour col,wxColour col1, wxColour back_color,wxColour text_color, wxColour uitext, wxColour udkrd );
     wxAuiManager     *m_pauimgr;
 
     int               m_show_id;
@@ -157,9 +158,12 @@ class LogbookTimer : public wxWindow
 {
 
 public:
-    LogbookTimer(logbookkonni_pi* l) : wxWindow() { plogbook_pi = l; }
+    LogbookTimer( logbookkonni_pi* l ) : wxWindow()
+    {
+        plogbook_pi = l;
+    }
 
-    void		OnTimer(wxTimerEvent& ev);
+    void		OnTimer( wxTimerEvent& ev );
     bool		popUp();
     void		timerEvent();
 

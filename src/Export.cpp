@@ -1,240 +1,248 @@
 #ifndef WX_PRECOMP
-      #include <wx/wx.h>
+#include <wx/wx.h>
 #endif
 
 #include "Export.h"
 #include "LogbookDialog.h"
 #include "boat.h"
 
-#include <wx/filename.h> 
+#include <wx/filename.h>
 #include <wx/mimetype.h>
-#include <wx/wfstream.h> 
-#include <wx/txtstrm.h> 
-#include <wx/zipstrm.h> 
+#include <wx/wfstream.h>
+#include <wx/txtstrm.h>
+#include <wx/zipstrm.h>
 #include <wx/generic/gridctrl.h>
 
 #include <memory>
 using namespace std;
 
-Export::Export(LogbookDialog *dialog)
+Export::Export( LogbookDialog *dialog )
 {
-	this->dialog = dialog;
+    this->dialog = dialog;
 }
 
-Export::~Export(void)
+Export::~Export( void )
 {
 }
 
-wxString Export::readLayoutODT(wxString path,wxString layout)
+wxString Export::readLayoutODT( wxString path,wxString layout )
 {
-	wxString odt = _T("");
+    wxString odt = _T( "" );
 
-	wxString filename = path + layout + _T(".odt");
+    wxString filename = path + layout + _T( ".odt" );
 
-	if(wxFileExists(filename))
-	{
+    if ( wxFileExists( filename ) )
+    {
 //#ifdef __WXOSX__
         auto_ptr<wxZipEntry> entry;
-        static const wxString fn = _T("content.xml");
-        wxString name = wxZipEntry::GetInternalName(fn);
-        wxFFileInputStream in(filename);
-        wxZipInputStream zip(in);
+        static const wxString fn = _T( "content.xml" );
+        wxString name = wxZipEntry::GetInternalName( fn );
+        wxFFileInputStream in( filename );
+        wxZipInputStream zip( in );
         do
         {
-            entry.reset(zip.GetNextEntry());
+            entry.reset( zip.GetNextEntry() );
         }
-        while (entry.get() != NULL && entry->GetInternalName() != name);
-        if (entry.get() != NULL)
+        while ( entry.get() != NULL && entry->GetInternalName() != name );
+        if ( entry.get() != NULL )
         {
-            wxTextInputStream txt(zip,_T("\n"),wxConvUTF8);
-            while(!zip.Eof())
-	            odt += txt.ReadLine();
+            wxTextInputStream txt( zip,_T( "\n" ),wxConvUTF8 );
+            while ( !zip.Eof() )
+                odt += txt.ReadLine();
         }
 //#else
-	/*	static const wxString fn = _T("content.xml");
-		wxFileInputStream in(filename);
-		wxZipInputStream zip(in);
-		wxTextInputStream txt(zip);
-		while(!zip.Eof())
-			odt += txt.ReadLine();*/
+        /*	static const wxString fn = _T("content.xml");
+        	wxFileInputStream in(filename);
+        	wxZipInputStream zip(in);
+        	wxTextInputStream txt(zip);
+        	while(!zip.Eof())
+        		odt += txt.ReadLine();*/
 //#endif
-	}
-	return odt;
+    }
+    return odt;
 }
 
-bool Export::cutInPartsODT(wxString odt, wxString* top, wxString* header, 
-						wxString* middle, wxString* bottom)
+bool Export::cutInPartsODT( wxString odt, wxString* top, wxString* header,
+                            wxString* middle, wxString* bottom )
 {
-	int indexTop;
-	int indexBottom;
-	wxString seperatorTop        = wxT("[[");
-	wxString seperatorBottom     = wxT("]]");
+    int indexTop;
+    int indexBottom;
+    wxString seperatorTop        = wxT( "[[" );
+    wxString seperatorBottom     = wxT( "]]" );
 
-	if(odt.Contains(seperatorTop))
-	{
-		indexTop    = odt.Find(seperatorTop);
-		indexBottom = odt.Find(seperatorBottom);
-		*top				= odt.substr(0,indexTop);
-		*top				= (*top).substr(0,(*top).find_last_of('<'));
-		*bottom			= odt.substr(indexBottom+1);
-		*bottom			= (*bottom).substr((*bottom).find_first_of('>')+1);
-		*middle			= odt.substr(indexTop+11);
-		*middle			= (*middle).substr(0,(*middle).Find(seperatorBottom));
-		*middle			= (*middle).substr(0,(*middle).find_last_of('<'));
-		return _T("OK");
-	}
-	else
-		return _T("");
+    if ( odt.Contains( seperatorTop ) )
+    {
+        indexTop    = odt.Find( seperatorTop );
+        indexBottom = odt.Find( seperatorBottom );
+        *top				= odt.substr( 0,indexTop );
+        *top				= ( *top ).substr( 0,( *top ).find_last_of( '<' ) );
+        *bottom			= odt.substr( indexBottom+1 );
+        *bottom			= ( *bottom ).substr( ( *bottom ).find_first_of( '>' )+1 );
+        *middle			= odt.substr( indexTop+11 );
+        *middle			= ( *middle ).substr( 0,( *middle ).Find( seperatorBottom ) );
+        *middle			= ( *middle ).substr( 0,( *middle ).find_last_of( '<' ) );
+        return _T( "OK" );
+    }
+    else
+        return _T( "" );
 
 }
 
-bool Export::writeToHTML(wxTextFile* logFile, wxGrid* grid, wxString filenameOut,wxString filenameIn, 
-		wxString top,wxString header,wxString middle,wxString bottom, int mode)
+bool Export::writeToHTML( wxTextFile* logFile, wxGrid* grid, wxString filenameOut,wxString filenameIn,
+                          wxString top,wxString header,wxString middle,wxString bottom, int mode )
 {
-	wxFileInputStream input( filenameIn );
-	
-	wxFileOutputStream output( filenameOut);
-	wxTextOutputStream htmlFile(output);
+    wxFileInputStream input( filenameIn );
 
-	top.Replace(wxT("#TYPE#"),dialog->boatType->GetValue());
-	top.Replace(wxT("#BOATNAME#"),dialog->boatName->GetValue());
-	top.Replace(wxT("#HOMEPORT#"),dialog->homeport->GetValue());
-	top.Replace(wxT("#CALLSIGN#"),dialog->callsign->GetValue());
-	top.Replace(wxT("#REGISTRATION#"),dialog->registration->GetValue());
+    wxFileOutputStream output( filenameOut );
+    wxTextOutputStream htmlFile( output );
 
-	htmlFile << top;
+    top.Replace( wxT( "#TYPE#" ),dialog->boatType->GetValue() );
+    top.Replace( wxT( "#BOATNAME#" ),dialog->boatName->GetValue() );
+    top.Replace( wxT( "#HOMEPORT#" ),dialog->homeport->GetValue() );
+    top.Replace( wxT( "#CALLSIGN#" ),dialog->callsign->GetValue() );
+    top.Replace( wxT( "#REGISTRATION#" ),dialog->registration->GetValue() );
 
-	wxString newMiddle = middle;
-	for(int row = 0; row < grid->GetNumberRows(); row++)
-		{
-		  newMiddle = setPlaceHolders(mode,grid, row, middle);
-		  htmlFile << newMiddle;
-		}
-	
-	htmlFile << bottom;
+    htmlFile << top;
 
-	output.Close();
-	return true;
+    wxString newMiddle = middle;
+    for ( int row = 0; row < grid->GetNumberRows(); row++ )
+    {
+        newMiddle = setPlaceHolders( mode,grid, row, middle );
+        htmlFile << newMiddle;
+    }
+
+    htmlFile << bottom;
+
+    output.Close();
+    return true;
 }
 
-wxString Export::readLayoutHTML(wxString path,wxString layoutFileName)
+wxString Export::readLayoutHTML( wxString path,wxString layoutFileName )
 {
-	wxString html, path1;
+    wxString html, path1;
 
-	path1 = path + layoutFileName + wxT(".html");;
-	wxTextFile layout(path1);
-	
-	layout.Open();
+    path1 = path + layoutFileName + wxT( ".html" );;
+    wxTextFile layout( path1 );
 
-	for(unsigned int i = 0; i < layout.GetLineCount(); i++)
-	{
-		html += layout.GetLine(i)+_T("\n");
-	}
+    layout.Open();
 
-	layout.Close();
+    for ( unsigned int i = 0; i < layout.GetLineCount(); i++ )
+    {
+        html += layout.GetLine( i )+_T( "\n" );
+    }
 
-	return html;
+    layout.Close();
+
+    return html;
 }
 
-bool Export::cutInPartsHTML(wxString html, wxString* top, wxString* header, wxString* middle, wxString* bottom)
+bool Export::cutInPartsHTML( wxString html, wxString* top, wxString* header, wxString* middle, wxString* bottom )
 {
-	wxString seperatorTop = _T("<!-- Repeat -->");
-	wxString seperatorBottom = _T("<!-- Repeat End -->");
+    wxString seperatorTop = _T( "<!-- Repeat -->" );
+    wxString seperatorBottom = _T( "<!-- Repeat End -->" );
 
-	int indexTop = html.Find(seperatorTop);
-	indexTop += seperatorTop.Len();
-	int indexBottom = html.Find(seperatorBottom);
-	indexBottom += seperatorBottom.Len();
+    int indexTop = html.Find( seperatorTop );
+    indexTop += seperatorTop.Len();
+    int indexBottom = html.Find( seperatorBottom );
+    indexBottom += seperatorBottom.Len();
 
-	*top = html.substr(0,indexTop);
-	*bottom = html.substr(indexBottom);
-	*middle = html.substr(indexTop,(indexBottom-indexTop)-seperatorBottom.Len());
+    *top = html.substr( 0,indexTop );
+    *bottom = html.substr( indexBottom );
+    *middle = html.substr( indexTop,( indexBottom-indexTop )-seperatorBottom.Len() );
 
-	return true;
+    return true;
 }
 
-wxTextFile* Export::setFiles(wxString savePath, wxString *path, int mode)
+wxTextFile* Export::setFiles( wxString savePath, wxString *path, int mode )
 {
-	if(mode == 0 )
-	{	(*path).Replace(wxT("txt"),wxT("html")); }
-	else if(mode == 1)
-	{	(*path).Replace(wxT("txt"),wxT("odt")); }
-	else 
-	{	(*path) = savePath; }
+    if ( mode == 0 )
+    {
+        ( *path ).Replace( wxT( "txt" ),wxT( "html" ) );
+    }
+    else if ( mode == 1 )
+    {
+        ( *path ).Replace( wxT( "txt" ),wxT( "odt" ) );
+    }
+    else
+    {
+        ( *path ) = savePath;
+    }
 
-	if(::wxFileExists(*path))
-		::wxRemoveFile(*path);
+    if ( ::wxFileExists( *path ) )
+        ::wxRemoveFile( *path );
 
-	wxTextFile *logFile = new wxTextFile(*path);
-	return logFile;
+    wxTextFile *logFile = new wxTextFile( *path );
+    return logFile;
 }
 
-bool Export::writeToODT(wxTextFile* logFile,wxGrid* grid, wxString filenameOut,wxString filenameIn, wxString top,wxString header,
-				wxString middle,wxString bottom, int mode)
+bool Export::writeToODT( wxTextFile* logFile,wxGrid* grid, wxString filenameOut,wxString filenameIn, wxString top,wxString header,
+                         wxString middle,wxString bottom, int mode )
 {
-	auto_ptr<wxFFileInputStream> in(new wxFFileInputStream(filenameIn));
-    wxTempFileOutputStream out(filenameOut);
+    auto_ptr<wxFFileInputStream> in( new wxFFileInputStream( filenameIn ) );
+    wxTempFileOutputStream out( filenameOut );
 
-    wxZipInputStream inzip(*in);
-    wxZipOutputStream outzip(out);
-    wxTextOutputStream odtFile(outzip);
+    wxZipInputStream inzip( *in );
+    wxZipOutputStream outzip( out );
+    wxTextOutputStream odtFile( outzip );
     auto_ptr<wxZipEntry> entry;
 
-    outzip.CopyArchiveMetaData(inzip);
+    outzip.CopyArchiveMetaData( inzip );
 
-    while (entry.reset(inzip.GetNextEntry()), entry.get() != NULL)
-        if (!entry->GetName().Matches(_T("content.xml")))
-            if (!outzip.CopyEntry(entry.release(), inzip))
+    while ( entry.reset( inzip.GetNextEntry() ), entry.get() != NULL )
+        if ( !entry->GetName().Matches( _T( "content.xml" ) ) )
+            if ( !outzip.CopyEntry( entry.release(), inzip ) )
                 break;
 
     in.reset();
 
-    outzip.PutNextEntry(_T("content.xml"));
+    outzip.PutNextEntry( _T( "content.xml" ) );
 
     odtFile << top;
 
-	wxString newMiddle;
-	for(int row = 0; row < grid->GetNumberRows(); row++)
-		{
-		  newMiddle = setPlaceHolders(mode,grid, row, middle);
-		  odtFile << newMiddle;
-		}
+    wxString newMiddle;
+    for ( int row = 0; row < grid->GetNumberRows(); row++ )
+    {
+        newMiddle = setPlaceHolders( mode,grid, row, middle );
+        odtFile << newMiddle;
+    }
 
-	odtFile << bottom;
+    odtFile << bottom;
 
-	inzip.Eof() && outzip.Close() && out.Commit();
-	logFile->Close();
+    inzip.Eof() && outzip.Close() && out.Commit();
+    logFile->Close();
 
-	return true;
+    return true;
 }
 
 
-wxString Export::replaceNewLine(int mode, wxString str, bool label)
+wxString Export::replaceNewLine( int mode, wxString str, bool label )
 {
-	str.Replace(wxT("&"),wxT("&amp;"));
-	str.Replace(wxT("<"),wxT("&lt;"));
-	str.Replace(wxT(">"),wxT("&gt;"));
-	str.Replace(wxT("'"),wxT("&apos;"));
-	str.Replace(wxT("\""),wxT("&quot;"));
+    str.Replace( wxT( "&" ),wxT( "&amp;" ) );
+    str.Replace( wxT( "<" ),wxT( "&lt;" ) );
+    str.Replace( wxT( ">" ),wxT( "&gt;" ) );
+    str.Replace( wxT( "'" ),wxT( "&apos;" ) );
+    str.Replace( wxT( "\"" ),wxT( "&quot;" ) );
 //	str.Replace(wxT("°"),wxT("&deg;"));
 
-	if(mode == 0)
-		{// HTML
-		  str.Replace(wxT("\n"),wxT("<br>"));
-		} 
-	else
-		{// ODT
-		  if(!label)
-		  {
-		  str.Replace(wxT("\n"),wxT("<text:line-break/>"));
-		  str.Replace(wxT("\xD\xA"),wxT("<text:line-break/>"));
-		  }
-		  else
-		  {
-		  str.Replace(wxT("\n"),wxT(" "));
-		  str.Replace(wxT("\xD\xA"),wxT(" "));
-		  }
-		}
+    if ( mode == 0 )
+    {
+        // HTML
+        str.Replace( wxT( "\n" ),wxT( "<br>" ) );
+    }
+    else
+    {
+        // ODT
+        if ( !label )
+        {
+            str.Replace( wxT( "\n" ),wxT( "<text:line-break/>" ) );
+            str.Replace( wxT( "\xD\xA" ),wxT( "<text:line-break/>" ) );
+        }
+        else
+        {
+            str.Replace( wxT( "\n" ),wxT( " " ) );
+            str.Replace( wxT( "\xD\xA" ),wxT( " " ) );
+        }
+    }
 
-	return str;
+    return str;
 }

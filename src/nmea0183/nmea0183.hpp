@@ -132,133 +132,133 @@
 #include "ZTG.hpp"
 */
 
-WX_DECLARE_LIST(RESPONSE, MRL);
+WX_DECLARE_LIST( RESPONSE, MRL );
 
 class NMEA0183L
 {
 
-   private:
+private:
 
-      SENTENCE sentence;
+    SENTENCE sentence;
 
-      void initialize( void );
+    void initialize( void );
 
-   protected:
+protected:
 
-      MRL response_table;
+    MRL response_table;
 
-      void set_container_pointers( void );
-      void sort_response_table( void );
+    void set_container_pointers( void );
+    void sort_response_table( void );
 
-   public:
+public:
 
-      NMEA0183L();
-      virtual ~NMEA0183L();
+    NMEA0183L();
+    virtual ~NMEA0183L();
 
-      /*
-      ** NMEA 0183 Sentences we understand
-      */
+    /*
+    ** NMEA 0183 Sentences we understand
+    */
 
-/*
-      AAM Aam;
-      ALM Alm;
-      APB Apb;
-      ASD Asd;
-      BEC Bec;
-      BOD Bod;
-      BWC Bwc;
-      BWR Bwr;
-      BWW Bww;
-*/
-      DBT Dbt;
-/*
-      DCN Dcn;
-*/
-      DPT Dpt;
-/*
-      FSI Fsi;
-*/
-      GGA Gga;
-/*
-      GLC Glc;
-*/
-      GLL Gll;
-      GSV Gsv;
-/*
-      GXA Gxa;
-*/
-      HDM Hdm;
-      HDG Hdg;
-      HDT Hdt;
-/*
-      HSC Hsc;
-      LCD Lcd;
-*/
-      MTW Mtw;
-      MWV Mwv;
-/*
-      OLN Oln;
-      OSD Osd;
-      P   Proprietary;
-      RMA Rma;
-*/
-      RMB Rmb;
-      RMC Rmc;
-/*
-      ROT Rot;
-      RPM Rpm;
-*/
-      RSA Rsa;
-/*
-      RSD Rsd;
-*/
-      RTE Rte;
-/*
-      SFI Sfi;
-      STN Stn;
-      TRF Trf;
-      TTM Ttm;
-      VBW Vbw;
-      VDR Vdr;
-*/
-      VHW Vhw;
-/*
-      VLW Vlw;
-      VPW Vpw;
-*/
-      VTG Vtg;
-      VWR Vwr;
-      VWT Vwt;
-/*
-      WCV Wcv;
-      WNC Wnc;
-*/
-      WPL Wpl;
-/*
-      XDR Xdr;
-      XTE Xte;
-      XTR Xtr;
-*/
-      ZDA Zda;
-/*
-      ZFO Zfo;
-      ZTG Ztg;
-*/
-      wxString ErrorMessage; // Filled when Parse returns FALSE
-      wxString LastSentenceIDParsed; // ID of the lst sentence successfully parsed
-      wxString LastSentenceIDReceived; // ID of the last sentence received, may not have parsed successfully
+    /*
+          AAM Aam;
+          ALM Alm;
+          APB Apb;
+          ASD Asd;
+          BEC Bec;
+          BOD Bod;
+          BWC Bwc;
+          BWR Bwr;
+          BWW Bww;
+    */
+    DBT Dbt;
+    /*
+          DCN Dcn;
+    */
+    DPT Dpt;
+    /*
+          FSI Fsi;
+    */
+    GGA Gga;
+    /*
+          GLC Glc;
+    */
+    GLL Gll;
+    GSV Gsv;
+    /*
+          GXA Gxa;
+    */
+    HDM Hdm;
+    HDG Hdg;
+    HDT Hdt;
+    /*
+          HSC Hsc;
+          LCD Lcd;
+    */
+    MTW Mtw;
+    MWV Mwv;
+    /*
+          OLN Oln;
+          OSD Osd;
+          P   Proprietary;
+          RMA Rma;
+    */
+    RMB Rmb;
+    RMC Rmc;
+    /*
+          ROT Rot;
+          RPM Rpm;
+    */
+    RSA Rsa;
+    /*
+          RSD Rsd;
+    */
+    RTE Rte;
+    /*
+          SFI Sfi;
+          STN Stn;
+          TRF Trf;
+          TTM Ttm;
+          VBW Vbw;
+          VDR Vdr;
+    */
+    VHW Vhw;
+    /*
+          VLW Vlw;
+          VPW Vpw;
+    */
+    VTG Vtg;
+    VWR Vwr;
+    VWT Vwt;
+    /*
+          WCV Wcv;
+          WNC Wnc;
+    */
+    WPL Wpl;
+    /*
+          XDR Xdr;
+          XTE Xte;
+          XTR Xtr;
+    */
+    ZDA Zda;
+    /*
+          ZFO Zfo;
+          ZTG Ztg;
+    */
+    wxString ErrorMessage; // Filled when Parse returns FALSE
+    wxString LastSentenceIDParsed; // ID of the lst sentence successfully parsed
+    wxString LastSentenceIDReceived; // ID of the last sentence received, may not have parsed successfully
 
-      wxString TalkerID;
-      wxString ExpandedTalkerID;
+    wxString TalkerID;
+    wxString ExpandedTalkerID;
 
 //      MANUFACTURER_LIST Manufacturers;
 
-      virtual bool IsGood( void ) const;
-      virtual bool Parse( void );
-      virtual bool PreParse( void );
+    virtual bool IsGood( void ) const;
+    virtual bool Parse( void );
+    virtual bool PreParse( void );
 
-      NMEA0183L& operator << ( wxString& source );
-      NMEA0183L& operator >> ( wxString& destination );
+    NMEA0183L& operator << ( wxString& source );
+    NMEA0183L& operator >> ( wxString& destination );
 };
 
 #endif // NMEA_0183_CLASS_HEADER
