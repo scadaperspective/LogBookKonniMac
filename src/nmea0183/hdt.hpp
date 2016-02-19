@@ -12,30 +12,30 @@
 class HDT : public RESPONSE
 {
 
-   public:
+public:
 
-      HDT();
-     ~HDT();
+    HDT();
+    ~HDT();
 
-      /*
-      ** Data
-      */
+    /*
+    ** Data
+    */
 
-      double DegreesTrue;
+    double DegreesTrue;
 
-      /*
-      ** Methods
-      */
+    /*
+    ** Methods
+    */
 
-      virtual void Empty( void );
-      virtual bool Parse( const SENTENCE& sentence );
-      virtual bool Write( SENTENCE& sentence );
+    virtual void Empty( void );
+    virtual bool Parse( const SENTENCE& sentence );
+    virtual bool Write( SENTENCE& sentence );
 
-      /*
-      ** Operators
-      */
+    /*
+    ** Operators
+    */
 
-      virtual const HDT& operator = ( const HDT& source );
+    virtual const HDT& operator = ( const HDT& source );
 };
 
 #endif // HDT_CLASS_HEADER

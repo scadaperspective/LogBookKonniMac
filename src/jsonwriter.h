@@ -12,27 +12,28 @@
 #define _WX_JSONWRITER_H
 #ifndef __WXOSX__
 #ifdef __GNUG__
-    #pragma interface "jsonwriter.h"
+#pragma interface "jsonwriter.h"
 #endif
 #endif
 // For compilers that support precompilation, includes "wx/wx.h".
 #include "wx/wxprec.h"
 
 #ifdef __BORLANDC__
-    #pragma hdrstop
+#pragma hdrstop
 #endif
 
 // for all others, include the necessary headers (this file is usually all you
 // need because it includes almost all "standard" wxWidgets headers)
 #ifndef WX_PRECOMP
-    #include <wx/stream.h>
-    #include <wx/string.h>
+#include <wx/stream.h>
+#include <wx/string.h>
 #endif
 
 #include "json_defs.h"
 #include "jsonval.h"
 
-enum {
+enum
+{
     wxJSONWRITER_NONE            = 0,
     wxJSONWRITER_STYLED          = 1,
     wxJSONWRITER_WRITE_COMMENTS  = 2,

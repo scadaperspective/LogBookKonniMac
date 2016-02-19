@@ -7,7 +7,7 @@
 #	include <wx/wx.h>
 #endif
 
-extern void initialize_images(void);
+extern void initialize_images( void );
 
 extern wxBitmap *_img_logbook_pi;
 extern wxBitmap *_img_logbook;

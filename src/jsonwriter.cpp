@@ -9,7 +9,7 @@
 /////////////////////////////////////////////////////////////////////////////
 #ifndef __WXOSX__
 #ifdef __GNUG__
-    #pragma implementation "jsonwriter.cpp"
+#pragma implementation "jsonwriter.cpp"
 #endif
 #endif
 
@@ -20,7 +20,7 @@
 #include <wx/debug.h>
 #include <wx/log.h>
 
-static const wxChar* writerTraceMask = _T("traceWriter");
+static const wxChar* writerTraceMask = _T( "traceWriter" );
 
 /*! \class wxJSONWriter
  \brief The JSON document writer
@@ -182,7 +182,7 @@ static const wxChar* writerTraceMask = _T("traceWriter");
     \li wxJSONWRITER_NOUTF8_STREAM: suppress UTF-8 conversion when writing string
         values to the stream thus producing ANSI text output; only meaningfull in
         ANSI builds, this flag is simply ignored in Unicode builds.
-    \li wxJSONWRITER_MEMORYBUFF: 
+    \li wxJSONWRITER_MEMORYBUFF:
 
 
  Note that for the style wxJSONWRITER_NONE the JSON text output is a bit
@@ -197,17 +197,19 @@ wxJSONWriter::wxJSONWriter( int style, int indent, int step )
     m_step   = step;
     m_style  = style;
     m_noUtf8 = false;
-    if ( m_style == wxJSONWRITER_NONE )  {
+    if ( m_style == wxJSONWRITER_NONE )
+    {
         m_indent = 0;
         m_step   = 0;
     }
     // set the default format string for doubles as
     // 10 significant digits and suppress trailing ZEROes
-    SetDoubleFmtString( "%.10g") ;
+    SetDoubleFmtString( "%.10g" ) ;
 
 #if !defined( wxJSON_USE_UNICODE )
     // in ANSI builds we can suppress UTF-8 conversion for both the writer and the reader
-    if ( m_style == wxJSONWRITER_NOUTF8_STREAM )    {
+    if ( m_style == wxJSONWRITER_NOUTF8_STREAM )
+    {
         m_noUtf8 = true;
     }
 #endif
@@ -276,11 +278,13 @@ wxJSONWriter::Write( const wxJSONValue& value, wxString& str )
     wxStreamBuffer* osBuff = os.GetOutputStreamBuffer();
     void* buffStart = osBuff->GetBufferStart();
 
-    if ( m_noUtf8 )    {
-        str = wxString::From8BitData( (const char*) buffStart, len );
+    if ( m_noUtf8 )
+    {
+        str = wxString::From8BitData( ( const char* ) buffStart, len );
     }
-    else    {
-        str = wxString::FromUTF8( (const char*) buffStart, len );
+    else
+    {
+        str = wxString::FromUTF8( ( const char* ) buffStart, len );
     }
 #if !defined( wxJSON_USE_UNICODE )
     m_noUtf8 = noUtf8_bak;        // restore the old setting
@@ -313,7 +317,7 @@ wxJSONWriter::Write( const wxJSONValue& value, wxOutputStream& os )
 void
 wxJSONWriter::SetDoubleFmtString( const char* fmt )
 {
-    m_fmt = (char*) fmt;
+    m_fmt = ( char* ) fmt;
 }
 
 
@@ -343,7 +347,8 @@ wxJSONWriter::DoWrite( wxOutputStream& os, const wxJSONValue& value, const wxStr
     // some variables that cannot be allocated in the switch statement
     const wxJSONInternalMap* map = 0;
     int size;
-    m_colNo = 1; m_lineNo = 1;
+    m_colNo = 1;
+    m_lineNo = 1;
     // determine the comment position; it is one of:
     //
     //  wxJSONVALUE_COMMENT_BEFORE
@@ -352,12 +357,15 @@ wxJSONWriter::DoWrite( wxOutputStream& os, const wxJSONValue& value, const wxStr
     //
     // or -1 if comments have not to be written
     int commentPos = -1;
-    if ( value.GetCommentCount() > 0 && (m_style & wxJSONWRITER_WRITE_COMMENTS))  {
+    if ( value.GetCommentCount() > 0 && ( m_style & wxJSONWRITER_WRITE_COMMENTS ) )
+    {
         commentPos = value.GetCommentPos();
-        if ( ( m_style & wxJSONWRITER_COMMENTS_BEFORE) != 0 ) {
+        if ( ( m_style & wxJSONWRITER_COMMENTS_BEFORE ) != 0 )
+        {
             commentPos = wxJSONVALUE_COMMENT_BEFORE;
         }
-        else if ( (m_style & wxJSONWRITER_COMMENTS_AFTER) != 0 ) {
+        else if ( ( m_style & wxJSONWRITER_COMMENTS_AFTER ) != 0 )
+        {
             commentPos = wxJSONVALUE_COMMENT_AFTER;
         }
     }
@@ -365,26 +373,32 @@ wxJSONWriter::DoWrite( wxOutputStream& os, const wxJSONValue& value, const wxStr
     int lastChar = 0;  // check if WriteComment() writes the last LF char
 
     // first write the comment if it is BEFORE
-    if ( commentPos == wxJSONVALUE_COMMENT_BEFORE )   {
+    if ( commentPos == wxJSONVALUE_COMMENT_BEFORE )
+    {
         lastChar = WriteComment( os, value, true );
-        if ( lastChar < 0 )   {
+        if ( lastChar < 0 )
+        {
             return lastChar;
         }
-        else if ( lastChar != '\n' )  {
+        else if ( lastChar != '\n' )
+        {
             WriteSeparator( os );
         }
     }
 
     lastChar = WriteIndent( os );
-    if ( lastChar < 0 )   {
+    if ( lastChar < 0 )
+    {
         return lastChar;
     }
 
     // now write the key if it is not NULL
-    if ( key )   {
+    if ( key )
+    {
         lastChar = WriteKey( os, *key );
     }
-    if ( lastChar < 0 )   {
+    if ( lastChar < 0 )
+    {
         return lastChar;
     }
 
@@ -393,10 +407,11 @@ wxJSONWriter::DoWrite( wxOutputStream& os, const wxJSONValue& value, const wxStr
     long int count = 0;
 
     wxJSONType t = value.GetType();
-    switch ( t )  {
+    switch ( t )
+    {
     case wxJSONTYPE_INVALID :
         WriteInvalid( os );
-        wxFAIL_MSG( _T("wxJSONWriter::WriteEmpty() cannot be called (not a valid JSON text"));
+        wxFAIL_MSG( _T( "wxJSONWriter::WriteEmpty() cannot be called (not a valid JSON text" ) );
         break;
 
     case wxJSONTYPE_INT :
@@ -426,51 +441,60 @@ wxJSONWriter::DoWrite( wxOutputStream& os, const wxJSONValue& value, const wxStr
 
     case wxJSONTYPE_STRING :
     case wxJSONTYPE_CSTRING :
-        lastChar = WriteStringValue( os, value.AsString());
+        lastChar = WriteStringValue( os, value.AsString() );
         break;
 
     case wxJSONTYPE_MEMORYBUFF :
-        lastChar = WriteMemoryBuff( os, value.AsMemoryBuff());
+        lastChar = WriteMemoryBuff( os, value.AsMemoryBuff() );
         break;
 
     case wxJSONTYPE_ARRAY :
         ++m_level;
         os.PutC( '[' );
         // the inline comment for objects and arrays are printed in the open char
-        if ( commentPos == wxJSONVALUE_COMMENT_INLINE )   {
+        if ( commentPos == wxJSONVALUE_COMMENT_INLINE )
+        {
             commentPos = -1;  // we have already written the comment
             lastChar = WriteComment( os, value, false );
-            if ( lastChar < 0 )   {
+            if ( lastChar < 0 )
+            {
                 return lastChar;
             }
-            if ( lastChar != '\n' )   {
+            if ( lastChar != '\n' )
+            {
                 lastChar = WriteSeparator( os );
             }
         }
-        else   {    // comment is not to be printed inline, so write a LF
+        else        // comment is not to be printed inline, so write a LF
+        {
             lastChar = WriteSeparator( os );
-            if ( lastChar < 0 )   {
+            if ( lastChar < 0 )
+            {
                 return lastChar;
             }
         }
 
         // now iterate through all sub-items and call DoWrite() recursively
         size = value.Size();
-        for ( int i = 0; i < size; i++ )  {
+        for ( int i = 0; i < size; i++ )
+        {
             bool comma = false;
-            if ( i < size - 1 )  {
+            if ( i < size - 1 )
+            {
                 comma = true;
             }
             wxJSONValue v = value.ItemAt( i );
             lastChar = DoWrite( os, v, 0, comma );
-            if ( lastChar < 0 )  {
+            if ( lastChar < 0 )
+            {
                 return lastChar;
             }
 
         }
         --m_level;
         lastChar = WriteIndent( os );
-        if ( lastChar < 0 )   {
+        if ( lastChar < 0 )
+        {
             return lastChar;
         }
         os.PutC( ']' );
@@ -481,40 +505,48 @@ wxJSONWriter::DoWrite( wxOutputStream& os, const wxJSONValue& value, const wxStr
 
         os.PutC( '{' );
         // the inline comment for objects and arrays are printed in the open char
-        if ( commentPos == wxJSONVALUE_COMMENT_INLINE )   {
+        if ( commentPos == wxJSONVALUE_COMMENT_INLINE )
+        {
             commentPos = -1;  // we have already written the comment
             lastChar = WriteComment( os, value, false );
-            if ( lastChar < 0 )   {
+            if ( lastChar < 0 )
+            {
                 return lastChar;
             }
-            if ( lastChar != '\n' )   {
+            if ( lastChar != '\n' )
+            {
                 WriteSeparator( os );
             }
         }
-        else   {
+        else
+        {
             lastChar = WriteSeparator( os );
         }
 
         map = value.AsMap();
         size = value.Size();
         count = 0;
-        for ( it = map->begin(); it != map->end(); ++it )  {
+        for ( it = map->begin(); it != map->end(); ++it )
+        {
             // get the key and the value
             wxString key = it->first;
             const wxJSONValue& v = it->second;
             bool comma = false;
-            if ( count < size - 1 )  {
+            if ( count < size - 1 )
+            {
                 comma = true;
             }
             lastChar = DoWrite( os, v, &key, comma );
-            if ( lastChar < 0 )  {
+            if ( lastChar < 0 )
+            {
                 return lastChar;
             }
             count++;
         }
         --m_level;
         lastChar = WriteIndent( os );
-        if ( lastChar < 0 )   {
+        if ( lastChar < 0 )
+        {
             return lastChar;
         }
         os.PutC( '}' );
@@ -522,29 +554,35 @@ wxJSONWriter::DoWrite( wxOutputStream& os, const wxJSONValue& value, const wxStr
 
     default :
         // a not yet defined wxJSONType: we FAIL
-        wxFAIL_MSG( _T("wxJSONWriter::DoWrite() undefined wxJSONType type"));
+        wxFAIL_MSG( _T( "wxJSONWriter::DoWrite() undefined wxJSONType type" ) );
         break;
     }
 
     // writes the comma character before the inline comment
-    if ( comma )  {
+    if ( comma )
+    {
         os.PutC( ',' );
     }
 
-    if ( commentPos == wxJSONVALUE_COMMENT_INLINE )   {
+    if ( commentPos == wxJSONVALUE_COMMENT_INLINE )
+    {
         lastChar = WriteComment( os, value, false );
-        if ( lastChar < 0 )   {
+        if ( lastChar < 0 )
+        {
             return lastChar;
         }
     }
-    else if ( commentPos == wxJSONVALUE_COMMENT_AFTER )   {
+    else if ( commentPos == wxJSONVALUE_COMMENT_AFTER )
+    {
         WriteSeparator( os );
         lastChar = WriteComment( os, value, true );
-        if ( lastChar < 0 )   {
+        if ( lastChar < 0 )
+        {
             return lastChar;
         }
     }
-    if ( lastChar != '\n' )  {
+    if ( lastChar != '\n' )
+    {
         lastChar = WriteSeparator( os );
     }
     return lastChar;
@@ -561,22 +599,27 @@ wxJSONWriter::WriteComment( wxOutputStream& os, const wxJSONValue& value, bool i
     int lastChar = 0;
 
     // only write comments if the style include the WRITE_COMMENTS flag
-    if ( (m_style & wxJSONWRITER_WRITE_COMMENTS ) == 0 ) {
+    if ( ( m_style & wxJSONWRITER_WRITE_COMMENTS ) == 0 )
+    {
         return lastChar;
     }
 
     const wxArrayString cmt = value.GetCommentArray();
     int cmtSize = cmt.GetCount();
-    for ( int i = 0; i < cmtSize; i++ )    {
-        if ( indent )    {
+    for ( int i = 0; i < cmtSize; i++ )
+    {
+        if ( indent )
+        {
             WriteIndent( os );
         }
-        else    {
+        else
+        {
             os.PutC( '\t' );
         }
-        WriteString( os, cmt[i]);
+        WriteString( os, cmt[i] );
         lastChar = cmt[i].Last();
-        if ( lastChar != '\n' )   {
+        if ( lastChar != '\n' )
+        {
             os.PutC( '\n' );
             lastChar = '\n';
         }
@@ -623,20 +666,24 @@ int
 wxJSONWriter::WriteIndent( wxOutputStream& os, int num )
 {
     int lastChar = 0;
-    if ( !(m_style & wxJSONWRITER_STYLED) || (m_style & wxJSONWRITER_NO_INDENTATION))  {
+    if ( !( m_style & wxJSONWRITER_STYLED ) || ( m_style & wxJSONWRITER_NO_INDENTATION ) )
+    {
         return lastChar;
     }
 
     int numChars = m_indent + ( m_step * num );
     char c = ' ';
-    if ( m_style & wxJSONWRITER_TAB_INDENT ) {
+    if ( m_style & wxJSONWRITER_TAB_INDENT )
+    {
         c = '\t';
         numChars = num;
     }
 
-    for ( int i = 0; i < numChars; i++ )  {
+    for ( int i = 0; i < numChars; i++ )
+    {
         os.PutC( c );
-        if ( os.GetLastError() != wxSTREAM_NO_ERROR )    {
+        if ( os.GetLastError() != wxSTREAM_NO_ERROR )
+        {
             return -1;
         }
 
@@ -672,22 +719,25 @@ wxJSONWriter::WriteStringValue( wxOutputStream& os, const wxString& str )
     char* writeBuff = 0;
     wxCharBuffer utf8CB = str.ToUTF8();        // the UTF-8 buffer
 #if !defined( wxJSON_USE_UNICODE )
-    wxCharBuffer ansiCB( str.c_str());        // the ANSI buffer
-    if ( m_noUtf8 )    {
+    wxCharBuffer ansiCB( str.c_str() );       // the ANSI buffer
+    if ( m_noUtf8 )
+    {
         writeBuff = ansiCB.data();
     }
-    else    {
+    else
+    {
         writeBuff = utf8CB.data();
     }
 #else
-        writeBuff = utf8CB.data();
+    writeBuff = utf8CB.data();
 #endif
 
     // NOTE: in ANSI builds UTF-8 conversion may fail (see samples/test5.cpp,
     // test 7.3) although I do not know why
-    if ( writeBuff == 0 )    {
+    if ( writeBuff == 0 )
+    {
         const char* err = "<wxJSONWriter::WriteStringValue(): error converting the string to a UTF8 buffer>";
-        os.Write( err, strlen( err ));
+        os.Write( err, strlen( err ) );
         return 0;
     }
     size_t len = strlen( writeBuff );
@@ -701,7 +751,8 @@ wxJSONWriter::WriteStringValue( wxOutputStream& os, const wxString& str )
 
     // now write the UTF8 buffer processing the bytes
     size_t i;
-    for ( i = 0; i < len; i++ ) {
+    for ( i = 0; i < len; i++ )
+    {
         bool shouldEscape = false;
         unsigned char ch = *writeBuff;
         ++writeBuff;        // point to the next byte
@@ -712,7 +763,8 @@ wxJSONWriter::WriteStringValue( wxOutputStream& os, const wxString& str )
         // for every character we have to check if it is a character that
         // needs to be escaped: note that characters that should be escaped
         // may be not if some writer's flags are specified
-        switch ( ch )  {
+        switch ( ch )
+        {
         case '\"' :     // quotes
             shouldEscape = true;
             escCh = '\"';
@@ -753,43 +805,54 @@ wxJSONWriter::WriteStringValue( wxOutputStream& os, const wxString& str )
 
         // if the character is a control character that is not identified by a
         // lowercase letter, we should escape it
-        if ( !shouldEscape && ch < 32 )  {
+        if ( !shouldEscape && ch < 32 )
+        {
             char b[8];
-            snprintf( b, 8, "\\u%04X", (int) ch );
+            snprintf( b, 8, "\\u%04X", ( int ) ch );
             os.Write( b, 6 );
-            if ( os.GetLastError() != wxSTREAM_NO_ERROR )    {
+            if ( os.GetLastError() != wxSTREAM_NO_ERROR )
+            {
                 return -1;
             }
         }
 
         // the char is not a control character
-        else {
+        else
+        {
             // some characters that should be escaped are not escaped
             // if the writer was constructed with some flags
-            if ( shouldEscape && !( m_style & wxJSONWRITER_ESCAPE_SOLIDUS) )  {
-                if ( ch == '/' )  {
+            if ( shouldEscape && !( m_style & wxJSONWRITER_ESCAPE_SOLIDUS ) )
+            {
+                if ( ch == '/' )
+                {
                     shouldEscape = false;
                 }
             }
-            if ( shouldEscape && (m_style & wxJSONWRITER_MULTILINE_STRING))  {
-                if ( ch == '\n' || ch == '\t' )  {
+            if ( shouldEscape && ( m_style & wxJSONWRITER_MULTILINE_STRING ) )
+            {
+                if ( ch == '\n' || ch == '\t' )
+                {
                     shouldEscape = false;
                 }
             }
 
 
             // now write the character prepended by ESC if it should be escaped
-            if ( shouldEscape )  {
+            if ( shouldEscape )
+            {
                 os.PutC( '\\' );
                 os.PutC( escCh );
-                if ( os.GetLastError() != wxSTREAM_NO_ERROR )    {
+                if ( os.GetLastError() != wxSTREAM_NO_ERROR )
+                {
                     return -1;
                 }
             }
-            else {
+            else
+            {
                 //  a normal char or a UTF-8 units: write the character
                 os.PutC( ch );
-                if ( os.GetLastError() != wxSTREAM_NO_ERROR )    {
+                if ( os.GetLastError() != wxSTREAM_NO_ERROR )
+                {
                     return -1;
                 }
             }
@@ -797,29 +860,36 @@ wxJSONWriter::WriteStringValue( wxOutputStream& os, const wxString& str )
 
         // check if SPLIT_STRING flag is set and if the string has to
         // be splitted
-        if ( (m_style & wxJSONWRITER_STYLED) && (m_style & wxJSONWRITER_SPLIT_STRING))   {
+        if ( ( m_style & wxJSONWRITER_STYLED ) && ( m_style & wxJSONWRITER_SPLIT_STRING ) )
+        {
             // split the string if the character written is LF
-            if ( ch == '\n' ) {
+            if ( ch == '\n' )
+            {
                 // close quotes and CR
                 os.Write( "\"\n", 2 );
                 lastChar = WriteIndent( os, m_level + 2 );     // write indentation
                 os.PutC( '\"' );               // reopen quotes
-                if ( lastChar < 0 )  {
+                if ( lastChar < 0 )
+                {
                     return lastChar;
                 }
             }
             // split the string only if there is at least wxJSONWRITER_MIN_LENGTH
             // character to write and the character written is a punctuation or space
             // BUG: the following does not work because the columns are not counted
-            else if ( (m_colNo >= wxJSONWRITER_SPLIT_COL)
-                     && (tempCol <= wxJSONWRITER_LAST_COL )) {
-                if ( IsSpace( ch ) || IsPunctuation( ch ))  {
-                    if ( len - i > wxJSONWRITER_MIN_LENGTH )  {
+            else if ( ( m_colNo >= wxJSONWRITER_SPLIT_COL )
+                      && ( tempCol <= wxJSONWRITER_LAST_COL ) )
+            {
+                if ( IsSpace( ch ) || IsPunctuation( ch ) )
+                {
+                    if ( len - i > wxJSONWRITER_MIN_LENGTH )
+                    {
                         // close quotes and CR
                         os.Write( "\"\n", 2 );
                         lastChar = WriteIndent( os, m_level + 2 );     // write indentation
                         os.PutC( '\"' );           // reopen quotes
-                        if ( lastChar < 0 )  {
+                        if ( lastChar < 0 )
+                        {
                             return lastChar;
                         }
                     }
@@ -843,8 +913,8 @@ wxJSONWriter::WriteStringValue( wxOutputStream& os, const wxString& str )
 int
 wxJSONWriter::WriteString( wxOutputStream& os, const wxString& str )
 {
-    wxLogTrace( writerTraceMask, _T("(%s) string to write=%s"),
-                  __PRETTY_FUNCTION__, str.c_str() );
+    wxLogTrace( writerTraceMask, _T( "(%s) string to write=%s" ),
+                __PRETTY_FUNCTION__, str.c_str() );
     int lastChar = 0;
     char* writeBuff = 0;
 
@@ -852,12 +922,14 @@ wxJSONWriter::WriteString( wxOutputStream& os, const wxString& str )
     // on the 'm_noUtf8' flag
     wxCharBuffer utf8CB = str.ToUTF8();        // the UTF-8 buffer
 #if !defined( wxJSON_USE_UNICODE )
-    wxCharBuffer ansiCB( str.c_str());        // the ANSI buffer
+    wxCharBuffer ansiCB( str.c_str() );       // the ANSI buffer
 
-    if ( m_noUtf8 )    {
+    if ( m_noUtf8 )
+    {
         writeBuff = ansiCB.data();
     }
-    else    {
+    else
+    {
         writeBuff = utf8CB.data();
     }
 #else
@@ -866,20 +938,22 @@ wxJSONWriter::WriteString( wxOutputStream& os, const wxString& str )
 
     // NOTE: in ANSI builds UTF-8 conversion may fail (see samples/test5.cpp,
     // test 7.3) although I do not know why
-    if ( writeBuff == 0 )    {
+    if ( writeBuff == 0 )
+    {
         const char* err = "<wxJSONWriter::WriteComment(): error converting the string to UTF-8>";
-        os.Write( err, strlen( err ));
+        os.Write( err, strlen( err ) );
         return 0;
     }
     size_t len = strlen( writeBuff );
 
     os.Write( writeBuff, len );
-    if ( os.GetLastError() != wxSTREAM_NO_ERROR )    {
+    if ( os.GetLastError() != wxSTREAM_NO_ERROR )
+    {
         return -1;
     }
 
-    wxLogTrace( writerTraceMask, _T("(%s) result=%d"),
-                  __PRETTY_FUNCTION__, lastChar );
+    wxLogTrace( writerTraceMask, _T( "(%s) result=%d" ),
+                __PRETTY_FUNCTION__, lastChar );
     return lastChar;
 }
 
@@ -891,7 +965,8 @@ int
 wxJSONWriter::WriteNullValue( wxOutputStream& os )
 {
     os.Write( "null", 4 );
-    if ( os.GetLastError() != wxSTREAM_NO_ERROR )    {
+    if ( os.GetLastError() != wxSTREAM_NO_ERROR )
+    {
         return -1;
     }
     return 0;
@@ -916,30 +991,31 @@ wxJSONWriter::WriteIntValue( wxOutputStream& os, const wxJSONValue& value )
     wxASSERT( data );
 
 #if defined( wxJSON_64BIT_INT )
-    #if wxCHECK_VERSION(2, 9, 0 ) || !defined( wxJSON_USE_UNICODE )
-        // this is fine for wxW 2.9 and for wxW 2.8 ANSI
-        snprintf( buffer, 32, "%" wxLongLongFmtSpec "d",
-        data->m_value.m_valInt64 );
-    #else
-        // this is for wxW 2.8 Unicode: in order to use the cross-platform
-        // format specifier, we use the wxString's sprintf() function and then
-        // convert to UTF-8 before writing to the stream
-        wxString s;
-        s.Printf( _T("%") wxLongLongFmtSpec _T("d"),
-                                                data->m_value.m_valInt64 );
-        wxCharBuffer cb = s.ToUTF8();
-        const char* cbData = cb.data();
-        len = strlen( cbData );
-        wxASSERT( len < 32 );
-        memcpy( buffer, cbData, len );
-        buffer[len] = 0;
-    #endif
+#if wxCHECK_VERSION(2, 9, 0 ) || !defined( wxJSON_USE_UNICODE )
+    // this is fine for wxW 2.9 and for wxW 2.8 ANSI
+    snprintf( buffer, 32, "%" wxLongLongFmtSpec "d",
+              data->m_value.m_valInt64 );
+#else
+    // this is for wxW 2.8 Unicode: in order to use the cross-platform
+    // format specifier, we use the wxString's sprintf() function and then
+    // convert to UTF-8 before writing to the stream
+    wxString s;
+    s.Printf( _T( "%" ) wxLongLongFmtSpec _T( "d" ),
+              data->m_value.m_valInt64 );
+    wxCharBuffer cb = s.ToUTF8();
+    const char* cbData = cb.data();
+    len = strlen( cbData );
+    wxASSERT( len < 32 );
+    memcpy( buffer, cbData, len );
+    buffer[len] = 0;
+#endif
 #else
     snprintf( buffer, 32, "%ld", data->m_value.m_valLong );
 #endif
     len = strlen( buffer );
     os.Write( buffer, len );
-    if ( os.GetLastError() != wxSTREAM_NO_ERROR )    {
+    if ( os.GetLastError() != wxSTREAM_NO_ERROR )
+    {
         r = -1;
     }
     return r;
@@ -957,11 +1033,13 @@ wxJSONWriter::WriteIntValue( wxOutputStream& os, const wxJSONValue& value )
 int
 wxJSONWriter::WriteUIntValue( wxOutputStream& os, const wxJSONValue& value )
 {
-    int r = 0; size_t len;
+    int r = 0;
+    size_t len;
 
     // prepend a plus sign if the style specifies that unsigned integers
     // have to be recognized by the JSON reader
-    if ( m_style & wxJSONWRITER_RECOGNIZE_UNSIGNED )  {
+    if ( m_style & wxJSONWRITER_RECOGNIZE_UNSIGNED )
+    {
         os.PutC( '+' );
     }
 
@@ -970,30 +1048,31 @@ wxJSONWriter::WriteUIntValue( wxOutputStream& os, const wxJSONValue& value )
     wxASSERT( data );
 
 #if defined( wxJSON_64BIT_INT )
-    #if wxCHECK_VERSION(2, 9, 0 ) || !defined( wxJSON_USE_UNICODE )
-        // this is fine for wxW 2.9 and for wxW 2.8 ANSI
-        snprintf( buffer, 32, "%" wxLongLongFmtSpec "u",
-        data->m_value.m_valUInt64 );
-    #else
-        // this is for wxW 2.8 Unicode: in order to use the cross-platform
-        // format specifier, we use the wxString's sprintf() function and then
-        // convert to UTF-8 before writing to the stream
-        wxString s;
-        s.Printf( _T("%") wxLongLongFmtSpec _T("u"),
-                                                data->m_value.m_valInt64 );
-        wxCharBuffer cb = s.ToUTF8();
-        const char* cbData = cb.data();
-        len = strlen( cbData );
-        wxASSERT( len < 32 );
-        memcpy( buffer, cbData, len );
-        buffer[len] = 0;
-    #endif
+#if wxCHECK_VERSION(2, 9, 0 ) || !defined( wxJSON_USE_UNICODE )
+    // this is fine for wxW 2.9 and for wxW 2.8 ANSI
+    snprintf( buffer, 32, "%" wxLongLongFmtSpec "u",
+              data->m_value.m_valUInt64 );
+#else
+    // this is for wxW 2.8 Unicode: in order to use the cross-platform
+    // format specifier, we use the wxString's sprintf() function and then
+    // convert to UTF-8 before writing to the stream
+    wxString s;
+    s.Printf( _T( "%" ) wxLongLongFmtSpec _T( "u" ),
+              data->m_value.m_valInt64 );
+    wxCharBuffer cb = s.ToUTF8();
+    const char* cbData = cb.data();
+    len = strlen( cbData );
+    wxASSERT( len < 32 );
+    memcpy( buffer, cbData, len );
+    buffer[len] = 0;
+#endif
 #else
     snprintf( buffer, 32, "%lu", data->m_value.m_valULong );
 #endif
     len = strlen( buffer );
     os.Write( buffer, len );
-    if ( os.GetLastError() != wxSTREAM_NO_ERROR )    {
+    if ( os.GetLastError() != wxSTREAM_NO_ERROR )
+    {
         r = -1;
     }
     return r;
@@ -1022,7 +1101,8 @@ wxJSONWriter::WriteDoubleValue( wxOutputStream& os, const wxJSONValue& value )
     snprintf( buffer, 32, m_fmt, data->m_value.m_valDouble );
     size_t len = strlen( buffer );
     os.Write( buffer, len );
-    if ( os.GetLastError() != wxSTREAM_NO_ERROR )    {
+    if ( os.GetLastError() != wxSTREAM_NO_ERROR )
+    {
         r = -1;
     }
     return r;
@@ -1039,19 +1119,22 @@ int
 wxJSONWriter::WriteBoolValue( wxOutputStream& os, const wxJSONValue& value )
 {
     int r = 0;
-    const char* f = "false"; const char* t = "true";
+    const char* f = "false";
+    const char* t = "true";
     wxJSONRefData* data = value.GetRefData();
     wxASSERT( data );
 
     const char* c = f;    // defaults to FALSE
 
-    if ( data->m_value.m_valBool )    {
+    if ( data->m_value.m_valBool )
+    {
         c = t;
     }
 
     size_t len = strlen( c );
     os.Write( c, len );
-    if ( os.GetLastError() != wxSTREAM_NO_ERROR )    {
+    if ( os.GetLastError() != wxSTREAM_NO_ERROR )
+    {
         r = -1;
     }
     return r;
@@ -1064,8 +1147,8 @@ wxJSONWriter::WriteBoolValue( wxOutputStream& os, const wxJSONValue& value )
 int
 wxJSONWriter::WriteKey( wxOutputStream& os, const wxString& key )
 {
-    wxLogTrace( writerTraceMask, _T("(%s) key write=%s"),
-                  __PRETTY_FUNCTION__, key.c_str() );
+    wxLogTrace( writerTraceMask, _T( "(%s) key write=%s" ),
+                __PRETTY_FUNCTION__, key.c_str() );
 
     int lastChar = WriteStringValue( os, key );
     os.Write( " : ", 3 );
@@ -1091,7 +1174,7 @@ wxJSONWriter::WriteKey( wxOutputStream& os, const wxString& key )
 int
 wxJSONWriter::WriteInvalid( wxOutputStream& os )
 {
-    wxFAIL_MSG( _T("wxJSONWriter::WriteInvalid() cannot be called (not a valid JSON text"));
+    wxFAIL_MSG( _T( "wxJSONWriter::WriteInvalid() cannot be called (not a valid JSON text" ) );
     int lastChar = 0;
     os.Write( "<invalid JSON value>", 9 );
     return lastChar;
@@ -1124,19 +1207,21 @@ wxJSONWriter::WriteMemoryBuff( wxOutputStream& os, const wxMemoryBuffer& buff )
     // the string is splitted only for the special meory buffer type, not for array of INTs
     int bytesWritten = 0;
     bool splitString = false;
-    if ( (m_style & wxJSONWRITER_STYLED) && 
-               (m_style & wxJSONWRITER_SPLIT_STRING))   {
+    if ( ( m_style & wxJSONWRITER_STYLED ) &&
+            ( m_style & wxJSONWRITER_SPLIT_STRING ) )
+    {
         splitString = true;
     }
 
     size_t buffLen = buff.GetDataLen();
-    unsigned char* ptr = (unsigned char*) buff.GetData();
+    unsigned char* ptr = ( unsigned char* ) buff.GetData();
     wxASSERT( ptr );
     char openChar = '\'';
     char closeChar = '\'';
     bool asArray = false;
 
-    if ( (m_style & wxJSONWRITER_MEMORYBUFF ) == 0 )  {
+    if ( ( m_style & wxJSONWRITER_MEMORYBUFF ) == 0 )
+    {
         // if the special flag is not specified, write as an array of INTs
         openChar = '[';
         closeChar = ']';
@@ -1145,53 +1230,64 @@ wxJSONWriter::WriteMemoryBuff( wxOutputStream& os, const wxMemoryBuffer& buff )
     // write the open character
     os.PutC( openChar );
 
-    for ( size_t i = 0; i < buffLen; i++ )  {
+    for ( size_t i = 0; i < buffLen; i++ )
+    {
         unsigned char c = *ptr;
         ++ptr;
 
-        if ( asArray )  {
+        if ( asArray )
+        {
             snprintf( str, 14, "%d", c );
             size_t len = strlen( str );
             wxASSERT( len <= 3 );
             wxASSERT( len >= 1 );
             str[len] = ',';
             // do not write the comma char for the last element
-            if ( i < buffLen - 1 )    {
+            if ( i < buffLen - 1 )
+            {
                 ++len;
             }
             os.Write( str, len );
-            if ( os.GetLastError() != wxSTREAM_NO_ERROR )    {
+            if ( os.GetLastError() != wxSTREAM_NO_ERROR )
+            {
                 return -1;
             }
         }
-        else {
+        else
+        {
             // now convert the byte in two hex digits
             char c1 = c / 16;
             char c2 = c % 16;
             c1 += '0';
             c2 += '0';
-            if ( c1 > '9' )  {
+            if ( c1 > '9' )
+            {
                 c1 += 7;
             }
-            if ( c2 > '9' )  {
+            if ( c2 > '9' )
+            {
                 c2 += 7;
             }
             os.PutC( c1 );
             os.PutC( c2 );
-            if ( os.GetLastError() != wxSTREAM_NO_ERROR )    {
+            if ( os.GetLastError() != wxSTREAM_NO_ERROR )
+            {
                 return -1;
             }
-            if ( splitString )  {
+            if ( splitString )
+            {
                 ++bytesWritten;
             }
 
-            if (( bytesWritten >= MAX_BYTES_PER_ROW ) && ((buffLen - i ) >= 5 ))   {
+            if ( ( bytesWritten >= MAX_BYTES_PER_ROW ) && ( ( buffLen - i ) >= 5 ) )
+            {
                 // split the string if we wrote 20 bytes, but only is we have to
                 // write at least 5 bytes
                 os.Write( "\'\n", 2 );
                 int lastChar = WriteIndent( os, m_level + 2 );     // write indentation
                 os.PutC( '\'' );               // reopen quotes
-                if ( lastChar < 0 )  {
+                if ( lastChar < 0 )
+                {
                     return lastChar;
                 }
                 bytesWritten = 0;
@@ -1220,7 +1316,8 @@ int
 wxJSONWriter::WriteSeparator( wxOutputStream& os )
 {
     int lastChar = '\n';
-    if ( (m_style & wxJSONWRITER_STYLED) && !(m_style & wxJSONWRITER_NO_LINEFEEDS ))  {
+    if ( ( m_style & wxJSONWRITER_STYLED ) && !( m_style & wxJSONWRITER_NO_LINEFEEDS ) )
+    {
         os.PutC( '\n' );
     }
     return lastChar;
@@ -1231,16 +1328,17 @@ bool
 wxJSONWriter::IsSpace( wxChar ch )
 {
     bool r = false;
-    switch ( ch ) {
-        case ' ' :
-        case '\t' :
-        case '\r' :
-        case '\f' :
-        case '\n' :
-            r = true;
-            break;
-        default :
-            break;
+    switch ( ch )
+    {
+    case ' ' :
+    case '\t' :
+    case '\r' :
+    case '\f' :
+    case '\n' :
+        r = true;
+        break;
+    default :
+        break;
     }
     return r;
 }
@@ -1250,17 +1348,18 @@ bool
 wxJSONWriter::IsPunctuation( wxChar ch )
 {
     bool r = false;
-    switch ( ch ) {
-        case '.' :
-        case ',' :
-        case ';' :
-        case ':' :
-        case '!' :
-        case '?' :
-            r = true;
-            break;
-        default :
-            break;
+    switch ( ch )
+    {
+    case '.' :
+    case ',' :
+    case ';' :
+    case ':' :
+    case '!' :
+    case '?' :
+        r = true;
+        break;
+    default :
+        break;
     }
     return r;
 }

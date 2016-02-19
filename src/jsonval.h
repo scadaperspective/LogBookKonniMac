@@ -12,23 +12,23 @@
 #define _WX_JSONVAL_H
 #ifndef __WXOSX__
 #ifdef __GNUG__
-    #pragma interface "jsonval.h"
+#pragma interface "jsonval.h"
 #endif
 #endif
 // For compilers that support precompilation, includes "wx/wx.h".
 #include "wx/wxprec.h"
 
 #ifdef __BORLANDC__
-    #pragma hdrstop
+#pragma hdrstop
 #endif
 
 // for all others, include the necessary headers (this file is usually all you
 // need because it includes almost all "standard" wxWidgets headers)
 #ifndef WX_PRECOMP
-    #include <wx/object.h>
-    #include <wx/hashmap.h>
-    #include <wx/dynarray.h>
-    #include <wx/arrstr.h>
+#include <wx/object.h>
+#include <wx/hashmap.h>
+#include <wx/dynarray.h>
+#include <wx/arrstr.h>
 #endif
 
 
@@ -39,19 +39,20 @@ class WXDLLIMPEXP_JSON wxJSONReader;
 class WXDLLIMPEXP_JSON wxJSONRefData;
 
 #if defined( wxJSON_USE_STL )
-    // if compiling on MinGW we use the STL-style declaration of wxWidget's
-    // container classes
-    class WXDLLIMPEXP_JSON wxJSONValue;
-    WX_DECLARE_OBJARRAY( wxJSONValue, wxJSONInternalArray );
-    WX_DECLARE_STRING_HASH_MAP( wxJSONValue, wxJSONInternalMap );
+// if compiling on MinGW we use the STL-style declaration of wxWidget's
+// container classes
+class WXDLLIMPEXP_JSON wxJSONValue;
+WX_DECLARE_OBJARRAY( wxJSONValue, wxJSONInternalArray );
+WX_DECLARE_STRING_HASH_MAP( wxJSONValue, wxJSONInternalMap );
 #else
-    class WXDLLIMPEXP_JSON wxJSONInternalMap;
-    class WXDLLIMPEXP_JSON wxJSONInternalArray;
+class WXDLLIMPEXP_JSON wxJSONInternalMap;
+class WXDLLIMPEXP_JSON wxJSONInternalArray;
 #endif
 
 
 //! The type of the value held by the wxJSONRefData class
-enum wxJSONType {
+enum wxJSONType
+{
     wxJSONTYPE_INVALID = 0,  /*!< the object is not uninitialized        */
     wxJSONTYPE_NULL,       /*!< the object contains a NULL value         */
     wxJSONTYPE_INT,        /*!< the object contains an integer           */
@@ -73,11 +74,12 @@ enum wxJSONType {
 
 // the comment position: every value only has one comment position
 // althrough comments may be splitted into several lines
-enum {
-  wxJSONVALUE_COMMENT_DEFAULT = 0,
-  wxJSONVALUE_COMMENT_BEFORE,
-  wxJSONVALUE_COMMENT_AFTER,
-  wxJSONVALUE_COMMENT_INLINE,
+enum
+{
+    wxJSONVALUE_COMMENT_DEFAULT = 0,
+    wxJSONVALUE_COMMENT_BEFORE,
+    wxJSONVALUE_COMMENT_AFTER,
+    wxJSONVALUE_COMMENT_INLINE,
 };
 
 /***********************************************************************
@@ -277,11 +279,11 @@ protected:
     wxJSONRefData*  COW();
 
     // overidden from wxObject
-    virtual wxJSONRefData*  CloneRefData(const wxJSONRefData *data) const;
+    virtual wxJSONRefData*  CloneRefData( const wxJSONRefData *data ) const;
     virtual wxJSONRefData*  CreateRefData() const;
 
-    void            SetRefData(wxJSONRefData* data);
-    void            Ref(const wxJSONValue& clone);
+    void            SetRefData( wxJSONRefData* data );
+    void            Ref( const wxJSONValue& clone );
     void            UnRef();
     void            UnShare();
     void            AllocExclusive();
@@ -299,10 +301,10 @@ protected:
 
 
 #if !defined( wxJSON_USE_STL )
-    // if using wxWidget's implementation of container classes we declare
-    // the OBJARRAY are HASH_MAP _after_ the wxJSONValue is fully known
-    WX_DECLARE_OBJARRAY( wxJSONValue, wxJSONInternalArray );
-    WX_DECLARE_STRING_HASH_MAP( wxJSONValue, wxJSONInternalMap );
+// if using wxWidget's implementation of container classes we declare
+// the OBJARRAY are HASH_MAP _after_ the wxJSONValue is fully known
+WX_DECLARE_OBJARRAY( wxJSONValue, wxJSONInternalArray );
+WX_DECLARE_STRING_HASH_MAP( wxJSONValue, wxJSONInternalMap );
 #endif
 
 
@@ -326,7 +328,8 @@ protected:
  To know more about the internal structure of the wxJSONValue class
  see \ref pg_json_internals.
 */
-union wxJSONValueHolder  {
+union wxJSONValueHolder
+{
     int             m_valInt;
     unsigned int    m_valUInt;
     short int       m_valShort;
@@ -340,7 +343,7 @@ union wxJSONValueHolder  {
     wxInt64         m_valInt64;
     wxUint64        m_valUInt64;
 #endif
-    };
+};
 
 //
 // access to the (unsigned) integer value is done through
@@ -348,11 +351,11 @@ union wxJSONValueHolder  {
 // data member of the 'long long' integer if 64-bits integer
 // support is enabled
 #if defined( wxJSON_64BIT_INT )
- #define VAL_INT  m_valInt64
- #define VAL_UINT m_valUInt64
+#define VAL_INT  m_valInt64
+#define VAL_UINT m_valUInt64
 #else
- #define VAL_INT  m_valLong
- #define VAL_UINT m_valULong
+#define VAL_INT  m_valLong
+#define VAL_UINT m_valULong
 #endif
 
 
@@ -421,7 +424,7 @@ public:
 
     //! The pointer to the memory buffer object
     /*!
-     Note that despite using reference counting, the \b wxMemoryBuffer is not a 
+     Note that despite using reference counting, the \b wxMemoryBuffer is not a
      \e copy-on-write structure so the wxJSON library uses some tricks in order to
      avoid the side effects of copying / assigning wxMemoryBuffer objects
     */
