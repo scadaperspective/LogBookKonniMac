@@ -227,25 +227,26 @@ LogbookDialog::LogbookDialog( logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt,
 
     bSizer39->Add( m_buttonSetTimer, 0, wxALIGN_CENTER_VERTICAL|wxLEFT, 0 );
 
-#if wxCHECK_VERSION(2, 9, 0)
-    m_bpButtonTimer = new myBitmapButton( Statusbar, wxID_ANY, _( "Timer" ),*_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
-#else
+#ifdef __WXGTK__
     m_staticText1241 = new wxStaticText( Statusbar, wxID_ANY, _( "Timer" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_staticText1241->Wrap( -1 );
     bSizer39->Add( m_staticText1241, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
     m_bpButtonTimer = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+#else
+    m_bpButtonTimer = new myBitmapButton( Statusbar, wxID_ANY, _( "Timer" ),*_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
 #endif
+
     bSizer39->Add( m_bpButtonTimer, 0, wxALIGN_CENTER_VERTICAL, 5 );
     m_staticline40 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
     bSizer39->Add( m_staticline40, 0, wxEXPAND | wxALL, 5 );
 
-#if wxCHECK_VERSION(2, 9, 0)
-    m_bpButtonWatch = new myBitmapButton( Statusbar, wxID_ANY, _( "Watch" ), *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
-#else
+#ifdef __WXGTK__
     m_staticText12411 = new wxStaticText( Statusbar, wxID_ANY, _( "Watch" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_staticText12411->Wrap( -1 );
     bSizer39->Add( m_staticText12411, 0, wxALIGN_CENTER_VERTICAL|wxLEFT, 5 );
     m_bpButtonWatch = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+#else
+    m_bpButtonWatch = new myBitmapButton( Statusbar, wxID_ANY, _( "Watch" ), *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
 #endif
 
     bSizer39->Add( m_bpButtonWatch, 0, wxALIGN_CENTER_VERTICAL, 5 );
@@ -253,26 +254,27 @@ LogbookDialog::LogbookDialog( logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt,
     m_staticline41 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
     bSizer39->Add( m_staticline41, 0, wxEXPAND | wxALL, 5 );
 
-#if wxCHECK_VERSION(2, 9, 0)
-    m_bpButton8Waypoint = new myBitmapButton( Statusbar, wxID_ANY,  _( "Waypoint" ), *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
-#else
+#ifdef __WXGTK__
     m_staticText124111 = new wxStaticText( Statusbar, wxID_ANY, _( "Waypoint" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_staticText124111->Wrap( -1 );
     bSizer39->Add( m_staticText124111, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
     m_bpButton8Waypoint = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+#else
+    m_bpButton8Waypoint = new myBitmapButton( Statusbar, wxID_ANY,  _( "Waypoint" ), *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
 #endif
+
     bSizer39->Add( m_bpButton8Waypoint, 0, wxALIGN_CENTER_VERTICAL, 5 );
 
     m_staticline42 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
     bSizer39->Add( m_staticline42, 0, wxEXPAND | wxALL, 5 );
 
-#if wxCHECK_VERSION(2, 9, 0)
-    m_bpButtonDistance = new myBitmapButton( Statusbar, wxID_ANY,  _( "Distance" ), *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
-#else
+#ifdef __WXGTK__
     m_staticText12411 = new wxStaticText( Statusbar, wxID_ANY, _( "Distance" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_staticText12411->Wrap( -1 );
     bSizer39->Add( m_staticText12411, 0, wxALIGN_CENTER_VERTICAL|wxLEFT, 5 );
     m_bpButtonDistance = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+#else
+    m_bpButtonDistance = new myBitmapButton( Statusbar, wxID_ANY,  _( "Distance" ), *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
 #endif
 
     bSizer39->Add( m_bpButtonDistance, 0, wxALIGN_CENTER_VERTICAL|wxRIGHT, 5 );
@@ -285,13 +287,13 @@ LogbookDialog::LogbookDialog( logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt,
     m_staticline43 = new wxStaticLine( Statusbar, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
     bSizer39->Add( m_staticline43, 0, wxEXPAND | wxALL, 5 );
 
-#if wxCHECK_VERSION(2, 9, 0)
-    m_bpButtonCourse = new myBitmapButton( Statusbar, wxID_ANY, _( "Course" ),  *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
-#else
+#ifdef __WXGTK__
     m_staticText1241 = new wxStaticText( Statusbar, wxID_ANY, _( "Course" ), wxDefaultPosition, wxDefaultSize, 0  );
     m_staticText1241->Wrap( -1 );
     bSizer39->Add( m_staticText1241, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
     m_bpButtonCourse = new myBitmapButton( Statusbar, wxID_ANY, *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+#else
+    m_bpButtonCourse = new myBitmapButton( Statusbar, wxID_ANY, _( "Course" ),  *_img_Bullet_red, wxDefaultPosition, wxSize( -1,-1 ), 0 );
 #endif
     bSizer39->Add( m_bpButtonCourse, 0, wxALIGN_CENTER_VERTICAL|wxRIGHT, 5 );
 
