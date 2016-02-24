@@ -1999,13 +1999,8 @@ void LogbookOptions::OnButtonOKClick( wxCommandEvent &ev )
             ( m_sMin->IsEmpty() || m_sMin->GetValue().Len()!= 1 ) ||
             ( m_sSec->IsEmpty() ) || m_sSec->GetValue().Len() != 1 )
     {
-#ifdef __WXOSX__
-        MessageBoxOSX( NULL,_( "Please fill in one character in Degrees, Minutes and Seconds" ),_T( "Information" ),wxID_OK );
-        return;
-#else
         wxMessageBox( _( "Please fill in one character in Degrees, Minutes and Seconds" ) );
         return;
-#endif
     }
     else
         ev.Skip();

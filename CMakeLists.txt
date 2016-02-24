@@ -60,8 +60,6 @@ SET(SRC_LOGBOOKKONNI
         	src/jsonreader.cpp
         	src/jsonval.cpp
         	src/jsonwriter.cpp
-		src/MessageBoxOSX.h
-		src/MessageBoxOSX.cpp
  	)
 
 IF(WIN32)

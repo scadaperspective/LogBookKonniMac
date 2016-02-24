@@ -908,7 +908,7 @@ private:
 };
 
 class myTreeItem;
-//////////////////// Díalog ColdFinger //////////////////////////////////
+//////////////////// Dialog ColdFinger //////////////////////////////////
 class ColdFinger : public wxDialog
 {
 private:
@@ -1161,7 +1161,20 @@ public:
     wxString retstr;
 };
 
-#if wxCHECK_VERSION(2, 9, 0)
+#ifdef __WXGTK__
+class myBitmapButton : public wxBitmapButton
+{
+public:
+    myBitmapButton( wxWindow* Statusbar, wxWindowID id = wxID_ANY, const wxBitmap bm = wxBitmap(), const wxPoint& pos = wxDefaultPosition,
+                    const wxSize& size = wxSize( 10,10 ), long style = wxBU_AUTODRAW, int state = 0 ) : wxBitmapButton( Statusbar, id, bm, pos, size, style )
+    {
+        this->state = state;
+    }
+    ~myBitmapButton() {}
+
+    int state;
+};
+#else
 class myBitmapButton : public wxButton
 {
 public:
@@ -1172,19 +1185,6 @@ public:
         this->SetBitmapLabel( bm );
         this->SetBitmapHover( bm );
         this->SetBitmapPosition( wxRIGHT );
-    }
-    ~myBitmapButton() {}
-
-    int state;
-};
-#else
-class myBitmapButton : public wxBitmapButton
-{
-public:
-    myBitmapButton( wxWindow* Statusbar, wxWindowID id = wxID_ANY, const wxBitmap bm = wxBitmap(), const wxPoint& pos = wxDefaultPosition,
-                    const wxSize& size = wxSize( 10,10 ), long style = wxBU_AUTODRAW, int state = 0 ) : wxBitmapButton( Statusbar, id, bm, pos, size, style )
-    {
-        this->state = state;
     }
     ~myBitmapButton() {}
 

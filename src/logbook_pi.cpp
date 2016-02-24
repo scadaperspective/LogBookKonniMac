@@ -38,7 +38,6 @@
 #include "LogbookDialog.h"
 #include "LogbookOptions.h"
 #include "Options.h"
-#include "MessageBoxOSX.h"
 #include "wx/stdpaths.h"
 #include <wx/timer.h>
 #include <wx/event.h>

@@ -44,7 +44,6 @@
 #include "ocpn_plugin.h"
 #include "Options.h"
 #include "nmea0183/nmea0183.h"
-#include "MessageBoxOSX.h"
 
 #include <wx/aui/aui.h>
 #include <wx/string.h>
