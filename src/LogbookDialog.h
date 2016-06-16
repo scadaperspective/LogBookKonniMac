@@ -732,6 +732,9 @@ public:
 
     int					selGridRow;
     int					selGridCol;
+    
+    int                 sc;
+    int                 cntsails;
 
     wxGrid				*logGrids[LOGGRIDS];
     int					numPages;

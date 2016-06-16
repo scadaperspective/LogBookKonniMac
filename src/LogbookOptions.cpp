@@ -1564,7 +1564,7 @@ void LogbookOptions::OnButtonToSailsSpace( wxCommandEvent& event )
     fgSizerSailsCheckboxes->Clear( true );
     m_panelSails->Layout();
     m_panelSailsCheckbox->Show();
-    for ( unsigned int i = 0; i < 14; i++ )
+    for ( int i = 0; i < opt->numberSails; i++ )
     {
         checkboxSails[i] = new wxCheckBox( m_panelSailsCheckbox, wxID_ANY,opt->abrSails.Item( i ) , wxDefaultPosition, wxDefaultSize, 0 );
         checkboxSails[i]->SetValue( opt->bSailIsChecked[i] );
@@ -1574,7 +1574,7 @@ void LogbookOptions::OnButtonToSailsSpace( wxCommandEvent& event )
     }
     wxButton* m_buttonSailsReset = new wxButton( m_panelSailsCheckbox, wxID_ANY, _( "none" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_buttonSailsReset->SetToolTip( _( "Reset" ) );
-    m_buttonSailsReset->SetMinSize( wxSize( 40,15 ) );
+    m_buttonSailsReset->SetMinSize( wxSize( 50,25 ) );
 
     fgSizerSailsCheckboxes->Add( m_buttonSailsReset, 0, 0, 5 );
 
@@ -2194,7 +2194,7 @@ void LogbookOptions::setValues()
     m_checkBoxNMEAUseWIMDA->SetValue( opt->NMEAUseWIMDA );
 
     int row = 0;
-    for ( unsigned int col = 0; col < opt->abrSails.Count(); col++ )
+    for ( int col = 0; col < opt->numberSails; col++ )
     {
         m_gridSailNames->SetCellValue( row,0,opt->abrSails.Item( col ) );
         m_gridSailNames->SetCellValue( row++,1,opt->sailsName.Item( col ) );
@@ -2349,12 +2349,19 @@ void LogbookOptions::getValues()
     opt->NMEAUseWIMDA = m_checkBoxNMEAUseWIMDA->GetValue();
 
     //int row = 0;
+	wxString tempstr;
     opt->abrSails.Clear();
     opt->sailsName.Clear();
+    opt->numberSails = 0;
     for ( int row = 0; row < m_gridSailNames->GetNumberRows(); row++ )
     {
-        opt->abrSails.Add( m_gridSailNames->GetCellValue( row,0 ) );
-        opt->sailsName.Add( m_gridSailNames->GetCellValue( row,1 ) );
+		tempstr = m_gridSailNames->GetCellValue( row,0 );
+        if ( !tempstr.IsEmpty() )
+        {
+            opt->abrSails.Add( m_gridSailNames->GetCellValue( row,0 ) );
+            opt->sailsName.Add( m_gridSailNames->GetCellValue( row,1 ) );
+            opt->numberSails++;
+        }
     }
 }
 

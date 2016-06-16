@@ -163,6 +163,7 @@ public:
     bool			bSailIsChecked[14];
     int				rowGap;
     int				colGap;
+    int             numberSails;
 
     //wxChoice
     int		showDepth;

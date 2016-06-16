@@ -57,6 +57,7 @@ Options::Options( void )
     engineAllwaysSailsDown = false;
     statusbar = true;
     windspeeds = false;
+    numberSails = 14;
 
     abrSails.Add( _( "Ma" ) );
     abrSails.Add( _( "Tr" ) );
@@ -91,7 +92,7 @@ Options::Options( void )
     rowGap = 0;
     colGap = 0;
 
-    for ( int i = 0; i < 14; i++ )
+    for ( int i = 0; i < numberSails; i++ )
         bSailIsChecked[i] = false;
 
     // Global Options
@@ -341,7 +342,7 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 
     stateEvents = 0;
 
-    for ( int i = 0; i < 14; i++ )
+    for ( int i = 0; i < numberSails; i++ )
         bSailIsChecked[i] = false;
 }
 

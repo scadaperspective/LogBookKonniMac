@@ -1049,10 +1049,11 @@ void logbookkonni_pi::SaveConfig()
         pConf->Write ( _T ( "toggleEngine1" ), opt->toggleEngine1 );
         pConf->Write ( _T ( "toggleEngine2" ), opt->toggleEngine2 );
         pConf->Write ( _T ( "toggleGenerator" ), opt->toggleGenerator );
-
+        pConf->Write ( _T ( "numberofSails" ), opt->numberSails );
+        
         wxString sails = wxEmptyString;
         sails = wxString::Format( _T( "%i,%i," ),opt->rowGap,opt->colGap );
-        for ( int i = 0; i < 14; i++ )
+        for ( int i = 0; i < opt->numberSails; i++ )
             sails += wxString::Format( _T( "%s,%s,%i," ),opt->abrSails.Item( i ).c_str(),opt->sailsName.Item( i ).c_str(),opt->bSailIsChecked[i] );
         sails.RemoveLast();
         pConf->Write ( _T ( "Sails" ), sails );
@@ -1279,6 +1280,7 @@ void logbookkonni_pi::LoadConfig()
         pConf->Read ( _T ( "toggleEngine1" ), &opt->toggleEngine1 );
         pConf->Read ( _T ( "toggleEngine2" ), &opt->toggleEngine2 );
         pConf->Read ( _T ( "toggleGenerator" ), &opt->toggleGenerator );
+        pConf->Read ( _T ( "numberofSails" ), &opt->numberSails,14 );
 
         wxString sails = wxEmptyString;
         pConf->Read ( _T ( "Sails" ), &sails );
@@ -1291,7 +1293,10 @@ void logbookkonni_pi::LoadConfig()
                 opt->colGap = wxAtoi( tkz.GetNextToken() );
             }
 
-            for ( int i = 0; i < 14; i++ )
+            opt->abrSails.Empty();
+            opt->sailsName.Empty();
+            
+            for ( int i = 0; i < opt->numberSails; i++ )
             {
                 opt->abrSails.Item( i ) = tkz.GetNextToken();
                 opt->sailsName.Item( i ) = tkz.GetNextToken();
