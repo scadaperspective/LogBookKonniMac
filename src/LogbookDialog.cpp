@@ -5033,7 +5033,7 @@ void LogbookDialog::getIniValues()
 
     opt->dCourseChangeDegrees = wxAtof( opt->courseChangeDegrees );
 
-    if ( ( opt->navGridLayoutChoice == -1 ) || ( opt->NavColWidth.GetCount() == 0 ) ) return;
+    if ( ( opt->NavColWidth.GetCount() == 0 ) ) return;
 
     for ( int i = 0; i < LOGGRIDS; i++ )
     {

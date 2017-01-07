@@ -1804,7 +1804,7 @@ void Logbook::appendRow( bool showlastline, bool autoline )
 
     wxString sails = wxEmptyString;
     unsigned int n = 0;
-    for ( unsigned i = 0; i < opt->numberSails; i++ )
+    for ( int i = 0; i < opt->numberSails; i++ )
     {
         if ( dialog->checkboxSails[i]->IsChecked() )
         {
