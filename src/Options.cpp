@@ -237,7 +237,6 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 
     //NMEA
     NMEAUseERRPM = false;
-    NMEAUseWIMDA = true;
 
 #ifdef __WXMSW__
     wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension( _T( "odt" ) );

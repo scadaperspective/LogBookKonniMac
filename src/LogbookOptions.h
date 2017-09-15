@@ -320,7 +320,6 @@ public:
     wxChoice* m_choiceKMLRouteLineColo;
     wxChoice* m_choiceKMLTrackLineColor;
     wxCheckBox* m_checkBoxNMEAUseRPM;
-    wxCheckBox* m_checkBoxNMEAUseWIMDA;
     wxPanel* m_panelSails;
     wxPanel* m_panelSailNames;
     wxGrid* m_gridSailNames;

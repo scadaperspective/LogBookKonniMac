@@ -155,7 +155,6 @@ public:
     bool        generatorRunning;
     bool	bRPMCheck;
     bool	NMEAUseERRPM;
-    bool	NMEAUseWIMDA;
 
     // Sails
     wxArrayString	abrSails;

@@ -1033,7 +1033,6 @@ void logbookkonni_pi::SaveConfig()
         pConf->Write ( _T ( "GenRPMIsChecked" ), opt->bGenRPMIsChecked );
 
         pConf->Write ( _T ( "NMEAUseRPM" ), opt->NMEAUseERRPM );
-        pConf->Write ( _T ( "NMEAUseWIMDA" ), opt->NMEAUseWIMDA );
         pConf->Write ( _T ( "Engine1" ), opt->engine1Id );
         pConf->Write ( _T ( "Engine2" ), opt->engine2Id );
         pConf->Write ( _T ( "Engine1Runs" ), opt->engine1Running );
@@ -1265,7 +1264,6 @@ void logbookkonni_pi::LoadConfig()
         pConf->Read ( _T ( "GenRPMIsChecked" ), &opt->bGenRPMIsChecked,false );
 
         pConf->Read ( _T ( "NMEAUseRPM" ), &opt->NMEAUseERRPM,false );
-        pConf->Read ( _T ( "NMEAUseWIMDA" ), &opt->NMEAUseWIMDA,false );
         pConf->Read ( _T ( "Engine1" ), &opt->engine1Id,_T( "" ) );
         pConf->Read ( _T ( "Engine2" ), &opt->engine2Id,_T( "" ) );
         pConf->Read ( _T ( "Engine1Runs" ), &opt->engine1Running );
@@ -1584,6 +1582,13 @@ void logbookkonni_pi::loadLayouts( wxWindow *parent )
         wxString ok = wxString::Format( _( "Layouts %sinstalled at\n\n%s\n%s\n%s\n%s" ),
                                         ( !ret )?n.c_str():wxEmptyString,data.c_str(),data1.c_str(),data2.c_str(),data3.c_str() );
         wxMessageBox( ok );
+
+		if (ret ) 
+		{
+			opt->navGridLayoutChoice = 0;
+        	opt->crewGridLayoutChoice = 0;
+        	opt->boatGridLayoutChoice = 0;
+		}
     }
 }
 

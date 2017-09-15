@@ -1149,11 +1149,6 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 
     fgSizer48->Add( 0, 0, 1, wxEXPAND, 5 );
 
-    m_checkBoxNMEAUseWIMDA = new wxCheckBox( m_panel28, wxID_ANY, _( "Use WIMDA-Sentence from the weatherstation" ), wxDefaultPosition, wxDefaultSize, 0 );
-    m_checkBoxNMEAUseWIMDA->SetToolTip( _( "For Barometer, Air Temperature and rel. Humidity" ) );
-
-    fgSizer48->Add( m_checkBoxNMEAUseWIMDA, 0, wxALL, 5 );
-
     m_panel28->SetSizer( fgSizer48 );
     m_panel28->Layout();
     fgSizer48->Fit( m_panel28 );
@@ -2191,8 +2186,6 @@ void LogbookOptions::setValues()
         m_checkBoxNMEAUseRPM->SetValue( opt->NMEAUseERRPM );
     }
 
-    m_checkBoxNMEAUseWIMDA->SetValue( opt->NMEAUseWIMDA );
-
     int row = 0;
     for ( int col = 0; col < opt->numberSails; col++ )
     {
@@ -2346,7 +2339,6 @@ void LogbookOptions::getValues()
     opt->bEng2RPMIsChecked= m_checkBoxEng2RPM->GetValue();
     opt->bGenRPMIsChecked= m_checkBoxGenRPM->GetValue();
     opt->NMEAUseERRPM = m_checkBoxNMEAUseRPM->GetValue();
-    opt->NMEAUseWIMDA = m_checkBoxNMEAUseWIMDA->GetValue();
 
     //int row = 0;
 	wxString tempstr;

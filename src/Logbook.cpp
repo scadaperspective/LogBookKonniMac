@@ -536,7 +536,49 @@ void Logbook::SetSentence( wxString &sentence )
                 }
             }
         }
+        else if (m_NMEA0183.LastSentenceIDReceived == _T("XDR")) { //Transducer measurement
+             /* XDR Transducer types
+              * AngularDisplacementTransducer = 'A',
+              * TemperatureTransducer = 'C',
+              * LinearDisplacementTransducer = 'D',
+              * FrequencyTransducer = 'F',
+              * HumidityTransducer = 'H',
+              * ForceTransducer = 'N',
+              * PressureTransducer = 'P',
+              * FlowRateTransducer = 'R',
+              * TachometerTransducer = 'T',
+              * VolumeTransducer = 'V'
+             */
 
+            if (m_NMEA0183.Parse()) { 
+                wxString xdrunit;
+                double xdrdata;
+                for (int i = 0; i<m_NMEA0183.Xdr.TransducerCnt; i++) {
+	        		wimdaSentence = true;
+        			dtWimda = wxDateTime::Now();
+
+                    xdrdata = m_NMEA0183.Xdr.TransducerInfo[i].MeasurementData;
+                    // XDR Airtemp
+                    if (m_NMEA0183.Xdr.TransducerInfo[i].TransducerType == _T("C")) {
+        				if ( opt->temperature == _T( "F" ) )
+    				        xdrdata = ( ( xdrdata * 9 ) / 5 ) + 32;
+        				sTemperatureAir = wxString::Format( _T( "%2.2f%s %s" ),xdrdata,opt->Deg.c_str(),opt->temperature.c_str() );
+                    }
+                    // XDR Pressure
+                    if (m_NMEA0183.Xdr.TransducerInfo[i].TransducerType == _T("P")) {
+                        if (m_NMEA0183.Xdr.TransducerInfo[i].UnitOfMeasurement == _T("B")) {
+                            xdrdata *= 1000;
+						}
+						sPressure = wxString::Format( _T( "%4.1f %s" ),xdrdata,opt->baro.c_str() );
+                    }
+                    // XDR Humidity
+                    if (m_NMEA0183.Xdr.TransducerInfo[i].TransducerType == _T("H")) {
+            			sHumidity = wxString::Format( _T( "%3.1f %" ),xdrdata );
+                    }
+
+                }
+            }
+        }
 
     }
 
@@ -551,7 +593,7 @@ void Logbook::SetSentence( wxString &sentence )
     wxStringTokenizer tkz( sentence,_T( "," ) );
     wxString sentenceInd = tkz.GetNextToken();
 
-    if ( sentenceInd == _T( "$WIMDA" ) && opt->NMEAUseWIMDA )
+    if ( sentenceInd.Right( 3 ) == _T( "MDA" ) )
     {
         wimdaSentence = true;
         dtWimda = wxDateTime::Now();
@@ -575,8 +617,7 @@ void Logbook::SetSentence( wxString &sentence )
         tkz.GetNextToken();
         tkz.GetNextToken();
         tkz.GetNextToken();
-        tkz.GetNextToken().ToDouble( &h );
-        if ( h > 0 )
+        if (tkz.GetNextToken().ToDouble( &h ))
             sHumidity = wxString::Format( _T( "%3.1f %" ),h );
         else
             sHumidity = wxEmptyString;
