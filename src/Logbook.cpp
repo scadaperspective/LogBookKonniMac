@@ -551,7 +551,6 @@ void Logbook::SetSentence( wxString &sentence )
              */
 
             if (m_NMEA0183.Parse()) { 
-                wxString xdrunit;
                 double xdrdata;
                 for (int i = 0; i<m_NMEA0183.Xdr.TransducerCnt; i++) {
 	        		wimdaSentence = true;
@@ -573,7 +572,7 @@ void Logbook::SetSentence( wxString &sentence )
                     }
                     // XDR Humidity
                     if (m_NMEA0183.Xdr.TransducerInfo[i].TransducerType == _T("H")) {
-            			sHumidity = wxString::Format( _T( "%3.1f %" ),xdrdata );
+            			sHumidity = wxString::Format( _T( "%3.1f " ),xdrdata );
                     }
 
                 }
@@ -618,7 +617,7 @@ void Logbook::SetSentence( wxString &sentence )
         tkz.GetNextToken();
         tkz.GetNextToken();
         if (tkz.GetNextToken().ToDouble( &h ))
-            sHumidity = wxString::Format( _T( "%3.1f %" ),h );
+            sHumidity = wxString::Format( _T( "%3.1f " ),h );
         else
             sHumidity = wxEmptyString;
     }
