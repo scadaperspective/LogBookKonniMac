@@ -112,6 +112,7 @@ Options::Options( void )
     dlgWidth = 1010;
     dlgHeight = 535;
     popup = true;
+    autostarttimer = false;
     for ( int i = 0; i < 7; i++ )
     {
         layoutPrefix[i] =  _T( "Label_" );

@@ -1295,9 +1295,9 @@ wxString Logbook::makeDateFromFile( wxString date, wxString dateformat )
 {
     wxStringTokenizer tkzd( date,_T( "/" ) );
     wxDateTime dt;
-    wxDateTime::wxDateTime_t month = ( wxDateTime::wxDateTime_t ) wxAtoi( tkzd.GetNextToken() );
+    wxDateTime::Month month = ( wxDateTime::Month ) wxAtoi( tkzd.GetNextToken() );
     wxDateTime::wxDateTime_t day    = ( wxDateTime::wxDateTime_t ) wxAtoi( tkzd.GetNextToken() );
-    wxDateTime::wxDateTime_t year   = ( wxDateTime::wxDateTime_t ) wxAtoi( tkzd.GetNextToken() );
+    int year   =  wxAtoi( tkzd.GetNextToken() );
     dt.Set( day, month, year );
 
     return dt.Format( dateformat );

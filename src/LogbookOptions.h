@@ -105,6 +105,7 @@ public:
     wxStaticText* m_staticText1231;
     wxStaticText* m_staticText124;
     wxCheckBox* m_checkBoxPopUp;
+    wxCheckBox* m_checkBoxAutoStartTimer;
     wxStaticLine* m_staticline10;
     wxStaticText* m_staticText731;
     wxStaticText* m_staticText751;

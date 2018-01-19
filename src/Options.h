@@ -28,6 +28,7 @@ public:
     int			dlgWidth;
     int			dlgHeight;
     bool		popup;
+    bool        autostarttimer;
     bool		hourFormat;
     bool		statusbarGlobal;
     bool		layoutShow;

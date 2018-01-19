@@ -384,13 +384,15 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 
     fgSizer14->Add( 0, 0, 1, wxEXPAND, 5 );
 
-
-    fgSizer14->Add( 0, 0, 1, wxEXPAND, 5 );
-
     m_checkBoxPopUp = new wxCheckBox( m_panel15, wxID_ANY, _( "Popup logbook on event" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_checkBoxPopUp->SetValue( true );
-    fgSizer14->Add( m_checkBoxPopUp, 0, wxALL, 5 );
+    fgSizer14->Add( m_checkBoxPopUp, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
+    m_checkBoxAutoStartTimer = new wxCheckBox( m_panel15, wxID_ANY, _( "Auto restart Timer(s)" ), wxDefaultPosition, wxDefaultSize, 0 );
+    m_checkBoxAutoStartTimer->SetValue( false );
+    m_checkBoxAutoStartTimer->SetToolTip("This will automatically start the timer(s) if they were suspended when starting OpenCPN");
+
+    fgSizer14->Add( m_checkBoxAutoStartTimer, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
     fgSizer10->Add( fgSizer14, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
@@ -2073,6 +2075,7 @@ void LogbookOptions::onChoicePositionFormat( wxCommandEvent &ev )
 void LogbookOptions::setValues()
 {
     m_checkBoxPopUp->SetValue( opt->popup );
+    m_checkBoxAutoStartTimer->SetValue( opt->autostarttimer );
 
     m_choiceDateFormat->Select( opt->dateformat );
     m_textCtrlDateSeparator->SetValue( opt->dateseparatorindiv );
@@ -2223,6 +2226,7 @@ void LogbookOptions::OnChoiceNoEngines( wxCommandEvent& event )
 void LogbookOptions::getValues()
 {
     opt->popup = m_checkBoxPopUp->GetValue();
+    opt->autostarttimer = m_checkBoxAutoStartTimer->GetValue();
 
     opt->dateformat = m_choiceDateFormat->GetSelection();
     opt->dateseparatorindiv = m_textCtrlDateSeparator->GetValue();

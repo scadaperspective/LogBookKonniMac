@@ -72,7 +72,6 @@ extern "C" DECL_EXP void destroy_pi( opencpn_plugin* p )
     delete p;
 }
 
-
 #include "icons.h"
 
 //---------------------------------------------------------------------------------------------------------
@@ -135,7 +134,7 @@ int logbookkonni_pi::Init( void )
     timer = new LogbookTimer( this );
     m_timer = new wxTimer( timer,ID_LOGTIMER );
     timer->Connect( wxEVT_TIMER, wxObjectEventFunction( &LogbookTimer::OnTimer ) );
-
+    
     SendPluginMessage( _T( "LOGBOOK_READY_FOR_REQUESTS" ), _T( "TRUE" ) );
 
     return (
@@ -510,6 +509,7 @@ void logbookkonni_pi::startLogbook()
         else
             SendPluginMessage( _T( "LOGBOOK_WINDOW_HIDDEN" ), wxEmptyString );
     }
+
 }
 
 
@@ -902,6 +902,7 @@ void logbookkonni_pi::SaveConfig()
         }
 
         pConf->Write ( _T ( "Popup" ),opt->popup );
+        pConf->Write ( _T ( "AutoStartTimer" ),opt->autostarttimer );
         pConf->Write ( _T ( "DateFormat" ), opt->dateformat );
         pConf->Write ( _T ( "DateSepIndiv" ), opt->dateseparatorindiv );
         pConf->Write ( _T ( "DateSepLocale" ), opt->dateseparatorlocale );
@@ -1117,6 +1118,7 @@ void logbookkonni_pi::LoadConfig()
 #endif
         pConf->Read ( _T( "DlgHeight" ),  &opt->dlgHeight,535 );
         pConf->Read ( _T( "Popup" ),  &opt->popup,true );
+        pConf->Read ( _T( "AutoStartTimer" ),  &opt->autostarttimer, false );
 
         pConf->Read ( _T ( "DateFormat" ), &opt->dateformat,0 );
         pConf->Read ( _T ( "DateSepIndiv" ), &opt->dateseparatorindiv );

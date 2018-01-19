@@ -2912,13 +2912,18 @@ void LogbookDialog::OnStatusBulletCourse( wxCommandEvent& event )
 
 void LogbookDialog::OnButtonClickStatusStartStop( wxCommandEvent& event )
 {
+    AutoStatusStartStop();
+}
+
+void LogbookDialog::AutoStatusStartStop()
+{
     if ( checkBitmaps() == 2 )
         logbookPlugIn->eventsEnabled = false;
     else if ( checkBitmaps() == 1 )
         logbookPlugIn->eventsEnabled = true;
     else
         return;
-
+    
     if ( logbookPlugIn->eventsEnabled )
     {
         m_buttonStartStop->SetLabel( _( "Stop" ) );
@@ -3869,8 +3874,9 @@ Backup Logbook(*.txt)|*.txt" );
     }
 #endif
 
-
-
+    if (logbookPlugIn->opt->autostarttimer == true)
+        AutoStatusStartStop();
+                         
 #ifndef __WXMSW__  // wxWidgets won't set buttonwidth in Linux like in windows
     m_buttonEditLayout->SetMinSize( wxSize( 25,-1 ) );
     m_buttonReloadLayout->SetMinSize( wxSize( 25,-1 ) );
