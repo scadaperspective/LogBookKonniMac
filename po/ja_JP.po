@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-25 10:01-0300\n"
-"PO-Revision-Date: 2016-02-25 08:04-0500\n"
+"PO-Revision-Date: 2018-03-11 10:38-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: src/logbook_pi.cpp:815 src/LogbookDialog.cpp:621 src/LogbookDialog.cpp:754
 #: src/LogbookDialog.cpp:7486
 msgid "Logbook"
-msgstr ""
+msgstr "航海日誌"
 
 #: src/logbook_pi.cpp:185
 msgid "Your engine(s) are still running\n\n"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-25 10:01-0300\n"
-"PO-Revision-Date: 2016-02-25 08:04-0500\n"
+"PO-Revision-Date: 2018-03-11 10:37-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -53,7 +53,7 @@ msgid "Logbook for OpenCPN\n\n"
 "http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html\n"
 "Helpful videos are at Youtube, search for LogbookKonni."
 msgstr "Journaal PlugIn voor OpenCPN\n"
-"Met dank aan de gebruikersgroep voor de nuttige suggesties.\n\n"
+"Met dank aan de gebruikersgroep voor de nuttige suggesties.\n"
 "Indien U een bug vindt, meld die dan via: \n"
 " http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html.\n"
 "Ondersteunende video's gemaakt door gebruikers staan op Youtube (zoek naar LogbookKonni)."
@@ -228,7 +228,7 @@ msgstr "Automatische regelinvoer per tijdinterval.\n"
 "\n"
 "U kunt dit Aan en Uit zetten en de instellingen \n"
 "\n"
-"ervan aanpassen via de knop Timerinstellingen linksonder op het Journaaltabblad.\n"
+"ervan aanpassen via de knop 'Instellen tijdmeter' linksonder op het Journaaltabblad.\n"
 "\n"
 "Met Shift+Enter voegt u een nieuwe regel toe."
 
@@ -247,7 +247,7 @@ msgstr "NM"
 #: src/Options.cpp:157 src/Options.cpp:166 src/LogbookOptions.cpp:642
 #: src/LogbookOptions.cpp:724 src/LogbookOptions.cpp:855
 msgid "kts"
-msgstr "knp"
+msgstr "kn"
 
 #: src/Options.cpp:159 src/LogbookDialog.cpp:8731 src/LogbookOptions.cpp:662
 msgid "m"
@@ -600,7 +600,7 @@ msgstr "Tekstblokken dialoogvenster"
 
 #: src/LogbookDialog.h:1108
 msgid "Set Timer Interval"
-msgstr "Instellingen tijdinterval Timers"
+msgstr "Instellen interval tijdmeters"
 
 #: src/LogbookDialog.h:1158 src/LogbookDialog.cpp:389
 msgid "Position"
@@ -715,16 +715,16 @@ msgstr "Help"
 
 #: src/LogbookDialog.cpp:225
 msgid "Set Timer"
-msgstr "Timerinstellingen"
+msgstr "Instellen tijdmeter"
 
 #: src/LogbookDialog.cpp:226
 msgid "Set the interval for the timer"
-msgstr "Timer-interval instellen"
+msgstr "Tijdmeterinterval instellen"
 
 #: src/LogbookDialog.cpp:231 src/LogbookDialog.cpp:236
 #: src/LogbookOptions.cpp:334
 msgid "Timer"
-msgstr "Timer"
+msgstr "Tijdmeter"
 
 #: src/LogbookDialog.cpp:244 src/LogbookDialog.cpp:249 src/LogbookDialog.cpp:386
 #: src/LogbookOptions.cpp:354
@@ -806,13 +806,12 @@ msgstr "Koers"
 
 #: src/LogbookDialog.cpp:392
 msgid "SOG"
-msgstr "Vaart over\n"
-"grond"
+msgstr "Grondvaart"
 
 #: src/LogbookDialog.cpp:393
 msgid "STW"
 msgstr "Vaart door\n"
-"water"
+"water (V)"
 
 #: src/LogbookDialog.cpp:394
 msgid "Depth"
@@ -1676,15 +1675,15 @@ msgstr "niets"
 
 #: src/LogbookDialog.cpp:3634
 msgid " - Normal Timer - Interval: "
-msgstr " - Tijdinterval Gewone Timer: "
+msgstr " - Interval standaard tijdmeter: "
 
 #: src/LogbookDialog.cpp:3638
 msgid " - Full Hour Timer"
-msgstr " - Gehele Uren Timer"
+msgstr " - Gehele uren tijdmeter"
 
 #: src/LogbookDialog.cpp:3641
 msgid " - Individual Timer"
-msgstr " - Individuele Timer"
+msgstr " - Individuele tijdmeter"
 
 #: src/LogbookDialog.cpp:3677
 msgid "no Event/s\n"
@@ -1744,8 +1743,8 @@ msgstr "Journaalbestand opslaan"
 #: src/LogbookDialog.cpp:4798
 msgid "Normal Timer has 0 h 0 Min.\n\n"
 "Please change settings (Timer-Interval)"
-msgstr "Interval Gewone Timer is 0h 0m 0s.\n"
-"Instelling voor timerinterval wijzigen."
+msgstr "Interval standaard tijdmeter is 0h 0m 0s.\n"
+"Instelling voor tijdmeterinterval wijzigen."
 
 #: src/LogbookDialog.cpp:4960
 msgid "No Path set to HTML-Editor\n"
@@ -1958,7 +1957,7 @@ msgstr "Nieuw item%i"
 
 #: src/LogbookDialog.cpp:8713
 msgid "Normal Timer"
-msgstr "Gewone Timer"
+msgstr "Standaard tijdmeter"
 
 #: src/LogbookDialog.cpp:8749 src/LogbookDialog.cpp:8827
 #: src/LogbookDialog.cpp:8891
@@ -1967,7 +1966,7 @@ msgstr "Gebeurtenis"
 
 #: src/LogbookDialog.cpp:8763
 msgid "Full Hour Timer"
-msgstr "Gehele Uren Timer"
+msgstr "Gehele uren tijdmeter"
 
 #: src/LogbookDialog.cpp:8766
 msgid "every"
@@ -1983,7 +1982,7 @@ msgstr "Alles wissen"
 
 #: src/LogbookDialog.cpp:8836
 msgid "Individual Timer"
-msgstr "Individuele Timer"
+msgstr "Individuele tijdmeter"
 
 #: src/LogbookDialog.cpp:8859
 msgid "Hour"
@@ -2122,15 +2121,15 @@ msgstr "Indien geselecteerd tonen WWS en SWS de Min|Gem|Max windsnelheden"
 
 #: src/LogbookOptions.cpp:264
 msgid "Sails Messages"
-msgstr "Zeilberichten"
+msgstr "Zeilnotities"
 
 #: src/LogbookOptions.cpp:270
 msgid "Show daily entries in Overview"
-msgstr ""
+msgstr "Toon dagelijkse notities in het overzicht"
 
 #: src/LogbookOptions.cpp:272
 msgid "If checked the Overview for Active or Selected logbook will show daily lines-"
-msgstr ""
+msgstr "Indien aangevinkt, toont het overzicht van het actieve of geselecteerde journaal de dagelijkse notities"
 
 #: src/LogbookOptions.cpp:277
 msgid "Write warning \"No GPS\""
@@ -2140,17 +2139,17 @@ msgstr "Noteer waarschuwing \"Geen GPS\""
 msgid "Uncheck if You have no GPS\n"
 "If GPS is out of order, uncheck to\n"
 "prevent that the message repeats."
-msgstr "Niet aanvinken als u geen GPS heeft of \n"
-"als uw GPS niet functioneert om te voor-\n"
+msgstr "Niet aanvinken als u geen GPS heeft of\n"
+"als uw GPS niet functioneert, om te voor-\n"
 "komen dat de melding zich blijft herhalen."
 
 #: src/LogbookOptions.cpp:285
 msgid "Write message \"Engine running\" "
-msgstr "Noteer bericht \"Motor draait\" "
+msgstr "Noteer \"Motor draait\" "
 
 #: src/LogbookOptions.cpp:287
 msgid "If checked the message will be in Remarks when engine is started."
-msgstr ""
+msgstr "Indien aangevinkt, zal een notitie in Opmerkingen worden geplaatst als de motor wordt gestart."
 
 #: src/LogbookOptions.cpp:292
 msgid "On engine start set always all sails down"
@@ -2185,7 +2184,7 @@ msgid "automatic line by timer\n"
 "Change this text in options"
 msgstr "Automatische regelinvoer per tijdinterval:\n"
 "\n"
-"U kunt hiervoor een Timer gebruiken\n"
+"U kunt hiervoor een tijdmeter gebruiken\n"
 "\n"
 "door op de bullet te klikken. Tekst kan\n"
 "\n"

@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-25 10:01-0300\n"
-"PO-Revision-Date: 2016-02-25 08:04-0500\n"
+"PO-Revision-Date: 2018-03-06 07:42-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: opencpn\n"
 "X-Crowdin-Language: ru\n"
@@ -39,11 +39,11 @@ msgstr ""
 #: src/Logbook.cpp:916 src/Logbook.cpp:1513 src/LogbookDialog.h:630
 #: src/LogbookDialog.cpp:7557 src/LogbookDialog.cpp:7663 src/OverView.cpp:216
 msgid "Active Logbook"
-msgstr ""
+msgstr "Активный журнал"
 
 #: src/logbook_pi.cpp:681
 msgid "Logbook for OpenCPN"
-msgstr ""
+msgstr "Журнал для OpenCPN"
 
 #: src/logbook_pi.cpp:686
 msgid "Logbook for OpenCPN\n\n"
@@ -55,11 +55,11 @@ msgstr ""
 
 #: src/logbook_pi.cpp:794 src/logbook_pi.cpp:797 src/logbook_pi.cpp:800
 msgid "Logbook Preferences"
-msgstr ""
+msgstr "Настройки журнала"
 
 #: src/logbook_pi.cpp:1493 src/logbook_pi.cpp:1497
 msgid "Select zipped Layout-Files"
-msgstr ""
+msgstr "Выберите zipped Layout-Files"
 
 #: src/logbook_pi.cpp:1579
 #, c-format
@@ -181,11 +181,12 @@ msgstr ""
 #: src/Options.cpp:89
 msgid "You can change the abreviations and the names of the sails\n"
 "in Options/Miscellaneous/Sails"
-msgstr ""
+msgstr "Вы можете изменить аббревиатуры и названия парусов\n"
+"в опции/Разное/паруса"
 
 #: src/Options.cpp:122
 msgid "automatic line Waypoint arrived"
-msgstr ""
+msgstr "появилась автоматическая линия Waypoint"
 
 #: src/Options.cpp:124 src/LogbookOptions.cpp:358
 msgid "automatic line\n"
@@ -195,7 +196,8 @@ msgstr ""
 #: src/Options.cpp:127 src/LogbookOptions.cpp:380
 msgid "automatic line\n"
 "change of course >"
-msgstr ""
+msgstr "автоматическая линия\n"
+"изменение курса>"
 
 #: src/Options.cpp:131 src/LogbookOptions.cpp:369
 msgid "automatic line\n"
@@ -228,11 +230,11 @@ msgstr ""
 
 #: src/Options.cpp:159 src/LogbookDialog.cpp:8731 src/LogbookOptions.cpp:662
 msgid "m"
-msgstr ""
+msgstr "м"
 
 #: src/Options.cpp:160 src/LogbookOptions.cpp:682
 msgid "ft"
-msgstr ""
+msgstr "фт."
 
 #: src/Options.cpp:161
 msgid "fth"
@@ -248,7 +250,7 @@ msgstr ""
 
 #: src/Options.cpp:167 src/LogbookOptions.cpp:733 src/LogbookOptions.cpp:855
 msgid "m/s"
-msgstr ""
+msgstr "м/с"
 
 #: src/Options.cpp:168 src/LogbookOptions.cpp:742 src/LogbookOptions.cpp:855
 msgid "km/h"
@@ -283,7 +285,7 @@ msgstr ""
 #: src/LogbookHTML.cpp:775 src/CrewList.cpp:1787 src/CrewList.cpp:2195
 #: src/CrewList.cpp:2539 src/boat.cpp:290 src/boat.cpp:550
 msgid "Information"
-msgstr ""
+msgstr "Информация"
 
 #: src/Logbook.h:257
 msgid "Reminder"
@@ -319,7 +321,7 @@ msgstr ""
 
 #: src/Logbook.cpp:773
 msgid "Reset all Values to zero ?"
-msgstr ""
+msgstr "Сбросить все значения на ноль ?"
 
 #: src/Logbook.cpp:779
 msgid "Your Logbook has no lines ?"
@@ -336,7 +338,7 @@ msgstr ""
 #: src/Logbook.cpp:889
 #, c-format
 msgid "Old Logbook until %s"
-msgstr ""
+msgstr "Старый журнал пока %s"
 
 #: src/Logbook.cpp:949
 #, c-format
@@ -361,7 +363,7 @@ msgstr ""
 
 #: src/Logbook.cpp:1637
 msgid "Track "
-msgstr ""
+msgstr "Путь "
 
 #: src/Logbook.cpp:1682
 msgid "Engine #1 started"
@@ -444,14 +446,15 @@ msgstr ""
 #, c-format
 msgid "Please enter the Date in the format:\n"
 "      %s"
-msgstr ""
+msgstr "Пожалуйста, введите дату в формате: \n"
+"      %s"
 
 #: src/Logbook.cpp:2462
 #, c-format
 msgid "Please enter the Time in the format:\n"
 "   %s"
-msgstr ""
-
+msgstr "Пожалуйста, введите время в формат:\n"
+"   %s"
 #: src/Logbook.cpp:2506
 msgid "Please enter 0544512.15n0301205.15e for\n"
 "054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
@@ -464,7 +467,7 @@ msgstr ""
 
 #: src/Logbook.cpp:2851
 msgid "Minutes greater than 59"
-msgstr ""
+msgstr "Минут Больше 59"
 
 #: src/Logbook.cpp:3407
 msgid "Wind is set to Heading,\n"
@@ -482,7 +485,7 @@ msgstr ""
 
 #: src/Logbook.cpp:3469
 msgid "Last waypoint of the Route"
-msgstr ""
+msgstr "Последнюю точку маршрута"
 
 #: src/Logbook.cpp:3473
 #, c-format
@@ -502,7 +505,8 @@ msgstr ""
 #: src/Logbook.cpp:3513
 msgid "It's not allowed to append Data to a old Logbook\n\n"
 "\t\t\t\t\t\t\t\t\t\t\t\t\t\t OpenCPN switchs to actual logbook"
-msgstr ""
+msgstr "Нельзя добавлять данные в старые журналы\n\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t OpenCPN переключение на фактический журнал"
 
 #: src/Logbook.cpp:3588
 msgid "Search in"
@@ -561,7 +565,7 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:99
 msgid "add a line to the end of your logbook"
-msgstr ""
+msgstr "добавьте строку в конец журнала"
 
 #: src/LogbookDialog.cpp:103 src/LogbookDialog.cpp:644 src/LogbookDialog.cpp:834
 #: src/LogbookDialog.cpp:1200 src/LogbookDialog.cpp:1642
@@ -661,7 +665,7 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:226
 msgid "Set the interval for the timer"
-msgstr ""
+msgstr "Установка интервала для таймера"
 
 #: src/LogbookDialog.cpp:231 src/LogbookDialog.cpp:236
 #: src/LogbookOptions.cpp:334
@@ -955,7 +959,7 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:698
 msgid "Select one of the old logbooks"
-msgstr ""
+msgstr "Выберите один из старых журналов"
 
 #: src/LogbookDialog.cpp:756 src/LogbookDialog.cpp:999
 #: src/LogbookDialog.cpp:2928 src/LogbookDialog.cpp:3063
@@ -1178,11 +1182,11 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:1004
 msgid "Set the startdate of the sailing trip"
-msgstr ""
+msgstr "Установить Звездный день парусной поездки"
 
 #: src/LogbookDialog.cpp:1010
 msgid "Set the starttime of your sailing trip"
-msgstr ""
+msgstr "Установить начальное время вашего плавания"
 
 #: src/LogbookDialog.cpp:1014
 msgid "Days"
@@ -1198,7 +1202,7 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:1024
 msgid "Calculate the watches with the members entered in the columns"
-msgstr ""
+msgstr "Рассчитайте часы с элементами введенными в столбцы"
 
 #: src/LogbookDialog.cpp:1028 src/LogbookDialog.cpp:3903
 #: src/LogbookOptions.cpp:1254 src/LogbookOptions.cpp:1576
@@ -1301,11 +1305,11 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:1190
 msgid "add the equipment of your boat"
-msgstr ""
+msgstr "добавьте оборудование вашей шлюпки"
 
 #: src/LogbookDialog.cpp:1193 src/LogbookDialog.cpp:5728
 msgid "Show Equipment"
-msgstr ""
+msgstr "Показать Оборудование"
 
 #: src/LogbookDialog.cpp:1194
 msgid "Show/Hide Equipmentgrid"
@@ -1515,7 +1519,7 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:1737
 msgid "Buy parts for this service"
-msgstr ""
+msgstr "Купить запчасти для данной услуги"
 
 #: src/LogbookDialog.cpp:1752 src/Maintenance.cpp:458
 msgid "Service"
@@ -1768,7 +1772,7 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:8293
 msgid "Texts when using this Dialog only"
-msgstr ""
+msgstr "Тексты при использовании только этого диалога"
 
 #: src/LogbookDialog.cpp:8299
 msgid "Engine stopped\n\n"
@@ -1777,7 +1781,7 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:8300
 msgid "Demo Engine stopped"
-msgstr ""
+msgstr "Демо Двигатель остановлен"
 
 #: src/LogbookDialog.cpp:8373
 #, c-format
@@ -1791,12 +1795,12 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:8713
 msgid "Normal Timer"
-msgstr ""
+msgstr "Нормальный Таймер"
 
 #: src/LogbookDialog.cpp:8749 src/LogbookDialog.cpp:8827
 #: src/LogbookDialog.cpp:8891
 msgid "Event"
-msgstr ""
+msgstr "Событие"
 
 #: src/LogbookDialog.cpp:8763
 msgid "Full Hour Timer"
@@ -1820,7 +1824,7 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:8859
 msgid "Hour"
-msgstr ""
+msgstr "Час"
 
 #: src/LogbookDialog.cpp:8860 src/LogbookOptions.cpp:614
 msgid "Minutes"
@@ -1844,7 +1848,7 @@ msgstr ""
 
 #: src/LogbookOptions.cpp:74
 msgid "Local Format"
-msgstr ""
+msgstr "Локальный Формат"
 
 #: src/LogbookOptions.cpp:74
 msgid "Individual"
@@ -1853,15 +1857,15 @@ msgstr ""
 #: src/LogbookOptions.cpp:85 src/LogbookOptions.cpp:91 src/LogbookOptions.cpp:97
 #: src/LogbookOptions.cpp:831
 msgid "Month"
-msgstr ""
+msgstr "Месяц"
 
 #: src/LogbookOptions.cpp:85 src/LogbookOptions.cpp:91 src/LogbookOptions.cpp:97
 msgid "Day"
-msgstr ""
+msgstr "День"
 
 #: src/LogbookOptions.cpp:85 src/LogbookOptions.cpp:91 src/LogbookOptions.cpp:97
 msgid "Year"
-msgstr ""
+msgstr "Год"
 
 #: src/LogbookOptions.cpp:111
 msgid "Separator"
@@ -1958,7 +1962,7 @@ msgstr ""
 
 #: src/LogbookOptions.cpp:270
 msgid "Show daily entries in Overview"
-msgstr ""
+msgstr "Показать ежедневные записи в обзоре"
 
 #: src/LogbookOptions.cpp:272
 msgid "If checked the Overview for Active or Selected logbook will show daily lines-"
@@ -1984,7 +1988,7 @@ msgstr ""
 
 #: src/LogbookOptions.cpp:292
 msgid "On engine start set always all sails down"
-msgstr ""
+msgstr "На старте двигателя установлены всегда все паруса вниз"
 
 #: src/LogbookOptions.cpp:297
 msgid "     Winddirection set to:"
@@ -2005,7 +2009,7 @@ msgstr ""
 
 #: src/LogbookOptions.cpp:323
 msgid "Writes this text to the logbook when the event occurs, alter texts as desired"
-msgstr ""
+msgstr "Записывает этот текст в журнал когда происходит событие, изменяет текст по желанию"
 
 #: src/LogbookOptions.cpp:338
 msgid "automatic line by timer\n"

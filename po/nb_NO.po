@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-25 10:01-0300\n"
-"PO-Revision-Date: 2016-02-25 08:05-0500\n"
+"PO-Revision-Date: 2018-03-03 08:24-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
@@ -752,7 +752,7 @@ msgstr "Tid"
 
 #: src/LogbookDialog.cpp:385
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: src/LogbookDialog.cpp:388
 msgid "DistanceTotal"
@@ -1297,7 +1297,7 @@ msgstr "Vakt tid"
 
 #: src/LogbookDialog.cpp:1114
 msgid "Member"
-msgstr ""
+msgstr "Medlem"
 
 #: src/LogbookDialog.cpp:1124
 msgid "Set as Watchbase"
@@ -1717,7 +1717,7 @@ msgstr "Installer ett utseende"
 
 #: src/LogbookDialog.cpp:7487
 msgid "First/Last Entry"
-msgstr ""
+msgstr "Første/siste oppføring"
 
 #: src/LogbookDialog.cpp:7489
 msgid "File"
@@ -1775,7 +1775,7 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:8262
 msgid "Texts for Rightclick-Menu"
-msgstr ""
+msgstr "Tekster for høyreklikk-menyen"
 
 #: src/LogbookDialog.cpp:8268
 msgid "Sails up\n"
@@ -1785,7 +1785,7 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:8269
 msgid "Demo Sails up"
-msgstr ""
+msgstr "Demo seilene opp"
 
 #: src/LogbookDialog.cpp:8292
 msgid "These texts are inserted into the grid-colmn\n"
@@ -1806,7 +1806,7 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:8300
 msgid "Demo Engine stopped"
-msgstr ""
+msgstr "Demo motor stoppet"
 
 #: src/LogbookDialog.cpp:8373
 #, c-format
@@ -1825,7 +1825,7 @@ msgstr ""
 #: src/LogbookDialog.cpp:8749 src/LogbookDialog.cpp:8827
 #: src/LogbookDialog.cpp:8891
 msgid "Event"
-msgstr ""
+msgstr "Hendelse"
 
 #: src/LogbookDialog.cpp:8763
 msgid "Full Hour Timer"
@@ -1833,7 +1833,7 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:8766
 msgid "every"
-msgstr ""
+msgstr "hver"
 
 #: src/LogbookDialog.cpp:8797
 msgid "+ Minutes"
@@ -1938,7 +1938,7 @@ msgstr "Vis loggbok ikon"
 
 #: src/LogbookOptions.cpp:212
 msgid "Show Position Format"
-msgstr ""
+msgstr "Vis posisjonsformat"
 
 #: src/LogbookOptions.cpp:227
 msgid "Show ToolTips"
@@ -1966,7 +1966,7 @@ msgstr ""
 
 #: src/LogbookOptions.cpp:250
 msgid "Generator On Board"
-msgstr ""
+msgstr "Generator ombord"
 
 #: src/LogbookOptions.cpp:252
 msgid "Check if there is a Generator onboard.\n"
@@ -2120,7 +2120,7 @@ msgstr "Kapasitet"
 
 #: src/LogbookOptions.cpp:603
 msgid "Degrees"
-msgstr ""
+msgstr "Grader"
 
 #: src/LogbookOptions.cpp:621
 msgid "Seconds"
@@ -2179,15 +2179,15 @@ msgstr "Drivstoff/vann"
 
 #: src/LogbookOptions.cpp:772
 msgid "Motor Hours"
-msgstr ""
+msgstr "Motor-timer"
 
 #: src/LogbookOptions.cpp:779
 msgid "Ampere"
-msgstr ""
+msgstr "Ampere"
 
 #: src/LogbookOptions.cpp:787
 msgid "Engine"
-msgstr ""
+msgstr "Motor"
 
 #: src/LogbookOptions.cpp:794
 msgid "PropShaft"
@@ -2199,11 +2199,11 @@ msgstr ""
 
 #: src/LogbookOptions.cpp:801
 msgid "Revolutions"
-msgstr ""
+msgstr "Omdreininger"
 
 #: src/LogbookOptions.cpp:805
 msgid "RPM"
-msgstr ""
+msgstr "RPM"
 
 #: src/LogbookOptions.cpp:813 src/LogbookOptions.cpp:817
 msgid "Day(s)"
@@ -2215,7 +2215,7 @@ msgstr "Uke(r)"
 
 #: src/LogbookOptions.cpp:827
 msgid "Month "
-msgstr ""
+msgstr "Måned "
 
 #: src/LogbookOptions.cpp:839
 msgid "If GPS off use for manual entry"
@@ -2270,7 +2270,7 @@ msgstr ""
 
 #: src/LogbookOptions.cpp:992
 msgid "Show"
-msgstr ""
+msgstr "Vis"
 
 #: src/LogbookOptions.cpp:1013
 msgid "Set Linewidth to"

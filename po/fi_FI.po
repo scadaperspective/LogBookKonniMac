@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-25 10:01-0300\n"
-"PO-Revision-Date: 2016-02-25 08:03-0500\n"
+"PO-Revision-Date: 2018-03-11 10:37-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -2035,11 +2035,11 @@ msgstr "Purje viestit"
 
 #: src/LogbookOptions.cpp:270
 msgid "Show daily entries in Overview"
-msgstr ""
+msgstr "Näytä päivittäiset kirjaukset yleiskatsaus"
 
 #: src/LogbookOptions.cpp:272
 msgid "If checked the Overview for Active or Selected logbook will show daily lines-"
-msgstr ""
+msgstr "Jos merkitty Yhteenveto aktiivisesta tai valitusta lokikirjasta se näyttää päivittäiset rivit-"
 
 #: src/LogbookOptions.cpp:277
 msgid "Write warning \"No GPS\""
@@ -2059,7 +2059,7 @@ msgstr "Kirjoita viesti \"Moottori käynnissä\" "
 
 #: src/LogbookOptions.cpp:287
 msgid "If checked the message will be in Remarks when engine is started."
-msgstr ""
+msgstr "Jos moottorin käynnistysviesti on valittu, se näytetään huomautuksissa."
 
 #: src/LogbookOptions.cpp:292
 msgid "On engine start set always all sails down"

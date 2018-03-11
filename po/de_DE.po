@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-25 10:01-0300\n"
-"PO-Revision-Date: 2016-02-25 08:03-0500\n"
+"PO-Revision-Date: 2018-03-11 10:37-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -181,7 +181,7 @@ msgstr "Stagsegel"
 
 #: src/Options.cpp:88
 msgid "Spinnacker"
-msgstr ""
+msgstr "Spinnacker"
 
 #: src/Options.cpp:89
 msgid "You can change the abreviations and the names of the sails\n"
@@ -240,7 +240,7 @@ msgstr "kn"
 
 #: src/Options.cpp:159 src/LogbookDialog.cpp:8731 src/LogbookOptions.cpp:662
 msgid "m"
-msgstr ""
+msgstr "m"
 
 #: src/Options.cpp:160 src/LogbookOptions.cpp:682
 msgid "ft"
@@ -264,7 +264,7 @@ msgstr ""
 
 #: src/Options.cpp:168 src/LogbookOptions.cpp:742 src/LogbookOptions.cpp:855
 msgid "km/h"
-msgstr ""
+msgstr "km/h"
 
 #: src/Options.cpp:171 src/LogbookOptions.cpp:769
 msgid "gal"
@@ -273,7 +273,7 @@ msgstr "l"
 #: src/Options.cpp:172 src/LogbookDialog.cpp:8724 src/LogbookDialog.cpp:8773
 #: src/LogbookOptions.cpp:186 src/LogbookOptions.cpp:776
 msgid "h"
-msgstr ""
+msgstr "h"
 
 #: src/Options.cpp:178
 msgid "day(s)"
@@ -577,7 +577,7 @@ msgstr "Setze das Timer-Interval"
 
 #: src/LogbookDialog.h:1158 src/LogbookDialog.cpp:389
 msgid "Position"
-msgstr ""
+msgstr "Position"
 
 #: src/LogbookDialog.cpp:98 src/LogbookDialog.cpp:1638
 #: src/LogbookDialog.cpp:1764 src/LogbookDialog.cpp:1881
@@ -592,7 +592,7 @@ msgstr "Fügt eine Zeile am Ende des Logbuchs hinzu"
 #: src/LogbookDialog.cpp:1200 src/LogbookDialog.cpp:1642
 #: src/LogbookDialog.cpp:1768 src/LogbookDialog.cpp:1885
 msgid "Export"
-msgstr ""
+msgstr "Export"
 
 #: src/LogbookDialog.cpp:104
 msgid "export your logbook-data as:\n"
@@ -644,7 +644,7 @@ msgstr "Layout editieren"
 
 #: src/LogbookDialog.cpp:176 src/LogbookDialog.cpp:863
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: src/LogbookDialog.cpp:180 src/LogbookDialog.cpp:867
 msgid "ODT"
@@ -753,7 +753,7 @@ msgstr "Unterbrechen/Wiederaufnehmen von Ereignissen"
 #: src/LogbookDialog.cpp:382 src/LogbookDialog.cpp:755
 #: src/LogbookDialog.cpp:4393 src/LogbookOptions.cpp:1001
 msgid "Route"
-msgstr ""
+msgstr "Route"
 
 #: src/LogbookDialog.cpp:384 src/LogbookDialog.cpp:1113
 msgid "Time"
@@ -761,7 +761,7 @@ msgstr "Zeit"
 
 #: src/LogbookDialog.cpp:385
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: src/LogbookDialog.cpp:388
 msgid "DistanceTotal"
@@ -822,11 +822,11 @@ msgstr "Tausche Tag<->Monat"
 
 #: src/LogbookDialog.cpp:450 src/LogbookOptions.cpp:597
 msgid "Navigation"
-msgstr ""
+msgstr "Navigation"
 
 #: src/LogbookDialog.cpp:483 src/LogbookOptions.cpp:713
 msgid "Barometer"
-msgstr ""
+msgstr "Barometer"
 
 #: src/LogbookDialog.cpp:484
 msgid "Hygrometer"
@@ -1765,7 +1765,7 @@ msgstr "Knoten löschen"
 
 #: src/LogbookDialog.cpp:8127
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: src/LogbookDialog.cpp:8249
 msgid "Textblocks"
@@ -1955,7 +1955,7 @@ msgstr "keine Sekunden"
 
 #: src/LogbookOptions.cpp:160
 msgid "UTC"
-msgstr ""
+msgstr "UTC"
 
 #: src/LogbookOptions.cpp:163
 msgid "Local = UTC"
@@ -2363,7 +2363,7 @@ msgstr "Setze Track-Linienfarbe auf"
 
 #: src/LogbookOptions.cpp:1064
 msgid "KML"
-msgstr ""
+msgstr "KML"
 
 #: src/LogbookOptions.cpp:1074
 msgid "Check one of the below checkboxes, if you want use ERRPM-Sentence (see help)"
@@ -2415,7 +2415,7 @@ msgstr "Für Barometer, Lufttemperatur und rel. Feuchte"
 
 #: src/LogbookOptions.cpp:1160
 msgid "NMEA"
-msgstr ""
+msgstr "NMEA"
 
 #: src/LogbookOptions.cpp:1173
 msgid "Checkbox Space  >>"

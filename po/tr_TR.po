@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-25 10:01-0300\n"
-"PO-Revision-Date: 2016-02-25 08:04-0500\n"
+"PO-Revision-Date: 2018-03-03 08:26-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: opencpn\n"
 "X-Crowdin-Language: tr\n"
@@ -52,7 +52,7 @@ msgid "Logbook for OpenCPN\n\n"
 "If you find a bug post it on\n"
 "http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html\n"
 "Helpful videos are at Youtube, search for LogbookKonni."
-msgstr ""
+msgstr "OpenCPN için Seyir Defteri \\ n \\ nDiğer önerileriniz için topluluğa teşekkür ederiz. \\ N \\ nHatta bir hata bulduysanız \\ nhttp: //www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html \\ nYoutube'da Yardım videoları var, 'LogbookKonni''yi aratın."
 
 #: src/logbook_pi.cpp:794 src/logbook_pi.cpp:797 src/logbook_pi.cpp:800
 msgid "Logbook Preferences"
@@ -419,25 +419,27 @@ msgstr "\n"
 
 #: src/Logbook.cpp:1739
 msgid "Generator started"
-msgstr ""
+msgstr "Jeneratör başladı"
 
 #: src/Logbook.cpp:1745
 msgid "Generator running"
-msgstr ""
+msgstr "Jeneratör çalışıyor"
 
 #: src/Logbook.cpp:1747
 msgid "\n"
 "Generator running"
-msgstr ""
+msgstr "\n"
+"Jeneratör çalışıyor"
 
 #: src/Logbook.cpp:1764
 msgid "Generator stopped"
-msgstr ""
+msgstr "Jeneratör durdu"
 
 #: src/Logbook.cpp:1766
 msgid "\n"
 "Generator stopped"
-msgstr ""
+msgstr "\n"
+" Jeneratör durdu"
 
 #: src/Logbook.cpp:1788
 msgid "Sails hoisted"
@@ -494,7 +496,9 @@ msgstr "59'dan daha büyük dakika"
 msgid "Wind is set to Heading,\n"
 "but GPS sends no Heading Data.\n"
 "Wind is set now to Relative to boat\n\n"
-msgstr ""
+msgstr "Rüzgar pruvaya göre ayarlandı, \n"
+" fakat GPS pruva verisi göndermiyor.\n"
+" Rüzgar şimdi gemiden hissedilen rüzgara göre ayarlandı \n\n"
 
 #: src/Logbook.cpp:3447
 msgid "No GPS-Signal !"
@@ -769,7 +773,7 @@ msgstr "Saat"
 
 #: src/LogbookDialog.cpp:385
 msgid "Status"
-msgstr ""
+msgstr "Durum"
 
 #: src/LogbookDialog.cpp:388
 msgid "DistanceTotal"
@@ -851,29 +855,30 @@ msgstr "Su"
 
 #: src/LogbookDialog.cpp:487
 msgid "TWA"
-msgstr ""
+msgstr "TWA"
 
 #: src/LogbookDialog.cpp:491
 msgid "TWS\n"
 "Min|Avg|Max"
-msgstr ""
+msgstr "TWS \\ nMin | Ort | Max"
 
 #: src/LogbookDialog.cpp:492 src/LogbookDialog.cpp:498
 msgid "AWA"
-msgstr ""
+msgstr "AWA"
 
 #: src/LogbookDialog.cpp:493
 msgid "AWS\n"
 "Min|Avg|Max"
-msgstr ""
+msgstr "AWS\n"
+"Min | Ort| Max"
 
 #: src/LogbookDialog.cpp:497
 msgid "TWS"
-msgstr ""
+msgstr "TWS"
 
 #: src/LogbookDialog.cpp:499
 msgid "AWS"
-msgstr ""
+msgstr "AWS"
 
 #: src/LogbookDialog.cpp:501
 msgid "Current"
@@ -1072,15 +1077,15 @@ msgstr "Kullanılan su"
 
 #: src/LogbookDialog.cpp:775
 msgid "TWA Avg."
-msgstr ""
+msgstr "TWA Ort."
 
 #: src/LogbookDialog.cpp:776
 msgid "TWS Avg."
-msgstr ""
+msgstr "TWS Ort."
 
 #: src/LogbookDialog.cpp:777
 msgid "TWS Max."
-msgstr ""
+msgstr "TWS Max."
 
 #: src/LogbookDialog.cpp:778
 msgid "Currentdirection Avg."
@@ -2011,7 +2016,7 @@ msgstr "Seyir Defteri simgesini göster"
 
 #: src/LogbookOptions.cpp:212
 msgid "Show Position Format"
-msgstr ""
+msgstr "Pozisyon Formatını Göster"
 
 #: src/LogbookOptions.cpp:227
 msgid "Show ToolTips"
@@ -2031,28 +2036,28 @@ msgstr "2"
 
 #: src/LogbookOptions.cpp:243
 msgid "StatusBar at bottom of the page"
-msgstr ""
+msgstr "Sayfanın altındaki durum çubuğu"
 
 #: src/LogbookOptions.cpp:245
 msgid "If unchecked the StatusBar will be placed above the Navigation/Meteo/Motor-Sails buttons"
-msgstr ""
+msgstr "İşaretlenmezse, Durum Çubuğu Navigasyon / Meteo / Motor-Yelken düğmelerinin üzerine yerleştirilir"
 
 #: src/LogbookOptions.cpp:250
 msgid "Generator On Board"
-msgstr ""
+msgstr "Motorun Üzerindeki Jeneratör"
 
 #: src/LogbookOptions.cpp:252
 msgid "Check if there is a Generator onboard.\n"
 "If unchecked the Generator columns will not show in Logbook"
-msgstr ""
+msgstr "Teknede bir Jeneratör olup olmadığını kontrol edin. \\ N İşaretlenmezse, Jeneratör sütunları Seyir defterinde gösterilmez"
 
 #: src/LogbookOptions.cpp:257
 msgid "Show Min|Avg|Max wind speeds"
-msgstr ""
+msgstr "Gösteger Min |Ort| Maksimum rüzgar hızı"
 
 #: src/LogbookOptions.cpp:259
 msgid "If checked the TWS and AWS will display Min|Avg|Max windspeeds"
-msgstr ""
+msgstr "İşaretlendiğinde, TWS ve AWS Min | Ort | Max rüzgar hızı"
 
 #: src/LogbookOptions.cpp:264
 msgid "Sails Messages"
@@ -2060,11 +2065,11 @@ msgstr "Nöbet değişirse"
 
 #: src/LogbookOptions.cpp:270
 msgid "Show daily entries in Overview"
-msgstr ""
+msgstr "Günlük girişleri Genel Bakış'da göster"
 
 #: src/LogbookOptions.cpp:272
 msgid "If checked the Overview for Active or Selected logbook will show daily lines-"
-msgstr ""
+msgstr "İşaretlendiğinde, Etkin veya Seçili günlük kitabı için genel-günlük satırları gösterecektir -"
 
 #: src/LogbookOptions.cpp:277
 msgid "Write warning \"No GPS\""
@@ -2081,11 +2086,11 @@ msgstr "Eğer GPS'iniz yoksa işaretleyiniz\n"
 
 #: src/LogbookOptions.cpp:285
 msgid "Write message \"Engine running\" "
-msgstr ""
+msgstr "Mesaj yaz \"Makine çalışıyor\" "
 
 #: src/LogbookOptions.cpp:287
 msgid "If checked the message will be in Remarks when engine is started."
-msgstr ""
+msgstr "İşaretlendiğinde, motor çalıştırıldığında mesaj Açıklamalar kısmında olacaktır."
 
 #: src/LogbookOptions.cpp:292
 msgid "On engine start set always all sails down"
@@ -2197,7 +2202,7 @@ msgstr "Kapasite"
 
 #: src/LogbookOptions.cpp:603
 msgid "Degrees"
-msgstr ""
+msgstr "Dereceler"
 
 #: src/LogbookOptions.cpp:621
 msgid "Seconds"
@@ -2401,7 +2406,7 @@ msgstr "KML"
 
 #: src/LogbookOptions.cpp:1074
 msgid "Check one of the below checkboxes, if you want use ERRPM-Sentence (see help)"
-msgstr ""
+msgstr "ERRPM-Cümleyi kullanmak istiyorsanız aşağıdaki onay kutularından birini işaretleyin (yardıma bakın)"
 
 #: src/LogbookOptions.cpp:1093
 msgid "Check"
@@ -2421,7 +2426,7 @@ msgstr "Makine-No. Makine#1 sütununa karşılık geliyor."
 
 #: src/LogbookOptions.cpp:1103 src/LogbookOptions.cpp:1116
 msgid "Check this box if the NMEA stream contains RPM messages for this engine\n"
-msgstr ""
+msgstr "NMEA akışı bu motor için RPM mesajlar içeriyorsa bu onay kutusunu işaretleyin\n"
 
 #: src/LogbookOptions.cpp:1114
 msgid "Engine-No. corresponds with column Engine #2"
@@ -2429,11 +2434,11 @@ msgstr "Makine-No. Makine#2 sütununa karşılık geliyor."
 
 #: src/LogbookOptions.cpp:1128
 msgid "Engine-No. corresponds with column Generator"
-msgstr ""
+msgstr "Motor-Yok: Jeneratör sütununa karşılık gelir"
 
 #: src/LogbookOptions.cpp:1130
 msgid "Check this box if the NMEA stream contains RPM messages for this generator\n"
-msgstr ""
+msgstr "NMEA akışı bu motor için RPM mesajlar içeriyorsa bu onay kutusunu işaretleyin\n"
 
 #: src/LogbookOptions.cpp:1143
 msgid "Use ERRPM-Sentence to calculate the engine-hours"
@@ -2496,22 +2501,25 @@ msgstr "Muhtelif"
 #: src/LogbookOptions.cpp:1532
 msgid "Your Generator is still running .\n\n"
 "Generator stopped now."
-msgstr ""
+msgstr "Jeneratörünüz hala çalışıyor. \\ On \\ jeneratör artık durdu."
 
 #: src/LogbookOptions.cpp:1648
 msgid "Your Engine #1 is running in manual mode.\n\n"
 "Engine stopped now."
-msgstr ""
+msgstr "Makinalarınız manuel durumda çalışıyor.\n\n"
+"Makineler şimdi durdu."
 
 #: src/LogbookOptions.cpp:1673
 msgid "Your Engine #2 is running in manual mode.\n\n"
 "Engine stopped now."
-msgstr ""
+msgstr "Makinalarınız #2 manuel durumda çalışıyor.\n\n"
+"Makineler şimdi durdu."
 
 #: src/LogbookOptions.cpp:1698
 msgid "Your Generator is running in manual mode.\n\n"
 "Generator stopped now."
-msgstr ""
+msgstr "Makinalarınız manuel durumda çalışıyor.\n\n"
+"Makineler şimdi durdu."
 
 #: src/LogbookOptions.cpp:1904
 msgid "Your Country has 24 Hour Format.\n"
@@ -2535,7 +2543,8 @@ msgstr "Lütfen derece, dakika ve saniye yi aynı karakterlerle yazın."
 #: src/LogbookOptions.cpp:2214
 msgid "Your Engine #2 is still running .\n\n"
 "Engine #2 stopped now."
-msgstr ""
+msgstr "Motor #2 şimdi durdu.\n\n"
+"Motor #2 hala çalışıyor."
 
 #: src/LogbookOptions.cpp:2410
 msgid "Set Path to HTML-Editor"
@@ -2644,7 +2653,7 @@ msgstr "Tarih + Hafta"
 
 #: src/Maintenance.cpp:102
 msgid "Date + Months"
-msgstr ""
+msgstr "Tarih + Aylar"
 
 #: src/Maintenance.cpp:106 src/Maintenance.cpp:202 src/Maintenance.cpp:1068
 #: src/Maintenance.cpp:1072

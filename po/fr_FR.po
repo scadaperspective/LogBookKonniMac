@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-25 10:01-0300\n"
-"PO-Revision-Date: 2016-02-25 08:03-0500\n"
+"PO-Revision-Date: 2018-03-11 10:37-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -221,9 +221,9 @@ msgid "Automatic line by timer\n\n"
 "You can set/unset a timer-interval\n"
 "or change this text in Toolbox/Plugins/Logbook\n\n"
 "Shift+Enter appends a new line"
-msgstr "Ajouter automatiquement une ligne à l'aide de la minuterie\n\n"
+msgstr "Ajout automatique par la minuterie\n\n"
 "Vous pouvez activer/désactiver l'intervalle de temps\n"
-"ou changer ce choix dans la \"Boite à outils\" d'OpenCPN, onglet \"Compléments\" puis \"Livre de bord\"\n\n"
+"ou changer ce choix dans les \"Options\" d'OpenCPN, onglet \"Compléments\" puis \"Livre de bord\"\n\n"
 "Shift+Entre ouvre une nouvelle ligne"
 
 #: src/Options.cpp:153 src/LogbookOptions.cpp:618
@@ -1673,7 +1673,7 @@ msgstr "Rien"
 
 #: src/LogbookDialog.cpp:3634
 msgid " - Normal Timer - Interval: "
-msgstr "- Minuterie par défaut - Interval :"
+msgstr "- Minuterie par défaut - Intervalle :"
 
 #: src/LogbookDialog.cpp:3638
 msgid " - Full Hour Timer"
@@ -1877,7 +1877,7 @@ msgid "Sails up\n"
 "Engine stopped\n\n"
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr "Voiles haute\n"
-"Moteur arrté\n\n"
+"Moteur arrêté\n\n"
 "Démonstration - Clic droit sur le menu -  Rightclick-Menu Utilisez \"Bloc de texte\"."
 
 #: src/LogbookDialog.cpp:8269
@@ -2088,11 +2088,11 @@ msgstr "Si la montre a changé"
 
 #: src/LogbookOptions.cpp:270
 msgid "Show daily entries in Overview"
-msgstr ""
+msgstr "Afficher les entrées quotidiennes dans la vue d'ensemble"
 
 #: src/LogbookOptions.cpp:272
 msgid "If checked the Overview for Active or Selected logbook will show daily lines-"
-msgstr ""
+msgstr "Si la case est cochée, la vue d'ensemble du journal, actif ou sélectionné, affiche les lignes quotidiennes-"
 
 #: src/LogbookOptions.cpp:277
 msgid "Write warning \"No GPS\""
@@ -2112,7 +2112,7 @@ msgstr "Ecrire le message \"Moteur en marche\" "
 
 #: src/LogbookOptions.cpp:287
 msgid "If checked the message will be in Remarks when engine is started."
-msgstr ""
+msgstr "Si la case est cochée, le message sera dans \"Remarques\" si le moteur est démarré."
 
 #: src/LogbookOptions.cpp:292
 msgid "On engine start set always all sails down"

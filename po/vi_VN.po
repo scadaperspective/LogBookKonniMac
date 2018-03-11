@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-25 10:01-0300\n"
-"PO-Revision-Date: 2016-02-25 08:04-0500\n"
+"PO-Revision-Date: 2018-03-03 08:26-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -25,15 +25,15 @@ msgstr ""
 #: src/logbook_pi.cpp:185
 msgid "Your engine(s) are still running\n\n"
 "Stop engine(s) ?"
-msgstr ""
+msgstr "Máy của bạn đang chạy hay đã dừng"
 
 #: src/logbook_pi.cpp:265
 msgid "from "
-msgstr ""
+msgstr "từ "
 
 #: src/logbook_pi.cpp:267
 msgid "-Plugin"
-msgstr ""
+msgstr "-Plugin"
 
 #: src/logbook_pi.cpp:504 src/logbook_pi.cpp:844 src/Logbook.cpp:883
 #: src/Logbook.cpp:916 src/Logbook.cpp:1513 src/LogbookDialog.h:630
