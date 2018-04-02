@@ -72,7 +72,6 @@ extern "C" DECL_EXP void destroy_pi( opencpn_plugin* p )
     delete p;
 }
 
-
 #include "icons.h"
 
 //---------------------------------------------------------------------------------------------------------
@@ -135,7 +134,7 @@ int logbookkonni_pi::Init( void )
     timer = new LogbookTimer( this );
     m_timer = new wxTimer( timer,ID_LOGTIMER );
     timer->Connect( wxEVT_TIMER, wxObjectEventFunction( &LogbookTimer::OnTimer ) );
-
+    
     SendPluginMessage( _T( "LOGBOOK_READY_FOR_REQUESTS" ), _T( "TRUE" ) );
 
     return (
@@ -510,6 +509,7 @@ void logbookkonni_pi::startLogbook()
         else
             SendPluginMessage( _T( "LOGBOOK_WINDOW_HIDDEN" ), wxEmptyString );
     }
+
 }
 
 
@@ -902,6 +902,7 @@ void logbookkonni_pi::SaveConfig()
         }
 
         pConf->Write ( _T ( "Popup" ),opt->popup );
+        pConf->Write ( _T ( "AutoStartTimer" ),opt->autostarttimer );
         pConf->Write ( _T ( "DateFormat" ), opt->dateformat );
         pConf->Write ( _T ( "DateSepIndiv" ), opt->dateseparatorindiv );
         pConf->Write ( _T ( "DateSepLocale" ), opt->dateseparatorlocale );
@@ -1033,7 +1034,6 @@ void logbookkonni_pi::SaveConfig()
         pConf->Write ( _T ( "GenRPMIsChecked" ), opt->bGenRPMIsChecked );
 
         pConf->Write ( _T ( "NMEAUseRPM" ), opt->NMEAUseERRPM );
-        pConf->Write ( _T ( "NMEAUseWIMDA" ), opt->NMEAUseWIMDA );
         pConf->Write ( _T ( "Engine1" ), opt->engine1Id );
         pConf->Write ( _T ( "Engine2" ), opt->engine2Id );
         pConf->Write ( _T ( "Engine1Runs" ), opt->engine1Running );
@@ -1049,10 +1049,11 @@ void logbookkonni_pi::SaveConfig()
         pConf->Write ( _T ( "toggleEngine1" ), opt->toggleEngine1 );
         pConf->Write ( _T ( "toggleEngine2" ), opt->toggleEngine2 );
         pConf->Write ( _T ( "toggleGenerator" ), opt->toggleGenerator );
-
+        pConf->Write ( _T ( "numberofSails" ), opt->numberSails );
+        
         wxString sails = wxEmptyString;
         sails = wxString::Format( _T( "%i,%i," ),opt->rowGap,opt->colGap );
-        for ( int i = 0; i < 14; i++ )
+        for ( int i = 0; i < opt->numberSails; i++ )
             sails += wxString::Format( _T( "%s,%s,%i," ),opt->abrSails.Item( i ).c_str(),opt->sailsName.Item( i ).c_str(),opt->bSailIsChecked[i] );
         sails.RemoveLast();
         pConf->Write ( _T ( "Sails" ), sails );
@@ -1117,6 +1118,7 @@ void logbookkonni_pi::LoadConfig()
 #endif
         pConf->Read ( _T( "DlgHeight" ),  &opt->dlgHeight,535 );
         pConf->Read ( _T( "Popup" ),  &opt->popup,true );
+        pConf->Read ( _T( "AutoStartTimer" ),  &opt->autostarttimer, false );
 
         pConf->Read ( _T ( "DateFormat" ), &opt->dateformat,0 );
         pConf->Read ( _T ( "DateSepIndiv" ), &opt->dateseparatorindiv );
@@ -1264,7 +1266,6 @@ void logbookkonni_pi::LoadConfig()
         pConf->Read ( _T ( "GenRPMIsChecked" ), &opt->bGenRPMIsChecked,false );
 
         pConf->Read ( _T ( "NMEAUseRPM" ), &opt->NMEAUseERRPM,false );
-        pConf->Read ( _T ( "NMEAUseWIMDA" ), &opt->NMEAUseWIMDA,false );
         pConf->Read ( _T ( "Engine1" ), &opt->engine1Id,_T( "" ) );
         pConf->Read ( _T ( "Engine2" ), &opt->engine2Id,_T( "" ) );
         pConf->Read ( _T ( "Engine1Runs" ), &opt->engine1Running );
@@ -1279,6 +1280,7 @@ void logbookkonni_pi::LoadConfig()
         pConf->Read ( _T ( "toggleEngine1" ), &opt->toggleEngine1 );
         pConf->Read ( _T ( "toggleEngine2" ), &opt->toggleEngine2 );
         pConf->Read ( _T ( "toggleGenerator" ), &opt->toggleGenerator );
+        pConf->Read ( _T ( "numberofSails" ), &opt->numberSails,14 );
 
         wxString sails = wxEmptyString;
         pConf->Read ( _T ( "Sails" ), &sails );
@@ -1291,7 +1293,10 @@ void logbookkonni_pi::LoadConfig()
                 opt->colGap = wxAtoi( tkz.GetNextToken() );
             }
 
-            for ( int i = 0; i < 14; i++ )
+            opt->abrSails.Empty();
+            opt->sailsName.Empty();
+            
+            for ( int i = 0; i < opt->numberSails; i++ )
             {
                 opt->abrSails.Item( i ) = tkz.GetNextToken();
                 opt->sailsName.Item( i ) = tkz.GetNextToken();
@@ -1579,6 +1584,13 @@ void logbookkonni_pi::loadLayouts( wxWindow *parent )
         wxString ok = wxString::Format( _( "Layouts %sinstalled at\n\n%s\n%s\n%s\n%s" ),
                                         ( !ret )?n.c_str():wxEmptyString,data.c_str(),data1.c_str(),data2.c_str(),data3.c_str() );
         wxMessageBox( ok );
+
+		if (ret ) 
+		{
+			opt->navGridLayoutChoice = 0;
+        	opt->crewGridLayoutChoice = 0;
+        	opt->boatGridLayoutChoice = 0;
+		}
     }
 }
 

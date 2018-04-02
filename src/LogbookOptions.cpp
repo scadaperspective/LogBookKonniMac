@@ -384,13 +384,15 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 
     fgSizer14->Add( 0, 0, 1, wxEXPAND, 5 );
 
-
-    fgSizer14->Add( 0, 0, 1, wxEXPAND, 5 );
-
     m_checkBoxPopUp = new wxCheckBox( m_panel15, wxID_ANY, _( "Popup logbook on event" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_checkBoxPopUp->SetValue( true );
-    fgSizer14->Add( m_checkBoxPopUp, 0, wxALL, 5 );
+    fgSizer14->Add( m_checkBoxPopUp, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
+    m_checkBoxAutoStartTimer = new wxCheckBox( m_panel15, wxID_ANY, _( "Auto restart Timer(s)" ), wxDefaultPosition, wxDefaultSize, 0 );
+    m_checkBoxAutoStartTimer->SetValue( false );
+    m_checkBoxAutoStartTimer->SetToolTip("This will automatically start the timer(s) if they were suspended when starting OpenCPN");
+
+    fgSizer14->Add( m_checkBoxAutoStartTimer, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
     fgSizer10->Add( fgSizer14, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
@@ -1149,11 +1151,6 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 
     fgSizer48->Add( 0, 0, 1, wxEXPAND, 5 );
 
-    m_checkBoxNMEAUseWIMDA = new wxCheckBox( m_panel28, wxID_ANY, _( "Use WIMDA-Sentence from the weatherstation" ), wxDefaultPosition, wxDefaultSize, 0 );
-    m_checkBoxNMEAUseWIMDA->SetToolTip( _( "For Barometer, Air Temperature and rel. Humidity" ) );
-
-    fgSizer48->Add( m_checkBoxNMEAUseWIMDA, 0, wxALL, 5 );
-
     m_panel28->SetSizer( fgSizer48 );
     m_panel28->Layout();
     fgSizer48->Fit( m_panel28 );
@@ -1564,7 +1561,7 @@ void LogbookOptions::OnButtonToSailsSpace( wxCommandEvent& event )
     fgSizerSailsCheckboxes->Clear( true );
     m_panelSails->Layout();
     m_panelSailsCheckbox->Show();
-    for ( unsigned int i = 0; i < 14; i++ )
+    for ( int i = 0; i < opt->numberSails; i++ )
     {
         checkboxSails[i] = new wxCheckBox( m_panelSailsCheckbox, wxID_ANY,opt->abrSails.Item( i ) , wxDefaultPosition, wxDefaultSize, 0 );
         checkboxSails[i]->SetValue( opt->bSailIsChecked[i] );
@@ -1574,7 +1571,7 @@ void LogbookOptions::OnButtonToSailsSpace( wxCommandEvent& event )
     }
     wxButton* m_buttonSailsReset = new wxButton( m_panelSailsCheckbox, wxID_ANY, _( "none" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_buttonSailsReset->SetToolTip( _( "Reset" ) );
-    m_buttonSailsReset->SetMinSize( wxSize( 40,15 ) );
+    m_buttonSailsReset->SetMinSize( wxSize( 50,25 ) );
 
     fgSizerSailsCheckboxes->Add( m_buttonSailsReset, 0, 0, 5 );
 
@@ -2078,6 +2075,7 @@ void LogbookOptions::onChoicePositionFormat( wxCommandEvent &ev )
 void LogbookOptions::setValues()
 {
     m_checkBoxPopUp->SetValue( opt->popup );
+    m_checkBoxAutoStartTimer->SetValue( opt->autostarttimer );
 
     m_choiceDateFormat->Select( opt->dateformat );
     m_textCtrlDateSeparator->SetValue( opt->dateseparatorindiv );
@@ -2191,10 +2189,8 @@ void LogbookOptions::setValues()
         m_checkBoxNMEAUseRPM->SetValue( opt->NMEAUseERRPM );
     }
 
-    m_checkBoxNMEAUseWIMDA->SetValue( opt->NMEAUseWIMDA );
-
     int row = 0;
-    for ( unsigned int col = 0; col < opt->abrSails.Count(); col++ )
+    for ( int col = 0; col < opt->numberSails; col++ )
     {
         m_gridSailNames->SetCellValue( row,0,opt->abrSails.Item( col ) );
         m_gridSailNames->SetCellValue( row++,1,opt->sailsName.Item( col ) );
@@ -2230,6 +2226,7 @@ void LogbookOptions::OnChoiceNoEngines( wxCommandEvent& event )
 void LogbookOptions::getValues()
 {
     opt->popup = m_checkBoxPopUp->GetValue();
+    opt->autostarttimer = m_checkBoxAutoStartTimer->GetValue();
 
     opt->dateformat = m_choiceDateFormat->GetSelection();
     opt->dateseparatorindiv = m_textCtrlDateSeparator->GetValue();
@@ -2346,15 +2343,21 @@ void LogbookOptions::getValues()
     opt->bEng2RPMIsChecked= m_checkBoxEng2RPM->GetValue();
     opt->bGenRPMIsChecked= m_checkBoxGenRPM->GetValue();
     opt->NMEAUseERRPM = m_checkBoxNMEAUseRPM->GetValue();
-    opt->NMEAUseWIMDA = m_checkBoxNMEAUseWIMDA->GetValue();
 
     //int row = 0;
+	wxString tempstr;
     opt->abrSails.Clear();
     opt->sailsName.Clear();
+    opt->numberSails = 0;
     for ( int row = 0; row < m_gridSailNames->GetNumberRows(); row++ )
     {
-        opt->abrSails.Add( m_gridSailNames->GetCellValue( row,0 ) );
-        opt->sailsName.Add( m_gridSailNames->GetCellValue( row,1 ) );
+		tempstr = m_gridSailNames->GetCellValue( row,0 );
+        if ( !tempstr.IsEmpty() )
+        {
+            opt->abrSails.Add( m_gridSailNames->GetCellValue( row,0 ) );
+            opt->sailsName.Add( m_gridSailNames->GetCellValue( row,1 ) );
+            opt->numberSails++;
+        }
     }
 }
 

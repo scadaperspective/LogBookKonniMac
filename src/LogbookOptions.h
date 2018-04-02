@@ -105,6 +105,7 @@ public:
     wxStaticText* m_staticText1231;
     wxStaticText* m_staticText124;
     wxCheckBox* m_checkBoxPopUp;
+    wxCheckBox* m_checkBoxAutoStartTimer;
     wxStaticLine* m_staticline10;
     wxStaticText* m_staticText731;
     wxStaticText* m_staticText751;
@@ -320,7 +321,6 @@ public:
     wxChoice* m_choiceKMLRouteLineColo;
     wxChoice* m_choiceKMLTrackLineColor;
     wxCheckBox* m_checkBoxNMEAUseRPM;
-    wxCheckBox* m_checkBoxNMEAUseWIMDA;
     wxPanel* m_panelSails;
     wxPanel* m_panelSailNames;
     wxGrid* m_gridSailNames;

@@ -532,6 +532,7 @@ public:
     void OnToggleButtonGenerator( wxCommandEvent& event );
     void OnButtonClickResetSails( wxCommandEvent& event );
     void OnCheckboxSails( wxCommandEvent& event );
+    void AutoStatusStartStop();
 
     void OnComboUpService( wxCommandEvent& event );
     void OnComboUpRepairs( wxCommandEvent& event );
@@ -732,6 +733,9 @@ public:
 
     int					selGridRow;
     int					selGridCol;
+    
+    int                 sc;
+    int                 cntsails;
 
     wxGrid				*logGrids[LOGGRIDS];
     int					numPages;

@@ -28,6 +28,7 @@ public:
     int			dlgWidth;
     int			dlgHeight;
     bool		popup;
+    bool        autostarttimer;
     bool		hourFormat;
     bool		statusbarGlobal;
     bool		layoutShow;
@@ -155,7 +156,6 @@ public:
     bool        generatorRunning;
     bool	bRPMCheck;
     bool	NMEAUseERRPM;
-    bool	NMEAUseWIMDA;
 
     // Sails
     wxArrayString	abrSails;
@@ -163,6 +163,7 @@ public:
     bool			bSailIsChecked[14];
     int				rowGap;
     int				colGap;
+    int             numberSails;
 
     //wxChoice
     int		showDepth;
