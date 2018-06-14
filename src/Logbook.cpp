@@ -350,15 +350,37 @@ void Logbook::SetSentence( wxString &sentence )
             if ( m_NMEA0183.Parse() )
             {
                 double dWind = 0;
-
-                wxString temp = _T( "" );
-                if ( m_NMEA0183.Mwv.WindSpeedUnits == 'N' )
-                    temp = opt->windkts;
-                else if ( m_NMEA0183.Mwv.WindSpeedUnits == 'M' )
-                    temp = opt->windmeter;
-                else if ( m_NMEA0183.Mwv.WindSpeedUnits == 'K' )
-                    temp = opt->windkmh;
-
+                double factor = 1, twindspeed = 1;
+                
+                switch ( opt->showWindSpeedchoice  )
+                {
+                case 0:
+                    if ( m_NMEA0183.Mwv.WindSpeedUnits == 'N' )
+                        factor = 1;
+                    else if ( m_NMEA0183.Mwv.WindSpeedUnits == 'M' )
+                        factor = 1.94384;
+                    else if ( m_NMEA0183.Mwv.WindSpeedUnits == 'K' )
+                        factor = 0.53995;
+                    break;
+                case 1:
+                    if ( m_NMEA0183.Mwv.WindSpeedUnits == 'N' )
+                        factor = 0.51444;
+                    else if ( m_NMEA0183.Mwv.WindSpeedUnits == 'M' )
+                        factor = 1;
+                    else if ( m_NMEA0183.Mwv.WindSpeedUnits == 'K' )
+                        factor = 0.27777;
+                    break;
+                case 2:
+                    if ( m_NMEA0183.Mwv.WindSpeedUnits == 'N' )
+                        factor = 1.852;
+                    else if ( m_NMEA0183.Mwv.WindSpeedUnits == 'M' )
+                        factor = 3.6;
+                    else if ( m_NMEA0183.Mwv.WindSpeedUnits == 'K' )
+                        factor = 1;
+                    break;
+                }
+                twindspeed = m_NMEA0183.Mwv.WindSpeed * factor;
+                
                 if ( m_NMEA0183.Mwv.Reference == _T( "T" ) )
                 {
                     if ( opt->showWindHeading && bCOW )
@@ -373,28 +395,28 @@ void Logbook::SetSentence( wxString &sentence )
                         dWind = m_NMEA0183.Mwv.WindAngle;
 
                     sWindT = wxString::Format( _T( "%3.0f%s" ), dWind,opt->Deg.c_str() );
-                    sWindSpeedT = wxString::Format( _T( "%3.1f %s" ), m_NMEA0183.Mwv.WindSpeed,temp.c_str() );
+                    sWindSpeedT = wxString::Format( _T( "%3.1f %s" ), twindspeed,opt->showWindSpeed.c_str() );
                     dtWindT = wxDateTime::Now();
                     bWindT = true;
-                    if ( minwindT > m_NMEA0183.Mwv.WindSpeed )
-                        minwindT = m_NMEA0183.Mwv.WindSpeed;
-                    if ( maxwindT < m_NMEA0183.Mwv.WindSpeed )
-                        maxwindT = m_NMEA0183.Mwv.WindSpeed;
-                    avgwindT = ( avgwindT + m_NMEA0183.Mwv.WindSpeed )/2;
+                    if ( minwindT > twindspeed )
+                        minwindT = twindspeed;
+                    if ( maxwindT < twindspeed )
+                        maxwindT = twindspeed;
+                    avgwindT = ( avgwindT + twindspeed )/2;
                     swindspeedsT = wxString::Format( _T( "%03.1f|%03.1f|%03.1f" ), minwindT, avgwindT, maxwindT );
                 }
                 else
                 {
                     dWind = m_NMEA0183.Mwv.WindAngle;
                     sWindA = wxString::Format( _T( "%3.0f%s" ), dWind,opt->Deg.c_str() );
-                    sWindSpeedA = wxString::Format( _T( "%3.1f %s" ), m_NMEA0183.Mwv.WindSpeed,temp.c_str() );
+                    sWindSpeedA = wxString::Format( _T( "%3.1f %s" ), twindspeed,opt->showWindSpeed.c_str() );
                     dtWindA = wxDateTime::Now();
                     bWindA = true;
-                    if ( minwindA > m_NMEA0183.Mwv.WindSpeed )
-                        minwindA = m_NMEA0183.Mwv.WindSpeed;
-                    if ( maxwindA < m_NMEA0183.Mwv.WindSpeed )
-                        maxwindA = m_NMEA0183.Mwv.WindSpeed;
-                    avgwindA = ( avgwindA + m_NMEA0183.Mwv.WindSpeed )/2;
+                    if ( minwindA > twindspeed )
+                        minwindA = twindspeed;
+                    if ( maxwindA < twindspeed )
+                        maxwindA = twindspeed;
+                    avgwindA = ( avgwindA + twindspeed )/2;
                     swindspeedsA = wxString::Format( _T( "%03.1f|%03.1f|%03.1f" ), minwindA, avgwindA, maxwindA );
                 }
             }
@@ -422,17 +444,30 @@ void Logbook::SetSentence( wxString &sentence )
 
                 sWindT = wxString::Format( _T( "%3.0f%s" ), dWind,opt->Deg.c_str() );
 
-                wxString temp = _T( "" );
-                temp = opt->windkts;
+                double factor, twindspeed;
+                
+                switch ( opt->showWindSpeedchoice  )
+                {
+                    case 0:
+                        factor = 1;
+                        break;
+                    case 1:
+                        factor = 0.51444;
+                        break;
+                    case 2:
+                        factor = 1.852;
+                        break;
+                }
+                twindspeed = m_NMEA0183.Vwt.WindSpeedKnots * factor;
 
-                sWindSpeedT = wxString::Format( _T( "%3.1f %s" ), m_NMEA0183.Vwt.WindSpeedKnots,temp.c_str() );
+                sWindSpeedT = wxString::Format( _T( "%3.1f %s" ), twindspeed,opt->showWindSpeed.c_str() );
                 dtWindT = wxDateTime::Now();
                 bWindT = true;
-                if ( minwindT > m_NMEA0183.Vwt.WindSpeedKnots )
-                    minwindT = m_NMEA0183.Vwt.WindSpeedKnots;
-                if ( maxwindT < m_NMEA0183.Vwt.WindSpeedKnots )
-                    maxwindT = m_NMEA0183.Vwt.WindSpeedKnots;
-                avgwindT = ( avgwindT + m_NMEA0183.Vwt.WindSpeedKnots )/2;
+                if ( minwindT > twindspeed )
+                    minwindT = twindspeed;
+                if ( maxwindT < twindspeed )
+                    maxwindT = twindspeed;
+                avgwindT = ( avgwindT + twindspeed )/2;
                 swindspeedsT = wxString::Format( _T( "%03.1f|%03.1f|%03.1f" ), minwindT, avgwindT, maxwindT );
             }
         }
@@ -450,18 +485,30 @@ void Logbook::SetSentence( wxString &sentence )
 
                 sWindA = wxString::Format( _T( "%3.0f%s" ), dWind,opt->Deg.c_str() );
 
-                wxString temp = _T( "" );
-                temp = opt->windkts;
+                double factor, twindspeed;
+                
+                switch ( opt->showWindSpeedchoice  )
+                {
+                    case 0:
+                        factor = 1;
+                        break;
+                    case 1:
+                        factor = 0.51444;
+                        break;
+                    case 2:
+                        factor = 1.852;
+                        break;
+                }
+                twindspeed = m_NMEA0183.Vwt.WindSpeedKnots * factor;
 
-
-                sWindSpeedA = wxString::Format( _T( "%3.1f %s" ), m_NMEA0183.Vwr.WindSpeedKnots,temp.c_str() );
+                sWindSpeedA = wxString::Format( _T( "%3.1f %s" ), twindspeed,opt->showWindSpeed.c_str() );
                 dtWindA = wxDateTime::Now();
                 bWindA = true;
-                if ( minwindA > m_NMEA0183.Vwr.WindSpeedKnots )
-                    minwindA = m_NMEA0183.Vwr.WindSpeedKnots;
-                if ( maxwindA < m_NMEA0183.Vwr.WindSpeedKnots )
-                    maxwindA = m_NMEA0183.Vwr.WindSpeedKnots;
-                avgwindA = ( avgwindA + m_NMEA0183.Vwr.WindSpeedKnots )/2;
+                if ( minwindA > twindspeed )
+                    minwindA = twindspeed;
+                if ( maxwindA < twindspeed )
+                    maxwindA = twindspeed;
+                avgwindA = ( avgwindA + twindspeed )/2;
                 swindspeedsA = wxString::Format( _T( "%03.1f|%03.1f|%03.1f" ), minwindA, avgwindA, maxwindA );
             }
         }
@@ -1874,6 +1921,8 @@ void Logbook::appendRow( bool showlastline, bool autoline )
     dialog->setEqualRowHeight( lastRow );
 
     dialog->m_gridGlobal->SetReadOnly( lastRow,6 );
+                                              
+    update(); /* Save to file with every newline */
 
     if ( showlastline )
     {
@@ -2730,22 +2779,10 @@ void  Logbook::getModifiedCellValue( int grid, int row, int selCol, int col )
         {
             if ( !opt->windspeeds )
             {
-                if ( !s.Contains( opt->windkts ) && !s.Contains( opt->windmeter ) && !s.Contains( opt->windkmh ) )
+                if ( !s.Contains( opt->showWindSpeed ) )
                 {
-                    switch ( opt->showWindSpeed )
-                    {
-                    case 0:
-                        wind = opt->windkts;
-                        break;
-                    case 1:
-                        wind = opt->windmeter;
-                        break;
-                    case 2:
-                        wind = opt->windkmh;
-                        break;
-                    }
                     s.Replace( _T( "," ),_T( "." ) );
-                    s = wxString::Format( _T( "%3.2f %s" ),wxAtof( s ),wind.c_str() );
+                    s = wxString::Format( _T( "%3.2f %s" ),wxAtof( s ),opt->showWindSpeed.c_str() );
                     s.Replace( _T( "." ),dialog->decimalPoint );
                 }
                 dialog->logGrids[grid]->SetCellValue( row,col,s );
