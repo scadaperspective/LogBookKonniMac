@@ -231,11 +231,14 @@ void Logbook::SetSentence( wxString &sentence )
         {
             if ( m_NMEA0183.Parse() )
             {
-                SetGPSStatus( true );
-                setPositionString( m_NMEA0183.Gll.Position.Latitude.Latitude,
-                                   m_NMEA0183.Gll.Position.Latitude.Northing,
-                                   m_NMEA0183.Gll.Position.Longitude.Longitude,
-                                   m_NMEA0183.Gll.Position.Longitude.Easting );
+				if ( m_NMEA0183.Gll.IsDataValid == NTrue )
+                {
+                	SetGPSStatus( true );
+                	setPositionString( m_NMEA0183.Gll.Position.Latitude.Latitude,
+                                   	m_NMEA0183.Gll.Position.Latitude.Northing,
+                                   	m_NMEA0183.Gll.Position.Longitude.Longitude,
+                                   	m_NMEA0183.Gll.Position.Longitude.Easting );
+				}
             }
         }
         else if ( m_NMEA0183.LastSentenceIDReceived == _T( "ZDA" ) )
@@ -294,13 +297,16 @@ void Logbook::SetSentence( wxString &sentence )
             {
                 if ( m_NMEA0183.Parse() )
                 {
-                    if ( m_NMEA0183.Rmb.IsArrivalCircleEntered == NTrue )
+					if ( m_NMEA0183.Rmb.IsDataValid == NTrue )
                     {
-                        if ( m_NMEA0183.Rmb.From != lastWayPoint )
-                        {
-                            checkWayPoint( m_NMEA0183.Rmb );
-                        }
-                    }
+                    	if ( m_NMEA0183.Rmb.IsArrivalCircleEntered == NTrue )
+                    	{
+                        	if ( m_NMEA0183.Rmb.From != lastWayPoint )
+                        	{
+                            	checkWayPoint( m_NMEA0183.Rmb );
+                        	}
+                    	}
+					}
                 }
             }
         }
@@ -308,32 +314,33 @@ void Logbook::SetSentence( wxString &sentence )
         {
             if ( m_NMEA0183.Parse() )
             {
-                SetGPSStatus( true );
-                setPositionString( m_NMEA0183.Rmc.Position.Latitude.Latitude,
-                                   m_NMEA0183.Rmc.Position.Latitude.Northing,
-                                   m_NMEA0183.Rmc.Position.Longitude.Longitude,
-                                   m_NMEA0183.Rmc.Position.Longitude.Easting );
+				if ( m_NMEA0183.Rmc.IsDataValid == NTrue )
+                {
+                	SetGPSStatus( true );
+                	setPositionString( m_NMEA0183.Rmc.Position.Latitude.Latitude,
+                                   	m_NMEA0183.Rmc.Position.Latitude.Northing,
+                                   	m_NMEA0183.Rmc.Position.Longitude.Longitude,
+                                   	m_NMEA0183.Rmc.Position.Longitude.Easting );
+                	if ( m_NMEA0183.Rmc.SpeedOverGroundKnots != 999.0 )
+                    	sSOG = wxString::Format( _T( "%5.2f %s" ), m_NMEA0183.Rmc.SpeedOverGroundKnots,opt->speed.c_str() );
+                	if ( m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue != 999.0 )
+                    	sCOG = wxString::Format( _T( "%5.2f%s" ), m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue, opt->Deg.c_str() );
+                	if ( m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue != 999.0 )
+                    	dCOG = m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue;
 
+                	long day,month,year;
+                	m_NMEA0183.Rmc.Date.SubString( 0,1 ).ToLong( &day );
+                	m_NMEA0183.Rmc.Date.SubString( 2,3 ).ToLong( &month );
+                	m_NMEA0183.Rmc.Date.SubString( 4,5 ).ToLong( &year );
+                	dt.Set( ( ( int )day ),( wxDateTime::Month )( month-1 ),( ( int )year+2000 ) );
+                	//dt.ParseTime((const char)dt.ParseFormat(m_NMEA0183.Rmc.UTCTime,_T("%H%M%S")));
+                	dt.ParseFormat( m_NMEA0183.Rmc.UTCTime,_T( "%H%M%S" ) );
 
-                if ( m_NMEA0183.Rmc.SpeedOverGroundKnots != 999.0 )
-                    sSOG = wxString::Format( _T( "%5.2f %s" ), m_NMEA0183.Rmc.SpeedOverGroundKnots,opt->speed.c_str() );
-                if ( m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue != 999.0 )
-                    sCOG = wxString::Format( _T( "%5.2f%s" ), m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue, opt->Deg.c_str() );
-                if ( m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue != 999.0 )
-                    dCOG = m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue;
+                	setDateTimeString( dt );
 
-                long day,month,year;
-                m_NMEA0183.Rmc.Date.SubString( 0,1 ).ToLong( &day );
-                m_NMEA0183.Rmc.Date.SubString( 2,3 ).ToLong( &month );
-                m_NMEA0183.Rmc.Date.SubString( 4,5 ).ToLong( &year );
-                dt.Set( ( ( int )day ),( wxDateTime::Month )( month-1 ),( ( int )year+2000 ) );
-                //dt.ParseTime((const char)dt.ParseFormat(m_NMEA0183.Rmc.UTCTime,_T("%H%M%S")));
-                dt.ParseFormat( m_NMEA0183.Rmc.UTCTime,_T( "%H%M%S" ) );
-
-                setDateTimeString( dt );
-
-                if ( !dialog->logbookPlugIn->eventsEnabled && opt->courseChange )
-                    checkCourseChanged();
+                	if ( !dialog->logbookPlugIn->eventsEnabled && opt->courseChange )
+                    	checkCourseChanged();
+				}
             }
         }
         else if ( m_NMEA0183.LastSentenceIDReceived == _T( "VHW" ) )
