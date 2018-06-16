@@ -111,6 +111,8 @@ Logbook::Logbook( LogbookDialog* parent, wxString data, wxString layout, wxStrin
     sRPM2Shaft = wxEmptyString;
     sRPM2Source = wxEmptyString;
     rpmSentence = false;
+    sVolume = wxEmptyString;
+    dVolume = 0;
 }
 
 Logbook::~Logbook( void )
@@ -628,7 +630,24 @@ void Logbook::SetSentence( wxString &sentence )
                     if (m_NMEA0183.Xdr.TransducerInfo[i].TransducerType == _T("H")) {
             			sHumidity = wxString::Format( _T( "%3.1f " ),xdrdata );
                     }
-
+					// XDR Volume
+                    if (m_NMEA0183.Xdr.TransducerInfo[i].TransducerType == _T("V")) {
+                        if (m_NMEA0183.Xdr.TransducerInfo[i].UnitOfMeasurement == _T("M")) {
+                            xdrdata *= 1000;
+                            if ( opt->vol == _T( "gal" ))
+                                xdrdata = xdrdata * 0.264172;
+                        }
+                        if (m_NMEA0183.Xdr.TransducerInfo[i].UnitOfMeasurement == _T("L")) {
+                            if ( opt->vol == _T( "gal" ))
+                                xdrdata = xdrdata * 0.264172;
+                        }
+                        if (m_NMEA0183.Xdr.TransducerInfo[i].UnitOfMeasurement == _T("G")) {
+                            if ( opt->vol == _T( "liter" ))
+                                xdrdata = xdrdata * 3.7854;
+                        }
+                        dVolume += xdrdata;
+                        sVolume = wxString::Format( _T( "%3.1f " ),dVolume );
+                    }
                 }
             }
         }
@@ -1769,6 +1788,11 @@ void Logbook::appendRow( bool showlastline, bool autoline )
         dialog->logGrids[1]->SetCellValue( lastRow,LogbookHTML::BARO,sPressure );
         dialog->logGrids[1]->SetCellValue( lastRow,LogbookHTML::HYDRO,sHumidity );
     }
+
+    dialog->logGrids[2]->SetCellValue( lastRow,LogbookHTML::FUEL,sVolume );
+    sVolume = wxEmptyString;
+    dVolume = 0;
+    getModifiedCellValue( 2, lastRow, 0, LogbookHTML::FUEL );
 
     if ( bRPM1 )
     {
