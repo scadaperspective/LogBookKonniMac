@@ -608,6 +608,8 @@ void Logbook::SetSentence( wxString &sentence )
 
             if (m_NMEA0183.Parse()) { 
                 double xdrdata;
+				wxString tempopt;
+
                 for (int i = 0; i<m_NMEA0183.Xdr.TransducerCnt; i++) {
 	        		wimdaSentence = true;
         			dtWimda = wxDateTime::Now();
@@ -632,21 +634,22 @@ void Logbook::SetSentence( wxString &sentence )
                     }
 					// XDR Volume
                     if (m_NMEA0183.Xdr.TransducerInfo[i].TransducerType == _T("V")) {
+						tempopt = opt->vol.SubString( 0,0 ).Upper();
                         if (m_NMEA0183.Xdr.TransducerInfo[i].UnitOfMeasurement == _T("M")) {
                             xdrdata *= 1000;
-                            if ( opt->vol == _T( "gal" ))
+                            if ( tempopt == _T( "G" ))
                                 xdrdata = xdrdata * 0.264172;
                         }
                         if (m_NMEA0183.Xdr.TransducerInfo[i].UnitOfMeasurement == _T("L")) {
-                            if ( opt->vol == _T( "gal" ))
+                            if ( tempopt == _T( "G" ))
                                 xdrdata = xdrdata * 0.264172;
                         }
                         if (m_NMEA0183.Xdr.TransducerInfo[i].UnitOfMeasurement == _T("G")) {
-                            if ( opt->vol == _T( "liter" ))
+                            if ( tempopt == _T( "L" ))
                                 xdrdata = xdrdata * 3.7854;
                         }
                         dVolume += xdrdata;
-                        sVolume = wxString::Format( _T( "%3.1f " ),dVolume );
+                        sVolume = wxString::Format( _T( "%4.2f " ),dVolume );
                     }
                 }
             }
