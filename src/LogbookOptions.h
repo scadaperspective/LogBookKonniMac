@@ -142,6 +142,7 @@ public:
     wxTextCtrl* m_smeter;
     wxStaticText* m_staticText63;
     wxStaticText* m_staticText48;
+    wxChoice* m_choiceWindSpeed;
     wxTextCtrl* m_sFeet;
     wxStaticText* m_staticText632;
     wxStaticText* m_staticText49;
@@ -150,9 +151,6 @@ public:
     wxStaticText* m_staticText43;
     wxTextCtrl* m_sBaro;
     wxStaticText* m_staticText44;
-    wxTextCtrl* m_sKnots;
-    wxTextCtrl* m_sMeterSec;
-    wxTextCtrl* m_sKmh;
     wxStaticText* m_staticText791;
     wxStaticText* m_staticText46;
     wxStaticText* m_staticText47;
@@ -252,9 +250,6 @@ public:
     virtual void OnTextEnterFuelTank( wxCommandEvent& event );
     virtual void OnTextEnterBank1( wxCommandEvent& event );
     virtual void onTextEnterBank2( wxCommandEvent& event );
-    virtual void onTextEnterm_sKnots( wxCommandEvent& event );
-    virtual void onTextEnterm_sMeterSec( wxCommandEvent& event );
-    virtual void onTextEnterm_sKmh( wxCommandEvent& event );
     virtual void onTextm_sLiter( wxCommandEvent& event );
     virtual void onButtonClickODT( wxCommandEvent& event );
     virtual void onButtonClickDataManager( wxCommandEvent& event );

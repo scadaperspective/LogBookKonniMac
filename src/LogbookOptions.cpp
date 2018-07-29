@@ -714,42 +714,34 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 
     m_staticText43 = new wxStaticText( m_panel16, wxID_ANY, _( "Barometer" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_staticText43->Wrap( -1 );
-    fgSizer91->Add( m_staticText43, 0, wxALIGN_CENTER_VERTICAL, 5 );
+    fgSizer91->Add( m_staticText43, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 0 );
 
     m_sBaro = new wxTextCtrl( m_panel16, wxID_ANY, _( "mb" ), wxDefaultPosition, wxSize( 40,-1 ), 0 );
     fgSizer91->Add( m_sBaro, 0, 0, 5 );
-
-    m_staticText44 = new wxStaticText( m_panel16, wxID_ANY, _( "Windspeed" ), wxDefaultPosition, wxDefaultSize, 0 );
+    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
+    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
+    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
+    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
+    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
+    
+    m_staticText44 = new wxStaticText( m_panel16, wxID_ANY, _( "Show Windspeed in" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_staticText44->Wrap( -1 );
-    fgSizer91->Add( m_staticText44, 0, wxALIGN_CENTER_VERTICAL|wxLEFT, 5 );
+    fgSizer91->Add( m_staticText44, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 0 );
 
-    m_sKnots = new wxTextCtrl( m_panel16, wxID_ANY, _( "kts" ), wxDefaultPosition, wxSize( 40,-1 ), wxTE_PROCESS_ENTER );
-    fgSizer91->Add( m_sKnots, 0, 0, 5 );
+    wxString m_choiceSpeedChoices[] = { _( "kts" ), _( "m/s" ), _( "kmh" ) };
+    int m_choiceSpeedNChoices = sizeof( m_choiceSpeedChoices ) / sizeof( wxString );
+    m_choiceWindSpeed = new wxChoice( m_panel16, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choiceSpeedNChoices, m_choiceSpeedChoices, 0 );
+    m_choiceWindSpeed->SetSelection( 0 );
+    fgSizer91->Add( m_choiceWindSpeed, 1, wxALIGN_CENTER_VERTICAL, 0 );
     fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
     fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
     fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
     fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
     fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-
-    m_sMeterSec = new wxTextCtrl( m_panel16, wxID_ANY, _( "m/s" ), wxDefaultPosition, wxSize( 40,-1 ), wxTE_PROCESS_ENTER );
-    fgSizer91->Add( m_sMeterSec, 0, 0, 5 );
-    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-
-    m_sKmh = new wxTextCtrl( m_panel16, wxID_ANY, _( "km/h" ), wxDefaultPosition, wxSize( 40,-1 ), wxTE_PROCESS_ENTER );
-    fgSizer91->Add( m_sKmh, 0, 0, 5 );
-    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-    fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-
+    
     m_staticText791 = new wxStaticText( m_panel16, wxID_ANY, _( "Temperature" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_staticText791->Wrap( -1 );
-    fgSizer91->Add( m_staticText791, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+    fgSizer91->Add( m_staticText791, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 0 );
 
     m_textCtrlTemperature = new wxTextCtrl( m_panel16, wxID_ANY, _( "F" ), wxDefaultPosition, wxSize( 40,-1 ), 0 );
     fgSizer91->Add( m_textCtrlTemperature, 0, wxALL, 0 );
@@ -802,7 +794,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 
     m_staticText136 = new wxStaticText( m_panel16, wxID_ANY, _( "Revolutions" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_staticText136->Wrap( -1 );
-    fgSizer91->Add( m_staticText136, 0, wxALIGN_CENTER_VERTICAL, 5 );
+    fgSizer91->Add( m_staticText136, 0, wxLEFT|wxALIGN_CENTER_VERTICAL, 5 );
 
     m_textCtrRPM = new wxTextCtrl( m_panel16, wxID_ANY, _( "RPM" ), wxDefaultPosition, wxSize( 50,-1 ), 0 );
     fgSizer91->Add( m_textCtrRPM, 0, 0, 5 );
@@ -849,20 +841,6 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     fgSizer32 = new wxFlexGridSizer( 2, 4, 0, 0 );
     fgSizer32->SetFlexibleDirection( wxBOTH );
     fgSizer32->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-
-    m_staticText51 = new wxStaticText( m_panel16, wxID_ANY, _( "Windspeed " ), wxDefaultPosition, wxSize( -1,-1 ), 0 );
-    m_staticText51->Wrap( -1 );
-    fgSizer32->Add( m_staticText51, 0, wxALIGN_CENTER_VERTICAL, 5 );
-
-    wxString m_choiceWindChoices[] = { _( "kts" ), _( "m/s" ), _( "km/h" ) };
-    int m_choiceWindNChoices = sizeof( m_choiceWindChoices ) / sizeof( wxString );
-#ifdef __WXOSX__
-    m_choiceWind = new wxChoice( m_panel16, wxID_ANY, wxDefaultPosition, wxSize( 80,-1 ), m_choiceWindNChoices, m_choiceWindChoices, 0 );
-#else
-    m_choiceWind = new wxChoice( m_panel16, wxID_ANY, wxDefaultPosition, wxSize( 50,-1 ), m_choiceWindNChoices, m_choiceWindChoices, 0 );
-#endif
-    m_choiceWind->SetSelection( 0 );
-    fgSizer32->Add( m_choiceWind, 0, wxALIGN_CENTER_VERTICAL, 5 );
 
     m_staticText45 = new wxStaticText( m_panel16, wxID_ANY, _( " Direction " ), wxPoint( -1,-1 ), wxSize( -1,-1 ), wxALIGN_RIGHT );
     m_staticText45->Wrap( -1 );
@@ -1306,9 +1284,6 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     m_bpButtonMail->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickMail ), NULL, this );
     m_buttonInstallHTMLFiles->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickInstallHTMLFiles ), NULL, this );
     m_bpButtonHTMLEditor->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonHTMLEditor ), NULL, this );
-    m_sKnots->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sKnots ), NULL, this );
-    m_sMeterSec->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sMeterSec ), NULL, this );
-    m_sKmh->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sKmh ), NULL, this );
     m_sdbSizer1OK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonOKClick ), NULL, this );
     m_buttonUninstall->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonClickUninstall ), NULL, this );
     m_buttonResetPath->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonResetPaths ), NULL, this );
@@ -1372,9 +1347,6 @@ LogbookOptions::~LogbookOptions()
     m_bpButtonMail->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickMail ), NULL, this );
     m_buttonInstallHTMLFiles->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickInstallHTMLFiles ), NULL, this );
     m_bpButtonHTMLEditor->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonHTMLEditor ), NULL, this );
-    m_sKnots->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sKnots ), NULL, this );
-    m_sMeterSec->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sMeterSec ), NULL, this );
-    m_sKmh->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sKmh ), NULL, this );
     m_sdbSizer1OK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonOKClick ), NULL, this );
     m_buttonUninstall->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonClickUninstall ), NULL, this );
     m_buttonResetPath->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonResetPaths ), NULL, this );
@@ -2112,10 +2084,6 @@ void LogbookOptions::setValues()
     m_sFeet->SetValue( opt->feet );
     m_sFathom->SetValue( opt->fathom );
 
-    m_sKnots->SetValue( opt->windkts );
-    m_sMeterSec->SetValue( opt->windmeter );
-    m_sKmh->SetValue( opt->windkmh );
-
     m_sLiter->SetValue( opt->vol );
     m_sMotorh->SetValue( opt->motorh );
     m_textCtrlEngine->SetValue( opt->engine );
@@ -2128,14 +2096,10 @@ void LogbookOptions::setValues()
     m_Weeks->SetValue( opt->weeks );
     m_textMonth->SetValue( opt->month );
 
-    choicesWind[0] = opt->windkts;
-    choicesWind[1] = opt->windmeter;
-    choicesWind[2] = opt->windkmh;
-    updateWindChoice();
-
     m_choiceDepth->SetSelection( opt->showDepth );
     m_choiceWaveSwell->SetSelection( opt->showWaveSwell );
-    m_choiceWind->SetSelection( opt->showWindSpeed );
+    m_choiceWindSpeed->SetSelection( opt->showWindSpeedchoice);
+    
     m_choiceDir->SetSelection( opt->showWindDir );
     m_choiceHeading->SetSelection( opt->showHeading );
     m_choiceWindTo->SetSelection( opt->showWindHeading );
@@ -2273,10 +2237,6 @@ void LogbookOptions::getValues()
     opt->feet        = m_sFeet->GetValue();
     opt->fathom      = m_sFathom->GetValue();
 
-    opt->windkts   = m_sKnots->GetValue();
-    opt->windmeter = m_sMeterSec->GetValue();
-    opt->windkmh   = m_sKmh->GetValue();
-
     opt->vol    = m_sLiter->GetValue();
     opt->motorh = m_sMotorh->GetValue();
     opt->engine = m_textCtrlEngine->GetValue();
@@ -2290,7 +2250,21 @@ void LogbookOptions::getValues()
 
     opt->showDepth       = m_choiceDepth->GetSelection();
     opt->showWaveSwell   = m_choiceWaveSwell->GetSelection();
-    opt->showWindSpeed   = m_choiceWind->GetSelection();
+    opt->showWindSpeedchoice = m_choiceWindSpeed->GetSelection();
+    
+    switch(m_choiceWindSpeed->GetSelection())
+    {
+    case 0:
+        opt->showWindSpeed = _T( "kts" );
+        break;
+    case 1:
+        opt->showWindSpeed = _T( "m/s" );
+        break;
+    case 2:
+        opt->showWindSpeed = _T( "kmh" );
+        break;
+    }
+
     opt->showWindDir     = m_choiceDir->GetSelection();
     opt->showHeading     = m_choiceHeading->GetSelection();
     opt->showWindHeading = m_choiceWindTo->GetSelection();
@@ -2463,29 +2437,6 @@ void LogbookOptions::onButtonClickODT( wxCommandEvent& ev )
     opt->odtEditor = openFileDialog->GetPath();
 }
 
-
-
-void LogbookOptions::onTextEnterm_sKnots( wxCommandEvent& ev )
-{
-    choicesWind[0] = ev.GetString();
-    updateWindChoice();
-    m_sMeterSec->SetFocus();
-}
-
-void LogbookOptions::onTextEnterm_sMeterSec( wxCommandEvent& ev )
-{
-    choicesWind[1] = ev.GetString();
-    updateWindChoice();
-    m_sKmh->SetFocus();
-}
-
-void LogbookOptions::onTextEnterm_sKmh( wxCommandEvent& ev )
-{
-    choicesWind[2] = ev.GetString();
-    updateWindChoice();
-    m_choiceWind->SetFocus();
-}
-
 void LogbookOptions::onTextm_sLiter( wxCommandEvent& event )
 {
     wxString t = wxString::Format( _T( "%i %s/%s" ),wxAtoi( opt->watermaker ),m_sLiter->GetValue().c_str(),opt->motorh.c_str() );
@@ -2578,12 +2529,4 @@ void LogbookOptions::updateChoiceBoxes()
         dialog->loadLayoutChoice( LogbookDialog::GREPAIRS,dialog->maintenance->layout_locnRepairs, dialog->m_choiceSelectLayoutRepairs,opt->layoutPrefix[LogbookDialog::GREPAIRS] );
         dialog->loadLayoutChoice( LogbookDialog::GBUYPARTS,dialog->maintenance->layout_locnBuyParts, dialog->m_choiceSelectLayoutBuyParts,opt->layoutPrefix[LogbookDialog::GBUYPARTS] );
     }
-}
-
-void LogbookOptions::updateWindChoice()
-{
-    int s = m_choiceWind->GetSelection();
-    for ( int i = 0; i < 3; i++ )
-        m_choiceWind->SetString( i,choicesWind[i] );
-    m_choiceWind->SetSelection( s );
 }

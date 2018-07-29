@@ -949,9 +949,6 @@ void logbookkonni_pi::SaveConfig()
 
         pConf->Write ( _T ( "Baro" ), opt->baro );
         pConf->Write ( _T ( "Temperature" ), opt->temperature );
-        pConf->Write ( _T ( "Windkts" ), opt->windkts );
-        pConf->Write ( _T ( "WindMeter" ), opt->windmeter );
-        pConf->Write ( _T ( "WindKmh" ), opt->windkmh );
 
         pConf->Write ( _T ( "Vol" ), opt->vol );
         pConf->Write ( _T ( "Motorhours" ), opt->motorh );
@@ -972,6 +969,7 @@ void logbookkonni_pi::SaveConfig()
 
         pConf->Write ( _T ( "ShowDepth" ), opt->showDepth );
         pConf->Write ( _T ( "ShowWaveSwell" ), opt->showWaveSwell );
+        pConf->Write ( _T ( "ShowWindSpeedInd" ), opt->showWindSpeedchoice );
         pConf->Write ( _T ( "ShowWindSpeed" ), opt->showWindSpeed );
         pConf->Write ( _T ( "ShowWindDir" ), opt->showWindDir );
         pConf->Write ( _T ( "ShowHeading" ), opt->showHeading );
@@ -1178,10 +1176,6 @@ void logbookkonni_pi::LoadConfig()
         pConf->Read ( _T ( "Shaft" ), &opt->shaft,_T( "S" ) );
         pConf->Read ( _T ( "RPM" ), &opt->rpm,_T( "RPM" ) );
 
-        pConf->Read ( _T ( "Windkts" ), &opt->windkts );
-        pConf->Read ( _T ( "WindMeter" ), &opt->windmeter );
-        pConf->Read ( _T ( "WindKmh" ), &opt->windkmh );
-
         pConf->Read ( _T ( "Days" ), &opt->days );
         pConf->Read ( _T ( "Weeks" ), &opt->weeks );
         pConf->Read ( _T ( "Month" ), &opt->month );
@@ -1195,6 +1189,7 @@ void logbookkonni_pi::LoadConfig()
 
         pConf->Read ( _T ( "ShowDepth" ), &opt->showDepth );
         pConf->Read ( _T ( "ShowWaveSwell" ), &opt->showWaveSwell );
+        pConf->Read ( _T ( "ShowWindSpeedInd" ), &opt->showWindSpeedchoice );
         pConf->Read ( _T ( "ShowWindSpeed" ), &opt->showWindSpeed );
         pConf->Read ( _T ( "ShowWindDir" ), &opt->showWindDir );
         pConf->Read ( _T ( "ShowHeading" ), &opt->showHeading );
