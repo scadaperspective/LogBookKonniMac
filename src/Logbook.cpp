@@ -173,7 +173,7 @@ void Logbook::SetPosition( PlugIn_Position_Fix &pfix )
     else
         sLon = this->toSDMMOpenCPN( 2, pfix.Lon, true );
 
-    if ( pfix.nSats != 0 )
+    if ( pfix.FixTime != 0 )
     {
         
 		double factor = 1;
