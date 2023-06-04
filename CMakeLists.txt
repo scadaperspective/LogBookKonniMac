@@ -10,8 +10,8 @@ cmake_policy(SET CMP0012 NEW)
 
 PROJECT(logbookkonni_pi)
 
-SET(PACKAGE_NAME logbookkonni_pi)
-SET(VERBOSE_NAME Logbookkonni)
+SET(PACKAGE_NAME logbookKonni_pi)
+SET(VERBOSE_NAME LogbookKonni)
 SET(TITLE_NAME LOGBOOKKONNI)
 SET(CPACK_PACKAGE_CONTACT "Del Elson")
 
@@ -29,7 +29,7 @@ SET(VERSION_DATE ${PLUGIN_VERSION_DATE})
 INCLUDE("cmake/PluginConfigure.cmake")
 
 SET(SRC_LOGBOOKKONNI
-       		src/logbook_pi.h
+       	src/logbook_pi.h
  		src/logbook_pi.cpp
  		src/Options.h
  		src/Options.cpp

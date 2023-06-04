@@ -81,7 +81,7 @@ LogbookDialog::LogbookDialog( logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt,
     timer = t;
     logbookTimerWindow = lt;
     GPSTimer = NULL;
-//	wxInitAllImageHandlers();
+	// wxInitAllImageHandlers(); // line was commented out
 
     this->SetSizeHints( wxSize( -1,-1 ), wxDefaultSize );
 
@@ -94,6 +94,8 @@ LogbookDialog::LogbookDialog( logbookkonni_pi * d, wxTimer* t, LogbookTimer* lt,
     bSizer361 = new wxBoxSizer( wxVERTICAL );
 
     bSizer6 = new wxBoxSizer( wxHORIZONTAL );
+
+    m_panel2->SetBackgroundColour( wxColour( 78, 78, 78 ) ); // global graphics problems with daytime background
 
     m_button4 = new wxButton( m_panel2, wxID_ANY , _( "Add Line" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_button4->SetToolTip( _( "add a line to the end of your logbook" ) );

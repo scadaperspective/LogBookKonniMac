@@ -1,5 +1,6 @@
 build/
-LogbookKonni-1.2/
-src/version.h
-.directory
-LogbookKonni_*.zip
+.DS_Store
+*humbs.db
+.cproject
+.projectbuild
+.project

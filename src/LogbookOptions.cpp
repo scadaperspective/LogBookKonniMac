@@ -33,8 +33,8 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     int w,h;
     wxDisplaySize( &w, &h );
     w = wxMin( w, GetMinWidth() );
-    h = wxMin( h-32, GetMinHeight() );
-    SetMinSize( wxSize( w/2, h/2 ) ); // allow to half normal dimensions
+    h = wxMin( h-32, GetMinHeight() ); // was 32
+    SetMinSize( wxSize( w/2, h ) ); // allow to half normal dimensions h/2
     SetSize( wxSize( w, h ) );
 
 //	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
@@ -48,7 +48,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     bSizer29 = new wxBoxSizer( wxVERTICAL );
 
     m_notebook4 = new wxNotebook( m_scrolledWindow1, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
-    m_notebook4->SetBackgroundColour( wxColour( 255,255,255 ) );
+    m_notebook4->SetBackgroundColour( wxColour( 78, 78, 78 ) );
 
     m_panel15 = new wxPanel( m_notebook4, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
     wxBoxSizer* bSizer51;
@@ -164,7 +164,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     m_radioBtnLocal->SetValue( true );
     fgSizer18->Add( m_radioBtnLocal, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 
-    wxString m_choiceTzIndicatorChoices[] = { _T( "+" ), _T( "-" ) };
+    wxString m_choiceTzIndicatorChoices[] = { wxT( "+" ), wxT( "-" ) };
     int m_choiceTzIndicatorNChoices = sizeof( m_choiceTzIndicatorChoices ) / sizeof( wxString );
 #ifdef __WXOSX__
     m_choiceTzIndicator = new wxChoice( m_panel15, wxID_ANY, wxDefaultPosition, wxSize( 50,-1 ), m_choiceTzIndicatorNChoices, m_choiceTzIndicatorChoices, 0 );
@@ -174,7 +174,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     m_choiceTzIndicator->SetSelection( 0 );
     fgSizer18->Add( m_choiceTzIndicator, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 
-    wxString m_choiceTzHoursChoices[] = { _T( "0" ), _T( "1" ), _T( "2" ), _T( "3" ), _T( "4" ), _T( "5" ), _T( "6" ), _T( "7" ), _T( "8" ), _T( "9" ), _T( "10" ), _T( "11" ), _T( "12" ), _T( "13" ), _T( "14" ) };
+    wxString m_choiceTzHoursChoices[] = { wxT( "0" ), wxT( "1" ), wxT( "2" ), wxT( "3" ), wxT( "4" ), wxT( "5" ), wxT( "6" ), wxT( "7" ), wxT( "8" ), wxT( "9" ), wxT( "10" ), wxT( "11" ), wxT( "12" ), wxT( "13" ), wxT( "14" ) };
     int m_choiceTzHoursNChoices = sizeof( m_choiceTzHoursChoices ) / sizeof( wxString );
 #ifdef __WXOSX__
     m_choiceTzHours = new wxChoice( m_panel15, wxID_ANY, wxDefaultPosition, wxSize( 50,-1 ), m_choiceTzHoursNChoices, m_choiceTzHoursChoices, 0 );
@@ -213,9 +213,9 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     m_staticText76->Wrap( -1 );
     fgSizer29->Add( m_staticText76, 0, wxALL|wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT, 0 );
 
-    wxString m_choicePositionFormatChoices[] = { wxString::Format( _T( "054%s 12.1234%s" ),opt->Deg.c_str(),opt->Min.c_str() ),
-                                                 wxString::Format( _T( "054%s 12%s.12,34%s" ),opt->Deg.c_str(),opt->Min.c_str(),opt->Sec.c_str() )
-                                               };//_T("054° 12.1234'"), _T("054° 12' 12.34\"") };
+    wxString m_choicePositionFormatChoices[] = { wxString::Format( wxT( "054%s 12.1234%s" ),opt->Deg.c_str(),opt->Min.c_str() ),
+                                                 wxString::Format( wxT( "054%s 12%s.12,34%s" ),opt->Deg.c_str(),opt->Min.c_str(),opt->Sec.c_str() )
+                                               };//_T("054ï¿½ 12.1234'"), wxT("054ï¿½ 12' 12.34\"") };
     int m_choicePositionFormatNChoices = sizeof( m_choicePositionFormatChoices ) / sizeof( wxString );
     m_choicePositionFormat = new wxChoice( m_panel15, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choicePositionFormatNChoices, m_choicePositionFormatChoices, 0 );
     m_choicePositionFormat->SetSelection( 0 );
@@ -242,7 +242,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 
     m_checkBoxStatusBar = new wxCheckBox( m_panel15, wxID_ANY, _( "StatusBar at bottom of the page" ), wxDefaultPosition, wxDefaultSize, 0 );
     m_checkBoxStatusBar->SetValue( true );
-    m_checkBoxStatusBar->SetToolTip( _( "If unchecked the StatusBar will be placed above the Navigation/Meteo/Motor-Sails buttons" ) );
+    m_checkBoxStatusBar->SetToolTip( _( "If unchecked the StatusBar will be placed above the Navigation/Meteorology/Motor-Sails buttons" ) );
     fgSizer29->Add( m_checkBoxStatusBar, 0, 0, 5 );
 
     fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
@@ -606,10 +606,10 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     m_staticText31->Wrap( -1 );
     fgSizer91->Add( m_staticText31, 0, wxALIGN_CENTER_VERTICAL, 5 );
 #ifdef __WXOSX__
-    m_sDeg = new wxTextCtrl( m_panel16, wxID_ANY, _T( "\xA1" ), wxDefaultPosition, wxSize( 40,-1 ), 0 );
+    m_sDeg = new wxTextCtrl( m_panel16, wxID_ANY, wxT( "\xA1" ), wxDefaultPosition, wxSize( 40,-1 ), 0 );
     // don't know if \xA1 is correct, cannot compile for apple
 #else
-    m_sDeg = new wxTextCtrl( m_panel16, wxID_ANY, _T( "\xB0" ), wxDefaultPosition, wxSize( 40,-1 ), 0 );
+    m_sDeg = new wxTextCtrl( m_panel16, wxID_ANY, wxT( "\xB0" ), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 #endif
     fgSizer91->Add( m_sDeg, 0, 0, 5 );
 
@@ -781,7 +781,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     m_staticText106->Wrap( -1 );
     fgSizer91->Add( m_staticText106, 0, wxALL, 5 );
 
-    m_textCtrlAmpere = new wxTextCtrl( m_panel16, wxID_ANY, _T( "A" ), wxDefaultPosition, wxSize( 40,-1 ), 0 );
+    m_textCtrlAmpere = new wxTextCtrl( m_panel16, wxID_ANY, wxT( "A" ), wxDefaultPosition, wxSize( 40,-1 ), 0 );
     fgSizer91->Add( m_textCtrlAmpere, 0, wxALL, 0 );
     fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
 
@@ -953,7 +953,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     bSizer42 = new wxBoxSizer( wxVERTICAL );
 
     m_notebook7 = new wxNotebook( m_panel24, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
-    m_notebook7->SetBackgroundColour( wxColour( 255,255,255 ) );
+    m_notebook7->SetBackgroundColour( wxColour( 0, 0, 0) );
 
     m_panel27 = new wxPanel( m_notebook7, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
     wxBoxSizer* bSizer431;
@@ -1447,13 +1447,13 @@ void LogbookOptions::init()
         stdPath = logbookkonni_pi::StandardPath();
 
         wxString sep = wxFileName::GetPathSeparator();
-        wxString data_locn = stdPath + _T( "data" ) + sep + _T( "logbook.txt" );
+        wxString data_locn = stdPath + wxT( "data" ) + sep + wxT( "logbook.txt" );
         if ( wxFile::Exists( data_locn ) )
         {
             wxFileInputStream input( data_locn );
             wxTextInputStream* stream = new wxTextInputStream ( input );
 
-            if ( !stream->ReadLine().Contains( _T( "#1.2#" ) ) )
+            if ( !stream->ReadLine().Contains( wxT( "#1.2#" ) ) )
             {
                 log_pi->startLogbook();
                 log_pi->m_plogbook_window->myParseDate( log_pi->m_plogbook_window->m_textCtrlWatchStartDate->GetValue(),textCtrlDate );
@@ -1786,7 +1786,7 @@ void LogbookOptions::setRPMSentence( wxString sentence )
 
         m_textCtrlEngine1->SetValue(e1);
         m_textCtrlEngine2->SetValue(e2); */
-//    if(source == _T("E"))
+//    if(source == wxT("E"))
 //        m_checkBoxNMEAUseRPM->SetValue(true);
 }
 
@@ -1902,7 +1902,7 @@ void LogbookOptions::OnButtonClickUninstall( wxCommandEvent& ev )
     wxString s = stdpath.GetPluginsDir();
     wxString command = s+_T( "\\plugins\\uninst_logbookkonni_pi.exe" );
 
-    wxExecute( _T( "explorer.exe /select," )+command );
+    wxExecute( wxT( "explorer.exe /select," )+command );
 #endif
 }
 
@@ -2239,13 +2239,13 @@ void LogbookOptions::getValues()
 	switch (m_choiceDistance->GetSelection())
 	{
 	case 0:
-		opt->showDistance = _T("NM");
+		opt->showDistance = wxT("NM");
 		break;
 	case 1:
-		opt->showDistance = _T("m");
+		opt->showDistance = wxT("m");
 		break;
 	case 2:
-		opt->showDistance = _T("km");
+		opt->showDistance = wxT("km");
 		break;
 	}
 
@@ -2253,13 +2253,13 @@ void LogbookOptions::getValues()
 	switch (m_choiceBoatSpeed->GetSelection())
 	{
 	case 0:
-		opt->showBoatSpeed = _T("kts");
+		opt->showBoatSpeed = wxT("kts");
 		break;
 	case 1:
-		opt->showBoatSpeed = _T("m/s");
+		opt->showBoatSpeed = wxT("m/s");
 		break;
 	case 2:
-		opt->showBoatSpeed = _T("kmh");
+		opt->showBoatSpeed = wxT("kmh");
 		break;
 	}
 
@@ -2287,13 +2287,13 @@ void LogbookOptions::getValues()
     switch(m_choiceWindSpeed->GetSelection())
     {
     case 0:
-        opt->showWindSpeed = _T( "kts" );
+        opt->showWindSpeed = wxT( "kts" );
         break;
     case 1:
-        opt->showWindSpeed = _T( "m/s" );
+        opt->showWindSpeed = wxT( "m/s" );
         break;
     case 2:
-        opt->showWindSpeed = _T( "kmh" );
+        opt->showWindSpeed = wxT( "kmh" );
         break;
     }
 
@@ -2416,8 +2416,8 @@ void LogbookOptions::onButtonClickInstallHTMLFiles( wxCommandEvent& event )
 void LogbookOptions::onButtonHTMLEditor( wxCommandEvent & ev )
 {
     wxFileDialog *openFileDialog =
-        new wxFileDialog( this, _( "Set Path to HTML-Editor" ), _T( "" ), _T( "" ),
-                          _T( "" ),
+        new wxFileDialog( this, _( "Set Path to HTML-Editor" ), wxT( "" ), wxT( "" ),
+                          wxT( "" ),
                           wxFD_OPEN );
 
     if ( openFileDialog->ShowModal() == wxID_CANCEL )
@@ -2430,8 +2430,8 @@ void LogbookOptions::onButtonHTMLEditor( wxCommandEvent & ev )
 void LogbookOptions::onButtonClickDataManager( wxCommandEvent& ev )
 {
     wxFileDialog *openFileDialog =
-        new wxFileDialog( this, _( "Set Path to DataManager" ), _T( "" ), _T( "" ),
-                          _T( "" ),
+        new wxFileDialog( this, _( "Set Path to DataManager" ), wxT( "" ), wxT( "" ),
+                          wxT( "" ),
                           wxFD_OPEN );
 
     if ( openFileDialog->ShowModal() == wxID_CANCEL )
@@ -2444,8 +2444,8 @@ void LogbookOptions::onButtonClickDataManager( wxCommandEvent& ev )
 void LogbookOptions::onButtonClickMail( wxCommandEvent& ev )
 {
     wxFileDialog *openFileDialog =
-        new wxFileDialog( this, _( "Set Path to MailClient" ), _T( "" ), _T( "" ),
-                          _T( "" ),
+        new wxFileDialog( this, _( "Set Path to MailClient" ), wxT( "" ), wxT( "" ),
+                          wxT( "" ),
                           wxFD_OPEN );
 
     if ( openFileDialog->ShowModal() == wxID_CANCEL )
@@ -2458,8 +2458,8 @@ void LogbookOptions::onButtonClickMail( wxCommandEvent& ev )
 void LogbookOptions::onButtonClickODT( wxCommandEvent& ev )
 {
     wxFileDialog *openFileDialog =
-        new wxFileDialog( this, _( "Set Path to ODT-Editor" ), _T( "" ), _T( "" ),
-                          _T( "" ),
+        new wxFileDialog( this, _( "Set Path to ODT-Editor" ), wxT( "" ), wxT( "" ),
+                          wxT( "" ),
                           wxFD_OPEN );
 
     if ( openFileDialog->ShowModal() == wxID_CANCEL )
@@ -2471,13 +2471,13 @@ void LogbookOptions::onButtonClickODT( wxCommandEvent& ev )
 
 void LogbookOptions::onTextm_sLiter( wxCommandEvent& event )
 {
-    wxString t = wxString::Format( _T( "%i %s/%s" ),wxAtoi( opt->watermaker ),m_sLiter->GetValue().c_str(),opt->motorh.c_str() );
+    wxString t = wxString::Format( wxT( "%i %s/%s" ),wxAtoi( opt->watermaker ),m_sLiter->GetValue().c_str(),opt->motorh.c_str() );
     this->m_textCtrlWatermaker->SetValue( t );
 
-    t = wxString::Format( _T( "%i %s" ),wxAtoi( m_textCtrlTankWater->GetValue() ),m_sLiter->GetValue().c_str() );
+    t = wxString::Format( wxT( "%i %s" ),wxAtoi( m_textCtrlTankWater->GetValue() ),m_sLiter->GetValue().c_str() );
     this->m_textCtrlTankWater->SetValue( t );
 
-    t = wxString::Format( _T( "%i %s" ),wxAtoi( m_textCtrlTankFuel->GetValue() ),m_sLiter->GetValue().c_str() );
+    t = wxString::Format( wxT( "%i %s" ),wxAtoi( m_textCtrlTankFuel->GetValue() ),m_sLiter->GetValue().c_str() );
     this->m_textCtrlTankFuel->SetValue( t );
 
 }
@@ -2488,7 +2488,7 @@ void LogbookOptions::OnTextEnterm_textCtrlWatermaker( wxCommandEvent& event )
     wxString t = m_textCtrlWatermaker->GetValue();
     t.ToLong( &a );
     m_textCtrlWatermaker->Clear();
-    t = wxString::Format( _T( "%i %s/%s" ),a, m_sLiter->GetValue().c_str(),opt->motorh.c_str() );
+    t = wxString::Format( wxT( "%i %s/%s" ),a, m_sLiter->GetValue().c_str(),opt->motorh.c_str() );
 
     m_textCtrlWatermaker->SetValue( t );
     m_textCtrlTankFuel->SetFocus();
@@ -2500,7 +2500,7 @@ void LogbookOptions::OnTextEnterFuelTank( wxCommandEvent& event )
     wxString t = m_textCtrlTankFuel->GetValue();
     t.ToLong( &a );
     m_textCtrlTankFuel->Clear();
-    t = wxString::Format( _T( "%i %s" ),a, m_sLiter->GetValue().c_str() );
+    t = wxString::Format( wxT( "%i %s" ),a, m_sLiter->GetValue().c_str() );
 
     m_textCtrlTankFuel->SetValue( t );
     m_textCtrlBank1->SetFocus();
@@ -2512,7 +2512,7 @@ void LogbookOptions::OnTextEnterWaterTank( wxCommandEvent& event )
     wxString t = m_textCtrlTankWater->GetValue();
     t.ToLong( &a );
     m_textCtrlTankWater->Clear();
-    t = wxString::Format( _T( "%i %s" ),a, m_sLiter->GetValue().c_str() );
+    t = wxString::Format( wxT( "%i %s" ),a, m_sLiter->GetValue().c_str() );
 
     m_textCtrlTankWater->SetValue( t );
     m_textCtrlWatermaker->SetFocus();
@@ -2524,7 +2524,7 @@ void LogbookOptions::OnTextEnterBank1( wxCommandEvent& event )
     wxString t = m_textCtrlBank1->GetValue();
     t.ToLong( &a );
     m_textCtrlBank1->Clear();
-    t = wxString::Format( _T( "%i %s" ),a, opt->ampereh.c_str() );
+    t = wxString::Format( wxT( "%i %s" ),a, opt->ampereh.c_str() );
 
     m_textCtrlBank1->SetValue( t );
     m_textCtrlBank2->SetFocus();
@@ -2536,7 +2536,7 @@ void LogbookOptions::onTextEnterBank2( wxCommandEvent& event )
     wxString t = m_textCtrlBank2->GetValue();
     t.ToLong( &a );
     m_textCtrlBank2->Clear();
-    t = wxString::Format( _T( "%i %s" ),a, opt->ampereh.c_str() );
+    t = wxString::Format( wxT( "%i %s" ),a, opt->ampereh.c_str() );
 
     m_textCtrlBank2->SetValue( t );
     m_textCtrlTankWater->SetFocus();
