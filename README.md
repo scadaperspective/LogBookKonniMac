@@ -202,4 +202,3 @@ Building zip files
 License
 =======
 The plugin code is licensed under the terms of the GPL v2 or, at your will, later. 
-![Screenshot at Jun 06 09-13-31](https://github.com/scadaperspective/LogBookKonniMac/assets/43292407/1fa3a5bd-1d09-47a1-bac1-95445acb98bf)
