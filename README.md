@@ -1,39 +1,51 @@
 Logbook Plugin for OpenCPN
 =======================================
 
-This is Logbook-Konni originally developed by Konnibe.  I have forked this from a
-git repository as the flatpack for macos crashes the latest stable release !!!!!. 
+This is a working fork of Logbook-Konni was originally developed by Konnibe. 
+The flatpack for macos crashes the latest stable release 5.8.2. 
 
-Sadly Konnibe has been unable to continue development on this logbook due to ill health.
+Sadly Konnibe has been unable to continue development on this logbook due to ill health,
 
-Del   
+and Del   
 SV Chiara Stella   
 http://sailchiarastella.blogspot.com/
 
+and peter are off sailing somewhere? :)
+
+ * Copyright (c) 2011-2013 Konnibe
+ * Copyright (c) 2013-2015 Del Edson
+ * Copyright (c) 2015-2021 Peter Tulp
+
+thanks for a great plugin folks.
 
 
 Downloading the Plugin
 ======================
 
-The latest working version source for macOS can be found ?
+The most recent stable & working version source or flatpack for macOS can not be found ?
 
 
-
-The maintenance version (for the flatpacks?) src that the macOS builds can be found is at 
+The maintenance version (for the flatpacks?) src that builds on macOS can be found is at 
 
 https://github.com/rgleason/LogbookKonni_pi
 
-it compiles but crashes as does the flatpack when you click the icon on macOS
+Rick doing a stella job as usual but it needs a tree tweak,
+then it compiles but crashes as does the flatpack when you click the icon on macOS
 
-Looks to be something in the dependancies tree and the cmake scripting for the newer style api templates? 
+Hashing the flatpack dylib and Rick's one they differ 
+(Where have we seen this before? sigh)
+
+Looks to be lots of goodness in the dependancies tree and the cmake scripting.
+
+the texfonts open up a tin of worms on possible missing dependencies but it compiles fine
 
 After Installing a working Plugin
 =================================
 
-###Enable the Plugin
+###Enable the Plugin (not needed step?)
 
 * Start OpenCPN
-* Select Options from the toolbar (spanner icon) and go to the Plugins tab.
+* Select Options from the toolbar (cog icon) and go to the Plugins tab.
 * Select the Logbook plugin and click Enable to enable the plugin.
 
 ###Install Additional Files
