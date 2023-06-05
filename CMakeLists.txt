@@ -53,13 +53,17 @@ SET(SRC_LOGBOOKKONNI
 		src/OverView.cpp	
 		src/Export.h
 		src/Export.cpp
-        	src/json_defs.h
-       		src/jsonreader.h
-        	src/jsonval.h
-        	src/jsonwriter.h
-        	src/jsonreader.cpp
-        	src/jsonval.cpp
-        	src/jsonwriter.cpp
+#        src/TexFont.cpp
+#        src/TexFont.h
+        		
+        src/json_defs.h
+       	src/jsonreader.h
+        src/jsonval.h
+        src/jsonwriter.h
+        src/jsonreader.cpp
+        src/jsonval.cpp
+        src/jsonwriter.cpp
+
  	)
 
 IF(WIN32)
@@ -74,6 +78,7 @@ SET(SRC_LTINYXML
 ENDIF(WIN32)
 
 SET(SRC_LNMEA0183
+
 		src/nmea0183/LatLong.hpp
 		src/nmea0183/latlong.cpp
 		src/nmea0183/long.cpp

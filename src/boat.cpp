@@ -1,7 +1,28 @@
+/**
+ * Copyright (c) 2011-2013 Konnibe
+ * Copyright (c) 2013-2015 Del Edson
+ * Copyright (c) 2015-2021 Peter Tulp
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 //#pragma once
 #ifndef WX_PRECOMP
 #include <wx/wx.h>
 #endif
+
+#include <memory>
 
 #include "boat.h"
 #include "LogbookDialog.h"
@@ -19,9 +40,9 @@
 #include <wx/wfstream.h>
 #include <wx/txtstrm.h>
 #include <wx/zipstrm.h>
-#include <memory>
-using namespace std;
 
+
+using namespace std;
 
 Boat::Boat( LogbookDialog* d, wxString data, wxString lay, wxString layoutODT )
 {
@@ -46,7 +67,6 @@ Boat::~Boat( void )
                                  wxCommandEventHandler( LogbookDialog::boatNameOnTextEnter ),NULL,parent );
         }
     }
-
 }
 
 void Boat::setLayoutLocation( wxString loc )
