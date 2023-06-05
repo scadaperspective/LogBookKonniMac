@@ -1,11 +1,8 @@
 Logbook Plugin for OpenCPN
 =======================================
 
-This is a working fork of Logbook-Konni was originally developed by Konnibe. 
-The flatpack for macos crashes the latest stable release 5.8.2. 
-
+This is a known (non flatpack) working macOS 10.14.6 fork of Logbook-Konni, that was originally developed by Konnibe. 
 Sadly Konnibe has been unable to continue development on this logbook due to ill health,
-
 and Del   
 SV Chiara Stella   
 http://sailchiarastella.blogspot.com/
@@ -18,6 +15,11 @@ and peter are off sailing somewhere? :)
 
 thanks for a great plugin folks.
 
+The flatpack for macos crashes the latest stable release 5.8.2. 
+
+To enable development of plugins, manually add a CatalogExpert=1 line in the [PlugIns] section in the configuration file to install all plugins blacklisted or otherwise. 
+
+Note: Innocent files are blacklisted when an errant file crashes and the core code will also delete errant dynamic library files. 
 
 Downloading the Plugin
 ======================
@@ -32,12 +34,7 @@ https://github.com/rgleason/LogbookKonni_pi
 Rick doing a stella job as usual but it needs a tree tweak,
 then it compiles but crashes as does the flatpack when you click the icon on macOS
 
-Hashing the flatpack dylib and Rick's one they differ 
-(Where have we seen this before? sigh)
-
-Looks to be lots of goodness in the dependancies tree and the cmake scripting.
-
-the texfonts open up a tin of worms on possible missing dependencies but it compiles fine
+Hashing the flatpack dylib and Rick's one differ 
 
 After Installing a working Plugin
 =================================
@@ -98,8 +95,8 @@ There is also some on line documentation, at opencpn.org:
 Compiling
 =========
 
-This plugin builds out of the OpenCPN source tree.  You do not need to build
-the entire of OpenCPN or even clone it from git just to build this plugin. 
+This plugin builds out of the OpenCPN source tree (i.e. stand alone).  
+You do not need to build the entire of OpenCPN or even clone it from git just to build this plugin. 
 
 If you need instructions as to how to build OpenCPN then see the developers
 manual at http://opencpn.org/ocpn/developers_manual
@@ -205,3 +202,4 @@ Building zip files
 License
 =======
 The plugin code is licensed under the terms of the GPL v2 or, at your will, later. 
+![Screenshot at Jun 06 09-13-31](https://github.com/scadaperspective/LogBookKonniMac/assets/43292407/1fa3a5bd-1d09-47a1-bac1-95445acb98bf)
