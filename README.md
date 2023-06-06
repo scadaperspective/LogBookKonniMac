@@ -1,25 +1,36 @@
 Logbook Plugin for OpenCPN
 =======================================
 
-This is a known (non flatpack) working macOS 10.14.6 fork of Logbook-Konni, that was originally developed by Konnibe. 
+This is a known state (non flatpack) working macOS 10.14.6 fork of Logbook-Konni, that was originally developed by Konnibe. 
 Sadly Konnibe has been unable to continue development on this logbook due to ill health,
 and Del   
+
 SV Chiara Stella   
 http://sailchiarastella.blogspot.com/
 
-and peter are off sailing somewhere? :)
+and peter
+https://github.com/ptulp/LogbookKonni_pi
+
+
+are off sailing somewhere perhaps ? :)
 
  * Copyright (c) 2011-2013 Konnibe
  * Copyright (c) 2013-2015 Del Edson
  * Copyright (c) 2015-2021 Peter Tulp
 
-thanks for a great plugin folks.
+Thanks for a great plugin folks.
 
 The flatpack for macos crashes the latest stable release 5.8.2. 
 
+The windows version probably works ok. Flatpacks are released for macOS some appear un tested?
+
+This stand alone is here for people to kobble together something until the dev team sorts out conformaty to the API "standard" and porting across the existing stuff to the flatpack so all the stuff released works on macOS... It is Summer in the N after all.
+
+First Step is ....
+
 To enable development of plugins, manually add a CatalogExpert=1 line in the [PlugIns] section in the configuration file to install all plugins blacklisted or otherwise. 
 
-Note: Innocent files are blacklisted when an errant file crashes and the core code will also delete errant dynamic library files. 
+Note: Innocent files are blacklisted when an errant file crashes and the core code will also delete errant dynamic library files. e.g. Autopilot_Route_pi which does not crash in debug mode but causes the release version of OpenCPN 5.8.2 to crash takes out other stuff in the deth nell some times.
 
 Downloading the Plugin
 ======================
@@ -27,14 +38,14 @@ Downloading the Plugin
 The most recent stable & working version source or flatpack for macOS can not be found ?
 
 
-The maintenance version (for the flatpacks?) src that builds on macOS can be found is at 
+The maintenance version (for flatpacks I presume ?) src is at 
 
 https://github.com/rgleason/LogbookKonni_pi
 
-Rick doing a stella job as usual but it needs a tree tweak,
-then it compiles but crashes as does the flatpack when you click the icon on macOS
+Rick doing a stella job as usual but this repo it needs a tree tweak to compile locally,
+ the output crashes same as the flatpack when you click the icon on macOS
 
-Hashing the flatpack dylib and Rick's one differ 
+Hashing the flatpack dylib and Rick's one differ, this could just be the flatpack env being a "non genuine" macOS build structure. 
 
 After Installing a working Plugin
 =================================
@@ -135,15 +146,23 @@ install those first and see how far you get.
 ```
 ###Build on Mac OS X
 
-Note that you will need to have all of the development tools installed that
+Note that you will need to have all of the development tools and pre requsites installed that
 are required to build OpenCPN.  If you have any doubts then run the cmake ..
-command and it will complain about missing dependencies.  At the very least
-you will need the g++ compiler and development libraries, cmake, gettext, so
-install those first and see how far you get.
+command and it will complain about missing dependencies.... ,  see how far you get.
 
 
 
 Tools: From Homebrew (http://brew.sh Suggested) 
+
+Note on backward compatability for older computing hardware support ......
+
+Homebrew
+"Warning: You are using macOS 10.14.6
+
+We (and Apple) do not provide support for this old version."
+Xcode Version 11.3.1 (11C505)
+
+Thankfully it works and wxWidgets 3.2.2.1 seems to be less freaky.
 
 ```
 
@@ -151,7 +170,7 @@ Tools: From Homebrew (http://brew.sh Suggested)
 
 ####Building wxWidgets
 (do not use wxmac from Homebrew, it is not compatible with OpenCPN)
-Get wxWidgets 3.0.x source from http://wxwidgets.org
+Get wxWidgets 3.2.2.1 source from http://wxwidgets.org
 Configure, build and install
 ```
 cd wxWidgets-3.2.2.1
@@ -170,14 +189,22 @@ cd LogbookKonni_pi/build
 cmake -DCMAKE_BUILD_TYPE:STRING=Release ..
 make 
 
-
-Packaging
+###Packaging on OS X
 =========
 
 From inside the build directory, the following command will make packages for your
 current platform against the as-built code:
 
 ```
+make create-pkg It will store the dylib in the app container 
+maybe a todo for me is to make it install where it needs to be in the new install paths.
+
+
+
+Building zip files
+================== 
+
+make package (Creates the logbook database files and templates) 
 
 ```
 
@@ -186,16 +213,12 @@ any other platforms that you build packages for.  e.g. on Ubuntu you will need t
 development tools required to build deb file as well as the rpm package required to
 build RPM files.
 
-To check the contents of the Debian/Ubuntu package, use this command:
 
 ```
 
 ```
 
-###Packaging on OS X
 
-Building zip files
-==================
 
 
 
