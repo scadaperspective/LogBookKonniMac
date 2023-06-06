@@ -174,7 +174,7 @@ Get wxWidgets 3.2.2.1 source from http://wxwidgets.org
 Configure, build and install
 ```
 cd wxWidgets-3.2.2.1
-./configure --enable-unicode --with-osx-cocoa --with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/  --enable-aui --disable-debug --enable-opengl
+./configure --enable-unicode --with-osx-cocoa --with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/  --enable-aui --disable-debug --enable-opengl
 make
 sudo make install
 ```
