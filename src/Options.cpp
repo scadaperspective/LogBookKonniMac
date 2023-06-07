@@ -207,7 +207,7 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 
     //wxChoice
 	showDistanceChoice = 0;
-	showDistance = _("NM");
+	showDistance = _("NMi");
 	showBoatSpeedchoice = 0;
 	showBoatSpeed = _("kts");
     showDepth = 0;

@@ -634,7 +634,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
     m_staticText38->Wrap( -1 );
     fgSizer91->Add( m_staticText38, 0, wxALIGN_CENTER_VERTICAL, 5 );
 
-	wxString m_choiceDistanceChoices[] = { _("NM"), _("m"), _("km") };
+	wxString m_choiceDistanceChoices[] = { _("NMi"), _("m"), _("km") };// Changed NM to NMi
 	int m_choiceDistanceNChoices = sizeof(m_choiceDistanceChoices) / sizeof(wxString);
 	m_choiceDistance = new wxChoice(m_panel16, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choiceDistanceNChoices, m_choiceDistanceChoices, 0);
 	m_choiceDistance->SetSelection(0);
@@ -2239,7 +2239,7 @@ void LogbookOptions::getValues()
 	switch (m_choiceDistance->GetSelection())
 	{
 	case 0:
-		opt->showDistance = wxT("NM");
+		opt->showDistance = wxT("NMi");
 		break;
 	case 1:
 		opt->showDistance = wxT("m");

@@ -4,3 +4,4 @@ build/
 .cproject
 .projectbuild
 .project
+.settings
